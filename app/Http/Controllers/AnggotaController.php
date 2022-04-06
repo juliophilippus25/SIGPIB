@@ -9,6 +9,7 @@ use App\Models\Regency;
 use App\Models\District;
 use App\Models\Village;
 use File;
+use Carbon\Carbon;
 
 class AnggotaController extends Controller
 {
@@ -85,7 +86,7 @@ class AnggotaController extends Controller
     public function tambah_anggota()
     {
         // Memanggil models IndoRegion
-        $provinces = Province::all();     
+        $provinces = Province::all();
 
         // Membuat kode anggota secara otomatis
         $getRow = Anggota::orderBy('id', 'DESC')->get();
@@ -115,7 +116,7 @@ class AnggotaController extends Controller
     {
         // Validasi Form
         $this->validate($request,
-        // Aturan 
+        // Aturan
         [
             'nama' => 'required|min:3',
             'jk' => 'required',
@@ -135,7 +136,7 @@ class AnggotaController extends Controller
         // Pesan
         [
             // Required
-            'nama.required' => 'Nama lengkap wajib diisi!', 
+            'nama.required' => 'Nama lengkap wajib diisi!',
             'jk.required' => 'Jenis kelamin wajib diisi!',
             'tempat_lahir.required' => 'Tempat lahir wajib diisi!',
             'tgl_lahir.required' => 'Tanggal lahir wajib diisi!',
@@ -159,16 +160,18 @@ class AnggotaController extends Controller
             // Tipe File
             'gambar.mimes' => 'Tipe file yang dapat di unggah adalah jpg/jpeg/png'
         ]);
-        
+
         // Proses upload gambar
         if($request->file('gambar') == '') {
             $gambar = NULL;
         } else {
             $nama_file_dikonversi = $request->nama;
+            $dt = Carbon::now();
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->gambar->getClientOriginalExtension();
-            $simpan_nama_file = $nama_file_dikonversi.'.'.$extension;
-            $gambar = $request->gambar->storeAs('anggota', $simpan_nama_file);
+            $simpan_nama_file = $nama_file_dikonversi.'-'.$dt->format('d-M-Y').'.'.$extension;
+            $gambar = $request->file('gambar')->move('images/anggota', $simpan_nama_file);
+            $gambar = $simpan_nama_file;
         }
 
         Anggota::create([
@@ -188,14 +191,14 @@ class AnggotaController extends Controller
             'goldar' => $request->input('goldar'),
             'gambar' => $gambar
         ]);
-        
-        return redirect('/anggota/index')->with('success', 'Data berhasil disimpan!');
+
+        return redirect()->route('anggota.index')->with('success', 'Data berhasil disimpan!');
     }
 
     public function hapus_anggota($id)
     {
         $anggota = Anggota::find($id);
-        $file_gambar = 'storage/'. $anggota->gambar;
+        $file_gambar = 'images/anggota/'. $anggota->gambar;
 
         if(File::exists($file_gambar))
         {

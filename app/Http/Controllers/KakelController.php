@@ -53,7 +53,7 @@ class KakelController extends Controller
             'nomor_kk' => $request->input('nomor_kk')
         ]);
 
-        return redirect('/kakel/index')->with('success', 'Data berhasil disimpan!');
+        return redirect()->route('kakel.index')->with('success', 'Data berhasil disimpan!');
     }
 
     public function hapus_kakel($id)

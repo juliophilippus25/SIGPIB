@@ -40,7 +40,7 @@ class PelkatController extends Controller
             'nama_pelkat' => $request->input('nama_pelkat')
         ]);
 
-        return redirect('/pelkat/index')->with('success', 'Data berhasil disimpan!');
+        return redirect()->route('pelkat.index')->with('success', 'Data berhasil disimpan!');
     }
 
     public function hapus_pelkat($id)

@@ -40,7 +40,7 @@ class SekwilController extends Controller
             'nama_sekwil' => $request->input('nama_sekwil')
         ]);
 
-        return redirect('/sekwil/index')->with('success', 'Data berhasil disimpan!');
+        return redirect()->route('sekwil.index')->with('success', 'Data berhasil disimpan!');
     }
 
     public function hapus_sekwil($id)

@@ -35,6 +35,7 @@
                     <th>No</th>
                     <th>Kode Anggota</th>
                     <th>Nama</th>
+                    <th>Tanggal Lahir</th>
                     <th>Gambar</th>
                     <th>Jenis Kelamin</th>
                     <th>Aksi</th>
@@ -46,10 +47,11 @@
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $data->kode_anggota }}</td>
                       <td>{{ $data->nama }}</td>
-                      <td>         
-                        <img src="{{ asset('storage/'.$data->gambar) }}" style="width: 40px;" alt="">
+                      <td>{{ $data->tgl_lahir->format('d M Y') }}</td>
+                      <td>
+                        <img src="{{ asset('images/anggota/'.$data->gambar) }}" style="width: 40px;" alt="">
                           @if ($data->gambar == null)
-                            <small><em>Belum ada gambar</em></small>
+                            <small style="color: red;"><em>Belum ada gambar</em></small>
                           @endif
                       </td>
                       <td>{{ $data->jk }}</td>
@@ -77,7 +79,7 @@
 
                           <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="ti-close m-r-5 f-s-12"></i> Tutup</button>
-                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></i> Hapus</button>                     
+                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></i> Hapus</button>
                           </div>
                         </div>
                       </div>
@@ -87,7 +89,7 @@
 
                       </td>
                     </tr>
-                    @empty
+                      @empty
                       <tr class="">
                         <td colspan="16">
                           <strong class="text-dark"><center>Data Kosong</center></strong>
@@ -101,6 +103,6 @@
             </div>
             <!-- /.card -->
             </div>
-  </div>  
+  </div>
 
 @endsection

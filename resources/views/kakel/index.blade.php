@@ -69,7 +69,7 @@
 
                           <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="ti-close m-r-5 f-s-12"></i> Tutup</button>
-                            <button type="submit" class="btn btn-danger"><i class="fa fa-paper-plane m-r-5"></i> Hapus</button>                     
+                            <button type="submit" class="btn btn-danger"><i class="fa fa-paper-plane m-r-5"></i> Hapus</button>
                           </div>
                         </div>
                       </div>
@@ -79,7 +79,7 @@
 
                       </td>
                     </tr>
-                    @empty
+                      @empty
                       <tr class="">
                         <td colspan="16">
                           <strong class="text-dark"><center>Data Kosong</center></strong>
@@ -93,5 +93,5 @@
             </div>
             <!-- /.card -->
             </div>
-  </div>  
+  </div>
 @endsection
