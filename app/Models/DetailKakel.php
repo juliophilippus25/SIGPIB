@@ -10,16 +10,16 @@ class DetailKakel extends Model
     use HasFactory;
 
     protected $table = 'detail_kakel';
-    
+
     protected $fillable = ['id_kakel', 'id_anggota','sts_keluarga'];
 
     public function anggota()
     {
-    	return $this->belongsTo(Anggota::class);
-    } 
+    	return $this->belongsTo('App\Models\Anggota', 'id_anggota');
+    }
 
     public function kakel()
     {
     	return $this->belongsTo(Kakel::class);
-    } 
+    }
 }

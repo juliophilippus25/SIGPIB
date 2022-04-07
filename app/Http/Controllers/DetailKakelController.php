@@ -65,6 +65,45 @@ class DetailKakelController extends Controller
         }
     }
 
+    public function tombol_kembali()
+    {
+        if(session('halaman_url')){
+            return Redirect(session('halaman_url'));
+        }
+    }
+
+    public function tampil_ubah_anggota($id)
+    {
+        $det_kakel = DetailKakel::find($id);
+
+        return view('detailkakel.edit', compact('det_kakel'));
+    }
+
+    public function perbarui_anggota(Request $request, $id)
+    {
+        $det_kakel = DetailKakel::find($id);
+
+        // Validasi Form
+        $this->validate($request,
+        // Aturan
+        [
+            'sts_keluarga' => 'required',
+        ],
+        // Pesan
+        [
+            // Required
+            'sts_keluarga.required' => 'Status keluarga wajib diisi!',
+        ]);
+
+        $det_kakel->sts_keluarga = $request->input('sts_keluarga');
+
+        $det_kakel->update();
+
+        if(session('halaman_url')){
+            return Redirect(session('halaman_url'))->with('success', 'Data berhasil diubah!');
+        }
+    }
+
     public function hapus_anggota($id)
     {
         DetailKakel::find($id)->delete();
