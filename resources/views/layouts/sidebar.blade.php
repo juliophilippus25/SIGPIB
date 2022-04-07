@@ -1,7 +1,7 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        
-        <li class="nav-item {{ setActive(['home*']) }}"> 
+
+        <li class="nav-item {{ setActive(['home*']) }}">
             <a class="nav-link {{ setActive(['home*']) }}" href="{{route('home')}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
@@ -11,11 +11,11 @@
           </li>
 
           <li class="nav-item">
-          <a class="nav-link " data-toggle="collapse" href="#ui-basic" aria-controls="ui-basic">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-controls="ui-basic">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Data Master
-                <i class="right fas fa-angle-left"></i>
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
 
@@ -58,12 +58,12 @@
                   </a>
                 </li>
                 @endif
-                                
+
               </ul>
             </div>
-        
 
-          <li class="nav-item {{ setActive(['laporan*']) }}"> 
+
+          <li class="nav-item {{ setActive(['laporan*']) }}">
             <a class="nav-link {{ setActive(['laporan*']) }}" href="{{route('laporan.index')}}">
               <i class="nav-icon fas fa-cloud-download-alt"></i>
                 <p>
@@ -71,5 +71,6 @@
                 </p>
             </a>
           </li>
+        </li>
         </ul>
     </nav>

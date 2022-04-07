@@ -30,7 +30,6 @@
   <!-- Toastr -->
   <link rel="stylesheet" href="/adminLTE/plugins/toastr/toastr.min.css">
 
-
 </head>
 <!--
 `body` tag options:
@@ -187,7 +186,7 @@
 <script src="/adminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="/adminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="/adminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<!-- <script src="/adminLTE/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script> -->
+<script src="/adminLTE/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
 <script src="/adminLTE/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
 <script src="/adminLTE/plugins/jszip/jszip.min.js"></script>
 <script src="/adminLTE/plugins/pdfmake/pdfmake.min.js"></script>
@@ -303,8 +302,8 @@
   // DataTable JS
   $(function () {
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "responsive": true, "lengthChange": true, "autoWidth": false,
+    //   "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
       "paging": true,
