@@ -34,11 +34,11 @@
               <form action="{{route('detailkakel.simpan')}}" method="POST">
               {{ csrf_field() }}
                 <div class="card-body">
-                
+
                 <div class="form-group">
                   <label>Nama Anggota Keluarga <b style="color:Tomato;">*</b></label>
                   <input type="hidden" required="required" name="id_kakel" value="{{ $kakel->id }}" readonly>
-                  <select class="form-control select2bs4" name="id_anggota" style="width: 100%;">
+                  <select class="form-control select2bs4 @error('id_anggota') is-invalid @enderror" name="id_anggota" style="width: 100%;">
                   <option hidden disabled selected value>Pilih Anggota Keluarga</option>
                     @foreach($anggota as $data)
                       @if($data->sts_keluarga == 'Tidak')
@@ -46,15 +46,21 @@
                       @endif
                     @endforeach
                   </select>
+                    @error('id_anggota')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                   <label>Status Dalam Hubungan Keluarga <b style="color:Tomato;">*</b></label>
-                  <select class="form-control select2bs4" name="sts_keluarga" style="width: 100%;">
+                  <select class="form-control select2bs4 @error('sts_keluarga') is-invalid @enderror" name="sts_keluarga" style="width: 100%;">
                       <option hidden disabled selected value>Pilih Status Dalam Hubungan Keluarga</option>
                       <option value="Anak">Anak</option>
                       <option value="Istri">Istri</option>
                   </select>
+                    @error('sts_keluarga')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
                 </div>
 
                 </div>
@@ -69,6 +75,6 @@
             <!-- /.card -->
   </div>
 
-</div>  
+</div>
 
 @endsection

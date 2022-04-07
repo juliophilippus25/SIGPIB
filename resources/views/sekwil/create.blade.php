@@ -36,7 +36,10 @@
 
                   <div class="form-group">
                     <label for="nama_sekwil">Nama Sektor Wilayah <b style="color:Tomato;">*</b></label>
-                    <input type="text" class="form-control" name="nama_sekwil" id="nama_sekwil" placeholder="Masukkan Nama Sektor Wilayah" required>
+                    <input type="text" class="form-control @error('nama_sekwil') is-invalid @enderror" name="nama_sekwil" id="nama_sekwil" placeholder="Masukkan Nama Sektor Wilayah">
+                    @error('nama_sekwil')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
                   </div>
 
                 </div>
@@ -51,6 +54,6 @@
             <!-- /.card -->
   </div>
 
-</div>  
+</div>
 
 @endsection

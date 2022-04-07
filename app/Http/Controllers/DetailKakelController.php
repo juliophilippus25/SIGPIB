@@ -39,6 +39,21 @@ class DetailKakelController extends Controller
 
     public function simpan_anggota(Request $request)
     {
+        // Validasi Form
+        $this->validate($request,
+        // Aturan
+        [
+            'id_anggota' => 'required',
+            'sts_keluarga' => 'required',
+        ],
+        // Pesan
+        [
+            // Required
+            'id_anggota.required' => 'Anggota keluarga wajib diisi!',
+            'sts_keluarga.required' => 'Status keluarga wajib diisi!'
+
+        ]);
+
         DetailKakel::create([
             'id_kakel' => $request->input('id_kakel'),
             'id_anggota' => $request->input('id_anggota'),
@@ -47,7 +62,7 @@ class DetailKakelController extends Controller
 
         if(session('halaman_url')){
             return Redirect(session('halaman_url'))->with('success', 'Data berhasil disimpan!');
-        }        
+        }
     }
 
     public function hapus_anggota($id)

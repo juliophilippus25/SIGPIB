@@ -49,8 +49,8 @@ class DetailPelkatController extends Controller
         // Pesan
         [
             // Required
-            'id_anggota.required' => 'Anggota wajib diisi!',
-            'pengurus.required' => 'Pengurus wajib diisi!',
+            'id_anggota.required' => 'Anggota pelkat wajib diisi!',
+            'pengurus.required' => 'Jabatan pengurus wajib diisi!',
 
         ]);
 

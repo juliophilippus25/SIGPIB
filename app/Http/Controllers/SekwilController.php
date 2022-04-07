@@ -36,6 +36,19 @@ class SekwilController extends Controller
 
     public function simpan_sekwil(Request $request)
     {
+        // Validasi Form
+        $this->validate($request,
+        // Aturan
+        [
+            'nama_sekwil' => 'required',
+        ],
+        // Pesan
+        [
+            // Required
+            'nama_sekwil.required' => 'Nama sektor wilayah wajib diisi!'
+
+        ]);
+
         Sekwil::create([
             'nama_sekwil' => $request->input('nama_sekwil')
         ]);

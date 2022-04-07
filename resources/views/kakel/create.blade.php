@@ -36,7 +36,7 @@
 
                 <div class="form-group">
                   <label>Kepala Keluarga <b style="color:Tomato;">*</b></label>
-                  <select class="form-control select2bs4" name="id_anggota" style="width: 100%;">
+                  <select class="form-control select2bs4 @error('id_anggota') is-invalid @enderror" name="id_anggota" style="width: 100%;">
                   <option hidden disabled selected value>Pilih Kepala Keluarga</option>
                     @foreach($anggota as $data)
                       @if($data->sts_keluarga == 'Ya')
@@ -44,21 +44,30 @@
                       @endif
                     @endforeach
                   </select>
+                    @error('id_anggota')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                   <label>Sektor Wilayah <b style="color:Tomato;">*</b></label>
-                  <select class="form-control select2bs4" name="id_sekwil" style="width: 100%;">
+                  <select class="form-control select2bs4 @error('id_sekwil') is-invalid @enderror" name="id_sekwil" style="width: 100%;">
                   <option hidden disabled selected value>Pilih Sektor Wilayah</option>
                     @foreach($sekwil as $data)
                       <option value="{{ $data->id }}">{{ $data->nama_sekwil}}</option>
                     @endforeach
                   </select>
+                    @error('id_sekwil')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
                 </div>
 
                   <div class="form-group">
                     <label for="nomor_kk">Nomor Kartu Keluarga <b style="color:Tomato;">*</b></label>
-                    <input type="text" class="form-control" name="nomor_kk" id="nomor_kk" placeholder="Masukkan Nomor Kartu Keluarga" required>
+                    <input type="text" class="form-control @error('nomor_kk') is-invalid @enderror" name="nomor_kk" id="nomor_kk" placeholder="Masukkan Nomor Kartu Keluarga">
+                    @error('nomor_kk')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
                   </div>
 
                 </div>
@@ -73,6 +82,6 @@
             <!-- /.card -->
   </div>
 
-</div>  
+</div>
 
 @endsection

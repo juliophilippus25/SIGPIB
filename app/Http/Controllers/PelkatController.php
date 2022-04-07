@@ -45,7 +45,7 @@ class PelkatController extends Controller
         // Pesan
         [
             // Required
-            'nama_pelkat.required' => 'Nama pelkat wajib diisi!'
+            'nama_pelkat.required' => 'Nama pelayanan kategorial wajib diisi!'
 
         ]);
 

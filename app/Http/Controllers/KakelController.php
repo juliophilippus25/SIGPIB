@@ -47,6 +47,26 @@ class KakelController extends Controller
 
     public function simpan_kakel(Request $request)
     {
+        // Validasi Form
+        $this->validate($request,
+        // Aturan
+        [
+            'id_anggota' => 'required',
+            'id_sekwil' => 'required',
+            'nomor_kk' => 'required|min:3'
+        ],
+        // Pesan
+        [
+            // Required
+            'id_anggota.required' => 'Kepala keluarga wajib diisi!',
+            'id_sekwil.required' => 'Sektor wilayah wajib diisi!',
+            'nomor_kk.required' => 'Nomor kartu keluarga wajib diisi!',
+
+            // Min
+            'nomor_kk.min' => 'Nomor kartu keluarga diisi minimal 3 karakter!'
+
+        ]);
+
         Kakel::create([
             'id_anggota' => $request->input('id_anggota'),
             'id_sekwil' => $request->input('id_sekwil'),
