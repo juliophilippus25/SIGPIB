@@ -10,17 +10,17 @@ class DetailPelkat extends Model
     use HasFactory;
 
     protected $table = 'detail_pelkat';
-    
-    protected $fillable = ['id_pelkat', 'id_anggota'];
+
+    protected $fillable = ['id_pelkat', 'id_anggota', 'pengurus'];
 
     public function anggota()
     {
     	return $this->belongsTo(Anggota::class);
-    } 
+    }
 
     public function pelkat()
     {
     	return $this->belongsTo(Pelkat::class);
-    } 
+    }
 
 }

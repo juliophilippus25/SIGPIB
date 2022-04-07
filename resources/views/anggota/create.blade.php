@@ -54,7 +54,7 @@
                   <div class="form-group">
                     <label>Jenis Kelamin <b style="color:Tomato;">*</b></label>
                     <br>
-                      <input type="radio" name="jk" value="Pria"> Pria  
+                      <input type="radio" name="jk" value="Pria"> Pria
                       &nbsp;
                       <input type="radio" name="jk" value="Wanita"> Wanita
                     <br>
@@ -99,11 +99,11 @@
                         <span class="text-danger">{{$message}}</span>
                       @enderror
                   </div>
-                  
+
                   <div class="form-group">
                     <label>Apakah anggota ini kepala keluarga? <b style="color:Tomato;">*</b></label>
                     <br>
-                      <input type="radio" name="sts_keluarga" value="Ya"> Ya  
+                      <input type="radio" name="sts_keluarga" value="Ya"> Ya
                       &nbsp;
                       <input type="radio" name="sts_keluarga" value="Tidak"> Tidak
                     <br>
@@ -111,7 +111,7 @@
                         <span class="text-danger">{{$message}}</span>
                       @enderror
                   </div>
-    
+
               </div>
 
               <!-- Kolom Kanan -->
@@ -164,11 +164,11 @@
                         <span class="text-danger">{{$message}}</span>
                       @enderror
                   </div>
-                  
+
                   <div class="form-group">
                     <label>Golongan Darah <b style="color:Tomato;">*</b></label>
                     <br>
-                      <input type="radio" name="goldar" value="A"> A  
+                      <input type="radio" name="goldar" value="A"> A
                       &nbsp;
                       <input type="radio" name="goldar" value="B"> B
                       &nbsp;
@@ -198,7 +198,7 @@
                         <span class="text-danger">{{$message}}</span>
                       @enderror
                   </div>
-               
+
               </div>
               <!-- /.col -->
             </div>
@@ -216,6 +216,6 @@
         <!-- /.card -->
   </div>
 
-</div>  
+</div>
 
 @endsection

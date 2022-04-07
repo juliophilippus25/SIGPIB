@@ -54,14 +54,14 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-             
+
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="">
           <i class="far fa-user"> &nbsp; {{Auth::user()->name}}</i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="{{route('pengguna.ubah_profil')}}" class="dropdown-item">
-            
+
             <div class="media">
               <img src="/adminLTE/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
@@ -72,7 +72,7 @@
                 <p class="text-sm text-muted">{{Auth::user()->email}}</p>
               </div>
             </div>
-         
+
           </a>
           <div class="dropdown-divider"></div>
           <a href="{{ route('logout') }}" class="dropdown-item dropdown-footer" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out
@@ -90,7 +90,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{route('home')}}" class="brand-link">
-      <img src="/images/gpib/Logo-GPIB.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
+      <img src="/images/gpib/Logo-GPIB.png" alt="Logo GPIB" class="brand-image img-circle elevation-3">
       <span class="brand-text font-weight-light">SIGPIB</span>
     </a>
 
@@ -106,19 +106,19 @@
         </div>
       </div>
 
-     
+
 
       <!-- Sidebar Menu -->
       @section('sidebar')
           @include('layouts.sidebar',['user' => Auth::User()])
       @show
       <!-- /.sidebar-menu -->
-      
+
     </div>
     <!-- /.sidebar -->
   </aside>
-  
-  
+
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -135,13 +135,13 @@
     </div>
     <!-- /.content-header -->
 
-    
+
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-       
-          @yield('content')   
-        
+
+          @yield('content')
+
       </div>
     </div>
   </div>
@@ -225,7 +225,7 @@
   // Deklrasi CSRF TOKEN
   $(function(){
     $.ajaxSetup({
-      headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } 
+      headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
     })
   });
 
@@ -301,7 +301,7 @@
   })
 
   // DataTable JS
-  $(function () { 
+  $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
@@ -358,7 +358,7 @@
   };
     // read the image file as a data URL.
     reader.readAsDataURL(this.files[0]);
-    
+
 });
 
 

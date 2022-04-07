@@ -36,6 +36,19 @@ class PelkatController extends Controller
 
     public function simpan_pelkat(Request $request)
     {
+        // Validasi Form
+        $this->validate($request,
+        // Aturan
+        [
+            'nama_pelkat' => 'required',
+        ],
+        // Pesan
+        [
+            // Required
+            'nama_pelkat.required' => 'Nama pelkat wajib diisi!'
+
+        ]);
+
         Pelkat::create([
             'nama_pelkat' => $request->input('nama_pelkat')
         ]);

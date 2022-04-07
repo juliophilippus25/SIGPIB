@@ -35,14 +35,16 @@
                   <tr>
                     <th>No</th>
                     <th>Nama Anggota</th>
+                    <th>Jabatan</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
                     <tr>
                     @forelse($det_pelkat as $data)
-                      <td>{{ $loop->iteration }}</td>
-                      <td>{{ $data->nama}}</td>
+                      <td> {{ $loop->iteration }}</td>
+                      <td> {{ $data->nama}} </td>
+                      <td> {{ $data->pengurus}} </td>
                       <td>
                     <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button>
 

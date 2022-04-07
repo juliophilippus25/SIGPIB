@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="adminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="adminLTE/dist/css/adminlte.min.css">
+
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -40,10 +41,10 @@
 
           @error('username')
               <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
+                <strong><em>Username</em> atau <em>password</em> salah!</strong>
               </span>
             @enderror
-            
+
         </div>
         <!-- Input Username -->
 
@@ -60,14 +61,14 @@
 
           @error('password')
               <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
+                <strong><em>Username</em> atau <em>password</em> salah!</strong>
               </span>
             @enderror
-            
+
         </div>
         <!-- Input Password -->
 
-        <!-- <div class="row">
+        {{-- <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
               <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -75,14 +76,14 @@
                 Ingat saya
               </label>
             </div>
-          </div> -->
+          </div> --}}
 
           <!-- /.col -->
           <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block">Masuk</button>
           </div>
           <!-- /.col -->
-          
+
         </div>
       </form>
 

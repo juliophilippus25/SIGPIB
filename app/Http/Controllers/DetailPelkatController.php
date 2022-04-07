@@ -19,7 +19,7 @@ class DetailPelkatController extends Controller
         $det_pelkat = DetailPelkat::join('pelkat', 'pelkat.id', '=' , 'detail_pelkat.id_pelkat')
         ->join('anggota', 'anggota.id', '=' , 'detail_pelkat.id_anggota')
         ->where('id_pelkat', $id)
-        ->get(['anggota.nama','detail_pelkat.id']);
+        ->get(['anggota.nama','detail_pelkat.id', 'detail_pelkat.pengurus']);
 
         return view('detailpelkat.index', compact('pelkat','det_pelkat'));
     }
@@ -39,14 +39,30 @@ class DetailPelkatController extends Controller
 
     public function simpan_anggota(Request $request)
     {
+        // Validasi Form
+        $this->validate($request,
+        // Aturan
+        [
+            'id_anggota' => 'required',
+            'pengurus' => 'required',
+        ],
+        // Pesan
+        [
+            // Required
+            'id_anggota.required' => 'Anggota wajib diisi!',
+            'pengurus.required' => 'Pengurus wajib diisi!',
+
+        ]);
+
         DetailPelkat::create([
             'id_pelkat' => $request->input('id_pelkat'),
-            'id_anggota' => $request->input('id_anggota')
+            'id_anggota' => $request->input('id_anggota'),
+            'pengurus' => $request->input('pengurus')
         ]);
 
         if(session('halaman_url')){
             return Redirect(session('halaman_url'))->with('success', 'Data berhasil disimpan!');
-        }   
+        }
     }
 
     public function hapus_anggota($id)
