@@ -51,6 +51,9 @@ Route::group(['prefix' => '/pelkat'], function() {
     Route::get('/detail/index/{id}', 'App\Http\Controllers\DetailPelkatController@tampil_detail_pelkat')->name('detailpelkat.index');
     Route::get('/detail/create/{id}', 'App\Http\Controllers\DetailPelkatController@tambah_anggota_pelkat')->name('detailpelkat.create');
     Route::post('/detail/save', 'App\Http\Controllers\DetailPelkatController@simpan_anggota')->name('detailpelkat.simpan');
+    Route::get('/detail//kembali', 'App\Http\Controllers\DetailPelkatController@tombol_kembali')->name('detailpelkat.tombol_kembali');
+    Route::get('/detail//edit/{id}', 'App\Http\Controllers\DetailPelkatController@tampil_ubah_anggota')->name('detailpelkat.tampil_ubah');
+    Route::put('/detail//update/{id}', 'App\Http\Controllers\DetailPelkatController@perbarui_anggota')->name('detailpelkat.simpan_perbarui');
     Route::post('/detail/delete/{id}', 'App\Http\Controllers\DetailPelkatController@hapus_anggota')->name('detailpelkat.hapus');
 });
 

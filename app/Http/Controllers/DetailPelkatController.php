@@ -51,7 +51,6 @@ class DetailPelkatController extends Controller
             // Required
             'id_anggota.required' => 'Anggota pelkat wajib diisi!',
             'pengurus.required' => 'Jabatan pengurus wajib diisi!',
-
         ]);
 
         DetailPelkat::create([
@@ -62,6 +61,45 @@ class DetailPelkatController extends Controller
 
         if(session('halaman_url')){
             return Redirect(session('halaman_url'))->with('success', 'Data berhasil disimpan!');
+        }
+    }
+
+    public function tombol_kembali()
+    {
+        if(session('halaman_url')){
+            return Redirect(session('halaman_url'));
+        }
+    }
+
+    public function tampil_ubah_anggota($id)
+    {
+        $det_pelkat = DetailPelkat::find($id);
+
+        return view('detailpelkat.edit', compact('det_pelkat'));
+    }
+
+    public function perbarui_anggota(Request $request, $id)
+    {
+        $det_pelkat = DetailPelkat::find($id);
+
+        // Validasi Form
+        $this->validate($request,
+        // Aturan
+        [
+            'pengurus' => 'required',
+        ],
+        // Pesan
+        [
+            // Required
+            'pengurus.required' => 'Jabatan pengurus wajib diisi!',
+        ]);
+
+        $det_pelkat->pengurus = $request->input('pengurus');
+
+        $det_pelkat->update();
+
+        if(session('halaman_url')){
+            return Redirect(session('halaman_url'))->with('success', 'Data berhasil diubah!');
         }
     }
 

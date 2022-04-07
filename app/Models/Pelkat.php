@@ -10,13 +10,13 @@ class Pelkat extends Model
     use HasFactory;
 
     protected $table = 'pelkat';
-    
+
     protected $fillable = ['nama_pelkat'];
 
     public function anggota()
     {
     	return $this->belongsTo(Anggota::class);
-    } 
+    }
 
     public function detailpelkat()
     {

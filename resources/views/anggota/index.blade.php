@@ -35,7 +35,6 @@
                     <th>No</th>
                     <th>Kode Anggota</th>
                     <th>Nama</th>
-                    <th>Tanggal Lahir</th>
                     <th>Gambar</th>
                     <th>Jenis Kelamin</th>
                     <th>Aksi</th>
@@ -47,7 +46,6 @@
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $data->kode_anggota }}</td>
                       <td>{{ $data->nama }}</td>
-                      <td>{{ $data->tgl_lahir->format('d M Y') }}</td>
                       <td>
                         <img src="{{ asset('images/anggota/'.$data->gambar) }}" style="width: 40px;" alt="">
                           @if ($data->gambar == null)

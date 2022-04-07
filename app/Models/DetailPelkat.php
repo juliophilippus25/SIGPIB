@@ -15,7 +15,7 @@ class DetailPelkat extends Model
 
     public function anggota()
     {
-    	return $this->belongsTo(Anggota::class);
+    	return $this->belongsTo('App\Models\Anggota', 'id_anggota');
     }
 
     public function pelkat()

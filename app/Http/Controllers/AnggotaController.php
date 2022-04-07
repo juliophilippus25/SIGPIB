@@ -30,7 +30,7 @@ class AnggotaController extends Controller
     */
     public function tampil_anggota()
     {
-        $anggota = Anggota::get();
+        $anggota = Anggota::orderBy('updated_at', 'desc')->get();
 
         return view('anggota.index', compact('anggota'));
     }
@@ -291,7 +291,7 @@ class AnggotaController extends Controller
 
         $anggota->update();
 
-        return redirect()->route('anggota.index')->with('success', 'Data berhasil berubah!');
+        return redirect()->route('anggota.index')->with('success', 'Data berhasil diubah!');
     }
 
     public function hapus_anggota($id)
