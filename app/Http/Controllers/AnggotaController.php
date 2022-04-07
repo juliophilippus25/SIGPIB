@@ -131,7 +131,7 @@ class AnggotaController extends Controller
             'provinsi' => 'required',
             'kecamatan' => 'required',
             'goldar' => 'required',
-            'gambar' => 'mimes:jpg,jpeg,png'
+            'gambar' => 'mimes:jpg,jpeg,png|size:2000'
         ],
         // Pesan
         [
@@ -158,7 +158,10 @@ class AnggotaController extends Controller
             'alamat.min' => 'Alamat diisi minimal 3 karakter!',
 
             // Tipe File
-            'gambar.mimes' => 'Tipe file yang dapat di unggah adalah jpg/jpeg/png'
+            'gambar.mimes' => 'Tipe file yang dapat di unggah adalah jpg/jpeg/png',
+
+            // Ukuran file
+            'gambar.size' => 'Ukuran maksimal file gambar adalah 2mb'
         ]);
 
         // Proses upload gambar
