@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Sekwil;
+use Alert;
 
 class SekwilController extends Controller
 {
@@ -53,13 +54,17 @@ class SekwilController extends Controller
             'nama_sekwil' => $request->input('nama_sekwil')
         ]);
 
-        return redirect()->route('sekwil.index')->with('success', 'Data berhasil disimpan!');
+        Alert::success('Data berhasil disimpan!', '');
+
+        return redirect()->route('sekwil.index');
     }
 
     public function hapus_sekwil($id)
     {
         Sekwil::find($id)->delete();
 
-        return redirect()->back()->with('success', 'Data berhasil dihapus!');
+        Alert::success('Data berhasil dihapus!', '');
+
+        return redirect()->back();
     }
 }

@@ -38,7 +38,6 @@
 
             <!-- Kolom Kiri -->
               <div class="col-md-6">
-
                   <div class="form-group">
                     <label for="kode_anggota">Kode Anggota <b style="color:Tomato;">*</b></label>
                     <input type="text" class="form-control" name="kode_anggota" id="kode_anggota" value="{{ $anggota->kode_anggota }}" readonly>
@@ -75,7 +74,7 @@
                   <div class="form-group">
                     <label>Tanggal Lahir <b style="color:Tomato;">*</b></label>
                       <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <input type="text" name="tgl_lahir" class="form-control datetimepicker-input @error('tgl_lahir') is-invalid @enderror" data-target="#reservationdate" value="{{ $anggota->tgl_lahir }}" placeholder="Pilih Tanggal Lahir"/>
+                        <input type="text" name="tgl_lahir" class="form-control datetimepicker-input @error('tgl_lahir') is-invalid @enderror" data-target="#reservationdate" placeholder="Pilih Tanggal Lahir" value="{{ $anggota->tgl_lahir }}"/>
                           <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                             <div class="input-group-text" ><i class="fa fa-calendar"></i></div>
                           </div>

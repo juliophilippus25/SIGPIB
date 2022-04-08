@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pelkat;
+use Alert;
 
 class PelkatController extends Controller
 {
@@ -53,13 +54,17 @@ class PelkatController extends Controller
             'nama_pelkat' => $request->input('nama_pelkat')
         ]);
 
-        return redirect()->route('pelkat.index')->with('success', 'Data berhasil disimpan!');
+        Alert::success('Data berhasil disimpan!', '');
+
+        return redirect()->route('pelkat.index');
     }
 
     public function hapus_pelkat($id)
     {
         Pelkat::find($id)->delete();
 
-        return redirect()->back()->with('success', 'Data berhasil dihapus!');
+        Alert::success('Data berhasil dihapus!', '');
+
+        return redirect()->back();
     }
 }

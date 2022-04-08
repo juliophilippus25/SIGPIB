@@ -8,6 +8,7 @@ use App\Models\DetailKakel;
 use App\Models\Anggota;
 use DB;
 use Session;
+use Alert;
 
 class DetailKakelController extends Controller
 {
@@ -60,8 +61,10 @@ class DetailKakelController extends Controller
             'sts_keluarga' => $request->input('sts_keluarga')
         ]);
 
+        Alert::success('Data berhasil disimpan!', '');
+
         if(session('halaman_url')){
-            return Redirect(session('halaman_url'))->with('success', 'Data berhasil disimpan!');
+            return Redirect(session('halaman_url'));
         }
     }
 
@@ -99,8 +102,10 @@ class DetailKakelController extends Controller
 
         $det_kakel->update();
 
+        Alert::success('Data berhasil diubah!', '');
+
         if(session('halaman_url')){
-            return Redirect(session('halaman_url'))->with('success', 'Data berhasil diubah!');
+            return Redirect(session('halaman_url'));
         }
     }
 
@@ -108,6 +113,8 @@ class DetailKakelController extends Controller
     {
         DetailKakel::find($id)->delete();
 
-        return redirect()->back()->with('success', 'Data berhasil dihapus!');
+        Alert::success('Data berhasil dihapus!', '');
+
+        return redirect()->back();
     }
 }

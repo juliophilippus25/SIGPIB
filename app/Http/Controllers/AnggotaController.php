@@ -10,6 +10,7 @@ use App\Models\District;
 use App\Models\Village;
 use File;
 use Carbon\Carbon;
+use Alert;
 
 class AnggotaController extends Controller
 {
@@ -195,11 +196,15 @@ class AnggotaController extends Controller
             'gambar' => $gambar
         ]);
 
-        return redirect()->route('anggota.index')->with('success', 'Data berhasil disimpan!');
+        Alert::success('Data berhasil disimpan!', '');
+
+        return redirect()->route('anggota.index');
     }
 
     public function tampil_ubah_anggota($id)
     {
+        Alert::warning('Masukkan ulang data', 'Tanggal lahir, provinsi, kabupaten, kecamatan, dan kelurahan.');
+
         // Memanggil models IndoRegion
         $provinces = Province::all();
 
@@ -291,7 +296,9 @@ class AnggotaController extends Controller
 
         $anggota->update();
 
-        return redirect()->route('anggota.index')->with('success', 'Data berhasil diubah!');
+        Alert::success('Data berhasil diubah!', '');
+
+        return redirect()->route('anggota.index');
     }
 
     public function hapus_anggota($id)
@@ -306,6 +313,8 @@ class AnggotaController extends Controller
 
         $anggota->delete();
 
-        return redirect()->back()->with('success', 'Data berhasil dihapus!');
+        Alert::success('Data berhasil dihapus!', '');
+
+        return redirect()->back();
     }
 }

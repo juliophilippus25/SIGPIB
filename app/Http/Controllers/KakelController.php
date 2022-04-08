@@ -7,6 +7,7 @@ use App\Models\Kakel;
 use App\Models\Anggota;
 use App\Models\Sekwil;
 use DB;
+use Alert;
 
 class KakelController extends Controller
 {
@@ -73,14 +74,18 @@ class KakelController extends Controller
             'nomor_kk' => $request->input('nomor_kk')
         ]);
 
-        return redirect()->route('kakel.index')->with('success', 'Data berhasil disimpan!');
+        Alert::success('Data berhasil disimpan!', '');
+
+        return redirect()->route('kakel.index');
     }
 
     public function hapus_kakel($id)
     {
         Kakel::find($id)->delete();
 
-        return redirect()->back()->with('success', 'Data berhasil dihapus!');
+        Alert::success('Data berhasil dihapus!', '');
+
+        return redirect()->back();
     }
 }
 

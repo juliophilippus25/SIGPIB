@@ -8,6 +8,7 @@ use App\Models\DetailPelkat;
 use App\Models\Anggota;
 use DB;
 use Session;
+Use Alert;
 
 class DetailPelkatController extends Controller
 {
@@ -59,8 +60,10 @@ class DetailPelkatController extends Controller
             'pengurus' => $request->input('pengurus')
         ]);
 
+        Alert::success('Data berhasil disimpan!', '');
+
         if(session('halaman_url')){
-            return Redirect(session('halaman_url'))->with('success', 'Data berhasil disimpan!');
+            return Redirect(session('halaman_url'));
         }
     }
 
@@ -98,15 +101,18 @@ class DetailPelkatController extends Controller
 
         $det_pelkat->update();
 
+        Alert::success('Data berhasil diubah!', '');
+
         if(session('halaman_url')){
-            return Redirect(session('halaman_url'))->with('success', 'Data berhasil diubah!');
+            return Redirect(session('halaman_url'));
         }
     }
 
     public function hapus_anggota($id)
     {
         DetailPelkat::find($id)->delete();
+        Alert::success('Data berhasil dihapus!', '');
 
-        return redirect()->back()->with('success', 'Data berhasil dihapus!');
+        return redirect()->back();
     }
 }
