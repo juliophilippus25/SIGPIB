@@ -73,11 +73,8 @@
 
                   <div class="form-group">
                     <label>Tanggal Lahir <b style="color:Tomato;">*</b></label>
-                      <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <input type="text" name="tgl_lahir" class="form-control datetimepicker-input @error('tgl_lahir') is-invalid @enderror" data-target="#reservationdate" value="{{ old('tgl_lahir') }}" placeholder="Pilih Tanggal Lahir"/>
-                          <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                            <div class="input-group-text" ><i class="fa fa-calendar"></i></div>
-                          </div>
+                      <div>
+                          <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control @error('tgl_lahir') is-invalid @enderror" value="{{ old('tgl_lahir') }}">
                       </div>
                       @error('tgl_lahir')
                         <span class="text-danger">{{$message}}</span>
@@ -122,7 +119,7 @@
                     <select class="form-control select2bs4 @error('provinsi') is-invalid @enderror" name="provinsi" id="provinsi" style="width: 100%;">
                       <option hidden disabled selected value>Pilih Provinsi</option>
                       @foreach($provinces as $data)
-                        <option value="{{ $data->id }}">{{ $data->name }}</option>
+                        <option value="{{ $data->id }} " >{{ $data->name }}</option>
                       @endforeach
                     </select>
                     @error('provinsi')

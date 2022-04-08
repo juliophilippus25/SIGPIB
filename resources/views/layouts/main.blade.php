@@ -23,8 +23,6 @@
   <link rel="stylesheet" href="/adminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- daterange picker -->
   <link rel="stylesheet" href="/adminLTE/plugins/daterangepicker/daterangepicker.css">
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="/adminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- SweetAlert2 -->
   <link rel="stylesheet" href="/adminLTE/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
   <!-- Toastr -->
@@ -201,16 +199,6 @@
 <!-- Select2 -->
 <script src="/adminLTE/plugins/select2/js/select2.full.min.js"></script>
 
-<!-- InputMask -->
-<script src="/adminLTE/plugins/moment/moment.min.js"></script>
-<script src="/adminLTE/plugins/inputmask/jquery.inputmask.min.js"></script>
-
-<!-- date-range-picker -->
-<script src="/adminLTE/plugins/daterangepicker/daterangepicker.js"></script>
-
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="/adminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-
 <!-- SweetAlert2 -->
 <script src="/adminLTE/plugins/sweetalert2/sweetalert2.min.js"></script>
 @include('sweetalert::alert')
@@ -323,13 +311,6 @@
     $('.select2bs4').select2({
       theme: 'bootstrap4'
     })
-  });
-
-  // DatePicker
-  $(function () {
-    $('#reservationdate').datetimepicker({
-        format: 'L'
-    });
   });
 
   // Input hanya angka

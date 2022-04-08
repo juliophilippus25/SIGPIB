@@ -203,14 +203,17 @@ class AnggotaController extends Controller
 
     public function tampil_ubah_anggota($id)
     {
-        Alert::warning('Masukkan ulang data', 'Tanggal lahir, provinsi, kabupaten, kecamatan, dan kelurahan.');
+        Alert::warning('Masukkan ulang data', 'Pada kolom kelurahan.');
 
         // Memanggil models IndoRegion
         $provinces = Province::all();
+        $regencies = Regency::all();
+        $districts = District::all();
+        $villages = Village::all();
 
         $anggota = Anggota::find($id);
 
-        return view('anggota.edit', compact('anggota', 'provinces'));
+        return view('anggota.edit', compact('anggota', 'provinces','regencies', 'districts', 'villages'));
     }
 
     public function perbarui_anggota(Request $request, $id)
