@@ -132,7 +132,7 @@ class AnggotaController extends Controller
             'provinsi' => 'required',
             'kecamatan' => 'required',
             'goldar' => 'required',
-            'gambar' => 'mimes:jpg,jpeg,png|max:2048'
+            'gambar' => 'mimes:jpg,jpeg,png|max:2048',
         ],
         // Pesan
         [
@@ -237,7 +237,7 @@ class AnggotaController extends Controller
             'provinsi' => 'required',
             'kecamatan' => 'required',
             'goldar' => 'required',
-            'gambar' => 'mimes:jpg,jpeg,png|max:2048'
+            'gambar' => 'mimes:jpg,jpeg,png|max:2048',
         ],
         // Pesan
         [

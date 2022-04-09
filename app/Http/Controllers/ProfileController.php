@@ -7,6 +7,7 @@ use App\Models\User;
 use Auth;
 use Alert;
 use File;
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -14,7 +15,7 @@ class ProfileController extends Controller
     {
         $profile = Auth::user();
 
-        Alert::warning('Masukkan ulang data', 'Pada kolom password.');
+        // Alert::warning('Masukkan ulang data', 'Pada kolom password.');
 
         return view('profile.edit', compact('profile'));
     }
@@ -31,7 +32,8 @@ class ProfileController extends Controller
             'name' => 'required|min:3',
             'email' => 'required',
             'username' => 'required|min:3',
-            'password' => 'required|min:3',
+            'password' => 'nullable|min:3',
+            'gambar' => 'mimes:jpg,jpeg,png|max:2048',
         ],
         // Pesan
         [
@@ -44,7 +46,13 @@ class ProfileController extends Controller
             // Min
             'name.min' => 'Nama pengguna diisi minimal 3 karakter!',
             'username.min' => 'Username diisi minimal 3 karakter!',
-            'password.min' => 'Password diisi minimal 3 karakter!'
+            'password.min' => 'Password diisi minimal 3 karakter!',
+
+            // Tipe File
+            'gambar.mimes' => 'Tipe file yang dapat di unggah adalah jpg/jpeg/png',
+
+            // Ukuran file
+            'gambar.max' => 'Ukuran maksimal file gambar adalah 2mb'
         ]);
 
         $profile->name = $request->input('name');
@@ -55,15 +63,13 @@ class ProfileController extends Controller
         }
 
         // Proses upload gambar
-        if($request->file('gambar') == '') {
-            $gambar = NULL;
-        } else {
+        if($request->file('gambar')) {
             $nama_file_dikonversi = $request->name;
             $dt = Carbon::now();
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->gambar->getClientOriginalExtension();
             $simpan_nama_file = $nama_file_dikonversi.'-'.$dt->format('d-M-Y').'.'.$extension;
-            $gambar = $request->file('gambar')->store('images/pengguna', $simpan_nama_file);
+            $gambar = $request->file('gambar')->move('images/pengguna', $simpan_nama_file);
             $profile->gambar = $simpan_nama_file;
         }
 

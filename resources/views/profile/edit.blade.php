@@ -28,7 +28,7 @@
             <h3 class="card-title"><strong>Form Ubah Profile</strong></h3>
           </div>
 
-          <form action="{{ route('profile.simpan_perbarui') }}" method="POST">
+          <form action="{{ route('profile.simpan_perbarui') }}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             {{ method_field('put') }}
           <!-- /.card-header -->
