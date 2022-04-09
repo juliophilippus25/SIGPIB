@@ -19,7 +19,7 @@ class CreateDetailPelkatTable extends Migration
             $table->foreign('id_pelkat')->references('id')->on('pelkat')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('id_anggota')->unsigned();
             $table->foreign('id_anggota')->references('id')->on('anggota')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('pengurus')->nullable();
+            $table->enum('pengurus', ['Ketua', 'Wakil Ketua', 'Bendahara 1', 'Bendahara 2', 'Sekretaris 1', 'Sekretaris 2', 'Anggota']);
             $table->timestamps();
         });
     }

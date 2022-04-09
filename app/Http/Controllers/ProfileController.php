@@ -30,9 +30,9 @@ class ProfileController extends Controller
         // Aturan
         [
             'name' => 'required|min:3',
-            'email' => 'required',
-            'username' => 'required|min:3',
-            'password' => 'nullable|min:3',
+            'email' => 'required|unique:users,email,'.$profile->id,
+            'username' => 'required|min:5|unique:users,username,'.$profile->id,
+            'password' => 'nullable|min:8',
             'gambar' => 'mimes:jpg,jpeg,png|max:2048',
         ],
         // Pesan
@@ -43,10 +43,14 @@ class ProfileController extends Controller
             'username.required' => 'Username wajib diisi!',
             'password.required' => 'Password wajib diisi!',
 
+            // Unique
+            'email.unique' => 'Email sudah digunakan!',
+            'username.unique' => 'Username sudah digunakan!',
+
             // Min
             'name.min' => 'Nama pengguna diisi minimal 3 karakter!',
-            'username.min' => 'Username diisi minimal 3 karakter!',
-            'password.min' => 'Password diisi minimal 3 karakter!',
+            'username.min' => 'Username diisi minimal 5 karakter!',
+            'password.min' => 'Password diisi minimal 8 karakter!',
 
             // Tipe File
             'gambar.mimes' => 'Tipe file yang dapat di unggah adalah jpg/jpeg/png',
@@ -75,9 +79,15 @@ class ProfileController extends Controller
 
         $profile->update();
 
-        Alert::success('Data berhasil diubah!', '');
-
-        return redirect()->route('home');
+        if($profile){
+            //redirect dengan pesan sukses
+            Alert::success('Data berhasil diubah!', '');
+            return redirect()->route('home');
+        }else{
+            //redirect dengan pesan error
+            Alert::error('Data tidak berhasil diubah!', '');
+            return redirect()->route('home');
+        }
     }
 
 }

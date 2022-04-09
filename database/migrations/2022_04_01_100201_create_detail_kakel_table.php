@@ -19,7 +19,7 @@ class CreateDetailKakelTable extends Migration
             $table->foreign('id_kakel')->references('id')->on('kakel')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('id_anggota')->unsigned();
             $table->foreign('id_anggota')->references('id')->on('anggota')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('sts_keluarga')->nullable();
+            $table->enum('sts_keluarga', ['Anak', 'Istri']);
             $table->timestamps();
         });
     }

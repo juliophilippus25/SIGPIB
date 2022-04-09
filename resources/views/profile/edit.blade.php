@@ -40,7 +40,7 @@
 
               <div class="form-group">
                     <label for="name">Nama Pengguna <b style="color:Tomato;">*</b></label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{ $profile->name }}" placeholder="Masukkan Nama Pengguna">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{ old('name', $profile->name) }}" placeholder="Masukkan Nama Pengguna">
                     @error('name')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
@@ -48,7 +48,7 @@
 
                   <div class="form-group">
                     <label for="email">Email <b style="color:Tomato;">*</b></label>
-                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{ $profile->email }}" autocomplete="email" autofocus placeholder="Masukkan Email">
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{ old('email', $profile->email) }}" autocomplete="email" autofocus placeholder="Masukkan Email">
                     @error('email')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
@@ -56,7 +56,7 @@
 
                   <div class="form-group">
                     <label for="username">Username <b style="color:Tomato;">*</b></label>
-                    <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" id="username" value="{{ $profile->username }}" autocomplete="username" autofocus placeholder="Masukkan Username">
+                    <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" id="username" value="{{ old('username', $profile->username) }}" autocomplete="username" autofocus placeholder="Masukkan Username">
                     @error('username')
                         <span class="text-danger">{{$message}}</span>
                     @enderror

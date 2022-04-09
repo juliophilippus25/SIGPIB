@@ -60,7 +60,11 @@
                         <a href="{{route('profile.tampil_profile') }}" class="dropdown-item">
 
                             <div class="media">
-                                <img src="{{ asset('images/pengguna/'.Auth::user()->gambar) }}" alt="Gambar Pengguna" class="img-size-50 mr-3 img-circle">
+                                @if (Auth::user()->gambar)
+                                    <img src="{{ asset('images/pengguna/'.Auth::user()->gambar) }}" class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
+                                @elseif(Auth::user()->gambar == null)
+                                    <img src="{{ asset('images/pengguna/default.png') }}" class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
+                                @endif
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         {{Auth::user()->name}}
@@ -96,7 +100,11 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset('images/pengguna/'.Auth::user()->gambar) }}" class="img-circle elevation-2" alt="User Image">
+                        @if (Auth::user()->gambar)
+                        <img src="{{ asset('images/pengguna/'.Auth::user()->gambar) }}" class="img-circle elevation-2" alt="Gambar Pengguna">
+                        @elseif(Auth::user()->gambar == null)
+                        <img src="{{ asset('images/pengguna/default.png') }}" class="img-circle elevation-2" alt="Gambar Pengguna">
+                        @endif
                     </div>
                     <div class="info">
                         <a href="{{route('profile.tampil_profile')}}" class="d-block">{{Auth::user()->name}}</a>

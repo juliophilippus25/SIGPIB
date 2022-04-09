@@ -59,7 +59,7 @@
                           </div>
                           <div class="modal-body">
                           {{ csrf_field() }}
-                            <p>Apakah anda yakin ingin menghapus data<b>{{ $data->nama_sekwil}}</b>?</p>
+                            <p>Apakah anda yakin ingin menghapus data <b>{{ $data->nama_sekwil}}</b>?</p>
 
                           </div>
 
