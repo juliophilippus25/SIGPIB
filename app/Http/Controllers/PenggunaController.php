@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Auth;
 
 class PenggunaController extends Controller
 {
@@ -48,11 +47,5 @@ class PenggunaController extends Controller
             'username' => 'required',
             'email' => 'required',
         ]);
-    }
-
-    public function ubah_pengguna_semua($id)
-    {
-        $pengguna = User::find($id);
-        return view('pengguna.edit_pengguna', compact('pengguna'));
     }
 }

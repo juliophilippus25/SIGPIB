@@ -91,5 +91,10 @@ Route::group(['prefix' => '/laporan'], function() {
 Route::group(['prefix' => '/pengguna'], function() {
     Route::get('/index', 'App\Http\Controllers\PenggunaController@tampil_pengguna')->name('pengguna.index');
     Route::get('/edit', 'App\Http\Controllers\PenggunaController@ubah_pengguna')->name('pengguna.ubah_profil');
-    Route::get('/edit/pengguna/{id}', 'App\Http\Controllers\PenggunaController@ubah_pengguna_semua')->name('pengguna.ubah_pengguna');
+});
+
+// Pengguna
+Route::group(['prefix' => '/profile'], function() {
+    Route::get('/', 'App\Http\Controllers\ProfileController@tampil_profile')->name('profile.tampil_profile');
+    Route::put('/update', 'App\Http\Controllers\ProfileController@perbarui_profile')->name('profile.simpan_perbarui');
 });
