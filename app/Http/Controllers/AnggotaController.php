@@ -69,7 +69,7 @@ class AnggotaController extends Controller
             'jk' => 'required',
             'tempat_lahir' => 'required|min:3',
             'tgl_lahir' => 'required',
-            'no_hp' => 'required|min:10',
+            'no_hp' => 'required|min:10|numeric',
             'pekerjaan' => 'required|min:3',
             'sts_keluarga' => 'required',
             'alamat' => 'required|min:3',
@@ -110,6 +110,9 @@ class AnggotaController extends Controller
             'kabupaten.min' => 'Kabupaten diisi minimal 3 karakter!',
             'kecamatan.min' => 'Kecamatan diisi minimal 3 karakter!',
             'kelurahan.min' => 'Kelurahan diisi minimal 3 karakter!',
+
+            // Numeric
+            'no_hp.numeric' => 'Nomor handphone wajib angka!',
 
             // Tipe File
             'gambar.mimes' => 'Tipe file yang dapat di unggah adalah jpg/jpeg/png',
@@ -157,7 +160,6 @@ class AnggotaController extends Controller
     public function tampil_ubah_anggota($id)
     {
         $anggota = Anggota::find($id);
-        Session::put('halaman_url', request()->fullUrl());
 
         return view('anggota.edit', compact('anggota'));
     }

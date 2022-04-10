@@ -41,12 +41,18 @@ class SekwilController extends Controller
         $this->validate($request,
         // Aturan
         [
-            'nama_sekwil' => 'required',
+            'nama_sekwil' => 'required|min:3|unique:sekwil,nama_sekwil,',
         ],
         // Pesan
         [
             // Required
-            'nama_sekwil.required' => 'Nama sektor wilayah wajib diisi!'
+            'nama_sekwil.required' => 'Nama sektor wilayah wajib diisi!',
+
+            // Min
+            'nama_sekwil.min' => 'Nama sektor wilayah diisi minimal 3 karakter!',
+
+            // Unique
+            'nama_sekwil.unique' => 'Nama sektor wilayah sudah terdaftar!'
 
         ]);
 

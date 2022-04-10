@@ -41,12 +41,18 @@ class PelkatController extends Controller
         $this->validate($request,
         // Aturan
         [
-            'nama_pelkat' => 'required',
+            'nama_pelkat' => 'required|min:3|unique:pelkat,nama_pelkat,',
         ],
         // Pesan
         [
             // Required
-            'nama_pelkat.required' => 'Nama pelayanan kategorial wajib diisi!'
+            'nama_pelkat.required' => 'Nama pelayanan kategorial wajib diisi!',
+
+            // Min
+            'nama_pelkat.min' => 'Nama pelayanan kategorial diisi minimal 3 karakter!',
+
+            // Unique
+            'nama_pelkat.unique' => 'Nama pelayanan kategorial sudah terdaftar!'
 
         ]);
 

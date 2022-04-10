@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Anggota;
+use App\Models\Pelkat;
+use App\Models\Sekwil;
 
 class LaporanController extends Controller
 {
@@ -23,6 +26,10 @@ class LaporanController extends Controller
      */
     public function tampil_laporan()
     {
-        return view('laporan.index');
+        $anggota = Anggota::get();
+        $pelkat = Pelkat::get();
+        $sekwil = Sekwil::get();
+
+        return view('laporan.index', compact('anggota', 'pelkat', 'sekwil'));
     }
 }

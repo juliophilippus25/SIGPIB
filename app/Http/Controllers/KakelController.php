@@ -54,7 +54,7 @@ class KakelController extends Controller
         [
             'id_anggota' => 'required',
             'id_sekwil' => 'required',
-            'nomor_kk' => 'required|min:3'
+            'nomor_kk' => 'required|min:3|unique:kakel,nomor_kk,'
         ],
         // Pesan
         [
@@ -64,7 +64,10 @@ class KakelController extends Controller
             'nomor_kk.required' => 'Nomor kartu keluarga wajib diisi!',
 
             // Min
-            'nomor_kk.min' => 'Nomor kartu keluarga diisi minimal 3 karakter!'
+            'nomor_kk.min' => 'Nomor kartu keluarga diisi minimal 3 karakter!',
+
+            // Unique
+            'nomor_kk.unique' => 'Nomor kartu keluarga sudah terdaftar!'
 
         ]);
 
