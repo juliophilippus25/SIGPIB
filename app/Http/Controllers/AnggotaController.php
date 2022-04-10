@@ -4,13 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Anggota;
-use App\Models\Province;
-use App\Models\Regency;
-use App\Models\District;
-use App\Models\Village;
 use File;
 use Carbon\Carbon;
 use Alert;
+use Session;
 
 class AnggotaController extends Controller
 {
@@ -36,27 +33,8 @@ class AnggotaController extends Controller
         return view('anggota.index', compact('anggota'));
     }
 
-    public function ambil_kabupaten(Request $request)
-    {
-        $id_provinsi = $request->id_provinsi;
-
-        $kabupatens = Regency::where('province_id', $id_provinsi)->get();
-
-        $option = "<option hidden disabled selected value>Pilih Kabupaten</option>";
-
-        foreach($kabupatens as $kabupaten)
-        {
-            $option .= "<option value='$kabupaten->id'>$kabupaten->name</option>";
-        }
-
-        echo $option;
-    }
-
     public function tambah_anggota()
     {
-        // Memanggil models IndoRegion
-        $provinces = Province::all();
-
         // Membuat kode anggota secara otomatis
         $getRow = Anggota::orderBy('id', 'DESC')->get();
         $rowCount = $getRow->count();
@@ -78,7 +56,7 @@ class AnggotaController extends Controller
 
         $anggota = Anggota::get();
 
-        return view('anggota.create', compact('kode', 'anggota', 'provinces'));
+        return view('anggota.create', compact('kode', 'anggota'));
     }
 
     public function simpan_anggota(Request $request)
@@ -87,23 +65,26 @@ class AnggotaController extends Controller
         $this->validate($request,
         // Aturan
         [
-            'nama' => 'required|min:3',
+            'nama' => 'required|min:3|unique:anggota,nama',
             'jk' => 'required',
             'tempat_lahir' => 'required|min:3',
             'tgl_lahir' => 'required',
-            'no_hp' => 'required|min:7',
+            'no_hp' => 'required|min:10',
             'pekerjaan' => 'required|min:3',
             'sts_keluarga' => 'required',
             'alamat' => 'required|min:3',
-            'kabupaten' => 'required',
-            'kelurahan' => 'required',
-            'provinsi' => 'required',
-            'kecamatan' => 'required',
+            'kabupaten' => 'required|min:3',
+            'kelurahan' => 'required|min:3',
+            'provinsi' => 'required|min:3',
+            'kecamatan' => 'required|min:3',
             'goldar' => 'required',
             'gambar' => 'mimes:jpg,jpeg,png|max:2048',
         ],
         // Pesan
         [
+            // Unique
+            'nama.unique' => 'Nama sudah terdaftar!',
+
             // Required
             'nama.required' => 'Nama lengkap wajib diisi!',
             'jk.required' => 'Jenis kelamin wajib diisi!',
@@ -122,9 +103,13 @@ class AnggotaController extends Controller
             // Min
             'nama.min' => 'Nama lengkap diisi minimal 3 karakter!',
             'tempat_lahir.min' => 'Tempat lahir diisi minimal 3 karakter!',
-            'no_hp.min' => 'Nomor handphone diisi minimal 7 karakter!',
+            'no_hp.min' => 'Nomor handphone diisi minimal 10 karakter!',
             'pekerjaan.min' => 'Pekerjaan diisi minimal 3 karakter!',
             'alamat.min' => 'Alamat diisi minimal 3 karakter!',
+            'provinsi.min' => 'Provinsi diisi minimal 3 karakter!',
+            'kabupaten.min' => 'Kabupaten diisi minimal 3 karakter!',
+            'kecamatan.min' => 'Kecamatan diisi minimal 3 karakter!',
+            'kelurahan.min' => 'Kelurahan diisi minimal 3 karakter!',
 
             // Tipe File
             'gambar.mimes' => 'Tipe file yang dapat di unggah adalah jpg/jpeg/png',
@@ -171,13 +156,10 @@ class AnggotaController extends Controller
 
     public function tampil_ubah_anggota($id)
     {
-        // Memanggil models IndoRegion
-        $provinces = Province::all();
-        $regencies = Regency::all();
-
         $anggota = Anggota::find($id);
+        Session::put('halaman_url', request()->fullUrl());
 
-        return view('anggota.edit', compact('anggota', 'provinces','regencies'));
+        return view('anggota.edit', compact('anggota'));
     }
 
     public function perbarui_anggota(Request $request, $id)
@@ -188,23 +170,26 @@ class AnggotaController extends Controller
         $this->validate($request,
         // Aturan
         [
-            'nama' => 'required|min:3',
+            'nama' => 'required|min:3|unique:anggota,nama,'.$anggota->id,
             'jk' => 'required',
             'tempat_lahir' => 'required|min:3',
             'tgl_lahir' => 'required',
-            'no_hp' => 'required|min:7',
+            'no_hp' => 'required|min:10',
             'pekerjaan' => 'required|min:3',
             'sts_keluarga' => 'required',
             'alamat' => 'required|min:3',
-            'kabupaten' => 'required',
-            'kelurahan' => 'required',
-            'provinsi' => 'required',
-            'kecamatan' => 'required',
+            'kabupaten' => 'required|min:3',
+            'kelurahan' => 'required|min:3',
+            'provinsi' => 'required|min:3',
+            'kecamatan' => 'required|min:3',
             'goldar' => 'required',
             'gambar' => 'mimes:jpg,jpeg,png|max:2048',
         ],
         // Pesan
         [
+            // Unique
+            'nama.unique' => 'Nama sudah terdaftar!',
+
             // Required
             'nama.required' => 'Nama lengkap wajib diisi!',
             'jk.required' => 'Jenis kelamin wajib diisi!',
@@ -223,9 +208,13 @@ class AnggotaController extends Controller
             // Min
             'nama.min' => 'Nama lengkap diisi minimal 3 karakter!',
             'tempat_lahir.min' => 'Tempat lahir diisi minimal 3 karakter!',
-            'no_hp.min' => 'Nomor handphone diisi minimal 7 karakter!',
+            'no_hp.min' => 'Nomor handphone diisi minimal 10 karakter!',
             'pekerjaan.min' => 'Pekerjaan diisi minimal 3 karakter!',
             'alamat.min' => 'Alamat diisi minimal 3 karakter!',
+            'provinsi.min' => 'Provinsi diisi minimal 3 karakter!',
+            'kabupaten.min' => 'Kabupaten diisi minimal 3 karakter!',
+            'kecamatan.min' => 'Kecamatan diisi minimal 3 karakter!',
+            'kelurahan.min' => 'Kelurahan diisi minimal 3 karakter!',
 
             // Tipe File
             'gambar.mimes' => 'Tipe file yang dapat di unggah adalah jpg/jpeg/png',
@@ -272,14 +261,7 @@ class AnggotaController extends Controller
     {
         $anggota = Anggota::find($id);
 
-        // Memanggil models IndoRegion
-        $provinsi = Anggota::join('provinces', 'provinces.id', '=' , 'anggota.provinsi')
-        ->get(['provinces.name']);
-
-        $kabupaten = Anggota::join('regencies', 'regencies.id', '=' , 'anggota.kabupaten')
-        ->get('regencies.name');
-
-        return view('anggota.show', compact('anggota', 'provinsi', 'kabupaten'));
+        return view('anggota.show', compact('anggota'));
     }
 
     public function hapus_anggota($id)

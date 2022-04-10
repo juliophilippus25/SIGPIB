@@ -77,7 +77,7 @@
                         <div class="form-group">
                             <label class="control-label" for="email">Tanggal Lahir:</label>
                             <div>
-                                <p>{{$anggota->tgl_lahir}}</p>
+                                <p>{{date('d M Y', strtotime($anggota->tgl_lahir))}}</p>
                             </div>
                         </div>
 
@@ -110,18 +110,14 @@
                         <div class="form-group">
                             <label class="control-label" for="email">Provinsi:</label>
                             <div>
-                                @foreach ($provinsi as $data )
-                                    <p>{{$data->name}}</p>
-                                @endforeach
+                                <p>{{$anggota->provinsi}}</p>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label" for="email">Kabupaten:</label>
                             <div>
-                                @foreach ($kabupaten as $data )
-                                    <p>{{$data->name}}</p>
-                                @endforeach
+                                <p>{{$anggota->kabupaten}}</p>
                             </div>
                         </div>
 
@@ -154,7 +150,8 @@
             <!-- /.card-body -->
 
             <div class="card-footer">
-                <a href="{{route('anggota.index')}}" class="btn btn-default">Kembali</a>
+                <a href="{{ route('anggota.tampil_ubah', ['id' => $anggota->id]) }}" class="btn btn-dark"> Edit</a>
+                <a href="{{route('anggota.index')}}" class="btn btn-default float-right"> Kembali</a>
             </div>
 
         </div>

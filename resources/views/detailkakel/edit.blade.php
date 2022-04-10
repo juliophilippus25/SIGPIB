@@ -41,8 +41,8 @@
                   <label>Status Dalam Hubungan Keluarga <b style="color:Tomato;">*</b></label>
                   <select class="form-control select2bs4 @error('sts_keluarga') is-invalid @enderror" name="sts_keluarga" style="width: 100%;">
                       <option hidden disabled selected value>Pilih Status Dalam Hubungan Keluarga</option>
-                      <option value="Anak">Anak</option>
-                      <option value="Istri">Istri</option>
+                      <option value="Anak" @php if(($det_kakel->sts_keluarga)=='Anak') echo 'selected' @endphp>Anak</option>
+                      <option value="Istri" @php if(($det_kakel->sts_keluarga)=='Istri') echo 'selected' @endphp>Istri</option>
                   </select>
                     @error('sts_keluarga')
                         <span class="text-danger">{{$message}}</span>

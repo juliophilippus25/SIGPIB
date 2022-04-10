@@ -45,7 +45,7 @@
 
                             <div class="form-group">
                                 <label for="nama">Nama Lengkap <b style="color:Tomato;">*</b></label>
-                                <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" placeholder="Masukkan Nama Lengkap" value="{{ $anggota->nama }}">
+                                <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" placeholder="Masukkan Nama Lengkap" value="{{ old('nama', $anggota->nama) }}">
                                 @error('nama')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -65,7 +65,7 @@
 
                             <div class="form-group">
                                 <label for="tempat_lahir">Tempat Lahir <b style="color:Tomato;">*</b></label>
-                                <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir" id="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="{{ $anggota->tempat_lahir }}">
+                                <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir" id="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="{{ old('tempat_lahir', $anggota->tempat_lahir) }}">
                                 @error('tempat_lahir')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -74,7 +74,7 @@
                             <div class="form-group">
                                 <label>Tanggal Lahir <b style="color:Tomato;">*</b></label>
                                 <div>
-                                    <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control @error('tgl_lahir') is-invalid @enderror" value="{{ $anggota->tgl_lahir }}">
+                                    <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control @error('tgl_lahir') is-invalid @enderror" value="{{ old('tgl_lahir', $anggota->tgl_lahir) }}">
                                 </div>
                                 @error('tgl_lahir')
                                 <span class="text-danger">{{$message}}</span>
@@ -83,7 +83,7 @@
 
                             <div class="form-group">
                                 <label for="no_hp">Nomor Handphone <b style="color:Tomato;">*</b></label>
-                                <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" placeholder="Masukkan Nomor Handphone" value="{{ $anggota->no_hp }}" onkeypress="return isNumberKey(event)">
+                                <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" placeholder="Masukkan Nomor Handphone" value="{{ old('no_hp', $anggota->no_hp) }}" onkeypress="return isNumberKey(event)">
                                 @error('no_hp')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -91,7 +91,7 @@
 
                             <div class="form-group">
                                 <label for="pekerjaan">Pekerjaan <b style="color:Tomato;">*</b></label>
-                                <input type="text" class="form-control @error('pekerjaan') is-invalid @enderror" name="pekerjaan" id="pekerjaan" placeholder="Masukkan Pekerjaan" value="{{ $anggota->pekerjaan }}">
+                                <input type="text" class="form-control @error('pekerjaan') is-invalid @enderror" name="pekerjaan" id="pekerjaan" placeholder="Masukkan Pekerjaan" value="{{ old('pekerjaan', $anggota->pekerjaan) }}">
                                 @error('pekerjaan')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -115,25 +115,16 @@
                         <div class="col-md-6">
 
                             <div class="form-group">
-                                <label>Provinsi <b style="color:Tomato;">*</b></label>
-                                <select class="form-control select2bs4 @error('provinsi') is-invalid @enderror" name="provinsi" id="provinsi" style="width: 100%;">
-                                    <option hidden disabled selected value>Pilih Provinsi</option>
-                                    @foreach($provinces as $data)
-                                    <option value="{{ $data->id }}" {{ $data->id == $anggota->provinsi ? 'selected' : ''}}>{{ $data->name }}</option>
-                                    @endforeach
-                                </select>
+                                <label for="provinsi">Provinsi <b style="color:Tomato;">*</b></label>
+                                <input type="text" class="form-control @error('provinsi') is-invalid @enderror" name="provinsi" id="provinsi"  placeholder="Masukkan Provinsi" value="{{ old('provinsi', $anggota->provinsi) }}">
                                 @error('provinsi')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
 
                             <div class="form-group">
-                                <label>Kabupaten <b style="color:Tomato;">*</b></label>
-                                <select class="form-control select2bs4 @error('kabupaten') is-invalid @enderror" name="kabupaten" id="kabupaten" style="width: 100%;">
-                                    @foreach($regencies as $data)
-                                    <option value="{{ $data->id }}" {{ $data->id == $anggota->kabupaten ? 'selected' : ''}}>{{ $data->name }}</option>
-                                    @endforeach
-                                </select>
+                                <label for="kabupaten">Kabupaten <b style="color:Tomato;">*</b></label>
+                                <input type="text" class="form-control @error('kabupaten') is-invalid @enderror" name="kabupaten" id="kabupaten"  placeholder="Masukkan Kabupaten" value="{{ old('kabupaten', $anggota->kabupaten) }}">
                                 @error('kabupaten')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -141,7 +132,7 @@
 
                             <div class="form-group">
                                 <label for="kecamatan">Kecamatan <b style="color:Tomato;">*</b></label>
-                                <input type="text" class="form-control @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan"  placeholder="Masukkan kecamatan" value="{{ $anggota->kecamatan }}">
+                                <input type="text" class="form-control @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan"  placeholder="Masukkan Kecamatan" value="{{ old('kecamatan', $anggota->kecamatan) }}">
                                 @error('kecamatan')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -149,7 +140,7 @@
 
                             <div class="form-group">
                                 <label for="kelurahan">Kelurahan <b style="color:Tomato;">*</b></label>
-                                <input type="text" class="form-control @error('kelurahan') is-invalid @enderror" name="kelurahan" id="kelurahan"  placeholder="Masukkan kelurahan" value="{{ $anggota->kelurahan }}">
+                                <input type="text" class="form-control @error('kelurahan') is-invalid @enderror" name="kelurahan" id="kelurahan"  placeholder="Masukkan Kelurahan" value="{{ old('kelurahan', $anggota->kelurahan) }}">
                                 @error('kelurahan')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -157,7 +148,7 @@
 
                             <div class="form-group">
                                 <label for="alamat">Alamat <b style="color:Tomato;">*</b></label>
-                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" id="alamat"  placeholder="Masukkan Alamat" value="{{ $anggota->alamat }}">
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" id="alamat"  placeholder="Masukkan Alamat" value="{{ old('alamat', $anggota->alamat) }}">
                                 @error('alamat')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror

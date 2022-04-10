@@ -16,10 +16,5 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(SekwilTableSeeder::class);
         $this->call(PelkatTableSeeder::class);
-        $this->call(IndoRegionProvinceSeeder::class);
-        $this->call(IndoRegionRegencySeeder::class);
-        $this->call(IndoRegionDistrictSeeder::class);
-        $this->call(IndoRegionVillageSeeder::class);
-        // User::factory(10)->create();
     }
 }

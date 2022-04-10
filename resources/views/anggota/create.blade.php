@@ -114,26 +114,20 @@
               <!-- Kolom Kanan -->
               <div class="col-md-6">
 
-                  <div class="form-group">
-                    <label>Provinsi <b style="color:Tomato;">*</b></label>
-                    <select class="form-control select2bs4 @error('provinsi') is-invalid @enderror" name="provinsi" id="provinsi" style="width: 100%;">
-                      <option hidden disabled selected value>Pilih Provinsi</option>
-                      @foreach($provinces as $data)
-                        <option value="{{ $data->id }} " >{{ $data->name }}</option>
-                      @endforeach
-                    </select>
-                    @error('provinsi')
-                      <span class="text-danger">{{$message}}</span>
-                    @enderror
+                <div class="form-group">
+                    <label for="alamat">Provinsi <b style="color:Tomato;">*</b></label>
+                    <input type="text" class="form-control @error('provinsi') is-invalid @enderror" name="provinsi" id="provinsi"  placeholder="Masukkan Provinsi" value="{{ old('provinsi') }}">
+                      @error('alamat')
+                        <span class="text-danger">{{$message}}</span>
+                      @enderror
                   </div>
 
                   <div class="form-group">
-                    <label>Kabupaten <b style="color:Tomato;">*</b></label>
-                    <select class="form-control select2bs4 @error('kabupaten') is-invalid @enderror" name="kabupaten" id="kabupaten" style="width: 100%;">
-                    </select>
-                    @error('kabupaten')
-                      <span class="text-danger">{{$message}}</span>
-                    @enderror
+                    <label for="kabupaten">Kabupaten <b style="color:Tomato;">*</b></label>
+                    <input type="text" class="form-control @error('kabupaten') is-invalid @enderror" name="kabupaten" id="kabupaten"  placeholder="Masukkan Kabupaten" value="{{ old('kabupaten') }}">
+                      @error('kabupaten')
+                        <span class="text-danger">{{$message}}</span>
+                      @enderror
                   </div>
 
                   <div class="form-group">

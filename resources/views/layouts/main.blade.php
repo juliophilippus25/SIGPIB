@@ -224,34 +224,6 @@
             })
         });
 
-        // IndoRegion
-        $(function(){
-
-            // Ambil Provinsi-Kabupaten
-            $('#provinsi').on('change', function(){
-
-                let id_provinsi = $('#provinsi').val();
-
-                $.ajax({
-                    type : 'POST',
-                    url : "{{ route('ambilKabupaten') }}",
-                    data : {id_provinsi:id_provinsi},
-                    cache : false,
-
-                    success: function(msg){
-                        $('#kabupaten').html(msg);
-                        $('#kecamatan').html('');
-                        $('#kelurahan').html('');
-                    },
-                    error: function(data){
-                        console.log('error:',data)
-                    },
-                })
-
-            })
-
-        })
-
         // DataTable JS
         $(function () {
             $("#example1").DataTable({

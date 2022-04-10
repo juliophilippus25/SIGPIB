@@ -82,11 +82,11 @@ class ProfileController extends Controller
         if($profile){
             //redirect dengan pesan sukses
             Alert::success('Data berhasil diubah!', '');
-            return redirect()->route('home');
+            return redirect()->back();
         }else{
             //redirect dengan pesan error
             Alert::error('Data tidak berhasil diubah!', '');
-            return redirect()->route('home');
+            return redirect()->back();
         }
     }
 

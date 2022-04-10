@@ -40,13 +40,13 @@
                   <label>Jabatan Pengurus PelKat <b style="color:Tomato;">*</b></label>
                   <select class="form-control select2bs4 @error('pengurus') is-invalid @enderror" name="pengurus" style="width: 100%;">
                     <option hidden disabled selected value>Pilih Jabatan Pengurus PelKat</option>
-                    <option value="Ketua">Ketua</option>
-                    <option value="Wakil Ketua">Wakil Ketua</option>
-                    <option value="Sekretaris 1">Sekretaris 1</option>
-                    <option value="Sekretaris 2">Sekretaris 2</option>
-                    <option value="Bendahara 1">Bendahara 1</option>
-                    <option value="Bendahara 2">Bendahara 2</option>
-                    <option value="Anggota">Anggota</option>
+                    <option value="Ketua" @php if(($det_pelkat->pengurus)=='Ketua') echo 'selected' @endphp>Ketua</option>
+                    <option value="Wakil Ketua" @php if(($det_pelkat->pengurus)=='Wakil Ketua') echo 'selected' @endphp>Wakil Ketua</option>
+                    <option value="Sekretaris 1" @php if(($det_pelkat->pengurus)=='Sekretaris 1') echo 'selected' @endphp>Sekretaris 1</option>
+                    <option value="Sekretaris 2" @php if(($det_pelkat->pengurus)=='Sekretaris 2') echo 'selected' @endphp>Sekretaris 2</option>
+                    <option value="Bendahara 1" @php if(($det_pelkat->pengurus)=='Bendahara 1') echo 'selected' @endphp>Bendahara 1</option>
+                    <option value="Bendahara 2" @php if(($det_pelkat->pengurus)=='Bendahara 2') echo 'selected' @endphp>Bendahara 2</option>
+                    <option value="Anggota" @php if(($det_pelkat->pengurus)=='Anggota') echo 'selected' @endphp>Anggota</option>
                   </select>
                     @error('pengurus')
                         <span class="text-danger">{{$message}}</span>
