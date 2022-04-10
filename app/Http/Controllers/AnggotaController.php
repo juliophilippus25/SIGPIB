@@ -268,6 +268,20 @@ class AnggotaController extends Controller
         return redirect()->route('anggota.index');
     }
 
+    public function tampil_detail_anggota($id)
+    {
+        $anggota = Anggota::find($id);
+
+        // Memanggil models IndoRegion
+        $provinsi = Anggota::join('provinces', 'provinces.id', '=' , 'anggota.provinsi')
+        ->get(['provinces.name']);
+
+        $kabupaten = Anggota::join('regencies', 'regencies.id', '=' , 'anggota.kabupaten')
+        ->get('regencies.name');
+
+        return view('anggota.show', compact('anggota', 'provinsi', 'kabupaten'));
+    }
+
     public function hapus_anggota($id)
     {
         $anggota = Anggota::find($id);

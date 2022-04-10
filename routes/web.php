@@ -30,14 +30,13 @@ Route::group(['prefix' => '/anggota'], function() {
     Route::get('/index', 'App\Http\Controllers\AnggotaController@tampil_anggota')->name('anggota.index');
     Route::get('/create', 'App\Http\Controllers\AnggotaController@tambah_anggota')->name('anggota.tambah');
     Route::post('/save', 'App\Http\Controllers\AnggotaController@simpan_anggota')->name('anggota.simpan');
+    Route::get('/detail/{id}', 'App\Http\Controllers\AnggotaController@tampil_detail_anggota')->name('anggota.tampil_detail');
     Route::get('/edit/{id}', 'App\Http\Controllers\AnggotaController@tampil_ubah_anggota')->name('anggota.tampil_ubah');
     Route::put('/update/{id}', 'App\Http\Controllers\AnggotaController@perbarui_anggota')->name('anggota.simpan_perbarui');
     Route::post('/delete/{id}', 'App\Http\Controllers\AnggotaController@hapus_anggota')->name('anggota.hapus');
 
     // IndoRegion
     Route::post('/kabupaten', 'App\Http\Controllers\AnggotaController@ambil_kabupaten')->name('ambilKabupaten');
-    // Route::post('/kecamatan', 'App\Http\Controllers\AnggotaController@ambil_kecamatan')->name('ambilKecamatan');
-    // Route::post('/kelurahan', 'App\Http\Controllers\AnggotaController@ambil_kelurahan')->name('ambilKelurahan');
 });
 
 // Pelayanan Kategorial
