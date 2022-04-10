@@ -250,49 +250,6 @@
 
             })
 
-            // Ambil Kabupaten-Kecamatan
-            $('#kabupaten').on('change', function(){
-
-                let id_kabupaten = $('#kabupaten').val();
-
-                $.ajax({
-                    type : 'POST',
-                    url : "{{ route('ambilKecamatan') }}",
-                    data : {id_kabupaten:id_kabupaten},
-                    cache : false,
-
-                    success: function(msg){
-                        $('#kecamatan').html(msg);
-                        $('#kelurahan').html('');
-                    },
-                    error: function(data){
-                        console.log('error:',data)
-                    },
-                })
-
-            })
-
-            // Ambil Kecamatan-Kelurahan
-            $('#kecamatan').on('change', function(){
-
-                let id_kecamatan = $('#kecamatan').val();
-
-                $.ajax({
-                    type : 'POST',
-                    url : "{{ route('ambilKelurahan') }}",
-                    data : {id_kecamatan:id_kecamatan},
-                    cache : false,
-
-                    success: function(msg){
-                        $('#kelurahan').html(msg);
-                    },
-                    error: function(data){
-                        console.log('error:',data)
-                    },
-                })
-
-            })
-
         })
 
         // DataTable JS

@@ -52,38 +52,6 @@ class AnggotaController extends Controller
         echo $option;
     }
 
-    public function ambil_kecamatan(Request $request)
-    {
-        $id_kabupaten = $request->id_kabupaten;
-
-        $kecamatans = District::where('regency_id', $id_kabupaten)->get();
-
-        $option = "<option hidden disabled selected value>Pilih Kecamatan</option>";
-
-        foreach($kecamatans as $kecamatan)
-        {
-            $option .= "<option value='$kecamatan->id'>$kecamatan->name</option>";
-        }
-
-        echo $option;
-    }
-
-    public function ambil_kelurahan(Request $request)
-    {
-        $id_kecamatan = $request->id_kecamatan;
-
-        $kelurahans = Village::where('district_id', $id_kecamatan)->get();
-
-        $option = "<option hidden disabled selected value>Pilih Kelurahan</option>";
-
-        foreach($kelurahans as $kelurahan)
-        {
-            $option .= "<option value='$kelurahan->id'>$kelurahan->name</option>";
-        }
-
-        echo $option;
-    }
-
     public function tambah_anggota()
     {
         // Memanggil models IndoRegion
@@ -203,17 +171,13 @@ class AnggotaController extends Controller
 
     public function tampil_ubah_anggota($id)
     {
-        Alert::warning('Masukkan ulang data', 'Pada kolom kelurahan.');
-
         // Memanggil models IndoRegion
         $provinces = Province::all();
         $regencies = Regency::all();
-        $districts = District::all();
-        $villages = Village::all();
 
         $anggota = Anggota::find($id);
 
-        return view('anggota.edit', compact('anggota', 'provinces','regencies', 'districts', 'villages'));
+        return view('anggota.edit', compact('anggota', 'provinces','regencies'));
     }
 
     public function perbarui_anggota(Request $request, $id)

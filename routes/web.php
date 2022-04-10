@@ -36,8 +36,8 @@ Route::group(['prefix' => '/anggota'], function() {
 
     // IndoRegion
     Route::post('/kabupaten', 'App\Http\Controllers\AnggotaController@ambil_kabupaten')->name('ambilKabupaten');
-    Route::post('/kecamatan', 'App\Http\Controllers\AnggotaController@ambil_kecamatan')->name('ambilKecamatan');
-    Route::post('/kelurahan', 'App\Http\Controllers\AnggotaController@ambil_kelurahan')->name('ambilKelurahan');
+    // Route::post('/kecamatan', 'App\Http\Controllers\AnggotaController@ambil_kecamatan')->name('ambilKecamatan');
+    // Route::post('/kelurahan', 'App\Http\Controllers\AnggotaController@ambil_kelurahan')->name('ambilKelurahan');
 });
 
 // Pelayanan Kategorial

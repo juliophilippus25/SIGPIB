@@ -140,21 +140,16 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Kecamatan <b style="color:Tomato;">*</b></label>
-                                <select class="form-control select2bs4 @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan" style="width: 100%;">
-                                    @foreach($districts as $data)
-                                    <option value="{{ $data->id }}" {{ $data->id == $anggota->kecamatan ? 'selected' : ''}}>{{ $data->name }}</option>
-                                    @endforeach
-                                </select>
+                                <label for="kecamatan">Kecamatan <b style="color:Tomato;">*</b></label>
+                                <input type="text" class="form-control @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan"  placeholder="Masukkan kecamatan" value="{{ $anggota->kecamatan }}">
                                 @error('kecamatan')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
 
                             <div class="form-group">
-                                <label>Kelurahan <b style="color:Tomato;">*</b></label>
-                                <select class="form-control select2bs4 @error('kelurahan') is-invalid @enderror" name="kelurahan" id="kelurahan" style="width: 100%;">
-                                </select>
+                                <label for="kelurahan">Kelurahan <b style="color:Tomato;">*</b></label>
+                                <input type="text" class="form-control @error('kelurahan') is-invalid @enderror" name="kelurahan" id="kelurahan"  placeholder="Masukkan kelurahan" value="{{ $anggota->kelurahan }}">
                                 @error('kelurahan')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror

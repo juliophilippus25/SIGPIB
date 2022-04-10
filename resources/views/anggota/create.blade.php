@@ -138,8 +138,7 @@
 
                   <div class="form-group">
                     <label>Kecamatan <b style="color:Tomato;">*</b></label>
-                    <select class="form-control select2bs4 @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan" style="width: 100%;">
-                    </select>
+                    <input type="text" class="form-control @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan"  placeholder="Masukkan Kecamatan" value="{{ old('kecamatan') }}">
                     @error('kecamatan')
                       <span class="text-danger">{{$message}}</span>
                     @enderror
@@ -147,8 +146,7 @@
 
                   <div class="form-group">
                     <label>Kelurahan <b style="color:Tomato;">*</b></label>
-                    <select class="form-control select2bs4 @error('kelurahan') is-invalid @enderror" name="kelurahan" id="kelurahan" style="width: 100%;">
-                    </select>
+                    <input type="text" class="form-control @error('kelurahan') is-invalid @enderror" name="kelurahan" id="kelurahan"  placeholder="Masukkan Kelurahan" value="{{ old('kelurahan') }}">
                     @error('kelurahan')
                       <span class="text-danger">{{$message}}</span>
                     @enderror
