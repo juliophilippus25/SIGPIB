@@ -41,7 +41,7 @@
 
           @error('username')
               <span class="invalid-feedback" role="alert">
-                <strong><em>Username</em> atau <em>password</em> salah!</strong>
+                <strong>Pengguna belum terdaftar, username atau password salah!</strong>
               </span>
             @enderror
 
@@ -61,7 +61,7 @@
 
           @error('password')
               <span class="invalid-feedback" role="alert">
-                <strong><em>Username</em> atau <em>password</em> salah!</strong>
+                <strong>Pengguna belum terdaftar, username atau password salah!</strong>
               </span>
             @enderror
 

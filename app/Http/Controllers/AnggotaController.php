@@ -131,7 +131,7 @@ class AnggotaController extends Controller
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->gambar->getClientOriginalExtension();
             $simpan_nama_file = $nama_file_dikonversi.'-'.$dt->format('d-M-Y').'.'.$extension;
-            $gambar = $request->file('gambar')->move('images/anggota', $simpan_nama_file);
+            $gambar = $request->file('gambar')->storeAs('images/anggota', $simpan_nama_file);
             $gambar = $simpan_nama_file;
         }
 
@@ -263,7 +263,7 @@ class AnggotaController extends Controller
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->gambar->getClientOriginalExtension();
             $simpan_nama_file = $nama_file_dikonversi.'-'.$dt->format('d-M-Y').'.'.$extension;
-            $gambar = $request->file('gambar')->move('images/anggota', $simpan_nama_file);
+            $gambar = $request->file('gambar')->storeAs('images/anggota', $simpan_nama_file);
             $anggota->gambar = $simpan_nama_file;
         }
 

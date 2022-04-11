@@ -27,7 +27,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <a href="{{route('pelkat.create')}}" class="btn btn-secondary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah Pengguna</a>
+                <a href="{{route('pengguna.create')}}" class="btn btn-secondary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah Pengguna</a>
                 <br><br>
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -45,12 +45,13 @@
                             <td>{{ $data->name }}</td>
                             <td>{{ $data->role }}</td>
                             <td>
-                                <a href="#" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
-                                <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_"><i class="fa fa-trash"></i></button>
+                                <a href="{{ route('pengguna.tampil_detail', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
+                                <a href="{{ route('pengguna.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-cog"></i></a>
+                                <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button>
 
                                 <!-- Modal -->
-                                <form method="POST" action="#">
-                                    <div class="modal fade" id="modalDelete_" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+                                <form method="POST" action="{{ route('pengguna.hapus', ['id' => $data->id]) }}">
+                                    <div class="modal fade" id="modalDelete_{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -60,8 +61,8 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-
-                                                    <p>Apakah anda yakin ingin menghapus?</p>
+                                                    {{ csrf_field() }}
+                                                    <p>Apakah anda yakin ingin menghapus <b>{{$data->name}}</b>?</p>
 
                                                 </div>
 

@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
               'email' 			=> 'gpibmaranatha@gmail.com',
               'password'		=> bcrypt('maranatha'),
               'gambar'			=> NULL,
-              'role'            => 'super',
+              'role'            => 'Super Admin',
               'remember_token'	=> NULL,
               'created_at'      => \Carbon\Carbon::now(),
               'updated_at'      => \Carbon\Carbon::now()
@@ -33,7 +33,7 @@ class UsersTableSeeder extends Seeder
                 'email' 		=> 'admingpib@gmail.com',
                 'password'		=> bcrypt('maranatha'),
                 'gambar'		=> NULL,
-                'role'          => 'admin',
+                'role'          => 'Admin',
                 'remember_token'=> NULL,
                 'created_at'    => \Carbon\Carbon::now(),
                 'updated_at'    => \Carbon\Carbon::now()

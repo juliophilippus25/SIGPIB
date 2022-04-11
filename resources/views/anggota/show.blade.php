@@ -37,18 +37,17 @@
 
                         <div class="form-group">
                             <img id="preview" class="product" width="300" height="300" src="{{ asset('images/anggota/'.$anggota->gambar) }}"/>
-                            <input type="file" name="gambar" class="file" accept="image/*" hidden>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="email">Nama Lengkap:</label>
+                            <label class="control-label">Nama Lengkap:</label>
                             <div>
                                 <p>{{$anggota->nama}}</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="email">Kepala Keluarga:</label>
+                            <label class="control-label">Kepala Keluarga:</label>
                             <div>
                                 <p>{{$anggota->sts_keluarga}}</p>
                             </div>
@@ -61,42 +60,42 @@
                     <div class="col-md-4">
 
                         <div class="form-group">
-                            <label class="control-label" for="email">Jenis Kelamin:</label>
+                            <label class="control-label">Jenis Kelamin:</label>
                             <div>
                                 <p>{{$anggota->jk}}</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="email">Tempat Lahir:</label>
+                            <label class="control-label">Tempat Lahir:</label>
                             <div>
                                 <p>{{$anggota->tempat_lahir}}</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="email">Tanggal Lahir:</label>
+                            <label class="control-label">Tanggal Lahir:</label>
                             <div>
                                 <p>{{date('d M Y', strtotime($anggota->tgl_lahir))}}</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="email">Nomor Handphone:</label>
+                            <label class="control-label">Nomor Handphone:</label>
                             <div>
                                 <p>{{$anggota->no_hp}}</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="email">Pekerjaan:</label>
+                            <label class="control-label">Pekerjaan:</label>
                             <div>
                                 <p>{{$anggota->pekerjaan}}</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="email">Golongan Darah:</label>
+                            <label class="control-label">Golongan Darah:</label>
                             <div>
                                 <p>{{$anggota->goldar}}</p>
                             </div>
@@ -108,35 +107,35 @@
                     <div class="col-md-4">
 
                         <div class="form-group">
-                            <label class="control-label" for="email">Provinsi:</label>
+                            <label class="control-label">Provinsi:</label>
                             <div>
                                 <p>{{$anggota->provinsi}}</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="email">Kabupaten:</label>
+                            <label class="control-label">Kabupaten:</label>
                             <div>
                                 <p>{{$anggota->kabupaten}}</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="email">Kecamatan:</label>
+                            <label class="control-label">Kecamatan:</label>
                             <div>
                                 <p>{{$anggota->kecamatan}}</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="email">Kelurahan:</label>
+                            <label class="control-label">Kelurahan:</label>
                             <div>
                                 <p>{{$anggota->kelurahan}}</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="email">Alamat:</label>
+                            <label class="control-label">Alamat:</label>
                             <div>
                                 <p>{{$anggota->alamat}}</p>
                             </div>

@@ -86,7 +86,12 @@ Route::group(['prefix' => '/laporan'], function() {
 // Pengguna
 Route::group(['prefix' => '/pengguna'], function() {
     Route::get('/index', 'App\Http\Controllers\PenggunaController@tampil_pengguna')->name('pengguna.index');
-    Route::get('/edit', 'App\Http\Controllers\PenggunaController@ubah_pengguna')->name('pengguna.ubah_pengguna');
+    Route::get('/create', 'App\Http\Controllers\PenggunaController@tambah_pengguna')->name('pengguna.create');
+    Route::post('/save', 'App\Http\Controllers\PenggunaController@simpan_pengguna')->name('pengguna.simpan');
+    Route::get('/edit/{id}', 'App\Http\Controllers\PenggunaController@tampil_ubah_pengguna')->name('pengguna.tampil_ubah');
+    Route::put('/update/{id}', 'App\Http\Controllers\PenggunaController@perbarui_pengguna')->name('pengguna.simpan_perbarui');
+    Route::get('/detail/{id}', 'App\Http\Controllers\PenggunaController@tampil_detail_pengguna')->name('pengguna.tampil_detail');
+    Route::post('/delete/{id}', 'App\Http\Controllers\PenggunaController@hapus_pengguna')->name('pengguna.hapus');
 });
 
 // Profile

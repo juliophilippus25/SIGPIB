@@ -50,7 +50,7 @@
                   </a>
                 </li>
 
-                @if(auth()->user()->role == 'super')
+                @if(auth()->user()->role == 'Super Admin')
                 <li class="nav-item">
                   <a class="nav-link {{ setActive(['pengguna*']) }}" href="{{route('pengguna.index')}}">
                   <i class="far fa-circle nav-icon"></i>

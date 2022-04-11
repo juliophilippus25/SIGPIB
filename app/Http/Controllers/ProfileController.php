@@ -30,7 +30,7 @@ class ProfileController extends Controller
         $validator = Validator::make($request->all(),
         // Aturan
         [
-            'name' => 'required|min:3',
+            'name' => 'required|min:3|unique:users,name,'.$profile->id,
             'email' => 'required|unique:users,email,'.$profile->id,
             'username' => 'required|min:5|unique:users,username,'.$profile->id,
             'password' => 'nullable|min:8|confirmed',
@@ -45,6 +45,7 @@ class ProfileController extends Controller
             'username.required' => 'Username wajib diisi!',
 
             // Unique
+            'name.unique' => 'Nama pengguna sudah digunakan!',
             'email.unique' => 'Email sudah digunakan!',
             'username.unique' => 'Username sudah digunakan!',
 
@@ -88,7 +89,7 @@ class ProfileController extends Controller
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->gambar->getClientOriginalExtension();
             $simpan_nama_file = $nama_file_dikonversi.'-'.$dt->format('d-M-Y').'.'.$extension;
-            $gambar = $request->file('gambar')->move('images/pengguna', $simpan_nama_file);
+            $gambar = $request->file('gambar')->storeAs('images/pengguna', $simpan_nama_file);
             $profile->gambar = $simpan_nama_file;
         }
 
