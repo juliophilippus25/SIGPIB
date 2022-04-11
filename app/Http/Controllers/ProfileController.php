@@ -8,6 +8,7 @@ use Auth;
 use Alert;
 use File;
 use Carbon\Carbon;
+use Validator;
 
 class ProfileController extends Controller
 {
@@ -26,13 +27,14 @@ class ProfileController extends Controller
         $profile = User::findOrFail($userId);
 
         // Validasi Form
-        $this->validate($request,
+        $validator = Validator::make($request->all(),
         // Aturan
         [
             'name' => 'required|min:3',
             'email' => 'required|unique:users,email,'.$profile->id,
             'username' => 'required|min:5|unique:users,username,'.$profile->id,
-            'password' => 'nullable|min:8',
+            'password' => 'nullable|min:8|confirmed',
+            'password_confirmation'=>'nullable|min:8|same:password',
             'gambar' => 'mimes:jpg,jpeg,png|max:2048',
         ],
         // Pesan
@@ -41,7 +43,6 @@ class ProfileController extends Controller
             'name.required' => 'Nama pengguna wajib diisi!',
             'email.required' => 'Email wajib diisi!',
             'username.required' => 'Username wajib diisi!',
-            'password.required' => 'Password wajib diisi!',
 
             // Unique
             'email.unique' => 'Email sudah digunakan!',
@@ -51,6 +52,13 @@ class ProfileController extends Controller
             'name.min' => 'Nama pengguna diisi minimal 3 karakter!',
             'username.min' => 'Username diisi minimal 5 karakter!',
             'password.min' => 'Password diisi minimal 8 karakter!',
+            'password_confirmation.min' => 'Password konfirmasi diisi minimal 8 karakter!',
+
+            // Confirmed
+            'password.confirmed' => 'Konfirmasi password tidak sama!',
+
+            // Same
+            'password_confirmation.same' => 'Konfirmasi password harus sama dengan password!',
 
             // Tipe File
             'gambar.mimes' => 'Tipe file yang dapat di unggah adalah jpg/jpeg/png',
@@ -58,6 +66,12 @@ class ProfileController extends Controller
             // Ukuran file
             'gambar.max' => 'Ukuran maksimal file gambar adalah 2mb'
         ]);
+
+        if($validator->fails()){
+            //redirect dengan pesan error
+            Alert::error('Data tidak berhasil diubah!', '');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         $profile->name = $request->input('name');
         $profile->email = $request->input('email');
@@ -79,15 +93,9 @@ class ProfileController extends Controller
 
         $profile->update();
 
-        if($profile){
-            //redirect dengan pesan sukses
-            Alert::success('Data berhasil diubah!', '');
-            return redirect()->back();
-        }else{
-            //redirect dengan pesan error
-            Alert::error('Data tidak berhasil diubah!', '');
-            return redirect()->back();
-        }
+        //redirect dengan pesan sukses
+        Alert::success('Data berhasil diubah!', '');
+        return redirect()->back();
     }
 
 }

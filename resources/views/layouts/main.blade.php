@@ -61,9 +61,9 @@
 
                             <div class="media">
                                 @if (Auth::user()->gambar)
-                                    <img src="{{ asset('images/pengguna/'.Auth::user()->gambar) }}" class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
+                                <img src="{{ asset('images/pengguna/'.Auth::user()->gambar) }}" class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
                                 @elseif(Auth::user()->gambar == null)
-                                    <img src="{{ asset('images/pengguna/default.png') }}" class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
+                                <img src="{{ asset('images/pengguna/default.png') }}" class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
                                 @endif
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
@@ -277,7 +277,6 @@
             reader.readAsDataURL(this.files[0]);
 
         });
-
 
     </script>
 

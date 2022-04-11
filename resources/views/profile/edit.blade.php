@@ -70,13 +70,13 @@
                     @enderror
                   </div>
 
-                  {{-- <div class="form-group">
-                    <label for="konfirmasi_password">Konfirmasi Password <b style="color:Tomato;">*</b></label>
-                    <input type="text" class="form-control @error('konfirmasi_password') is-invalid @enderror" id="konfirmasi_password" onkeyup="check()" autocomplete="konfirmasi_password" autofocus placeholder="Masukkan Konfirmasi Password">
-                    @error('konfirmasi_password')
+                  <div class="form-group">
+                    <label for="password_confirmation">Konfirmasi Password <b style="color:Tomato;">*</b></label>
+                    <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation" autocomplete="password_confirmation" autofocus placeholder="Masukkan Konfirmasi Password">
+                    @error('password_confirmation')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
-                  </div> --}}
+                  </div>
 
                   {{-- <div class="form-group">
                     <label>Role <b style="color:Tomato;">*</b></label>
