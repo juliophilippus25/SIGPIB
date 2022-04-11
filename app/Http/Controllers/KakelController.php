@@ -8,6 +8,7 @@ use App\Models\Anggota;
 use App\Models\Sekwil;
 use DB;
 use Alert;
+use Validator;
 
 class KakelController extends Controller
 {
@@ -49,7 +50,7 @@ class KakelController extends Controller
     public function simpan_kakel(Request $request)
     {
         // Validasi Form
-        $this->validate($request,
+        $validator = Validator::make($request->all(),
         // Aturan
         [
             'id_anggota' => 'required',
@@ -71,12 +72,20 @@ class KakelController extends Controller
 
         ]);
 
+        // Memberikan pesan error ketika terdapat validasi yang salah
+        if($validator->fails()){
+            // redirect dengan pesan error
+            Alert::error('Data tidak berhasil disimpan!', '');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         Kakel::create([
             'id_anggota' => $request->input('id_anggota'),
             'id_sekwil' => $request->input('id_sekwil'),
             'nomor_kk' => $request->input('nomor_kk')
         ]);
 
+        // redirect dengan pesan error
         Alert::success('Data berhasil disimpan!', '');
 
         return redirect()->route('kakel.index');

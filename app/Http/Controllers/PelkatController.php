@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pelkat;
 use Alert;
+use Validator;
 
 class PelkatController extends Controller
 {
@@ -38,7 +39,7 @@ class PelkatController extends Controller
     public function simpan_pelkat(Request $request)
     {
         // Validasi Form
-        $this->validate($request,
+        $validator = Validator::make($request->all(),
         // Aturan
         [
             'nama_pelkat' => 'required|min:3|unique:pelkat,nama_pelkat,',
@@ -56,12 +57,19 @@ class PelkatController extends Controller
 
         ]);
 
+        // Memberikan pesan error ketika terdapat validasi yang salah
+        if($validator->fails()){
+            // redirect dengan pesan error
+            Alert::error('Data tidak berhasil disimpan!', '');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         Pelkat::create([
             'nama_pelkat' => $request->input('nama_pelkat')
         ]);
 
+        // redirect dengan pesan sukses
         Alert::success('Data berhasil disimpan!', '');
-
         return redirect()->route('pelkat.index');
     }
 

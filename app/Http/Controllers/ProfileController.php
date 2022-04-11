@@ -67,8 +67,9 @@ class ProfileController extends Controller
             'gambar.max' => 'Ukuran maksimal file gambar adalah 2mb'
         ]);
 
+        // Memberikan pesan error ketika terdapat validasi yang salah
         if($validator->fails()){
-            //redirect dengan pesan error
+            // redirect dengan pesan error
             Alert::error('Data tidak berhasil diubah!', '');
             return redirect()->back()->withErrors($validator)->withInput();
         }
@@ -93,7 +94,7 @@ class ProfileController extends Controller
 
         $profile->update();
 
-        //redirect dengan pesan sukses
+        // redirect dengan pesan sukses
         Alert::success('Data berhasil diubah!', '');
         return redirect()->back();
     }

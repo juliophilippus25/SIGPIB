@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Sekwil;
 use Alert;
+use Validator;
 
 class SekwilController extends Controller
 {
@@ -38,7 +39,7 @@ class SekwilController extends Controller
     public function simpan_sekwil(Request $request)
     {
         // Validasi Form
-        $this->validate($request,
+        $validator = Validator::make($request->all(),
         // Aturan
         [
             'nama_sekwil' => 'required|min:3|unique:sekwil,nama_sekwil,',
@@ -56,10 +57,18 @@ class SekwilController extends Controller
 
         ]);
 
+        // Memberikan pesan error ketika terdapat validasi yang salah
+        if($validator->fails()){
+            // redirect dengan pesan error
+            Alert::error('Data tidak berhasil disimpan!', '');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         Sekwil::create([
             'nama_sekwil' => $request->input('nama_sekwil')
         ]);
 
+        // redirect dengan pesan sukses
         Alert::success('Data berhasil disimpan!', '');
 
         return redirect()->route('sekwil.index');

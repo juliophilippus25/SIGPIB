@@ -9,6 +9,7 @@ use App\Models\Anggota;
 use DB;
 use Session;
 use Alert;
+use Validator;
 
 class DetailKakelController extends Controller
 {
@@ -41,7 +42,7 @@ class DetailKakelController extends Controller
     public function simpan_anggota(Request $request)
     {
         // Validasi Form
-        $this->validate($request,
+        $validator = Validator::make($request->all(),
         // Aturan
         [
             'id_anggota' => 'required',
@@ -55,12 +56,20 @@ class DetailKakelController extends Controller
 
         ]);
 
+        // Memberikan pesan error ketika terdapat validasi yang salah
+        if($validator->fails()){
+            // redirect dengan pesan error
+            Alert::error('Data tidak berhasil disimpan!', '');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         DetailKakel::create([
             'id_kakel' => $request->input('id_kakel'),
             'id_anggota' => $request->input('id_anggota'),
             'sts_keluarga' => $request->input('sts_keluarga')
         ]);
 
+        // redirect dengan pesan sukses
         Alert::success('Data berhasil disimpan!', '');
 
         if(session('halaman_url')){
@@ -87,7 +96,7 @@ class DetailKakelController extends Controller
         $det_kakel = DetailKakel::find($id);
 
         // Validasi Form
-        $this->validate($request,
+        $validator = Validator::make($request->all(),
         // Aturan
         [
             'sts_keluarga' => 'required',
@@ -98,10 +107,18 @@ class DetailKakelController extends Controller
             'sts_keluarga.required' => 'Status keluarga wajib diisi!',
         ]);
 
+        // Memberikan pesan error ketika terdapat validasi yang salah
+        if($validator->fails()){
+            // redirect dengan pesan error
+            Alert::error('Data tidak berhasil diubah!', '');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $det_kakel->sts_keluarga = $request->input('sts_keluarga');
 
         $det_kakel->update();
 
+        // redirect dengan pesan sukses
         Alert::success('Data berhasil diubah!', '');
 
         if(session('halaman_url')){

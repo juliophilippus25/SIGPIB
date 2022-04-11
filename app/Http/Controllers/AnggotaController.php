@@ -8,6 +8,7 @@ use File;
 use Carbon\Carbon;
 use Alert;
 use Session;
+use Validator;
 
 class AnggotaController extends Controller
 {
@@ -62,7 +63,7 @@ class AnggotaController extends Controller
     public function simpan_anggota(Request $request)
     {
         // Validasi Form
-        $this->validate($request,
+        $validator = Validator::make($request->all(),
         // Aturan
         [
             'nama' => 'required|min:3|unique:anggota,nama',
@@ -134,6 +135,13 @@ class AnggotaController extends Controller
             $gambar = $simpan_nama_file;
         }
 
+        // Memberikan pesan error ketika terdapat validasi yang salah
+        if($validator->fails()){
+            // redirect dengan pesan error
+            Alert::error('Data tidak berhasil disimpan!', '');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         Anggota::create([
             'kode_anggota' => $request->input('kode_anggota'),
             'nama' => $request->input('nama'),
@@ -152,8 +160,8 @@ class AnggotaController extends Controller
             'gambar' => $gambar
         ]);
 
+        //redirect dengan pesan sukses
         Alert::success('Data berhasil disimpan!', '');
-
         return redirect()->route('anggota.index');
     }
 
@@ -169,7 +177,7 @@ class AnggotaController extends Controller
         $anggota = Anggota::find($id);
 
         // Validasi Form
-        $this->validate($request,
+        $validator = Validator::make($request->all(),
         // Aturan
         [
             'nama' => 'required|min:3|unique:anggota,nama,'.$anggota->id,
@@ -225,6 +233,13 @@ class AnggotaController extends Controller
             'gambar.max' => 'Ukuran maksimal file gambar adalah 2mb'
         ]);
 
+        // Memberikan pesan error ketika terdapat validasi yang salah
+        if($validator->fails()){
+            // redirect dengan pesan error
+            Alert::error('Data tidak berhasil diubah!', '');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $anggota->nama = $request->input('nama');
         $anggota->jk = $request->input('jk');
         $anggota->tempat_lahir = $request->input('tempat_lahir');
@@ -254,8 +269,8 @@ class AnggotaController extends Controller
 
         $anggota->update();
 
+        //redirect dengan pesan sukses
         Alert::success('Data berhasil diubah!', '');
-
         return redirect()->route('anggota.index');
     }
 
@@ -278,8 +293,8 @@ class AnggotaController extends Controller
 
         $anggota->delete();
 
+        //redirect dengan pesan sukses
         Alert::success('Data berhasil dihapus!', '');
-
         return redirect()->back();
     }
 }

@@ -9,6 +9,7 @@ use App\Models\Anggota;
 use DB;
 use Session;
 Use Alert;
+use Validator;
 
 class DetailPelkatController extends Controller
 {
@@ -41,7 +42,7 @@ class DetailPelkatController extends Controller
     public function simpan_anggota(Request $request)
     {
         // Validasi Form
-        $this->validate($request,
+        $validator = Validator::make($request->all(),
         // Aturan
         [
             'id_anggota' => 'required',
@@ -54,14 +55,22 @@ class DetailPelkatController extends Controller
             'pengurus.required' => 'Jabatan pengurus wajib diisi!',
         ]);
 
+        // Memberikan pesan error ketika terdapat validasi yang salah
+        if($validator->fails()){
+            // redirect dengan pesan error
+            Alert::error('Data tidak berhasil disimpan!', '');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         DetailPelkat::create([
             'id_pelkat' => $request->input('id_pelkat'),
             'id_anggota' => $request->input('id_anggota'),
             'pengurus' => $request->input('pengurus')
         ]);
 
-        Alert::success('Data berhasil disimpan!', '');
 
+        // redirect dengan pesan sukses
+        Alert::success('Data berhasil disimpan!', '');
         if(session('halaman_url')){
             return Redirect(session('halaman_url'));
         }
@@ -86,7 +95,7 @@ class DetailPelkatController extends Controller
         $det_pelkat = DetailPelkat::find($id);
 
         // Validasi Form
-        $this->validate($request,
+        $validator = Validator::make($request->all(),
         // Aturan
         [
             'pengurus' => 'required',
@@ -97,12 +106,19 @@ class DetailPelkatController extends Controller
             'pengurus.required' => 'Jabatan pengurus wajib diisi!',
         ]);
 
+        // Memberikan pesan error ketika terdapat validasi yang salah
+        if($validator->fails()){
+            // redirect dengan pesan error
+            Alert::error('Data tidak berhasil diubah!', '');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $det_pelkat->pengurus = $request->input('pengurus');
 
         $det_pelkat->update();
 
+        // redirect dengan pesan sukses
         Alert::success('Data berhasil diubah!', '');
-
         if(session('halaman_url')){
             return Redirect(session('halaman_url'));
         }
