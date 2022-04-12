@@ -37,7 +37,7 @@
 
                         <div class="form-group">
                             @if ($pengguna->gambar)
-                            <img id="preview" class="product" width="300" height="300" src="{{ asset('images/pengguna/'.$pengguna->gambar) }}"/>
+                            <img id="preview" class="product" width="300" height="300" src="{{ asset('storage/images/pengguna/'.$pengguna->gambar) }}"/>
                             @elseif($pengguna->gambar == null)
                             <img id="preview" class="product" width="300" height="300" src="{{ asset('images/pengguna/default.png') }}"/>
                             @endif

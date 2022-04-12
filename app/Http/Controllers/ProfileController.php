@@ -84,11 +84,11 @@ class ProfileController extends Controller
 
         // Proses upload gambar
         if($request->file('gambar')) {
-            $nama_file_dikonversi = $request->name;
+            $nama_file_dikonversi = $request->username;
             $dt = Carbon::now();
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->gambar->getClientOriginalExtension();
-            $simpan_nama_file = $nama_file_dikonversi.'-'.$dt->format('d-M-Y').'.'.$extension;
+            $simpan_nama_file = $nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
             $gambar = $request->file('gambar')->storeAs('images/pengguna', $simpan_nama_file);
             $profile->gambar = $simpan_nama_file;
         }

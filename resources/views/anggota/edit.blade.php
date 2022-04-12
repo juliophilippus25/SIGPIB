@@ -174,7 +174,7 @@
                                 <label>Gambar</label>
                                 <small style="color:Tomato;"><em>Unggah gambar dengan format jpg/jpeg/png dan maksimal ukuran gambar 2mb</em></small>
                                 <div class="col-md-12">
-                                    <img id="preview" class="product" width="150" height="150" src="{{ asset('images/anggota/'.$anggota->gambar) }}"/>
+                                    <img id="preview" class="product" width="150" height="150" src="{{ asset('storage/images/anggota/'.$anggota->gambar) }}"/>
                                     <input type="file" name="gambar" class="file" accept="image/*" hidden>
                                     <div class="input-group my-3">
                                         <input type="text" class="form-control @error('gambar') is-invalid @enderror" disabled placeholder="Unggah Gambar" id="file">

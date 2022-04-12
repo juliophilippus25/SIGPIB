@@ -88,7 +88,7 @@
                                 <small style="color:Tomato;"><em>Unggah gambar dengan format jpg/jpeg/png dan maksimal ukuran gambar 2mb</em></small>
                                 <div class="col-md-12">
                                     @if (Auth::user()->gambar)
-                                    <img id="preview" class="product" width="150" height="150" src="{{ asset('images/pengguna/'.$profile->gambar) }}"/>
+                                    <img id="preview" class="product" width="150" height="150" src="{{ asset('storage/images/pengguna/'.$profile->gambar) }}"/>
                                     @elseif(Auth::user()->gambar == null)
                                     <img id="preview" class="product" width="150" height="150" src="{{ asset('images/pengguna/default.png') }}"/>
                                     @endif

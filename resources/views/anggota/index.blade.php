@@ -47,7 +47,7 @@
                       <td>{{ $data->kode_anggota }}</td>
                       <td>{{ $data->nama }}</td>
                       <td>
-                        <img src="{{ asset('images/anggota/'.$data->gambar) }}" style="width: 40px;" alt="">
+                        <img src="{{ asset('storage/images/anggota/'.$data->gambar) }}" style="width: 40px;" alt="">
                           @if ($data->gambar == null)
                             <small style="color: red;"><em>Belum ada gambar</em></small>
                           @endif

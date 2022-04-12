@@ -91,11 +91,11 @@ class PenggunaController extends Controller
         if($request->file('gambar') == '') {
             $gambar = NULL;
         } else {
-            $nama_file_dikonversi = $request->name;
+            $nama_file_dikonversi = $request->username;
             $dt = Carbon::now();
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->gambar->getClientOriginalExtension();
-            $simpan_nama_file = $nama_file_dikonversi.'-'.$dt->format('d-M-Y').'.'.$extension;
+            $simpan_nama_file = $nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
             $gambar = $request->file('gambar')->storeAs('images/pengguna', $simpan_nama_file);
             $gambar = $simpan_nama_file;
         }
@@ -176,14 +176,14 @@ class PenggunaController extends Controller
     {
         $pengguna = User::find($id);
 
-        $file_gambar = 'images/pengguna/'. $pengguna->gambar;
+        $file_gambar = 'storage/images/pengguna/'. $pengguna->gambar;
 
         if(File::exists($file_gambar))
         {
             File::delete($file_gambar);
         }
 
-        if(Auth::user()->id != $id AND $pengguna->role == 'Super Admin') {
+        if(Auth::user()->id != $id AND $pengguna->role == 'Admin') {
             $pengguna->delete();
             // redirect dengan pesan sukses
             Alert::success('Data berhasil dihapus!', '');

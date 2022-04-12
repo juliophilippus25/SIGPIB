@@ -61,7 +61,7 @@
 
                             <div class="media">
                                 @if (Auth::user()->gambar)
-                                <img src="{{ asset('images/pengguna/'.Auth::user()->gambar) }}" class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
+                                <img src="{{ asset('storage/images/pengguna/'.Auth::user()->gambar) }}" class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
                                 @elseif(Auth::user()->gambar == null)
                                 <img src="{{ asset('images/pengguna/default.png') }}" class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
                                 @endif
@@ -101,7 +101,7 @@
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         @if (Auth::user()->gambar)
-                        <img src="{{ asset('images/pengguna/'.Auth::user()->gambar) }}" class="img-circle elevation-2" alt="Gambar Pengguna">
+                        <img src="{{ asset('storage/images/pengguna/'.Auth::user()->gambar) }}" class="img-circle elevation-2" alt="Gambar Pengguna">
                         @elseif(Auth::user()->gambar == null)
                         <img src="{{ asset('images/pengguna/default.png') }}" class="img-circle elevation-2" alt="Gambar Pengguna">
                         @endif

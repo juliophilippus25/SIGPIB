@@ -122,24 +122,24 @@ class AnggotaController extends Controller
             'gambar.max' => 'Ukuran maksimal file gambar adalah 2mb'
         ]);
 
-        // Proses upload gambar
-        if($request->file('gambar') == '') {
-            $gambar = NULL;
-        } else {
-            $nama_file_dikonversi = $request->nama;
-            $dt = Carbon::now();
-            // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
-            $extension = $request->gambar->getClientOriginalExtension();
-            $simpan_nama_file = $nama_file_dikonversi.'-'.$dt->format('d-M-Y').'.'.$extension;
-            $gambar = $request->file('gambar')->storeAs('images/anggota', $simpan_nama_file);
-            $gambar = $simpan_nama_file;
-        }
-
         // Memberikan pesan error ketika terdapat validasi yang salah
         if($validator->fails()){
             // redirect dengan pesan error
             Alert::error('Data tidak berhasil disimpan!', '');
             return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Proses upload gambar
+        if($request->file('gambar') == '') {
+            $gambar = NULL;
+        } else {
+            $nama_file_dikonversi = $request->kode_anggota;
+            $dt = Carbon::now();
+            // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
+            $extension = $request->gambar->getClientOriginalExtension();
+            $simpan_nama_file = $nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $gambar = $request->file('gambar')->storeAs('images/anggota', $simpan_nama_file);
+            $gambar = $simpan_nama_file;
         }
 
         Anggota::create([
@@ -240,6 +240,19 @@ class AnggotaController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        // Proses upload gambar
+        if($request->file('gambar') == '') {
+            $gambar = NULL;
+        } else {
+            $nama_file_dikonversi = $request->kode_anggota;
+            $dt = Carbon::now();
+            // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
+            $extension = $request->gambar->getClientOriginalExtension();
+            $simpan_nama_file = $nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $gambar = $request->file('gambar')->storeAs('images/anggota', $simpan_nama_file);
+            $gambar = $simpan_nama_file;
+        }
+
         $anggota->nama = $request->input('nama');
         $anggota->jk = $request->input('jk');
         $anggota->tempat_lahir = $request->input('tempat_lahir');
@@ -253,19 +266,6 @@ class AnggotaController extends Controller
         $anggota->provinsi = $request->input('provinsi');
         $anggota->kecamatan = $request->input('kecamatan');
         $anggota->goldar = $request->input('goldar');
-
-        // Proses upload gambar
-        if($request->file('gambar') == '') {
-            $gambar = NULL;
-        } else {
-            $nama_file_dikonversi = $request->nama;
-            $dt = Carbon::now();
-            // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
-            $extension = $request->gambar->getClientOriginalExtension();
-            $simpan_nama_file = $nama_file_dikonversi.'-'.$dt->format('d-M-Y').'.'.$extension;
-            $gambar = $request->file('gambar')->storeAs('images/anggota', $simpan_nama_file);
-            $anggota->gambar = $simpan_nama_file;
-        }
 
         $anggota->update();
 
@@ -284,7 +284,7 @@ class AnggotaController extends Controller
     public function hapus_anggota($id)
     {
         $anggota = Anggota::find($id);
-        $file_gambar = 'images/anggota/'. $anggota->gambar;
+        $file_gambar = 'storage/images/anggota/'. $anggota->gambar;
 
         if(File::exists($file_gambar))
         {

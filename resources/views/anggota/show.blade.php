@@ -36,7 +36,7 @@
                     <div class="col-md-4">
 
                         <div class="form-group">
-                            <img id="preview" class="product" width="300" height="300" src="{{ asset('images/anggota/'.$anggota->gambar) }}"/>
+                            <img id="preview" class="product" width="300" height="300" src="{{ asset('storage/images/anggota/'.$anggota->gambar) }}"/>
                         </div>
 
                         <div class="form-group">
