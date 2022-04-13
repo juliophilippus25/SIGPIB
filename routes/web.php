@@ -41,6 +41,8 @@ Route::group(['prefix' => '/pelkat'], function() {
     Route::get('/index', 'App\Http\Controllers\PelkatController@tampil_pelkat')->name('pelkat.index');
     Route::get('/create', 'App\Http\Controllers\PelkatController@tambah_pelkat')->name('pelkat.create');
     Route::post('/save', 'App\Http\Controllers\PelkatController@simpan_pelkat')->name('pelkat.simpan');
+    Route::get('/edit/{id}', 'App\Http\Controllers\PelkatController@tampil_ubah_pelkat')->name('pelkat.tampil_ubah');
+    Route::put('/update/{id}', 'App\Http\Controllers\PelkatController@perbarui_pelkat')->name('pelkat.simpan_perbarui');
     Route::post('/delete/{id}', 'App\Http\Controllers\PelkatController@hapus_pelkat')->name('pelkat.hapus');
 
     // Detail Pelayanan Kategorial

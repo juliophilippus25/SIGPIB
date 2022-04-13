@@ -12,7 +12,7 @@
     <ol class="breadcrumb float-sm-right">
       <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
       <li class="breadcrumb-item"><a href="{{route('kakel.index')}}">Data Kartu Keluarga</a></li>
-      <li class="breadcrumb-item active">Tambah Data Kartu Keluarga</li>
+      <li class="breadcrumb-item active">Ubah Data Kartu Keluarga</li>
     </ol>
   </div><!-- /.col -->
 
@@ -25,7 +25,7 @@
 
             <div class="card card-dark">
               <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title"><strong>Form Ubah Data Kartu Keluarga</strong></h3>
+                <h3 class="card-title"><strong>Form Ubah Data Kartu Keluarga {{$kakel->anggota->nama}}</strong></h3>
               </div>
               <!-- /.card-header -->
 
