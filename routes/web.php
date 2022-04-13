@@ -60,6 +60,8 @@ Route::group(['prefix' => '/sekwil'], function() {
     Route::get('/index', 'App\Http\Controllers\SekwilController@tampil_sekwil')->name('sekwil.index');
     Route::get('/create', 'App\Http\Controllers\SekwilController@tambah_sekwil')->name('sekwil.create');
     Route::post('/save', 'App\Http\Controllers\SekwilController@simpan_sekwil')->name('sekwil.simpan');
+    Route::get('/edit/{id}', 'App\Http\Controllers\SekwilController@tampil_ubah_sekwil')->name('sekwil.tampil_ubah');
+    Route::put('/update/{id}', 'App\Http\Controllers\SekwilController@perbarui_sekwil')->name('sekwil.simpan_perbarui');
     Route::post('/delete/{id}', 'App\Http\Controllers\SekwilController@hapus_sekwil')->name('sekwil.hapus');
 });
 

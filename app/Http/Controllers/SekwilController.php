@@ -74,6 +74,53 @@ class SekwilController extends Controller
         return redirect()->route('sekwil.index');
     }
 
+    public function tampil_ubah_sekwil($id)
+    {
+        $sekwil = Sekwil::find($id);
+
+        return view('sekwil.edit', compact('sekwil'));
+    }
+
+    public function perbarui_sekwil(Request $request, $id)
+    {
+        $sekwil = Sekwil::find($id);
+
+        // Validasi Form
+        $validator = Validator::make($request->all(),
+        // Aturan
+        [
+            'nama_sekwil' => 'required|min:3|unique:sekwil,nama_sekwil,'.$sekwil->id,
+        ],
+        // Pesan
+        [
+            // Required
+            'nama_sekwil.required' => 'Nama sektor wilayah wajib diisi!',
+
+            // Min
+            'nama_sekwil.min' => 'Nama sektor wilayah diisi minimal 3 karakter!',
+
+            // Unique
+            'nama_sekwil.unique' => 'Nama sektor wilayah sudah terdaftar!'
+
+        ]);
+
+        // Memberikan pesan error ketika terdapat validasi yang salah
+        if($validator->fails()){
+            // redirect dengan pesan error
+            Alert::error('Data tidak berhasil diubah!', '');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $sekwil->nama_sekwil = $request->input('nama_sekwil');
+
+        $sekwil->update();
+
+        // redirect dengan pesan error
+        Alert::success('Data berhasil diubah!', '');
+
+        return redirect()->route('sekwil.index');
+    }
+
     public function hapus_sekwil($id)
     {
         Sekwil::find($id)->delete();
