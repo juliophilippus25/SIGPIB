@@ -13,17 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Welcome
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Login
 Route::get('/login', function () {
     return view('login');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Home atau dashboard
+Route::group(['prefix' => '/home'], function() {
+    Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
 
 // Anggota
 Route::group(['prefix' => '/anggota'], function() {
@@ -85,9 +90,12 @@ Route::group(['prefix' => '/kakel'], function() {
 });
 
 // Pusat Unduh
-Route::group(['prefix' => '/laporan'], function() {
-    Route::get('/index', 'App\Http\Controllers\LaporanController@tampil_laporan')->name('laporan.index');
+Route::group(['prefix' => '/unduh'], function() {
+    Route::get('/index', 'App\Http\Controllers\UnduhanController@tampil_unduh')->name('unduh.index');
 });
+
+// Laporan
+
 
 // Pengguna
 Route::group(['prefix' => '/pengguna'], function() {
@@ -102,6 +110,6 @@ Route::group(['prefix' => '/pengguna'], function() {
 
 // Profile
 Route::group(['prefix' => '/profile'], function() {
-    Route::get('/', 'App\Http\Controllers\ProfileController@tampil_profile')->name('profile.tampil_profile');
+    Route::get('', 'App\Http\Controllers\ProfileController@tampil_profile')->name('profile.tampil_profile');
     Route::put('/update', 'App\Http\Controllers\ProfileController@perbarui_profile')->name('profile.simpan_perbarui');
 });

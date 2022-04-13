@@ -24,12 +24,5 @@ class LaporanController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function tampil_laporan()
-    {
-        $anggota = Anggota::get();
-        $pelkat = Pelkat::get();
-        $sekwil = Sekwil::get();
 
-        return view('laporan.index', compact('anggota', 'pelkat', 'sekwil'));
-    }
 }

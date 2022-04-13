@@ -63,8 +63,8 @@
             </div>
 
 
-          <li class="nav-item {{ setActive(['laporan*']) }}">
-            <a class="nav-link {{ setActive(['laporan*']) }}" href="{{route('laporan.index')}}">
+          <li class="nav-item {{ setActive(['unduh*']) }}">
+            <a class="nav-link {{ setActive(['unduh*']) }}" href="{{route('unduh.index')}}">
               <i class="nav-icon fas fa-cloud-download-alt"></i>
                 <p>
                   Pusat Unduhan

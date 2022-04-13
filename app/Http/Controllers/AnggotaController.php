@@ -240,18 +240,16 @@ class AnggotaController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        // Proses upload gambar
-        if($request->file('gambar') == '') {
-            $gambar = NULL;
-        } else {
-            $nama_file_dikonversi = $request->kode_anggota;
-            $dt = Carbon::now();
-            // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
-            $extension = $request->gambar->getClientOriginalExtension();
-            $simpan_nama_file = $nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
-            $gambar = $request->file('gambar')->storeAs('images/anggota', $simpan_nama_file);
-            $gambar = $simpan_nama_file;
-        }
+       // Proses upload gambar
+       if($request->file('gambar')) {
+        $nama_file_dikonversi = $request->kode_anggota;
+        $dt = Carbon::now();
+        // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
+        $extension = $request->gambar->getClientOriginalExtension();
+        $simpan_nama_file = $nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+        $gambar = $request->file('gambar')->storeAs('images/anggota', $simpan_nama_file);
+        $anggota->gambar = $simpan_nama_file;
+    }
 
         $anggota->nama = $request->input('nama');
         $anggota->jk = $request->input('jk');
@@ -278,7 +276,7 @@ class AnggotaController extends Controller
     {
         $anggota = Anggota::find($id);
 
-        return view('anggota.show', compact('anggota'));
+        return view('anggota.show', compact('anggota', 'umur'));
     }
 
     public function hapus_anggota($id)
