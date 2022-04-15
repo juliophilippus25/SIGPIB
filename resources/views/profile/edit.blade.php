@@ -92,11 +92,10 @@
                                     @elseif(Auth::user()->gambar == null)
                                     <img id="preview" class="product" width="150" height="150" src="{{ asset('images/pengguna/default.png') }}"/>
                                     @endif
-                                    <input type="file" name="gambar" class="file" accept="image/*" hidden>
                                     <div class="input-group my-3">
-                                        <input type="text" class="form-control @error('gambar') is-invalid @enderror" disabled placeholder="Unggah Gambar" id="file">
-                                        <div class="input-group-append">
-                                            <button type="button" class="browse btn btn-dark">Pilih</button>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input @error('gambar') is-invalid @enderror" id="imgInp" name="gambar" accept="image/*">
+                                            <label class="custom-file-label" for="customFile">Pilih file</label>
                                         </div>
                                     </div>
                                 </div>

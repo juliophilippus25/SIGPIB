@@ -53,7 +53,7 @@
             <ul class="navbar-nav ml-auto">
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">
                         <i class="far fa-user"> &nbsp; {{Auth::user()->name}}</i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -183,7 +183,6 @@
 
     <!-- AdminLTE for demo purposes -->
     <script src="/adminLTE/dist/js/demo.js"></script>
-    <script src="/adminLTE/dist/js/adminlte.min.js?v=3.2.0"></script>
 
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/adminLTE/dist/js/pages/dashboard3.js"></script>

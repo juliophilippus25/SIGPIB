@@ -95,7 +95,7 @@ class PenggunaController extends Controller
             $dt = Carbon::now();
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->gambar->getClientOriginalExtension();
-            $simpan_nama_file = $nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $simpan_nama_file = 'FOTO_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
             $gambar = $request->file('gambar')->storeAs('images/pengguna', $simpan_nama_file);
             $gambar = $simpan_nama_file;
         }
