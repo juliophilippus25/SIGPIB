@@ -171,16 +171,39 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Surat Baptis </label>
+                                <small style="color:Tomato;"><em>Unggah surat baptis maksimal ukuran file 2mb</em></small>
+                                <div class="col-md-12">
+                                    <input type="file" class="form-control @error('srt_baptis') is-invalid @enderror" placeholder="Unggah Surat Baptis" id="srt_baptis" name="srt_baptis">
+                                </div>
+                                @error('srt_baptis')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label>Surat Sidi </label>
+                                <small style="color:Tomato;"><em>Unggah surat sidi maksimal ukuran file 2mb</em></small>
+                                <div class="col-md-12">
+                                    <input type="file" class="form-control @error('srt_sidi') is-invalid @enderror" placeholder="Unggah Surat sidi" id="srt_sidi" name="srt_sidi" >
+                                </div>
+                                @error('srt_sidi')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
                                 <label>Gambar</label>
                                 <small style="color:Tomato;"><em>Unggah gambar dengan format jpg/jpeg/png dan maksimal ukuran gambar 2mb</em></small>
                                 <div class="col-md-12">
                                     <img id="preview" class="product" width="150" height="150" src="{{ asset('storage/images/anggota/'.$anggota->gambar) }}"/>
-                                    <input type="file" name="gambar" class="file" accept="image/*" hidden>
+                                    {{-- <input type="file" name="gambar" class="file" accept="image/*" hidden> --}}
                                     <div class="input-group my-3">
-                                        <input type="text" class="form-control @error('gambar') is-invalid @enderror" disabled placeholder="Unggah Gambar" id="file">
+                                        <input type="file" name="gambar" id="imgInp" class="form-control @error('gambar') is-invalid @enderror" accept="image/*">
+                                        {{-- <input type="text" class="form-control @error('gambar') is-invalid @enderror" disabled placeholder="Unggah Gambar" id="file">
                                         <div class="input-group-append">
                                             <button type="button" class="browse btn btn-dark">Pilih</button>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                                 @error('gambar')

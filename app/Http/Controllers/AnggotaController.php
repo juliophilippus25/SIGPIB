@@ -80,6 +80,8 @@ class AnggotaController extends Controller
             'kecamatan' => 'required|min:3',
             'goldar' => 'required',
             'gambar' => 'mimes:jpg,jpeg,png|max:2048',
+            'srt_baptis' => 'max:2048',
+            'srt_sidi' => 'max:2048',
         ],
         // Pesan
         [
@@ -119,7 +121,9 @@ class AnggotaController extends Controller
             'gambar.mimes' => 'Tipe file yang dapat di unggah adalah jpg/jpeg/png',
 
             // Ukuran file
-            'gambar.max' => 'Ukuran maksimal file gambar adalah 2mb'
+            'gambar.max' => 'Ukuran maksimal file gambar adalah 2mb',
+            'srt_baptis.max' => 'Ukuran maksimal file surat baptis adalah 2mb',
+            'srt_sidi.max' => 'Ukuran maksimal file surat sidi adalah 2mb'
         ]);
 
         // Memberikan pesan error ketika terdapat validasi yang salah
@@ -137,9 +141,35 @@ class AnggotaController extends Controller
             $dt = Carbon::now();
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->gambar->getClientOriginalExtension();
-            $simpan_nama_file = $nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $simpan_nama_file = 'FOTO_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
             $gambar = $request->file('gambar')->storeAs('images/anggota', $simpan_nama_file);
             $gambar = $simpan_nama_file;
+        }
+
+        // Proses upload surat baptis
+        if($request->file('srt_baptis') == '') {
+            $srt_baptis = NULL;
+        } else {
+            $nama_file_dikonversi = $request->kode_anggota;
+            $dt = Carbon::now();
+            // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
+            $extension = $request->srt_baptis->getClientOriginalExtension();
+            $simpan_nama_file = 'BAPTIS_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $srt_baptis = $request->file('srt_baptis')->storeAs('dokumen/baptis', $simpan_nama_file);
+            $srt_baptis = $simpan_nama_file;
+        }
+
+        // Proses upload surat sidi
+        if($request->file('srt_sidi') == '') {
+            $srt_sidi = NULL;
+        } else {
+            $nama_file_dikonversi = $request->kode_anggota;
+            $dt = Carbon::now();
+            // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
+            $extension = $request->srt_sidi->getClientOriginalExtension();
+            $simpan_nama_file = 'SIDI_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $srt_sidi = $request->file('srt_sidi')->storeAs('dokumen/sidi', $simpan_nama_file);
+            $srt_sidi = $simpan_nama_file;
         }
 
         Anggota::create([
@@ -157,7 +187,9 @@ class AnggotaController extends Controller
             'provinsi' => $request->input('provinsi'),
             'kecamatan' => $request->input('kecamatan'),
             'goldar' => $request->input('goldar'),
-            'gambar' => $gambar
+            'gambar' => $gambar,
+            'srt_baptis' => $srt_baptis,
+            'srt_sidi' => $srt_sidi
         ]);
 
         //redirect dengan pesan sukses
@@ -168,6 +200,20 @@ class AnggotaController extends Controller
     public function tampil_ubah_anggota($id)
     {
         $anggota = Anggota::find($id);
+
+        if ($anggota->srt_baptis == null AND $anggota->sidi == null AND $anggota->gambar == null ) {
+            Alert::warning('Surat baptis, surat sidi dan foto belum diupload!', '');
+        } elseif($anggota->srt_baptis == null AND $anggota->gambar == null){
+            Alert::warning('Surat baptis dan foto belum diupload!', '');
+        } elseif($anggota->srt_sidi == null AND $anggota->gambar == null){
+            Alert::warning('Surat sidi dan foto belum diupload!', '');
+        } elseif($anggota->srt_baptis == null){
+            Alert::warning('Surat baptis belum diupload!', '');
+        } elseif($anggota->srt_sidi == null){
+            Alert::warning('Surat sidi belum diupload!', '');
+        } elseif($anggota->gambar == null){
+            Alert::warning('Foto belum diupload!', '');
+        }
 
         return view('anggota.edit', compact('anggota'));
     }
@@ -194,6 +240,9 @@ class AnggotaController extends Controller
             'kecamatan' => 'required|min:3',
             'goldar' => 'required',
             'gambar' => 'mimes:jpg,jpeg,png|max:2048',
+            'gambar' => 'mimes:jpg,jpeg,png|max:2048',
+            'srt_baptis' => 'max:2048',
+            'srt_sidi' => 'max:2048',
         ],
         // Pesan
         [
@@ -230,7 +279,9 @@ class AnggotaController extends Controller
             'gambar.mimes' => 'Tipe file yang dapat di unggah adalah jpg/jpeg/png',
 
             // Ukuran file
-            'gambar.max' => 'Ukuran maksimal file gambar adalah 2mb'
+            'gambar.max' => 'Ukuran maksimal file gambar adalah 2mb',
+            'srt_baptis.max' => 'Ukuran maksimal file surat baptis adalah 2mb',
+            'srt_sidi.max' => 'Ukuran maksimal file surat sidi adalah 2mb'
         ]);
 
         // Memberikan pesan error ketika terdapat validasi yang salah
@@ -240,16 +291,38 @@ class AnggotaController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-       // Proses upload gambar
-       if($request->file('gambar')) {
-        $nama_file_dikonversi = $request->kode_anggota;
-        $dt = Carbon::now();
-        // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
-        $extension = $request->gambar->getClientOriginalExtension();
-        $simpan_nama_file = $nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
-        $gambar = $request->file('gambar')->storeAs('images/anggota', $simpan_nama_file);
-        $anggota->gambar = $simpan_nama_file;
-    }
+        // Proses upload gambar
+        if($request->file('gambar')) {
+            $nama_file_dikonversi = $request->kode_anggota;
+            $dt = Carbon::now();
+            // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
+            $extension = $request->gambar->getClientOriginalExtension();
+            $simpan_nama_file = 'FOTO_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $gambar = $request->file('gambar')->storeAs('images/anggota', $simpan_nama_file);
+            $anggota->gambar = $simpan_nama_file;
+        }
+
+         // Proses upload surat baptis
+        if($request->file('srt_baptis')) {
+            $nama_file_dikonversi = $request->kode_anggota;
+            $dt = Carbon::now();
+            // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
+            $extension = $request->srt_baptis->getClientOriginalExtension();
+            $simpan_nama_file = 'BAPTIS_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $srt_baptis = $request->file('srt_baptis')->storeAs('dokumen/baptis', $simpan_nama_file);
+            $anggota->srt_baptis = $simpan_nama_file;
+        }
+
+        // Proses upload surat sidi
+        if($request->file('srt_sidi')) {
+            $nama_file_dikonversi = $request->kode_anggota;
+            $dt = Carbon::now();
+            // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
+            $extension = $request->srt_sidi->getClientOriginalExtension();
+            $simpan_nama_file = 'SIDI_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $srt_sidi = $request->file('srt_sidi')->storeAs('dokumen/sidi', $simpan_nama_file);
+            $anggota->srt_sidi = $simpan_nama_file;
+        }
 
         $anggota->nama = $request->input('nama');
         $anggota->jk = $request->input('jk');
@@ -276,17 +349,19 @@ class AnggotaController extends Controller
     {
         $anggota = Anggota::find($id);
 
-        return view('anggota.show', compact('anggota', 'umur'));
+        return view('anggota.show', compact('anggota'));
     }
 
     public function hapus_anggota($id)
     {
         $anggota = Anggota::find($id);
         $file_gambar = 'storage/images/anggota/'. $anggota->gambar;
+        $srt_baptis = 'storage/dokumen/baptis/'. $anggota->srt_baptis;
+        $srt_sidi = 'storage/dokumen/sidi/'. $anggota->srt_sidi;
 
-        if(File::exists($file_gambar))
+        if(File::exists($file_gambar, $srt_baptis, $srt_sidi))
         {
-            File::delete($file_gambar);
+            File::delete($file_gambar, $srt_baptis, $srt_sidi);
         }
 
         $anggota->delete();

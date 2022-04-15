@@ -16,13 +16,13 @@ class CreateAnggotaTable extends Migration
         Schema::create('anggota', function (Blueprint $table) {
             $table->increments('id');
             $table->string('kode_anggota')->nullable();
-            $table->string('nama')->nullable(); 
+            $table->string('nama')->nullable();
             $table->enum('jk', ['Pria', 'Wanita'])->nullable();
             $table->string('tempat_lahir')->nullable();
             $table->date('tgl_lahir')->nullable();
             $table->string('no_hp')->nullable();
             $table->string('pekerjaan')->nullable();
-            $table->enum('sts_keluarga', ['Ya', 'Tidak'])->nullable();  
+            $table->enum('sts_keluarga', ['Ya', 'Tidak'])->nullable();
             $table->string('kabupaten')->nullable();
             $table->string('kelurahan')->nullable();
             $table->string('alamat')->nullable();
@@ -30,6 +30,8 @@ class CreateAnggotaTable extends Migration
             $table->string('kecamatan')->nullable();
             $table->enum('goldar', ['A', 'B', 'AB', 'O'])->nullable();
             $table->string('gambar')->nullable();
+            $table->string('srt_baptis')->nullable();
+            $table->string('srt_sidi')->nullable();
             $table->timestamps();
         });
     }
