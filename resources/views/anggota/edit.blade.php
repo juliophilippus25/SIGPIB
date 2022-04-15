@@ -63,22 +63,26 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
-                                <label for="tempat_lahir">Tempat Lahir <b style="color:Tomato;">*</b></label>
-                                <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir" id="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="{{ old('tempat_lahir', $anggota->tempat_lahir) }}">
-                                @error('tempat_lahir')
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
-                            </div>
+                            <div class="row">
 
-                            <div class="form-group">
-                                <label>Tanggal Lahir <b style="color:Tomato;">*</b></label>
-                                <div>
-                                    <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control @error('tgl_lahir') is-invalid @enderror" value="{{ old('tgl_lahir', $anggota->tgl_lahir) }}">
+                                <div class="form-group col-6">
+                                    <label for="tempat_lahir">Tempat Lahir <b style="color:Tomato;">*</b></label>
+                                    <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir" id="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="{{ old('tempat_lahir', $anggota->tempat_lahir) }}">
+                                    @error('tempat_lahir')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
                                 </div>
-                                @error('tgl_lahir')
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
+
+                                <div class="form-group col-6">
+                                    <label>Tanggal Lahir <b style="color:Tomato;">*</b></label>
+                                    <div>
+                                        <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control @error('tgl_lahir') is-invalid @enderror" value="{{ old('tgl_lahir', $anggota->tgl_lahir) }}">
+                                    </div>
+                                    @error('tgl_lahir')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+
                             </div>
 
                             <div class="form-group">
@@ -105,6 +109,31 @@
                                 <input type="radio" name="sts_keluarga" value="Tidak" @php if(($anggota->sts_keluarga)=='Tidak') echo 'checked' @endphp> Tidak
                                 <br>
                                 @error('sts_keluarga')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label>Surat Baptis </label>
+                                <small style="color:Tomato;"><em>Unggah surat baptis maksimal ukuran file 2mb</em></small>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input @error('srt_baptis') is-invalid @enderror" id="customFile" name="srt_baptis">
+                                    <label class="custom-file-label" for="customFile">Pilih file</label>
+                                </div>
+                                @error('srt_baptis')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Surat Sidi </label>
+                                <small style="color:Tomato;"><em>Unggah surat sidi maksimal ukuran file 2mb</em></small>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input @error('srt_sidi') is-invalid @enderror" id="customFile" name="srt_sidi">
+                                    <label class="custom-file-label" for="customFile">Pilih file</label>
+                                </div>
+                                @error('srt_sidi')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
@@ -171,39 +200,15 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Surat Baptis </label>
-                                <small style="color:Tomato;"><em>Unggah surat baptis maksimal ukuran file 2mb</em></small>
-                                <div class="col-md-12">
-                                    <input type="file" class="form-control @error('srt_baptis') is-invalid @enderror" placeholder="Unggah Surat Baptis" id="srt_baptis" name="srt_baptis">
-                                </div>
-                                @error('srt_baptis')
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label>Surat Sidi </label>
-                                <small style="color:Tomato;"><em>Unggah surat sidi maksimal ukuran file 2mb</em></small>
-                                <div class="col-md-12">
-                                    <input type="file" class="form-control @error('srt_sidi') is-invalid @enderror" placeholder="Unggah Surat sidi" id="srt_sidi" name="srt_sidi" >
-                                </div>
-                                @error('srt_sidi')
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
                                 <label>Gambar</label>
                                 <small style="color:Tomato;"><em>Unggah gambar dengan format jpg/jpeg/png dan maksimal ukuran gambar 2mb</em></small>
                                 <div class="col-md-12">
                                     <img id="preview" class="product" width="150" height="150" src="{{ asset('storage/images/anggota/'.$anggota->gambar) }}"/>
-                                    {{-- <input type="file" name="gambar" class="file" accept="image/*" hidden> --}}
                                     <div class="input-group my-3">
-                                        <input type="file" name="gambar" id="imgInp" class="form-control @error('gambar') is-invalid @enderror" accept="image/*">
-                                        {{-- <input type="text" class="form-control @error('gambar') is-invalid @enderror" disabled placeholder="Unggah Gambar" id="file">
-                                        <div class="input-group-append">
-                                            <button type="button" class="browse btn btn-dark">Pilih</button>
-                                        </div> --}}
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input @error('gambar') is-invalid @enderror" id="imgInp" name="gambar" accept="image/*">
+                                            <label class="custom-file-label" for="customFile">Pilih file</label>
+                                        </div>
                                     </div>
                                 </div>
                                 @error('gambar')

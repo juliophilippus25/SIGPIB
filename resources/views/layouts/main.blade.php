@@ -183,6 +183,7 @@
 
     <!-- AdminLTE for demo purposes -->
     <script src="/adminLTE/dist/js/demo.js"></script>
+    <script src="/adminLTE/dist/js/adminlte.min.js?v=3.2.0"></script>
 
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/adminLTE/dist/js/pages/dashboard3.js"></script>
@@ -210,6 +211,9 @@
     <!-- SweetAlert2 -->
     <script src="/adminLTE/plugins/sweetalert2/sweetalert2.min.js"></script>
     @include('sweetalert::alert')
+
+    {{-- Custom file --}}
+    <script src="/adminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
     <!-- Toastr -->
     <script src="/adminLTE/plugins/toastr/toastr.min.js"></script>
@@ -250,6 +254,11 @@
             })
         });
 
+        // Custom file
+        $(function () {
+            bsCustomFileInput.init();
+        });
+
         // Input hanya angka
         function isNumberKey(evt)
         {
@@ -261,31 +270,13 @@
         }
 
         // Upload image with preview
-        // $(document).on("click", ".browse", function() {
-        //     var file = $(this).parents().find(".file");
-        //     file.trigger("click");
-        // });
-        // imgInp.change(function(e) {
-        //     var fileName = e.target.files[0].name;
-        //     $("#file").val(fileName);
-        //     var reader = new FileReader();
-        //     reader.onload = function(e) {
-        //         // get loaded data and render thumbnail.
-        //         document.getElementById("preview").src = e.target.result;
-        //     };
-        //     // read the image file as a data URL.
-        //     reader.readAsDataURL(this.files[0]);
-
-        // });
-
         imgInp.onchange = evt => {
             const [file] = imgInp.files
             if (file) {
-                preview.style.visibility = 'visible';
-
                 preview.src = URL.createObjectURL(file)
             }
         }
+
 
     </script>
 
