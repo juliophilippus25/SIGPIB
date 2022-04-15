@@ -201,7 +201,7 @@ class AnggotaController extends Controller
     {
         $anggota = Anggota::find($id);
 
-        if ($anggota->srt_baptis == null AND $anggota->sidi == null AND $anggota->gambar == null ) {
+        if ($anggota->srt_baptis == null AND $anggota->srt_sidi == null AND $anggota->gambar == null ) {
             Alert::warning('Surat baptis, surat sidi dan foto belum diupload!', '');
         } elseif($anggota->srt_baptis == null AND $anggota->gambar == null){
             Alert::warning('Surat baptis dan foto belum diupload!', '');

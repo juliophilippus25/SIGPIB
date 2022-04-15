@@ -27,15 +27,21 @@ class DetailPelkatController extends Controller
         return view('detailpelkat.index', compact('pelkat','det_pelkat'));
     }
 
-    public function tambah_anggota_pelkat($id)
+    public function tambah_anggota_pelkat(Request $request, $id)
     {
         $pelkat = Pelkat::find($id);
+        $q = Anggota::query();
+
+        // Menghitung umur anggota
+        // $skrg = Carbon::now(); // Tanggal sekarang
+        // $tgl_lahir = Carbon::parse($q->tgl_lahir); // Tanggal Lahir
+        // $umur = $tgl_lahir->diffInYears($skrg);  // Menghitung umur
 
         $anggota = Anggota::WhereNotExists(function($query) {
             $query->select(DB::raw(1))
             ->from('detail_pelkat')
             ->whereRaw('detail_pelkat.id_anggota = anggota.id');
-         })->get();
+        })->get();
 
         return view('detailpelkat.create', compact('pelkat','anggota'));
     }

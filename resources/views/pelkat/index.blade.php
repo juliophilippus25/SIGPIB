@@ -27,8 +27,8 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <a href="{{route('pelkat.create')}}" class="btn btn-secondary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah PelKat</a>
-                <br><br>
+                {{-- <a href="{{route('pelkat.create')}}" class="btn btn-secondary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah PelKat</a>
+                <br><br> --}}
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -60,7 +60,7 @@
                             </td>
                             <td>
                                 <a href="{{ route('detailpelkat.index', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
-                                <a href="{{ route('pelkat.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-cog"></i></a>
+                                {{-- <a href="{{ route('pelkat.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-cog"></i></a> --}}
                                 <a href="" class="btn btn-success  btn-sm" title="Unduh" ><i class="fa fa-download"></i></a>
                                 <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button>
 
