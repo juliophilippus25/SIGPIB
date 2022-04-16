@@ -17,7 +17,7 @@
 
     <a class="nav-link
     {{ (request()->is('anggota*')) ||  (request()->is('pelkat*')) || (request()->is('sekwil*')) || (request()->is('kakel*'))
-    || (request()->is('kakel*')) || (request()->is('pengguna*')) ? 'active' : '' }}">
+    || (request()->is('kakel*')) || (request()->is('pengguna*')) ? 'active' : '' }}" href="#">
         <i class="nav-icon fas fa-book"></i>
         <p>
             Data Master

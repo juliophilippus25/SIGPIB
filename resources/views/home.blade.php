@@ -27,7 +27,7 @@
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>{{ $anggota->count() }}</h3>
-                <p>Anggota</p>
+                <p>Anggota Jemaat</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person"></i>
@@ -45,7 +45,7 @@
                 <p>Pelayanan Kategorial</p>
               </div>
               <div class="icon">
-                <i class="ion ion-settings"></i>
+                <i class="fas fa-people-group"></i>
               </div>
               <a href="{{ route('pelkat.index') }}" class="small-box-footer">Info lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -75,7 +75,7 @@
                 <p>Kartu Keluarga</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person"></i>
+                <i class="fas fa-people-roof"></i>
               </div>
               <a href="{{ route('kakel.index') }}" class="small-box-footer">Info lebih lanjut <i class="fas fa-arrow-circle-right"></i></a>
             </div>

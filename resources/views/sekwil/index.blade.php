@@ -26,8 +26,8 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <a href="{{route('sekwil.create')}}" class="btn btn-secondary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah SekWil</a>
-              <br><br>
+              {{-- <a href="{{route('sekwil.create')}}" class="btn btn-secondary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah SekWil</a>
+              <br><br> --}}
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -42,7 +42,7 @@
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $data->nama_sekwil }}</td>
                       <td>
-                        <a href="{{ route('sekwil.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-cog"></i></a>
+                        {{-- <a href="{{ route('sekwil.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a> --}}
                         <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button>
 
                   <!-- Modal -->
