@@ -27,7 +27,8 @@
     <link rel="stylesheet" href="/adminLTE/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <!-- Toastr -->
     <link rel="stylesheet" href="/adminLTE/plugins/toastr/toastr.min.css">
-
+    {{-- Logo --}}
+    <link rel="shortcut icon" href="{{ asset('/images/gpib/Logo-GPIB.png') }}">
 </head>
 <!--
     `body` tag options:

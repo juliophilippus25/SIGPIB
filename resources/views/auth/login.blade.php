@@ -15,6 +15,8 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="adminLTE/dist/css/adminlte.min.css">
 
+  <link rel="shortcut icon" href="{{ asset('/images/gpib/Logo-GPIB.png') }}">
+
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
