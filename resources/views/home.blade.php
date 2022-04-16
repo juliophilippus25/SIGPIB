@@ -19,7 +19,7 @@
 
 @section('content')
 
-  <h2>Selamat datang, {{Auth::user()->name}}</h2>
+  <h2>Selamat datang, {{Auth::user()->name}}.</h2>
   <div class="row">
 
           <!-- Card -->
