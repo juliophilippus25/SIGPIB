@@ -26,8 +26,8 @@ Route::get('/login', function () {
 Auth::routes();
 
 // Home atau dashboard
-Route::group(['prefix' => '/home'], function() {
-    Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['prefix' => '/dashboard'], function() {
+    Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 });
 
 // Anggota

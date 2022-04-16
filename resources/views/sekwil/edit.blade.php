@@ -10,7 +10,7 @@
 
   <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
-      <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
       <li class="breadcrumb-item"><a href="{{route('sekwil.index')}}">Data Sektor Wilayah</a></li>
       <li class="breadcrumb-item active">Ubah Data Sektor Wilayah</li>
     </ol>

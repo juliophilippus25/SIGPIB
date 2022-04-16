@@ -9,6 +9,7 @@ use Alert;
 use File;
 use Carbon\Carbon;
 use Validator;
+use Session;
 
 class ProfileController extends Controller
 {
@@ -16,7 +17,7 @@ class ProfileController extends Controller
     {
         $profile = Auth::user();
 
-        // Alert::warning('Masukkan ulang data', 'Pada kolom password.');
+        Session::put('halaman_url', request()->fullUrl());
 
         return view('profile.edit', compact('profile'));
     }
@@ -25,7 +26,7 @@ class ProfileController extends Controller
     {
         $userId = Auth::id();
         $profile = User::findOrFail($userId);
-
+        Session::put('halaman_url', request()->fullUrl());
         // Validasi Form
         $validator = Validator::make($request->all(),
         // Aturan
