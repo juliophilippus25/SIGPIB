@@ -54,9 +54,9 @@
                             <div class="form-group">
                                 <label>Jenis Kelamin <b style="color:Tomato;">*</b></label>
                                 <br>
-                                <input type="radio" name="jk" value="Pria"> Pria
+                                <input type="radio" name="jk" value="Laki-laki"> Laki-laki
                                 &nbsp;
-                                <input type="radio" name="jk" value="Wanita"> Wanita
+                                <input type="radio" name="jk" value="Perempuan"> Perempuan
                                 <br>
                                 @error('jk')
                                 <span class="text-danger">{{$message}}</span>

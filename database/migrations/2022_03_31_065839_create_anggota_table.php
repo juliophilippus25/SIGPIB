@@ -17,7 +17,7 @@ class CreateAnggotaTable extends Migration
             $table->increments('id');
             $table->string('kode_anggota')->nullable();
             $table->string('nama')->nullable();
-            $table->enum('jk', ['Pria', 'Wanita'])->nullable();
+            $table->enum('jk', ['Laki-laki', 'Perempuan'])->nullable();
             $table->string('tempat_lahir')->nullable();
             $table->date('tgl_lahir')->nullable();
             $table->string('no_hp')->nullable();

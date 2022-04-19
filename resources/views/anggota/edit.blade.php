@@ -54,9 +54,9 @@
                             <div class="form-group">
                                 <label>Jenis Kelamin <b style="color:Tomato;">*</b></label>
                                 <br>
-                                <input type="radio" name="jk" value="Pria" @php if(($anggota->jk)=='Pria') echo 'checked' @endphp> Pria
+                                <input type="radio" name="jk" value="Laki-laki" @php if(($anggota->jk)=='Laki-laki') echo 'checked' @endphp> Laki-laki
                                 &nbsp;
-                                <input type="radio" name="jk" value="Wanita" @php if(($anggota->jk)=='Wanita') echo 'checked' @endphp> Wanita
+                                <input type="radio" name="jk" value="Perempuan" @php if(($anggota->jk)=='Perempuan') echo 'checked' @endphp> Perempuan
                                 <br>
                                 @error('jk')
                                 <span class="text-danger">{{$message}}</span>

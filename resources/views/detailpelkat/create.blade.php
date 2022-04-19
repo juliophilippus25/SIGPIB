@@ -47,9 +47,9 @@
                                     <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
                                     @elseif ($pelkat->nama_pelkat == 'Gerakan Pemuda' AND $data->srt_baptis != null AND $data->srt_sidi != null )
                                     <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
-                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Perempuan' AND $data->srt_baptis != null AND $data->srt_sidi != null AND $data->jk == 'Wanita' )
+                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Perempuan' AND $data->srt_baptis != null AND $data->srt_sidi != null AND $data->jk == 'Perempuan' )
                                     <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
-                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Bapak' AND $data->srt_baptis != null AND $data->srt_sidi != null AND $data->jk == 'Pria' )
+                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Bapak' AND $data->srt_baptis != null AND $data->srt_sidi != null AND $data->jk == 'Laki-laki' )
                                     <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
                                     @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Lanjut Usia' AND $data->srt_baptis != null AND $data->srt_sidi != null )
                                     <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
