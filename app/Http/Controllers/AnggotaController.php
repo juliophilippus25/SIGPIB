@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Alert;
 use Session;
 use Validator;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AnggotaController extends Controller
 {
@@ -369,5 +370,13 @@ class AnggotaController extends Controller
         //redirect dengan pesan sukses
         Alert::success('Data berhasil dihapus!', '');
         return redirect()->back();
+    }
+
+    public function cetak_semua_pdf()
+    {
+        $anggota = Anggota::all();
+        $dt = Carbon::now();
+        $pdf = PDF::loadView('laporan.semua_anggota', compact('anggota', 'dt'));
+        return $pdf->download('laporan_anggota_'.$dt->format('d_M_Y').'.pdf');
     }
 }

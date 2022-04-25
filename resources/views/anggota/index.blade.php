@@ -28,6 +28,7 @@
             <!-- /.card-header -->
             <div class="card-body">
                 <a href="{{route('anggota.tambah')}}" class="btn btn-secondary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah Anggota</a>
+                <a href="{{route('anggota.download_semua')}}" class="btn btn-success btn-fw col-lg-2"><i class="fa fa-download"></i> Cetak PDF</a>
                 <br><br>
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>

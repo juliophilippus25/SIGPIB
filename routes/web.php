@@ -39,6 +39,7 @@ Route::group(['prefix' => '/anggota'], function() {
     Route::get('/edit/{id}', 'App\Http\Controllers\AnggotaController@tampil_ubah_anggota')->name('anggota.tampil_ubah');
     Route::put('/update/{id}', 'App\Http\Controllers\AnggotaController@perbarui_anggota')->name('anggota.simpan_perbarui');
     Route::post('/delete/{id}', 'App\Http\Controllers\AnggotaController@hapus_anggota')->name('anggota.hapus');
+    Route::get('/pdf', 'App\Http\Controllers\AnggotaController@cetak_semua_pdf')->name('anggota.download_semua');
 });
 
 // Pelayanan Kategorial
