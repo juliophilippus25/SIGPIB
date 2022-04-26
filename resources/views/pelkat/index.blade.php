@@ -62,10 +62,10 @@
                                 <a href="{{ route('detailpelkat.index', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
                                 {{-- <a href="{{ route('pelkat.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a> --}}
                                 <a href="" class="btn btn-success  btn-sm" title="Unduh" ><i class="fa fa-download"></i></a>
-                                <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button>
+                                {{-- <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button> --}}
 
                                 <!-- Modal -->
-                                <form method="POST" action="{{ route('pelkat.hapus', ['id' => $data->id]) }}">
+                                {{-- <form method="POST" action="{{ route('pelkat.hapus', ['id' => $data->id]) }}">
                                     <div class="modal fade" id="modalDelete_{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -88,7 +88,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </form> --}}
                                 <!-- Modal -->
 
                             </td>
