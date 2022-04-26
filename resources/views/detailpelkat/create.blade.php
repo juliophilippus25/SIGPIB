@@ -41,17 +41,17 @@
                         <select class="form-control select2bs4 @error('id_anggota') is-invalid @enderror" name="id_anggota" style="width: 100%;">
                             <option hidden disabled selected value>Pilih Anggota PelKat</option>
                             @foreach($anggota as $data)
-                                @if ($pelkat->nama_pelkat == 'Pelayanan Anak' AND $data->srt_baptis != null )
+                                @if ($pelkat->nama_pelkat == 'Pelayanan Anak')
                                     <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
-                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Teruna' AND $data->srt_baptis != null )
+                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Teruna')
                                     <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
-                                    @elseif ($pelkat->nama_pelkat == 'Gerakan Pemuda' AND $data->srt_baptis != null AND $data->srt_sidi != null )
+                                    @elseif ($pelkat->nama_pelkat == 'Gerakan Pemuda' )
                                     <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
-                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Perempuan' AND $data->srt_baptis != null AND $data->srt_sidi != null AND $data->jk == 'Perempuan' )
+                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Perempuan' AND $data->jk == 'Perempuan')
                                     <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
-                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Bapak' AND $data->srt_baptis != null AND $data->srt_sidi != null AND $data->jk == 'Laki-laki' )
+                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Bapak' AND $data->jk == 'Laki-laki' )
                                     <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
-                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Lanjut Usia' AND $data->srt_baptis != null AND $data->srt_sidi != null )
+                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Lanjut Usia' )
                                     <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
                                 @endif
                             @endforeach
