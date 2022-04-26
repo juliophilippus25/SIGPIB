@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>SIGPIB | Laporan Data Anggota</title>
     <style type="text/css">
         table {
-            border-spacing: 0;
             width: 100%;
         }
         th {
@@ -18,26 +15,18 @@
             color: #fff;
             padding: 8px;
             text-align: left;
-            text-transform: uppercase;
+            text-transform: capitalize;
         }
         th:first-child {
-            border-top-left-radius: 4px;
-            border-left: 0;
         }
         th:last-child {
-            border-top-right-radius: 4px;
-            border-right: 0;
         }
         td {
-            border-right: 1px solid #c6c9cc;
-            border-bottom: 1px solid #c6c9cc;
             padding: 8px;
         }
         td:first-child {
-            border-left: 1px solid #c6c9cc;
         }
         tr:first-child td {
-            border-top: 0;
         }
         tr:nth-child(even) td {
             background: #e8eae9;
@@ -48,26 +37,28 @@
         tr:last-child td:last-child {
             border-bottom-right-radius: 4px;
         }
-        img {
-            width: 40px;
-            height: 40px;
-            border-radius: 100%;
-        }
         .center {
             text-align: center;
         }
     </style>
 </head>
 <body>
-    <img src="{{ public_path("images/gpib/Logo-GPIB.png") }}" alt="" style="width: 50px; height: 50px;">
-    <h2 class="center">GEREJA PROTESTAN di INDONESIA bagian BARAT (GPIB) <br> JEMAAT <br> "MARANATHA" TANJUNG SELOR</h2>
-    <h6 class="center">Alamat: Jalan D.I. Panjaitan, No. 25 Tanjung Selor Kode Pos 77211 Kabupaten Bulungan-KALTARA<br>
-    Email: gpib.maranatha.tjs@gmail.com <br>
-    <hr width="100%" align="center"> </h6>
-    <h3><center>LAPORAN DATA ANGGOTA JEMAAT <br> {{date('d M Y', strtotime($dt))}} </center></h3>
-        <table border="1" cellspacing="0" cellpadding="5">
+    <table>
+        <tr>
+            <td><img src="{{ public_path("images/gpib/Logo-GPIB.png") }}" alt="" style="width: 100px; height: 100px;"></td>
+            <td class="center">
+                <font size="4">GEREJA PROTESTAN di INDONESIA bagian BARAT <br> (G P I B) <br> JEMAAT "MARANATHA" TANJUNG SELOR</font> <br>
+                <font size="2">Alamat: Jalan D.I. Panjaitan, No. 25 Tanjung Selor Kode Pos 77211 Kabupaten Bulungan-KALTARA <br>
+                    Email: gpib.maranatha.tjs@gmail.com</font>
+            </td>
+        </tr>
+    </table>
+
+        <hr width="100%" align="center">
+        <h4><center>Laporan Data Anggota Jemaat <br> {{date('d M Y', strtotime($dt))}} </center></h4>
+        <table style="border: 1px; border-collapse: collapse;">
             <tr>
-                <th>No</th>
+                <th >No</th>
                 <th>Kode Anggota</th>
                 <th>Nama Anggota</th>
                 <th>Tanggal Lahir</th>
@@ -85,5 +76,5 @@
             </tr>
             @endforeach
         </table>
-</body>
-</html>
+    </body>
+    </html>

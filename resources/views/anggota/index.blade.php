@@ -21,14 +21,14 @@
 
 <div class="row">
     <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card card-dark">
-            <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title"><strong>Data Anggota</strong></h3>
+        <div class="card card-default">
+            <div class="card-header d-flex">
+                <h3 class="card-title">Data Anggota</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <a href="{{route('anggota.tambah')}}" class="btn btn-secondary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah Anggota</a>
-                <a href="{{route('anggota.download_semua')}}" class="btn btn-success btn-fw col-lg-2"><i class="fa fa-download"></i> Cetak PDF</a>
+                <a href="{{route('anggota.tambah')}}" class="btn btn-info btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah Anggota</a>
+                <a href="{{route('anggota.download_semua')}}" target="_blank" class="btn btn-success btn-fw col-lg-2"><i class="fa fa-download"></i> Cetak PDF</a>
                 <br><br>
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -66,11 +66,11 @@
                                     @endif
 
                                     @if ($data->srt_baptis != null)
-                                    <a class="dropdown-item" href="{{ asset('storage/dokumen/baptis/'.$data->srt_baptis) }}"> Surat Baptis</a>
+                                    <a class="dropdown-item" target="_blank" href="{{ asset('storage/dokumen/baptis/'.$data->srt_baptis) }}"> Surat Baptis</a>
                                     @endif
 
                                     @if ($data->srt_sidi != null)
-                                    <a class="dropdown-item" href="{{ asset('storage/dokumen/sidi/'.$data->srt_sidi) }}"> Surat Sidi</a>
+                                    <a class="dropdown-item" target="_blank" href="{{ asset('storage/dokumen/sidi/'.$data->srt_sidi) }}"> Surat Sidi</a>
                                     @endif
                                 </div>
 
