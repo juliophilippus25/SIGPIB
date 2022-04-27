@@ -379,4 +379,12 @@ class AnggotaController extends Controller
         $pdf = PDF::loadView('laporan.semua_anggota', compact('anggota', 'dt'));
         return $pdf->stream('SIGPIB_Anggota_'.$dt->format('d_M_Y').'.pdf');
     }
+
+    public function cetak_satu_pdf($id)
+    {
+        $anggota = Anggota::find($id);
+        $dt = Carbon::now();
+        $pdf = PDF::loadView('laporan.satu_anggota', compact('anggota', 'dt'));
+        return $pdf->stream('SIGPIB_'.$anggota->kode_anggota.('_').$dt->format('d_M_Y').'.pdf');
+    }
 }

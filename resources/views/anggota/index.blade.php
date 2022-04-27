@@ -27,14 +27,24 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <a href="{{route('anggota.tambah')}}" class="btn btn-info btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah Anggota</a>
-                <a href="{{route('anggota.download_semua')}}" target="_blank" class="btn btn-success btn-fw col-lg-2"><i class="fa fa-download"></i> Cetak PDF</a>
-                <br><br>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <a href="{{route('anggota.tambah')}}" class="btn btn-info btn-fw col-md-12"><i class="fa fa-plus"></i> Tambah Anggota</a>
+                    </div>
+
+                    <br><br>
+
+                    <div class="col-md-2">
+                        <a href="{{route('anggota.download_semua')}}" target="_blank" class="btn btn-success btn-fw col-md-12"><i class="fas fa-cloud-download-alt"></i> Cetak PDF</a>
+                    </div>
+                </div>
+                <br>
+
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Kode Anggota</th>
                             <th>Nama</th>
                             <th>Gambar</th>
                             <th>Aksi</th>
@@ -44,8 +54,9 @@
                         <tr>
                             @forelse($anggota as $data)
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $data->kode_anggota }}</td>
-                            <td>{{ $data->nama }}</td>
+                            <td>
+                                {{ $data->nama }}
+                            </td>
                             <td>
                                 <img src="{{ asset('storage/images/anggota/'.$data->gambar) }}" style="width: 40px;" alt="">
                                 @if ($data->gambar == null)
@@ -55,12 +66,11 @@
                             <td>
                                 <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
                                 <a href="{{ route('anggota.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a>
-
                                 <a type="button" title="Unduh" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-download"> </i>
+                                    <i class="fas fa-cloud-download-alt"> </i>
                                 </a>
                                 <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
-                                    <a class="dropdown-item" href=""> Data</a>
+                                    <a class="dropdown-item" target="_blank" href="{{ route('anggota.download_satu', ['id' => $data->id]) }}"> Data</a>
                                     @if ($data->gambar != null)
                                     <a class="dropdown-item" target="_blank" href="{{ asset('storage/images/anggota/'.$data->gambar) }}"> Foto</a>
                                     @endif
