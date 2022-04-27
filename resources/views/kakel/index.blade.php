@@ -33,7 +33,6 @@
                   <tr>
                     <th>No</th>
                     <th>Nama Kepala Keluarga</th>
-                    <th>Nomor Kartu Keluarga</th>
                     <th>SekWil</th>
                     <th>Aksi</th>
                   </tr>
@@ -43,12 +42,11 @@
                     @forelse($kakel as $data)
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $data->anggota->nama }}</td>
-                      <td>{{ $data->nomor_kk}}</td>
                       <td>{{ $data->sekwil->nama_sekwil }}</td>
                       <td>
-                        <a href="{{ route('detailkakel.index', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
-                        <a href="{{ route('kakel.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a>
-                        <a href="" class="btn btn-success  btn-sm" title="Unduh" ><i class="fas fa-cloud-download-alt"></i></a>
+                        <a href="{{ route('detailkakel.index', ['id' => $data->id]) }}" class="btn btn-primary btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
+                        <a href="{{ route('kakel.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a>
+                        <a href="{{ route('kakel.download_satu', ['id' => $data->id]) }}" target="_blank" class="btn btn-success btn-sm" title="Unduh" ><i class="fas fa-cloud-download-alt"></i></a>
                         <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button>
 
                   <!-- Modal -->

@@ -143,7 +143,7 @@ class PelkatController extends Controller
 
         $dt = Carbon::now();
 
-        $pdf = PDF::loadView('laporan.pelkat.semua_pelkat', compact('pelkat', 'det_pelkat', 'dt'));
+        $pdf = PDF::loadView('laporan.pelkat.satu_pelkat', compact('pelkat', 'det_pelkat', 'dt'));
         return $pdf->stream('SIGPIB_'.$pelkat->nama_pelkat.('_').$dt->format('d_M_Y').'.pdf');
     }
 }

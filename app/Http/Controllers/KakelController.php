@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Kakel;
 use App\Models\Anggota;
 use App\Models\Sekwil;
+use App\Models\DetailKakel;
 use DB;
 use Alert;
 use Validator;
+use Carbon\Carbon;
+use PDF;
 
 class KakelController extends Controller
 {
@@ -149,6 +152,21 @@ class KakelController extends Controller
         Alert::success('Data berhasil dihapus!', '');
 
         return redirect()->back();
+    }
+
+    public function cetak_satu_pdf($id)
+    {
+        $kakel = Kakel::find($id);
+
+        $det_kakel = DetailKakel::join('kakel', 'kakel.id', '=' , 'detail_kakel.id_kakel')
+        ->join('anggota', 'anggota.id', '=' , 'detail_kakel.id_anggota')
+        ->where('id_kakel', $id)
+        ->get(['anggota.nama','detail_kakel.id', 'detail_kakel.sts_keluarga']);
+
+        $dt = Carbon::now();
+
+        $pdf = PDF::loadView('laporan.kakel.satu_kakel', compact('kakel', 'det_kakel', 'dt'));
+        return $pdf->stream('SIGPIB_KK_'.$kakel->anggota->nama.('_').$dt->format('d_M_Y').'.pdf');
     }
 }
 
