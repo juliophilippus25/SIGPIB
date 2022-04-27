@@ -52,7 +52,7 @@
 
         <!-- Input Password -->
         <div class="input-group mb-3">
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Masukkan Password">
+        <input id="password" type="password" class="form-password form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Masukkan Password">
 
 
           <div class="input-group-append">
@@ -79,6 +79,14 @@
               </label>
             </div>
           </div> --}}
+
+          <div class="row">
+            <div class="col-8">
+                <input type="checkbox" id="form-checkbox" class="form-checkbox">
+                <label for="form-checkbox">
+                  Lihat password
+                </label>
+            </div>
 
           <!-- /.col -->
           <div class="col-12">
@@ -119,5 +127,18 @@
 <script src="adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="adminLTE/dist/js/adminlte.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.form-checkbox').click(function(){
+			if($(this).is(':checked')){
+				$('.form-password').attr('type','text');
+			}else{
+				$('.form-password').attr('type','password');
+			}
+		});
+	});
+</script>
+
 </body>
 </html>

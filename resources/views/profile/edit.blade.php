@@ -64,7 +64,7 @@
 
                             <div class="form-group">
                                 <label for="password">Password <b style="color:Tomato;">*</b></label>
-                                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" autocomplete="password" autofocus placeholder="Masukkan Password">
+                                <input type="password" class="form-password form-control @error('password') is-invalid @enderror" name="password" id="password" autocomplete="password" autofocus placeholder="Masukkan Password">
                                 @error('password')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -72,10 +72,15 @@
 
                             <div class="form-group">
                                 <label for="password_confirmation">Konfirmasi Password <b style="color:Tomato;">*</b></label>
-                                <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation" autocomplete="password_confirmation" autofocus placeholder="Masukkan Konfirmasi Password">
+                                <input type="password" class="form-password form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation" autocomplete="password_confirmation" autofocus placeholder="Masukkan Konfirmasi Password">
                                 @error('password_confirmation')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <input type="checkbox" name="form-checkbox" id="form-checkbox" class="form-checkbox">
+                                <label for="form-checkbox">Lihat password</label>
                             </div>
 
                         </div>
