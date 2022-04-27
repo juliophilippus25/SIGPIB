@@ -23,9 +23,9 @@
 
     <div class="col-md-12">
 
-        <div class="card card-dark">
-            <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title"><strong>Form Ubah Profile</strong></h3>
+        <div class="card card-default">
+            <div class="card-header d-flex">
+                <h3 class="card-title">Form Ubah Profile</h3>
             </div>
 
             <form action="{{ route('profile.simpan_perbarui') }}" method="POST" enctype="multipart/form-data">
@@ -117,7 +117,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-dark">Simpan</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                     <a href="{{route('dashboard')}}" class="btn btn-default">Kembali</a>
                 </div>
 
