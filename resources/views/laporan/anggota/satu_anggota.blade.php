@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SIGPIB | Laporan Data Anggota</title>
+    <title>SIGPIB | Laporan Data Anggota {{ $anggota->nama }}</title>
     <style type="text/css">
         table {
             width: 100%;

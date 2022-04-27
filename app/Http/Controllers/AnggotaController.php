@@ -376,7 +376,7 @@ class AnggotaController extends Controller
     {
         $anggota = Anggota::all();
         $dt = Carbon::now();
-        $pdf = PDF::loadView('laporan.semua_anggota', compact('anggota', 'dt'));
+        $pdf = PDF::loadView('laporan.anggota.semua_anggota', compact('anggota', 'dt'));
         return $pdf->stream('SIGPIB_Anggota_'.$dt->format('d_M_Y').'.pdf');
     }
 
@@ -384,7 +384,7 @@ class AnggotaController extends Controller
     {
         $anggota = Anggota::find($id);
         $dt = Carbon::now();
-        $pdf = PDF::loadView('laporan.satu_anggota', compact('anggota', 'dt'));
+        $pdf = PDF::loadView('laporan.anggota.satu_anggota', compact('anggota', 'dt'));
         return $pdf->stream('SIGPIB_'.$anggota->kode_anggota.('_').$dt->format('d_M_Y').'.pdf');
     }
 }

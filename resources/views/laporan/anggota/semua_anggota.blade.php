@@ -58,14 +58,14 @@
         <h4><center>Laporan Data Anggota Jemaat <br> {{date('d M Y', strtotime($dt))}} </center></h4>
         <table style="border: 1px; border-collapse: collapse;">
             <tr>
-                <th >No</th>
+                <th>No</th>
                 <th>Kode Anggota</th>
                 <th>Nama Anggota</th>
                 <th>Tanggal Lahir</th>
                 <th>Alamat</th>
                 <th>No Hp</th>
             </tr>
-            @foreach($anggota as $data)
+            @forelse($anggota as $data)
             <tr>
                 <td>{{$loop->iteration}}</td>
                 <td>{{$data->kode_anggota}}</td>
@@ -74,7 +74,13 @@
                 <td>{{$data->alamat}}</td>
                 <td>{{$data->no_hp}}</td>
             </tr>
-            @endforeach
+            @empty
+                <tr class="">
+                    <td colspan="16">
+                        <strong class="text-dark"><center>Data Kosong</center></strong>
+                    </td>
+                </tr>
+            @endforelse
         </table>
     </body>
     </html>

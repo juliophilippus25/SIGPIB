@@ -27,8 +27,19 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                {{-- <a href="{{route('pelkat.create')}}" class="btn btn-primary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah PelKat</a>
-                <br><br> --}}
+
+                {{-- <div class="row">
+                    <div class="col-md-2">
+                        <a href="{{route('pelkat.create')}}" class="btn btn-primary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah PelKat</a>
+                    </div>
+
+                    <br><br>
+
+                    <div class="col-md-2">
+                        <a href="{{route('pelkat.download_semua')}}" target="_blank" class="btn btn-success btn-fw col-md-12"><i class="fas fa-cloud-download-alt"></i> Cetak PDF</a>
+                    </div>
+                </div>
+                <br> --}}
 
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -62,7 +73,7 @@
                             <td>
                                 <a href="{{ route('detailpelkat.index', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
                                 {{-- <a href="{{ route('pelkat.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a> --}}
-                                <a href="" class="btn btn-success  btn-sm" title="Unduh" ><i class="fas fa-cloud-download-alt"></i></a>
+                                <a href="{{ route('pelkat.download_satu', ['id' => $data->id]) }}" target="_blank" class="btn btn-success  btn-sm" title="Unduh" ><i class="fas fa-cloud-download-alt"></i></a>
                                 {{-- <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button> --}}
 
                                 <!-- Modal -->

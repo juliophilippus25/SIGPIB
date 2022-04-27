@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pelkat;
+use App\Models\DetailPelkat;
 use Alert;
 use Validator;
+use Carbon\Carbon;
+use PDF;
 
 class PelkatController extends Controller
 {
@@ -127,5 +130,20 @@ class PelkatController extends Controller
         Alert::success('Data berhasil dihapus!', '');
 
         return redirect()->back();
+    }
+
+    public function cetak_satu_pdf($id)
+    {
+        $pelkat = Pelkat::find($id);
+
+        $det_pelkat = DetailPelkat::join('pelkat', 'pelkat.id', '=' , 'detail_pelkat.id_pelkat')
+        ->join('anggota', 'anggota.id', '=' , 'detail_pelkat.id_anggota')
+        ->where('id_pelkat', $id)
+        ->get(['anggota.nama','anggota.alamat','anggota.no_hp','detail_pelkat.id', 'detail_pelkat.pengurus']);
+
+        $dt = Carbon::now();
+
+        $pdf = PDF::loadView('laporan.pelkat.semua_pelkat', compact('pelkat', 'det_pelkat', 'dt'));
+        return $pdf->stream('SIGPIB_'.$pelkat->nama_pelkat.('_').$dt->format('d_M_Y').'.pdf');
     }
 }
