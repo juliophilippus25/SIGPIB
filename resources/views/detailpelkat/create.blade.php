@@ -24,9 +24,9 @@
 <div class="row d-flex justify-content-center">
     <div class="col-md-8">
 
-        <div class="card card-dark">
-            <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title"><strong>Form Tambah Data Anggota {{ $pelkat->nama_pelkat }}</strong></h3>
+        <div class="card card-default">
+            <div class="card-header d-flex">
+                <h3 class="card-title">Form Tambah Data Anggota {{ $pelkat->nama_pelkat }}</h3>
             </div>
             <!-- /.card-header -->
 
@@ -82,7 +82,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-dark">Simpan</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                     <a href="{{ route('detailpelkat.index', ['id' => $pelkat->id]) }}" class="btn btn-default">Kembali</a>
                 </div>
             </form>

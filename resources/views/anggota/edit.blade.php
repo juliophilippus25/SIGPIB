@@ -24,9 +24,9 @@
 
     <div class="col-md-12">
 
-        <div class="card card-dark">
-            <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title"><strong>Form Ubah Anggota</strong></h3>
+        <div class="card card-default">
+            <div class="card-header d-flex">
+                <h3 class="card-title">Form Ubah Anggota</h3>
             </div>
 
             <form action="{{ route('anggota.simpan_perbarui', ['id' => $anggota->id]) }}" method="POST" enctype="multipart/form-data">
@@ -224,7 +224,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-dark" > Simpan</button>
+                    <button type="submit" class="btn btn-primary" > Simpan</button>
                     <a href="{{route('anggota.index')}}" class="btn btn-default">Kembali</a>
                 </div>
 

@@ -30,7 +30,7 @@
 
                 <div class="row">
                     <div class="col-md-2">
-                        <a href="{{route('anggota.tambah')}}" class="btn btn-info btn-fw col-md-12"><i class="fa fa-plus"></i> Tambah Anggota</a>
+                        <a href="{{route('anggota.tambah')}}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Tambah Anggota</a>
                     </div>
 
                     <br><br>

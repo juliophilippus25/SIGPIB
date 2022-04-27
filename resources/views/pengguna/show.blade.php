@@ -23,9 +23,9 @@
 <div class="row">
     <div class="col-lg-12 grid-margin stretch-card">
 
-        <div class="card card-dark">
-            <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title"><strong>Data Pengguna</strong></h3>
+        <div class="card card-default">
+            <div class="card-header d-flex">
+                <h3 class="card-title">Detail Data Pengguna</h3>
             </div>
             <br>
 
@@ -97,7 +97,7 @@
             <!-- /.card-body -->
 
             <div class="card-footer">
-                <a href="{{ route('pengguna.tampil_ubah', ['id' => $pengguna->id]) }}" class="btn btn-dark"> Edit</a>
+                <a href="{{ route('pengguna.tampil_ubah', ['id' => $pengguna->id]) }}" class="btn btn-primary"><i class="fa fa-edit"></i> Edit</a>
                 <a href="{{route('pengguna.index')}}" class="btn btn-default float-right"> Kembali</a>
             </div>
 

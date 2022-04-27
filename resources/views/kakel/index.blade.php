@@ -20,13 +20,13 @@
 @section('content')
 <div class="row">
   <div class="col-lg-12 grid-margin stretch-card">
-  <div class="card card-dark">
-              <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title"><strong>Data Kartu Keluarga</strong></h3>
+  <div class="card card-default">
+              <div class="card-header d-flex">
+                <h3 class="card-title">Data Kartu Keluarga</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <a href="{{route('kakel.create')}}" class="btn btn-secondary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah Kartu Keluarga</a>
+              <a href="{{route('kakel.create')}}" class="btn btn-primary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah Kartu Keluarga</a>
               <br><br>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -48,7 +48,7 @@
                       <td>
                         <a href="{{ route('detailkakel.index', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
                         <a href="{{ route('kakel.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a>
-                        <a href="" class="btn btn-success  btn-sm" title="Unduh" ><i class="fa fa-download"></i></a>
+                        <a href="" class="btn btn-success  btn-sm" title="Unduh" ><i class="fas fa-cloud-download-alt"></i></a>
                         <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button>
 
                   <!-- Modal -->

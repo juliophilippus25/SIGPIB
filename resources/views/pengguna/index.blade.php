@@ -21,13 +21,13 @@
 
 <div class="row">
     <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card card-dark">
-            <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title"><strong>Data Pengguna</strong></h3>
+        <div class="card card-default">
+            <div class="card-header d-flex">
+                <h3 class="card-title">Data Pengguna</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <a href="{{route('pengguna.create')}}" class="btn btn-secondary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah Pengguna</a>
+                <a href="{{route('pengguna.create')}}" class="btn btn-primary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah Pengguna</a>
                 <br><br>
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>

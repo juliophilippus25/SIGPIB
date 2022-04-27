@@ -22,26 +22,29 @@
 
 <div class="row">
   <div class="col-lg-12 grid-margin stretch-card">
-  <div class="card card-dark">
-              <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title"><strong>Data Kartu Keluarga {{ $kakel->anggota->nama }}</strong></h3>
+  <div class="card card-default">
+              <div class="card-header d-flex">
+                <h3 class="card-title">Data Kartu Keluarga {{ $kakel->anggota->nama }}</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <a href="{{ route('detailkakel.create', ['id' => $kakel->id]) }}" class="btn btn-secondary btn-fw col-lg-3"><i class="fa fa-plus"></i> Tambah Anggota Keluarga</a>
+              <a href="{{ route('detailkakel.create', ['id' => $kakel->id]) }}" class="btn btn-primary btn-fw col-lg-3"><i class="fa fa-plus"></i> Tambah Anggota Keluarga</a>
               <br><br>
 
-              <div class="col-sm-12">
-                    <div class="form-group mb-0">
-                        <label class="control-label">Nomor Kartu Keluarga : <b>{{ $kakel->nomor_kk }}</b></label>
-                    </div>
-               </div>
+               <table>
+                   <tr>
+                    <th>Nomor Kartu Keluarga </th>
+                    <td>:</td>
+                    <td>&nbsp;{{ $kakel->nomor_kk }}</td>
+                   </tr>
+                   <tr>
+                    <th>Sektor Wilayah </th>
+                    <td>:</td>
+                    <td>&nbsp;{{ $kakel->sekwil->nama_sekwil }}</td>
+                   </tr>
+               </table>
 
-               <div class="col-sm-12">
-                    <div class="form-group mb-0">
-                        <label class="control-label">Sektor Wilayah : <b>{{ $kakel->sekwil->nama_sekwil }}</b></label>
-                    </div>
-               </div>
+               <br>
 
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -100,6 +103,7 @@
                     @endforelse
                   </tbody>
                 </table>
+                <br>
                 <a href="{{route('kakel.index')}}" class="btn btn-default">Kembali</a>
               </div>
               <!-- /.card-body -->

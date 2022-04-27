@@ -22,13 +22,13 @@
 
 <div class="row">
   <div class="col-lg-12 grid-margin stretch-card">
-  <div class="card card-dark">
-              <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title"><strong>Data Anggota {{ $pelkat->nama_pelkat }}</strong></h3>
+  <div class="card card-default">
+              <div class="card-header d-flex">
+                <h3 class="card-title">Data Anggota {{ $pelkat->nama_pelkat }}</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <a href="{{ route('detailpelkat.create', ['id' => $pelkat->id]) }}" class="btn btn-secondary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah Anggota PelKat</a>
+              <a href="{{ route('detailpelkat.create', ['id' => $pelkat->id]) }}" class="btn btn-primary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah Anggota PelKat</a>
               <br><br>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -87,6 +87,7 @@
                     @endforelse
                   </tbody>
                 </table>
+                <br>
                 <a href="{{route('pelkat.index')}}" class="btn btn-default">Kembali</a>
               </div>
               <!-- /.card-body -->

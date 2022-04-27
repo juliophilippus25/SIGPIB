@@ -20,13 +20,13 @@
 @section('content')
 <div class="row">
   <div class="col-lg-12 grid-margin stretch-card">
-  <div class="card card-dark">
-              <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title"><strong>Data Sektor Wilayah</strong></h3>
+  <div class="card card-default">
+              <div class="card-header d-flex">
+                <h3 class="card-title">Data Sektor Wilayah</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <a href="{{route('sekwil.create')}}" class="btn btn-secondary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah SekWil</a>
+              <a href="{{route('sekwil.create')}}" class="btn btn-primary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah SekWil</a>
               <br><br>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>

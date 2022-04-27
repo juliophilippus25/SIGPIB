@@ -24,9 +24,9 @@
 <div class="row d-flex justify-content-center">
   <div class="col-md-8">
 
-            <div class="card card-dark">
-              <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title"><strong>Form Tambah Anggota Keluarga {{ $kakel->anggota->nama }}</strong></h3>
+            <div class="card card-default">
+              <div class="card-header d-flex">
+                <h3 class="card-title">Form Tambah Anggota Keluarga {{ $kakel->anggota->nama }}</h3>
               </div>
               <!-- /.card-header -->
 
@@ -67,7 +67,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-dark">Simpan</button>
+                  <button type="submit" class="btn btn-primary">Simpan</button>
                   <a href="{{ route('detailkakel.index', ['id' => $kakel->id]) }}" class="btn btn-default">Kembali</a>
                 </div>
               </form>

@@ -23,9 +23,9 @@
 
     <div class="col-md-8">
 
-        <div class="card card-dark">
-            <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title"><strong>Pusat Unduhan Data GPIB Maranatha Tanjung Selor</strong></h3>
+        <div class="card card-default">
+            <div class="card-header d-flex">
+                <h3 class="card-title">Pusat Unduhan Data GPIB Maranatha Tanjung Selor</h3>
             </div>
 
             <!-- /.card-header -->
@@ -36,7 +36,7 @@
                     <div class="col-md-4">
 
                         <!-- Tombol Export Anggota -->
-                        <a href="#" class="btn btn-secondary btn-fw dropdown-toggle col-md-12" title="Unduh" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-download"></i> Unduh PDF Anggota</a>
+                        <a href="#" class="btn btn-success btn-fw dropdown-toggle col-md-12" title="Unduh" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cloud-download-alt"></i> Unduh PDF Anggota</a>
                         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
                             <a class="dropdown-item" href="#"> Semua  </a>
                             @foreach ($anggota as $data)
@@ -53,7 +53,7 @@
                     <div class="col-md-4">
 
                         <!-- Tombol Export PelKat -->
-                        <a href="#" class="btn btn-secondary btn-fw dropdown-toggle col-md-12" title="Unduh" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-download"></i> Unduh PDF PelKat</a>
+                        <a href="#" class="btn btn-success btn-fw dropdown-toggle col-md-12" title="Unduh" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cloud-download-alt"></i> Unduh PDF PelKat</a>
                         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
                             <a class="dropdown-item" href="#"> Semua  </a>
                             @foreach ($pelkat as $data)
@@ -70,7 +70,7 @@
                     <div class="col-md-4">
 
                         <!-- Tombol Export SekWil -->
-                        <a href="#" class="btn btn-secondary btn-fw dropdown-toggle col-md-12" title="Unduh" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-download"></i> Unduh PDF SekWil</a>
+                        <a href="#" class="btn btn-success btn-fw dropdown-toggle col-md-12" title="Unduh" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cloud-download-alt"></i> Unduh PDF SekWil</a>
                         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
                             <a class="dropdown-item" href="#"> Semua  </a>
                             @foreach ($sekwil as $data)

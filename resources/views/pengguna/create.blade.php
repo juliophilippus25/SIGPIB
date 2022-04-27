@@ -24,9 +24,9 @@
 
     <div class="col-md-12">
 
-        <div class="card card-dark">
-            <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title"><strong>Form Tambah Pengguna</strong></h3>
+        <div class="card card-default">
+            <div class="card-header d-flex">
+                <h3 class="card-title">Form Tambah Pengguna</h3>
             </div>
 
             <form action="{{ route('pengguna.simpan') }}" method="POST" enctype="multipart/form-data">
@@ -125,7 +125,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-dark">Simpan</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                     <a href="{{route('pengguna.index')}}" class="btn btn-default">Kembali</a>
                 </div>
 
