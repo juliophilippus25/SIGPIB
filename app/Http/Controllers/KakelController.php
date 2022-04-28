@@ -168,5 +168,29 @@ class KakelController extends Controller
         $pdf = PDF::loadView('laporan.kakel.satu_kakel', compact('kakel', 'det_kakel', 'dt'));
         return $pdf->stream('SIGPIB_KK_'.$kakel->anggota->nama.('_').$dt->format('d_M_Y').'.pdf');
     }
+
+    public function cetakPDF(Request $request)
+    {
+        $q = Kakel::query();
+
+        if($request->get('id_sekwil'))
+        {
+            if($request->get('id_sekwil') == '1')
+            {
+                $q->where('id_sekwil', '1');
+            }
+            elseif($request->get('id_sekwil') == '2')
+            {
+                $q->where('id_sekwil', '2');
+            }
+        }
+
+        $kakel = $q->get();
+        $dt = Carbon::now();
+
+        $pdf = PDF::loadView('laporan.kakel.kakelPDF', compact('kakel', 'dt'));
+        return $pdf->stream('SIGPIB_KK_'.$dt->format('d_M_Y').'.pdf');
+
+    }
 }
 
