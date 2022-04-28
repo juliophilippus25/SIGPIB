@@ -4,39 +4,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>SIGPIB | Laporan Data Anggota {{ $anggota->nama }}</title>
     <style type="text/css">
-        table {
-            width: 100%;
-        }
-        th {
-            background: #404853;
-            background: linear-gradient(#687587, #404853);
-            border-left: 1px solid rgba(0, 0, 0, 0.2);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 8px;
-            text-align: left;
-            text-transform: capitalize;
-        }
-        th:first-child {
-        }
-        th:last-child {
-        }
-        td {
-            padding: 8px;
-        }
-        td:first-child {
-        }
-        tr:first-child td {
-        }
-        tr:nth-child(even) td {
-            background: #e8eae9;
-        }
-        tr:last-child td:first-child {
-            border-bottom-left-radius: 4px;
-        }
-        tr:last-child td:last-child {
-            border-bottom-right-radius: 4px;
-        }
         .center {
             text-align: center;
         }
@@ -56,122 +23,81 @@
 
         <hr width="100%" align="center">
         <h4><center>Laporan Data Anggota Jemaat <br> {{date('d M Y', strtotime($dt))}} </center></h4>
-        <div class="row">
+                <table>
+                    <tr>
+                        <td class="center"><img id="preview" class="product" width="200" height="200" src="{{ public_path('storage/images/anggota/'.$anggota->gambar) }}"/></td>
+                    </tr>
+                </table>
 
-            <!-- Kolom Kiri -->
-            <div class="col-md-4">
+                <br>
 
-                <div class="form-group">
-                    <img id="preview" class="product" width="200" height="200" src="{{ public_path('storage/images/anggota/'.$anggota->gambar) }}"/>
-                </div>
+                <table style="width: 100%;">
+                    <tr>
+                        <td>
+                            <strong>Nama Lengkap:</strong>
+                            <br> {{ $anggota->nama }}
+                        </td>
+                        <td>
+                            <strong>Jenis Kelamin:</strong>
+                            <br> {{ $anggota->jk }}
+                        </td>
+                        <td>
+                            <strong>Tempat Lahir:</strong>
+                            <br> {{ $anggota->tempat_lahir }}
+                        </td>
+                    </tr>
 
-                <div class="form-group">
-                    <label class="control-label">Nama Lengkap:</label>
-                    <div>
-                        <p>{{$anggota->nama}}</p>
-                    </div>
-                </div>
+                <br>
 
-                <div class="form-group">
-                    <label class="control-label">Kepala Keluarga:</label>
-                    <div>
-                        <p>{{$anggota->sts_keluarga}}</p>
-                    </div>
-                </div>
+                    <tr>
+                        <td>
+                            <strong>Tanggal Lahir:</strong>
+                            <br> {{date('d M Y', strtotime($anggota->tgl_lahir))}}
+                        </td>
+                        <td>
+                            <strong>Nomor Handphone:</strong>
+                            <br> {{ $anggota->no_hp }}
+                        </td>
+                        <td>
+                            <strong>Pekerjaan:</strong>
+                            <br> {{ $anggota->pekerjaan }}
+                        </td>
+                    </tr>
 
-            </div>
+                <br>
 
+                    <tr>
+                        <td>
+                            <strong>Golongan Darah:</strong>
+                            <br> {{ $anggota->goldar }}
+                        </td>
+                        <td>
+                            <strong>Provinsi:</strong>
+                            <br> {{ $anggota->provinsi }}
+                        </td>
+                        <td>
+                            <strong>Kabupaten:</strong>
+                            <br> {{ $anggota->kabupaten }}
+                        </td>
+                    </tr>
 
-            <!-- Kolom Tengah -->
-            <div class="col-md-4">
+                <br>
 
-                <div class="form-group">
-                    <label class="control-label">Jenis Kelamin:</label>
-                    <div>
-                        <p>{{$anggota->jk}}</p>
-                    </div>
-                </div>
+                    <tr>
+                        <td>
+                            <strong>Kecamatan:</strong>
+                            <br> {{ $anggota->kecamatan }}
+                        </td>
+                        <td>
+                            <strong>Kelurahan:</strong>
+                            <br> {{ $anggota->kelurahan }}
+                        </td>
+                        <td>
+                            <strong>Alamat:</strong>
+                            <br> {{ $anggota->alamat }}
+                        </td>
+                    </tr>
+                </table>
 
-                <div class="form-group">
-                    <label class="control-label">Tempat Lahir:</label>
-                    <div>
-                        <p>{{$anggota->tempat_lahir}}</p>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">Tanggal Lahir:</label>
-                    <div>
-                        <p>{{date('d M Y', strtotime($anggota->tgl_lahir))}}</p>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">Nomor Handphone:</label>
-                    <div>
-                        <p>{{$anggota->no_hp}}</p>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">Pekerjaan:</label>
-                    <div>
-                        <p>{{$anggota->pekerjaan}}</p>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">Golongan Darah:</label>
-                    <div>
-                        <p>{{$anggota->goldar}}</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Kolom Kanan -->
-            <div class="col-md-4">
-
-                <div class="form-group">
-                    <label class="control-label">Provinsi:</label>
-                    <div>
-                        <p>{{$anggota->provinsi}}</p>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">Kabupaten:</label>
-                    <div>
-                        <p>{{$anggota->kabupaten}}</p>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">Kecamatan:</label>
-                    <div>
-                        <p>{{$anggota->kecamatan}}</p>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">Kelurahan:</label>
-                    <div>
-                        <p>{{$anggota->kelurahan}}</p>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label">Alamat:</label>
-                    <div>
-                        <p>{{$anggota->alamat}}</p>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-        </div>
-        <!-- /.row -->
     </body>
     </html>
