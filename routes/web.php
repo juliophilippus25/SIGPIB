@@ -111,6 +111,7 @@ Route::group(['prefix' => '/pengguna'], function() {
     Route::put('/update/{id}', 'App\Http\Controllers\PenggunaController@perbarui_pengguna')->name('pengguna.simpan_perbarui');
     Route::get('/detail/{id}', 'App\Http\Controllers\PenggunaController@tampil_detail_pengguna')->name('pengguna.tampil_detail');
     Route::post('/delete/{id}', 'App\Http\Controllers\PenggunaController@hapus_pengguna')->name('pengguna.hapus');
+    Route::get('/pdf', 'App\Http\Controllers\PenggunaController@cetak_semua_pdf')->name('pengguna.download_semua');
 });
 
 // Profile

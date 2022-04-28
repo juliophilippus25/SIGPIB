@@ -27,8 +27,20 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <a href="{{route('pengguna.create')}}" class="btn btn-primary btn-fw col-lg-2"><i class="fa fa-plus"></i> Tambah Pengguna</a>
-                <br><br>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <a href="{{route('pengguna.create')}}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Tambah Pengguna</a>
+                    </div>
+
+                    <br><br>
+
+                    <div class="col-md-2">
+                        <a href="{{route('pengguna.download_semua')}}" target="_blank" class="btn btn-success btn-fw col-md-12"><i class="fas fa-cloud-download-alt"></i> Cetak PDF</a>
+                    </div>
+                </div>
+                <br>
+
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>

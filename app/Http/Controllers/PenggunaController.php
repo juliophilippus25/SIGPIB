@@ -10,6 +10,7 @@ use File;
 use Carbon\Carbon;
 use Auth;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 class PenggunaController extends Controller
 {
@@ -193,5 +194,13 @@ class PenggunaController extends Controller
         }
 
         return redirect()->back();
+    }
+
+    public function cetak_semua_pdf()
+    {
+        $pengguna = User::all();
+        $dt = Carbon::now();
+        $pdf = PDF::loadView('laporan.pengguna.semua_pengguna', compact('pengguna', 'dt'));
+        return $pdf->stream('SIGPIB_Pengguna_'.$dt->format('d_M_Y').'.pdf');
     }
 }
