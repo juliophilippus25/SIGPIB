@@ -95,9 +95,9 @@ Route::group(['prefix' => '/kakel'], function() {
 });
 
 // Pusat Unduh
-Route::group(['prefix' => '/unduh'], function() {
-    Route::get('/index', 'App\Http\Controllers\UnduhanController@tampil_unduh')->name('unduh.index');
-});
+// Route::group(['prefix' => '/unduh'], function() {
+//     Route::get('/index', 'App\Http\Controllers\UnduhanController@tampil_unduh')->name('unduh.index');
+// });
 
 // Laporan
 

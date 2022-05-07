@@ -66,14 +66,14 @@
 
     </ul>
 
-    <li class="nav-item {{ (request()->is('unduh*')) ? 'active menu-open' : '' }}">
+    {{-- <li class="nav-item {{ (request()->is('unduh*')) ? 'active menu-open' : '' }}">
         <a class="nav-link {{ (request()->is('unduh*')) ? 'active' : '' }}" href="{{route('unduh.index')}}">
             <i class="nav-icon fas fa-cloud-download-alt"></i>
             <p>
                 Pusat Unduhan
             </p>
         </a>
-    </li>
+    </li> --}}
 </li>
 </ul>
 </nav>
