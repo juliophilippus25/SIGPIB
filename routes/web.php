@@ -94,25 +94,25 @@ Route::group(['prefix' => '/kakel'], function() {
     Route::post('/detail/delete/{id}', 'App\Http\Controllers\DetailKakelController@hapus_anggota')->name('detailkakel.hapus');
 });
 
-// Pusat Unduh
-Route::group(['prefix' => '/unduh'], function() {
-    Route::get('/index', 'App\Http\Controllers\UnduhanController@tampil_unduh')->name('unduh.index');
-});
+// Pusat Unduhan
+// Route::group(['prefix' => '/unduh'], function() {
+//     Route::get('/index', 'App\Http\Controllers\UnduhanController@tampil_unduh')->name('unduh.index');
+// });
 
 // Laporan
 
 
 // Pengguna
-Route::group(['prefix' => '/pengguna'], function() {
-    Route::get('/index', 'App\Http\Controllers\PenggunaController@tampil_pengguna')->name('pengguna.index');
-    Route::get('/create', 'App\Http\Controllers\PenggunaController@tambah_pengguna')->name('pengguna.create');
-    Route::post('/save', 'App\Http\Controllers\PenggunaController@simpan_pengguna')->name('pengguna.simpan');
-    Route::get('/edit/{id}', 'App\Http\Controllers\PenggunaController@tampil_ubah_pengguna')->name('pengguna.tampil_ubah');
-    Route::put('/update/{id}', 'App\Http\Controllers\PenggunaController@perbarui_pengguna')->name('pengguna.simpan_perbarui');
-    Route::get('/detail/{id}', 'App\Http\Controllers\PenggunaController@tampil_detail_pengguna')->name('pengguna.tampil_detail');
-    Route::post('/delete/{id}', 'App\Http\Controllers\PenggunaController@hapus_pengguna')->name('pengguna.hapus');
-    Route::get('/pdf', 'App\Http\Controllers\PenggunaController@cetak_semua_pdf')->name('pengguna.download_semua');
-});
+// Route::group(['prefix' => '/pengguna'], function() {
+//     Route::get('/index', 'App\Http\Controllers\PenggunaController@tampil_pengguna')->name('pengguna.index');
+//     Route::get('/create', 'App\Http\Controllers\PenggunaController@tambah_pengguna')->name('pengguna.create');
+//     Route::post('/save', 'App\Http\Controllers\PenggunaController@simpan_pengguna')->name('pengguna.simpan');
+//     Route::get('/edit/{id}', 'App\Http\Controllers\PenggunaController@tampil_ubah_pengguna')->name('pengguna.tampil_ubah');
+//     Route::put('/update/{id}', 'App\Http\Controllers\PenggunaController@perbarui_pengguna')->name('pengguna.simpan_perbarui');
+//     Route::get('/detail/{id}', 'App\Http\Controllers\PenggunaController@tampil_detail_pengguna')->name('pengguna.tampil_detail');
+//     Route::post('/delete/{id}', 'App\Http\Controllers\PenggunaController@hapus_pengguna')->name('pengguna.hapus');
+//     Route::get('/pdf', 'App\Http\Controllers\PenggunaController@cetak_semua_pdf')->name('pengguna.download_semua');
+// });
 
 // Profile
 Route::group(['prefix' => '/profile'], function() {

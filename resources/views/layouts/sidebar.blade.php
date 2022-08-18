@@ -55,25 +55,25 @@
             </a>
         </li>
 
-        @if(auth()->user()->role == 'Super Admin')
+        {{-- @if(auth()->user()->role == 'Super Admin')
         <li class="nav-item">
             <a class="nav-link {{ (request()->is('pengguna*')) ? 'active' : '' }}" href="{{route('pengguna.index')}}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Data Pengguna</p>
             </a>
         </li>
-        @endif
+        @endif --}}
 
     </ul>
 
-    <li class="nav-item {{ (request()->is('unduh*')) ? 'active menu-open' : '' }}">
+    {{-- <li class="nav-item {{ (request()->is('unduh*')) ? 'active menu-open' : '' }}">
         <a class="nav-link {{ (request()->is('unduh*')) ? 'active' : '' }}" href="{{route('unduh.index')}}">
             <i class="nav-icon fas fa-cloud-download-alt"></i>
             <p>
                 Pusat Unduhan
             </p>
         </a>
-    </li>
+    </li> --}}
 </li>
 </ul>
 </nav>
