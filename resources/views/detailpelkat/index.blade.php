@@ -31,8 +31,12 @@
 
                 <div class="row">
 
-                    <div class="col-md-3">
-                        <a href="{{ route('detailpelkat.create', ['id' => $pelkat->id]) }}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Tambah Anggota PelKat</a>
+                    <div class="col-md-2">
+                        <a href="{{ route('detailpelkat.create', ['id' => $pelkat->id]) }}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Anggota PelKat</a>
+                    </div>
+
+                    <div class="col-md-2">
+                        <a href="{{ route('pelkat.download_satu', ['id' => $pelkat->id]) }}" target="_blank" class="btn btn-success btn-fw col-md-12"><i class="fas fa-cloud-download-alt"></i> Cetak PDF</a>
                     </div>
 
                 </div>
@@ -54,7 +58,7 @@
                             <td> {{ $data->nama}} </td>
                             <td> {{ $data->pengurus}} </td>
                             <td>
-                                <a href="{{ route('detailpelkat.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a>
+                                <a href="{{ route('detailpelkat.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a>
                                 <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button>
 
                                 <!-- Modal -->

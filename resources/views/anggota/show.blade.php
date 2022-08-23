@@ -40,6 +40,13 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="control-label">Kode Anggota:</label>
+                            <div>
+                                <p>{{$anggota->kode_anggota}}</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="control-label">Nama Lengkap:</label>
                             <div>
                                 <p>{{$anggota->nama}}</p>
@@ -141,6 +148,28 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label class="control-label">Surat Baptis:</label>
+                            <div>
+                                @if ($anggota->srt_baptis != null)
+                                <b><a class="drobdown-item" target="_blank" href="{{ asset('storage/dokumen/baptis/'.$anggota->srt_baptis) }}">Download</a></b>
+                                @else
+                                <p>Surat baptis belum di upload!</p>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Surat Sidi:</label>
+                            <div>
+                                @if ($anggota->srt_sidi != null)
+                                <b><a class="drobdown-item" target="_blank" href="{{ asset('storage/dokumen/sidi/'.$anggota->srt_sidi) }}">Download</a></b>
+                                @else
+                                <p>Surat sidi belum di upload!</p>
+                                @endif
+                            </div>
+                        </div>
+
                     </div>
 
 
@@ -152,6 +181,7 @@
 
             <div class="card-footer">
                 <a href="{{ route('anggota.tampil_ubah', ['id' => $anggota->id]) }}" class="btn btn-primary"><i class="fa fa-edit"></i> Edit</a>
+                <a target="_blank" href="{{ route('anggota.download_satu', ['id' => $anggota->id]) }}" class="btn btn-success"><i class="fas fa-cloud-download-alt"></i> Download</a>
                 <a href="{{route('anggota.index')}}" class="btn btn-default float-right"> Kembali</a>
             </div>
 

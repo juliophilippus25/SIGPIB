@@ -29,7 +29,7 @@
 
                 <div class="row">
                     <div class="col-md-2">
-                        <a href="{{route('kakel.create')}}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Tambah Kartu Keluarga</a>
+                        <a href="{{route('kakel.create')}}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Kartu Keluarga</a>
                     </div>
 
                     <br><br>
@@ -65,7 +65,7 @@
                             <td>
                                 <a href="{{ route('detailkakel.index', ['id' => $data->id]) }}" class="btn btn-primary btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
                                 <a href="{{ route('kakel.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a>
-                                <a href="{{ route('kakel.download_satu', ['id' => $data->id]) }}" target="_blank" class="btn btn-success btn-sm" title="Unduh" ><i class="fas fa-cloud-download-alt"></i></a>
+                                {{-- <a href="{{ route('kakel.download_satu', ['id' => $data->id]) }}" target="_blank" class="btn btn-success btn-sm" title="Unduh" ><i class="fas fa-cloud-download-alt"></i></a> --}}
                                 <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button>
 
                                 <!-- Modal -->

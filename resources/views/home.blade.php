@@ -71,7 +71,7 @@
             <div class="small-box bg-success">
               <div class="inner">
                 <h3>{{ $kakel->count() }}</h3>
-                <p>Kepala Keluarga</p>
+                <p>Kartu Keluarga</p>
               </div>
               <div class="icon">
                 <i class="fas fa-people-roof"></i>

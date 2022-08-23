@@ -30,7 +30,7 @@
                 <div class="row">
 
                     <div class="col-md-2">
-                        <a href="{{route('sekwil.create')}}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Tambah SekWil</a>
+                        <a href="{{route('sekwil.create')}}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Sektor Wilayah</a>
                     </div>
 
                 </div>
@@ -50,7 +50,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $data->nama_sekwil }}</td>
                             <td>
-                                <a href="{{ route('sekwil.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a>
+                                <a href="{{ route('sekwil.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-primary btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a>
                                 <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button>
 
                                 <!-- Modal -->

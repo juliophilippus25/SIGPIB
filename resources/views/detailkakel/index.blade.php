@@ -31,8 +31,12 @@
 
                 <div class="row">
 
-                    <div class="col-md-3">
-                        <a href="{{ route('detailkakel.create', ['id' => $kakel->id]) }}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Tambah Anggota Keluarga</a>
+                    <div class="col-md-2">
+                        <a href="{{ route('detailkakel.create', ['id' => $kakel->id]) }}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Anggota</a>
+                    </div>
+
+                    <div class="col-md-2">
+                        <a href="{{ route('kakel.download_satu', ['id' => $kakel->id]) }}" target="_blank" class="btn btn-success btn-fw col-md-12"><i class="fas fa-cloud-download-alt"></i> Cetak PDF</a>
                     </div>
 
                 </div>

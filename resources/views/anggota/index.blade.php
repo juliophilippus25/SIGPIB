@@ -30,7 +30,7 @@
 
                 <div class="row">
                     <div class="col-md-2">
-                        <a href="{{route('anggota.tambah')}}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Tambah Anggota</a>
+                        <a href="{{route('anggota.tambah')}}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Anggota</a>
                     </div>
 
                     <br><br>
@@ -65,7 +65,7 @@
                             </td>
                             <td>
                                 <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
-                                <a href="{{ route('anggota.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a>
+                                {{-- <a href="{{ route('anggota.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a>
                                 <a type="button" title="Unduh" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-cloud-download-alt"> </i>
                                 </a>
@@ -82,7 +82,7 @@
                                     @if ($data->srt_sidi != null)
                                     <a class="dropdown-item" target="_blank" href="{{ asset('storage/dokumen/sidi/'.$data->srt_sidi) }}"> Surat Sidi</a>
                                     @endif
-                                </div>
+                                </div> --}}
 
                                 <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button>
 
