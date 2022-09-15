@@ -171,24 +171,38 @@ class KakelController extends Controller
 
     public function cetakPDF(Request $request)
     {
-        $q = Kakel::query();
-
-        if($request->get('id_sekwil'))
-        {
-            if($request->get('id_sekwil') == '1')
-            {
-                $q->where('id_sekwil', '1');
-            }
-            elseif($request->get('id_sekwil') == '2')
-            {
-                $q->where('id_sekwil', '2');
-            }
-        }
-
-        $kakel = $q->get();
+        $kakel = Kakel::get();
         $dt = Carbon::now();
 
         $pdf = PDF::loadView('laporan.kakel.kakelPDF', compact('kakel', 'dt'));
+        return $pdf->stream('SIGPIB_KK_'.$dt->format('d_M_Y').'.pdf');
+
+    }
+
+    public function cetak_sekwil1_PDF(Request $request)
+    {
+        $kakel= Kakel::where('id_sekwil', '1')->get();
+        $dt = Carbon::now();
+
+        $jmlh_agt = Kakel::join('detail_kakel', 'detail_kakel.id', '=' , 'kakel.id')
+        ->where('kakel.id')
+        ->count();
+
+        $pdf = PDF::loadView('laporan.kakel.kakel_sekwil1', compact('kakel', 'dt','jmlh_agt'));
+        return $pdf->stream('SIGPIB_KK_'.$dt->format('d_M_Y').'.pdf');
+
+    }
+
+    public function cetak_sekwil2_PDF(Request $request)
+    {
+        $kakel= Kakel::where('id_sekwil', '2')->get();
+        $dt = Carbon::now();
+
+        $jmlh_agt = DetailKakel::join('kakel', 'kakel.id', '=' , 'detail_kakel.id_kakel')
+        ->where('id_kakel')
+        ->count();
+
+        $pdf = PDF::loadView('laporan.kakel.kakel_sekwil2', compact('kakel', 'dt', 'jmlh_agt'));
         return $pdf->stream('SIGPIB_KK_'.$dt->format('d_M_Y').'.pdf');
 
     }

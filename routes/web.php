@@ -82,6 +82,8 @@ Route::group(['prefix' => '/kakel'], function() {
     Route::put('/update/{id}', 'App\Http\Controllers\KakelController@perbarui_kakel')->name('kakel.simpan_perbarui');
     Route::post('/delete/{id}', 'App\Http\Controllers\KakelController@hapus_kakel')->name('kakel.hapus');
     Route::get('/pdf', 'App\Http\Controllers\KakelController@cetakPDF')->name('kakel.download_pdf');
+    Route::get('/pdf/sekwil1', 'App\Http\Controllers\KakelController@cetak_sekwil1_PDF')->name('kakel.download_sekwil1_pdf');
+    Route::get('/pdf/sekwil2', 'App\Http\Controllers\KakelController@cetak_sekwil2_PDF')->name('kakel.download_sekwil2_pdf');
     Route::get('/pdf/{id}', 'App\Http\Controllers\KakelController@cetak_satu_pdf')->name('kakel.download_satu');
 
     // Detail Kartu Keluarga

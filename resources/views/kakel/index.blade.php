@@ -40,8 +40,8 @@
                         </a>
                         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
                             <a class="dropdown-item" target="_blank" href="{{route('kakel.download_pdf')}}"> Semua</a>
-                            <a class="dropdown-item" target="_blank" href="{{url('kakel/pdf?id_sekwil=1')}}"> Sektor Pelayanan 1</a>
-                            <a class="dropdown-item" target="_blank" href="{{url('kakel/pdf?id_sekwil=2')}}"> Sektor Pelayanan 2</a>
+                            <a class="dropdown-item" target="_blank" href="{{route('kakel.download_sekwil1_pdf')}}"> Sektor Pelayanan 1</a>
+                            <a class="dropdown-item" target="_blank" href="{{route('kakel.download_sekwil2_pdf')}}"> Sektor Pelayanan 2</a>
                         </div>
                     </div>
                 </div>

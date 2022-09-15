@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SIGPIB | Laporan Data Kartu Keluarga</title>
+    <title>SIGPIB | Laporan Data Kartu Keluarga Sektor Pelayanan 1</title>
     <style type="text/css">
         table {
             width: 100%;
@@ -56,23 +56,21 @@
 
         <hr width="100%" align="center">
 
-        <h4>
-            <center>Laporan Data Kartu Keluarga <br> {{date('d M Y', strtotime($dt))}} </center>
-        </h4>
+        <h4><center>Laporan Data Kartu Keluarga Sektor Pelayanan 1<br> {{date('d M Y', strtotime($dt))}} </center></h4>
 
         <table style="border: 1px; border-collapse: collapse;">
             <tr>
                 <th>No</th>
                 <th>Nama Kepala Keluarga</th>
                 <th>Tanggal Masuk</th>
-                <th>Sektor Wilayah</th>
+                <th>Jumlah Anggota Keluarga</th>
             </tr>
             @forelse($kakel as $data)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $data->anggota->nama }}</td>
                 <td>{{date('d M Y', strtotime($data->anggota->created_at))}}</td>
-                <td>{{ $data->sekwil->nama_sekwil }}</td>
+                <td>{{ $jmlh_agt }}</td>
             </tr>
             @empty
                 <tr class="">
@@ -82,7 +80,6 @@
                 </tr>
             @endforelse
         </table>
-        <p>Total Kartu Keluarga: {{ $data->count() }}</p>
-        {{-- {{$data->where('id_sekwil', '1')->count()}} --}}
+        <p>Total Kartu Keluarga: {{$data->where('id_sekwil', '1')->count()}}</p>
 </body>
 </html>
