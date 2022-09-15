@@ -24,7 +24,7 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card card-default">
             <div class="card-header d-flex">
-                <h3 class="card-title">Data Anggota {{ $pelkat->nama_pelkat }}</h3>
+                <h3 class="card-title">Data Pengurus {{ $pelkat->nama_pelkat }}</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -32,7 +32,7 @@
                 <div class="row">
 
                     <div class="col-md-2">
-                        <a href="{{ route('detailpelkat.create', ['id' => $pelkat->id]) }}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Anggota PelKat</a>
+                        <a href="{{ route('detailpelkat.create', ['id' => $pelkat->id]) }}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Pengurus PelKat</a>
                     </div>
 
                     <div class="col-md-2">

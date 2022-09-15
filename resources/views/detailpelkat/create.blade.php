@@ -26,7 +26,7 @@
 
         <div class="card card-default">
             <div class="card-header d-flex">
-                <h3 class="card-title">Form Tambah Data Anggota {{ $pelkat->nama_pelkat }}</h3>
+                <h3 class="card-title">Form Tambah Data Pengurus {{ $pelkat->nama_pelkat }}</h3>
             </div>
             <!-- /.card-header -->
 

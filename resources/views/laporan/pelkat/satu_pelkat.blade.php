@@ -70,7 +70,7 @@
     </table>
 
         <hr width="100%" align="center">
-        <h4><center>Laporan Anggota {{ $pelkat->nama_pelkat }} <br> {{date('d M Y', strtotime($dt))}} </center></h4>
+        <h4><center>Laporan Data Pengurus {{ $pelkat->nama_pelkat }} <br> {{date('d M Y', strtotime($dt))}} </center></h4>
         <table style="border: 1px; border-collapse: collapse;">
             <tr>
                 <th>No</th>
