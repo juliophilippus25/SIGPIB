@@ -139,7 +139,7 @@ class PelkatController extends Controller
         $det_pelkat = DetailPelkat::join('pelkat', 'pelkat.id', '=' , 'detail_pelkat.id_pelkat')
         ->join('anggota', 'anggota.id', '=' , 'detail_pelkat.id_anggota')
         ->where('id_pelkat', $id)
-        ->get(['anggota.nama','anggota.alamat','anggota.no_hp','detail_pelkat.id', 'detail_pelkat.pengurus']);
+        ->get(['anggota.nama','anggota.alamat','anggota.no_hp','detail_pelkat.id', 'detail_pelkat.pengurus', 'detail_pelkat.id_pelkat']);
 
         $dt = Carbon::now();
 

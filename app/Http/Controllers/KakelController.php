@@ -197,9 +197,8 @@ class KakelController extends Controller
     {
         $kakel= Kakel::where('id_sekwil', '2')->get();
         $dt = Carbon::now();
-
         $jmlh_agt = DetailKakel::join('kakel', 'kakel.id', '=' , 'detail_kakel.id_kakel')
-        ->where('id_kakel')
+        ->get('detail_kakel.id_anggota')
         ->count();
 
         $pdf = PDF::loadView('laporan.kakel.kakel_sekwil2', compact('kakel', 'dt', 'jmlh_agt'));

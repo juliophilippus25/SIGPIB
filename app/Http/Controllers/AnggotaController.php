@@ -208,6 +208,8 @@ class AnggotaController extends Controller
             Alert::warning('Surat baptis dan foto belum diupload!', '');
         } elseif($anggota->srt_sidi == null AND $anggota->gambar == null){
             Alert::warning('Surat sidi dan foto belum diupload!', '');
+        } elseif($anggota->srt_sidi == null AND $anggota->srt_baptis == null){
+            Alert::warning('Surat sidi dan surat baptis belum diupload!', '');
         } elseif($anggota->srt_baptis == null){
             Alert::warning('Surat baptis belum diupload!', '');
         } elseif($anggota->srt_sidi == null){

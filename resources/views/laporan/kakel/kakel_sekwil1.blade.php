@@ -80,6 +80,6 @@
                 </tr>
             @endforelse
         </table>
-        <p>Total Kartu Keluarga: {{$data->where('id_sekwil', '1')->count()}}</p>
+        <p>Total Kartu Keluarga: {{$kakel->where('id_sekwil', '1')->count()}}</p>
 </body>
 </html>

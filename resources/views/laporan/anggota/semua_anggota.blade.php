@@ -82,5 +82,6 @@
                 </tr>
             @endforelse
         </table>
+        <p>Total Anggota Jemaat: {{$anggota->count()}}</p>
     </body>
     </html>
