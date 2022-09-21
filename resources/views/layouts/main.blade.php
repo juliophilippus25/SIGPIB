@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="/adminLTE/plugins/toastr/toastr.min.css">
     {{-- Logo --}}
     <link rel="shortcut icon" href="{{ asset('/images/gpib/Logo-GPIB.png') }}">
+    {{-- Highcharts --}}
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
 <!--
     `body` tag options:
@@ -287,8 +289,6 @@
                 }
 		    });
 	    });
-
-
     </script>
 
 </body>

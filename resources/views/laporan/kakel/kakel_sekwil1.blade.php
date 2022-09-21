@@ -63,14 +63,12 @@
                 <th>No</th>
                 <th>Nama Kepala Keluarga</th>
                 <th>Tanggal Masuk</th>
-                <th>Jumlah Anggota Keluarga</th>
             </tr>
             @forelse($kakel as $data)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $data->anggota->nama }}</td>
                 <td>{{date('d M Y', strtotime($data->anggota->created_at))}}</td>
-                <td>{{ $jmlh_agt }}</td>
             </tr>
             @empty
                 <tr class="">

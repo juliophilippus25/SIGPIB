@@ -87,6 +87,6 @@
                 </tr>
             @endforelse
         </table>
-        <p>Total Anggota Keluarga: {{ $det_kakel->count() }}</p>
+        {{-- <p>Total Anggota Keluarga: {{ $det_kakel->count() }}</p> --}}
 </body>
 </html>

@@ -32,7 +32,7 @@ class KakelController extends Controller
     */
     public function tampil_kakel()
     {
-        $kakel = Kakel::get();
+        $kakel = Kakel::orderBy('created_at', 'desc')->get();
 
         return view('kakel.index', compact('kakel'));
     }
@@ -171,7 +171,7 @@ class KakelController extends Controller
 
     public function cetakPDF(Request $request)
     {
-        $kakel = Kakel::get();
+        $kakel = Kakel::orderBy('id_sekwil', 'asc')->get();
         $dt = Carbon::now();
 
         $pdf = PDF::loadView('laporan.kakel.kakelPDF', compact('kakel', 'dt'));
@@ -184,11 +184,7 @@ class KakelController extends Controller
         $kakel= Kakel::where('id_sekwil', '1')->get();
         $dt = Carbon::now();
 
-        $jmlh_agt = Kakel::join('detail_kakel', 'detail_kakel.id', '=' , 'kakel.id')
-        ->where('kakel.id')
-        ->count();
-
-        $pdf = PDF::loadView('laporan.kakel.kakel_sekwil1', compact('kakel', 'dt','jmlh_agt'));
+        $pdf = PDF::loadView('laporan.kakel.kakel_sekwil1', compact('kakel', 'dt'));
         return $pdf->stream('SIGPIB_KK_'.$dt->format('d_M_Y').'.pdf');
 
     }
@@ -197,11 +193,8 @@ class KakelController extends Controller
     {
         $kakel= Kakel::where('id_sekwil', '2')->get();
         $dt = Carbon::now();
-        $jmlh_agt = DetailKakel::join('kakel', 'kakel.id', '=' , 'detail_kakel.id_kakel')
-        ->get('detail_kakel.id_anggota')
-        ->count();
 
-        $pdf = PDF::loadView('laporan.kakel.kakel_sekwil2', compact('kakel', 'dt', 'jmlh_agt'));
+        $pdf = PDF::loadView('laporan.kakel.kakel_sekwil2', compact('kakel', 'dt'));
         return $pdf->stream('SIGPIB_KK_'.$dt->format('d_M_Y').'.pdf');
 
     }
