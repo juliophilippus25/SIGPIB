@@ -1,8 +1,8 @@
 <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-        <li class="nav-item {{ (request()->is('dashboard')) ? 'active menu-open' : '' }}">
-            <a class="nav-link {{ (request()->is('dashboard')) ? 'active' : '' }}" href="{{route('dashboard')}}">
+        <li class="nav-item {{ (request()->is('dashboard*')) ? 'active menu-open' : '' }}">
+            <a class="nav-link {{ (request()->is('dashboard*')) ? 'active' : '' }}" href="{{route('dashboard')}}">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                     Dashboard

@@ -33,6 +33,16 @@ class HomeController extends Controller
         $sekwil = Sekwil::get();
         $kakel = Kakel::get();
 
+        return view('home', compact('anggota', 'pelkat', 'sekwil', 'kakel'));
+    }
+
+    public function anggota()
+    {
+        $anggota = Anggota::get();
+        $pelkat = Pelkat::get();
+        $sekwil = Sekwil::get();
+        $kakel = Kakel::get();
+
         $total_anggota = Anggota::select(DB::raw("CAST(COUNT(nama) as int) as total_anggota"))
         ->GroupBy(DB::raw("Month(created_at)"))
         ->pluck('total_anggota');
@@ -41,6 +51,6 @@ class HomeController extends Controller
         ->GroupBy(DB::raw("MONTHNAME(created_at)"))
         ->pluck('bulan');
 
-        return view('home', compact('anggota', 'pelkat', 'sekwil', 'kakel','total_anggota','bulan'));
+        return view('dashboard.anggota.index', compact('anggota', 'pelkat', 'sekwil', 'kakel','total_anggota','bulan'));
     }
 }

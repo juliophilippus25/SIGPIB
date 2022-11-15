@@ -27,7 +27,8 @@ Auth::routes();
 
 // Home atau dashboard
 Route::group(['prefix' => '/dashboard'], function() {
-    Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+    Route::get('', 'App\Http\Controllers\HomeController@index')->name('dashboard');
+    Route::get('/anggota', 'App\Http\Controllers\HomeController@anggota')->name('dashboard.anggota');
 });
 
 // Anggota
