@@ -54,6 +54,7 @@
                 <p>Data Kartu Keluarga</p>
             </a>
         </li>
+    </li>
 
         {{-- @if(auth()->user()->role == 'Super Admin')
         <li class="nav-item">
@@ -74,6 +75,6 @@
             </p>
         </a>
     </li> --}}
-</li>
+
 </ul>
 </nav>

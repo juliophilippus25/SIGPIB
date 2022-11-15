@@ -7,6 +7,7 @@ use App\Models\Anggota;
 use App\Models\Pelkat;
 use App\Models\Sekwil;
 use App\Models\Kakel;
+use DB;
 
 class HomeController extends Controller
 {
@@ -32,6 +33,14 @@ class HomeController extends Controller
         $sekwil = Sekwil::get();
         $kakel = Kakel::get();
 
-        return view('home', compact('anggota', 'pelkat', 'sekwil', 'kakel'));
+        $total_anggota = Anggota::select(DB::raw("CAST(COUNT(nama) as int) as total_anggota"))
+        ->GroupBy(DB::raw("Month(created_at)"))
+        ->pluck('total_anggota');
+
+        $bulan = Anggota::select(DB::raw("MONTHNAME(created_at) as bulan"))
+        ->GroupBy(DB::raw("MONTHNAME(created_at)"))
+        ->pluck('bulan');
+
+        return view('home', compact('anggota', 'pelkat', 'sekwil', 'kakel','total_anggota','bulan'));
     }
 }
