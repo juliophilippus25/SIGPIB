@@ -43,6 +43,8 @@ Route::group(['prefix' => '/dashboard'], function() {
 
     // Sekwil
     Route::get('/sekwil', 'App\Http\Controllers\HomeController@sekwil')->name('dashboard.sekwil');
+    Route::get('/sekwil/sektor1', 'App\Http\Controllers\HomeController@sekwil1')->name('dashboard.sekwil1');
+    Route::get('/sekwil/sektor2', 'App\Http\Controllers\HomeController@sekwil2')->name('dashboard.sekwil2');
 });
 
 // Anggota

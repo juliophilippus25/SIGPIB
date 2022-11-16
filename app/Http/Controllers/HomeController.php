@@ -207,4 +207,44 @@ class HomeController extends Controller
 
         return view('dashboard.sekwil.index', compact('anggota', 'pelkat', 'sekwil', 'kakel'));
     }
+
+    public function sekwil1()
+    {
+        $anggota = Anggota::get();
+        $pelkat = Pelkat::get();
+        $sekwil = Sekwil::get();
+        $kakel = Kakel::get();
+
+        $total_kakel = Kakel::where('id_sekwil', '1')
+        ->select(DB::raw("CAST(COUNT(id_anggota) as int) as total_anggota"))
+        ->GroupBy(DB::raw("Month(created_at)"))
+        ->pluck('total_anggota');
+
+        $bulan = Kakel::where('id_sekwil', '1')
+        ->select(DB::raw("MONTHNAME(created_at) as bulan"))
+        ->GroupBy(DB::raw("MONTHNAME(created_at)"))
+        ->pluck('bulan');
+
+        return view('dashboard.sekwil.sektor1', compact('anggota', 'pelkat', 'sekwil', 'kakel','total_kakel','bulan'));
+    }
+
+    public function sekwil2()
+    {
+        $anggota = Anggota::get();
+        $pelkat = Pelkat::get();
+        $sekwil = Sekwil::get();
+        $kakel = Kakel::get();
+
+        $total_kakel = Kakel::where('id_sekwil', '2')
+        ->select(DB::raw("CAST(COUNT(id_anggota) as int) as total_anggota"))
+        ->GroupBy(DB::raw("Month(created_at)"))
+        ->pluck('total_anggota');
+
+        $bulan = Kakel::where('id_sekwil', '2')
+        ->select(DB::raw("MONTHNAME(created_at) as bulan"))
+        ->GroupBy(DB::raw("MONTHNAME(created_at)"))
+        ->pluck('bulan');
+
+        return view('dashboard.sekwil.sektor2', compact('anggota', 'pelkat', 'sekwil', 'kakel','total_kakel','bulan'));
+    }
 }

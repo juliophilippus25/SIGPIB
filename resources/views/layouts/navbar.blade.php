@@ -36,9 +36,8 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <a class="dropdown-item" href="{{route('dashboard.sekwil')}}"> Semua </a>
-                @foreach ($sekwil as $data)
-                    <a class="dropdown-item" href="#"> {{ $data->nama_sekwil }} </a>
-                @endforeach
+                <a class="dropdown-item" href="{{route('dashboard.sekwil1')}}"> Sektor Pelayanan 1 </a>
+                <a class="dropdown-item" href="{{route('dashboard.sekwil2')}}"> Sektor Pelayanan 2 </a>
             </div>
         </li>
     </ul>

@@ -38,7 +38,7 @@
                             <div class="small-box bg-success">
                                 <div class="inner">
                                     <h3>{{ $anggota->count() }}</h3>
-                                    <p>Anggota Jemaat</p>
+                                    <p>Jumlah Anggota Jemaat</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person"></i>

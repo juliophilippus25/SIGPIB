@@ -38,7 +38,7 @@
                         <div class="small-box bg-warning">
                             <div class="inner">
                                 <h3>{{ $pelkat->count() }}</h3>
-                                <p>Pelayanan Kategorial</p>
+                                <p>Jumlah Pelayanan Kategorial</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-people-group"></i>

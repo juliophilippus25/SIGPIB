@@ -38,7 +38,7 @@
                         <div class="small-box bg-danger">
                             <div class="inner">
                                 <h3>{{ $sekwil->count() }}</h3>
-                                <p>Sektor Wilayah</p>
+                                <p>Jumlah Sektor Wilayah</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-map"></i>
@@ -54,7 +54,7 @@
                         <div class="small-box bg-info">
                             <div class="inner">
                                 <h3>{{ $kakel->count() }}</h3>
-                                <p>Kartu Keluarga</p>
+                                <p>Jumlah Kartu Keluarga</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-people-roof"></i>

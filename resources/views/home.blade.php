@@ -38,7 +38,7 @@
                         <div class="small-box bg-success">
                             <div class="inner">
                                 <h3>{{ $anggota->count() }}</h3>
-                                <p>Anggota Jemaat</p>
+                                <p>Jumlah Anggota Jemaat</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person"></i>
@@ -54,7 +54,7 @@
                         <div class="small-box bg-warning">
                             <div class="inner">
                                 <h3>{{ $pelkat->count() }}</h3>
-                                <p>Pelayanan Kategorial</p>
+                                <p>Jumlah Pelayanan Kategorial</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-people-group"></i>
@@ -70,7 +70,7 @@
                         <div class="small-box bg-danger">
                             <div class="inner">
                                 <h3>{{ $sekwil->count() }}</h3>
-                                <p>Sektor Wilayah</p>
+                                <p>Jumlah Sektor Wilayah</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-map"></i>
