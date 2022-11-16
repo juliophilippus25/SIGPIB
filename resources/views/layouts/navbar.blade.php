@@ -4,13 +4,13 @@
     <ul class="navbar-nav">
 
         {{-- Dashboard --}}
-        <li class="nav-item d-none d-sm-inline-block {{ (request()->is('dashboard')) ? 'active menu-open' : '' }}">
-            <a href="{{route('dashboard')}}" class="nav-link {{ (request()->is('dashboard')) ? 'active' : '' }}">Dashboard</a>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{route('dashboard')}}" class="nav-link">Dashboard</a>
         </li>
 
         {{-- Anggota --}}
-        <li class="nav-item d-none d-sm-inline-block {{ (request()->is('dashboard*')) ? 'active menu-open' : '' }}">
-            <a href="{{route('dashboard.anggota')}}" class="nav-link {{ (request()->is('dashboard*')) ? 'active' : '' }}">Anggota</a>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{route('dashboard.anggota')}}" class="nav-link">Anggota</a>
         </li>
 
         {{-- Pelkat --}}
@@ -19,7 +19,7 @@
                 PelKat
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a class="dropdown-item" href="#"> Semua </a>
+                <a class="dropdown-item" href="{{route('dashboard.pelkat')}}"> Semua </a>
                 @foreach ($pelkat as $data)
                     <a class="dropdown-item" href="#"> {{ $data->nama_pelkat }} </a>
                 @endforeach

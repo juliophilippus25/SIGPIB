@@ -7,6 +7,7 @@ use App\Models\Anggota;
 use App\Models\Pelkat;
 use App\Models\Sekwil;
 use App\Models\Kakel;
+use App\Models\DetailPelkat;
 use DB;
 
 class HomeController extends Controller
@@ -52,5 +53,16 @@ class HomeController extends Controller
         ->pluck('bulan');
 
         return view('dashboard.anggota.index', compact('anggota', 'pelkat', 'sekwil', 'kakel','total_anggota','bulan'));
+    }
+
+    public function pelkat()
+    {
+        $anggota = Anggota::get();
+        $pelkat = Pelkat::get();
+        $sekwil = Sekwil::get();
+        $kakel = Kakel::get();
+        $det_pelkat = DetailPelkat::get();
+
+        return view('dashboard.pelkat.index', compact('anggota', 'pelkat', 'sekwil', 'kakel','det_pelkat'));
     }
 }

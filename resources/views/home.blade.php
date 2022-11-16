@@ -59,7 +59,7 @@
                             <div class="icon">
                                 <i class="fas fa-people-group"></i>
                             </div>
-                            <a href="{{ route('pelkat.index') }}" class="small-box-footer">Info lebih lanjut <i
+                            <a href="{{ route('dashboard.pelkat') }}" class="small-box-footer">Info lebih lanjut <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>

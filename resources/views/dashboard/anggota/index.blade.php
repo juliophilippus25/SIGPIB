@@ -164,7 +164,7 @@
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Jumlah Anggota Jemaat Per Golongan Darah'
+                    text: 'Jumlah Anggota Per Golongan Darah'
                 }
             },
             tooltip: {
@@ -182,7 +182,7 @@
                 }
             },
             series: [{
-                name: 'Golongan Darah',
+                name: 'Jumlah Anggota Per Golongan Darah',
                 data: [
                     {{ $anggota->where('goldar', 'A')->count() }},
                     {{ $anggota->where('goldar', 'B')->count() }},
