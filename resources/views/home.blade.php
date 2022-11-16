@@ -75,29 +75,11 @@
                             <div class="icon">
                                 <i class="ion ion-map"></i>
                             </div>
-                            <a href="{{ route('sekwil.index') }}" class="small-box-footer">Info lebih lanjut <i
+                            <a href="{{ route('dashboard.sekwil') }}" class="small-box-footer">Info lebih lanjut <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- Card -->
-
-                    {{-- <!-- Card -->
-                        <div class="col-lg-3 col-6">
-                            <div class="small-box bg-success">
-                                <div class="inner">
-                                    <h3>{{ $kakel->count() }}</h3>
-                                    <p>Kartu Keluarga</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fas fa-people-roof"></i>
-                                </div>
-                                <a href="{{ route('kakel.index') }}" class="small-box-footer">Info lebih lanjut <i
-                                        class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- Card --> --}}
-
-
 
                 </div>
                 <!-- /.row -->

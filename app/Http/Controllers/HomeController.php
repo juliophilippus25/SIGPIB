@@ -8,6 +8,7 @@ use App\Models\Pelkat;
 use App\Models\Sekwil;
 use App\Models\Kakel;
 use App\Models\DetailPelkat;
+use App\Models\DetailKakel;
 use DB;
 
 class HomeController extends Controller
@@ -64,5 +65,15 @@ class HomeController extends Controller
         $det_pelkat = DetailPelkat::get();
 
         return view('dashboard.pelkat.index', compact('anggota', 'pelkat', 'sekwil', 'kakel','det_pelkat'));
+    }
+
+    public function sekwil()
+    {
+        $anggota = Anggota::get();
+        $pelkat = Pelkat::get();
+        $sekwil = Sekwil::get();
+        $kakel = Kakel::get();
+
+        return view('dashboard.sekwil.index', compact('anggota', 'pelkat', 'sekwil', 'kakel'));
     }
 }

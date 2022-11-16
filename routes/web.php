@@ -34,6 +34,9 @@ Route::group(['prefix' => '/dashboard'], function() {
 
     // Pelkat
     Route::get('/pelkat', 'App\Http\Controllers\HomeController@pelkat')->name('dashboard.pelkat');
+
+    // Sekwil
+    Route::get('/sekwil', 'App\Http\Controllers\HomeController@sekwil')->name('dashboard.sekwil');
 });
 
 // Anggota

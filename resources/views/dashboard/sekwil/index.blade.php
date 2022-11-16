@@ -35,15 +35,31 @@
 
                     <!-- Card -->
                     <div class="col-lg-4 col-6">
-                        <div class="small-box bg-warning">
+                        <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>{{ $pelkat->count() }}</h3>
-                                <p>Pelayanan Kategorial</p>
+                                <h3>{{ $sekwil->count() }}</h3>
+                                <p>Sektor Wilayah</p>
                             </div>
                             <div class="icon">
-                                <i class="fas fa-people-group"></i>
+                                <i class="ion ion-map"></i>
                             </div>
-                            <a href="{{ route('pelkat.index') }}" class="small-box-footer">Info lebih lanjut <i
+                            <a href="{{ route('sekwil.index') }}" class="small-box-footer">Info lebih lanjut <i
+                                    class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+
+                    <!-- Card -->
+                    <div class="col-lg-4 col-6">
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3>{{ $kakel->count() }}</h3>
+                                <p>Kartu Keluarga</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-people-roof"></i>
+                            </div>
+                            <a href="{{ route('kakel.index') }}" class="small-box-footer">Info lebih lanjut <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -66,7 +82,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div id="pelkat"></div>
+                    <div id="sekwil"></div>
                 </div>
 
             </div>
@@ -77,30 +93,26 @@
 
 {{-- Script --}}
 
-{{-- Pelkat --}}
+{{-- Sekwil --}}
 <script>
-    Highcharts.chart('pelkat', {
+    Highcharts.chart('sekwil', {
         chart: {
             type: 'column'
         },
         title: {
-            text: 'Pelayanan Kategorial'
+            text: 'Sektor Wilayah'
         },
         xAxis: {
             categories: [
-                'Pelayanan Kategorial<br/> Pelayanan Anak <br/> ( {{ $det_pelkat->where('id_pelkat', '1')->count() }} )',
-                'Pelayanan Kategorial<br/> Persekutuan Teruna <br/> ( {{ $det_pelkat->where('id_pelkat', '2')->count() }} )',
-                'Pelayanan Kategorial<br/> Gerakan Pemuda <br/> ( {{ $det_pelkat->where('id_pelkat', '3')->count() }} )',
-                'Pelayanan Kategorial<br/> Persekutuan Kaum Perempuan <br/> ( {{ $det_pelkat->where('id_pelkat', '4')->count() }} )',
-                'Pelayanan Kategorial<br/> Persekutuan Kaum Bapak <br/> ( {{ $det_pelkat->where('id_pelkat', '5')->count() }} )',
-                'Pelayanan Kategorial<br/> Persekutuan Kaum Lanjut Usia <br/> ( {{ $det_pelkat->where('id_pelkat', '6')->count() }} )'
+                'Sektor Pelayanan 1 <br/> ( {{ $kakel->where('id_sekwil', '1')->count() }} )',
+                'Sektor Pelayanan 2 <br/> ( {{ $kakel->where('id_sekwil', '2')->count() }} )'
             ],
             crosshair: true
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Jumlah Anggota Jemaat Per Pelayanan Kategorial'
+                text: 'Jumlah Kartu Keluarga Per Sektor Wilayah'
             }
         },
         tooltip: {
@@ -118,18 +130,14 @@
             }
         },
         series: [{
-            name: 'Jumlah Anggota',
+            name: 'Jumlah Kartu Keluarga',
             data: [
-                {{ $det_pelkat->where('id_pelkat', '1')->count() }},
-                {{ $det_pelkat->where('id_pelkat', '2')->count() }},
-                {{ $det_pelkat->where('id_pelkat', '3')->count() }},
-                {{ $det_pelkat->where('id_pelkat', '4')->count() }},
-                {{ $det_pelkat->where('id_pelkat', '5')->count() }},
-                {{ $det_pelkat->where('id_pelkat', '6')->count() }}
+                {{ $kakel->where('id_sekwil', '1')->count() }},
+                {{ $kakel->where('id_sekwil', '2')->count() }}
             ]
         }]
     });
 </script>
-{{-- Pelkat --}}
+{{-- Sekwil --}}
 
 @endsection
