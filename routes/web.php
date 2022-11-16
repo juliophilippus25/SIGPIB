@@ -34,6 +34,12 @@ Route::group(['prefix' => '/dashboard'], function() {
 
     // Pelkat
     Route::get('/pelkat', 'App\Http\Controllers\HomeController@pelkat')->name('dashboard.pelkat');
+    Route::get('/pelkat/pa', 'App\Http\Controllers\HomeController@pelkat_pa')->name('dashboard.pelkat_pa');
+    Route::get('/pelkat/pt', 'App\Http\Controllers\HomeController@pelkat_pt')->name('dashboard.pelkat_pt');
+    Route::get('/pelkat/gp', 'App\Http\Controllers\HomeController@pelkat_gp')->name('dashboard.pelkat_gp');
+    Route::get('/pelkat/pkp', 'App\Http\Controllers\HomeController@pelkat_pkp')->name('dashboard.pelkat_pkp');
+    Route::get('/pelkat/pkb', 'App\Http\Controllers\HomeController@pelkat_pkb')->name('dashboard.pelkat_pkb');
+    Route::get('/pelkat/pklu', 'App\Http\Controllers\HomeController@pelkat_pklu')->name('dashboard.pelkat_pklu');
 
     // Sekwil
     Route::get('/sekwil', 'App\Http\Controllers\HomeController@sekwil')->name('dashboard.sekwil');

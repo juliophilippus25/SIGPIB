@@ -20,9 +20,12 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <a class="dropdown-item" href="{{route('dashboard.pelkat')}}"> Semua </a>
-                @foreach ($pelkat as $data)
-                    <a class="dropdown-item" href="#"> {{ $data->nama_pelkat }} </a>
-                @endforeach
+                <a class="dropdown-item" href="{{route('dashboard.pelkat_pa')}}"> Pelayanan Anak </a>
+                <a class="dropdown-item" href="{{route('dashboard.pelkat_pt')}}"> Persekutuan Teruna </a>
+                <a class="dropdown-item" href="{{route('dashboard.pelkat_gp')}}"> Gerakan Pemuda </a>
+                <a class="dropdown-item" href="{{route('dashboard.pelkat_pkp')}}"> Persekutuan Kaum Perempuan </a>
+                <a class="dropdown-item" href="{{route('dashboard.pelkat_pkb')}}"> Persekutuan Kaum Bapak </a>
+                <a class="dropdown-item" href="{{route('dashboard.pelkat_pklu')}}"> Persekutuan Kaum Lanjut Usia </a>
             </div>
         </li>
 
