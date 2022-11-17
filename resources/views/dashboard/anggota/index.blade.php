@@ -200,14 +200,14 @@
         var bulan = <?php echo json_encode($bulan)?>;
         Highcharts.chart('grafik', {
             title : {
-                text: 'Grafik Anggota Masuk Bulanan'
+                text: 'Grafik Anggota Jemaat Masuk Bulanan'
             },
             xAxis : {
                 categories : bulan
             },
             yAxis : {
                 title : {
-                    text : 'Jumlah Anggota'
+                    text : 'Jumlah Anggota Jemaat'
                 }
             },
             plotOptions : {
@@ -217,7 +217,7 @@
             },
             series : [
                 {
-                    name: 'Jumlah Anggota Masuk Bulanan',
+                    name: 'Jumlah Anggota Jemaat Masuk Bulanan',
                     data: anggota
                 }
             ]

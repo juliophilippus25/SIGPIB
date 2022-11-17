@@ -36,7 +36,11 @@
                     <div class="col-md-4">
 
                         <div class="form-group">
+                            @if($anggota->gambar == null)
+                            <img id="preview" class="product" width="300" height="300" src="{{ asset('images/pengguna/default.png') }}"/>
+                            @else
                             <img id="preview" class="product" width="300" height="300" src="{{ asset('storage/images/anggota/'.$anggota->gambar) }}"/>
+                            @endif
                         </div>
 
                         <div class="form-group">

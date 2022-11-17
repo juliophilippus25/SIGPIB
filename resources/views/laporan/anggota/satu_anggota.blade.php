@@ -25,7 +25,13 @@
         <h4><center>Laporan Data Anggota Jemaat <br> {{date('d M Y', strtotime($dt))}} </center></h4>
                 <table>
                     <tr>
-                        <td class="center"><img id="preview" class="product" width="200" height="200" src="{{ public_path('storage/images/anggota/'.$anggota->gambar) }}"/></td>
+                        <td class="center">
+                            @if ($anggota->gambar == null)
+                            <img id="preview" src="{{ public_path('images/pengguna/default.png') }}" width="200" height="200">
+                            @else
+                            <img id="preview" class="product" width="200" height="200" src="{{ public_path('storage/images/anggota/'.$anggota->gambar) }}"/>
+                            @endif
+                        </td>
                     </tr>
                 </table>
 

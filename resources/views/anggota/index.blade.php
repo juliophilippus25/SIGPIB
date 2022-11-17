@@ -46,7 +46,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Gambar</th>
+                            {{-- <th>Gambar</th> --}}
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -57,12 +57,12 @@
                             <td>
                                 {{ $data->nama }}
                             </td>
-                            <td>
+                            {{-- <td>
                                 <img src="{{ asset('storage/images/anggota/'.$data->gambar) }}" style="width: 40px;" alt="">
                                 @if ($data->gambar == null)
                                 <small style="color: red;"><em>Belum ada gambar</em></small>
                                 @endif
-                            </td>
+                            </td> --}}
                             <td>
                                 <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
                                 {{-- <a href="{{ route('anggota.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a>
