@@ -84,7 +84,7 @@
     var bulan = <?php echo json_encode($bulan)?>;
     Highcharts.chart('grafik', {
         title : {
-            text: 'Grafik Kartu Keluarga Masuk Bulanan'
+            text: 'Grafik Kartu Keluarga Masuk Bulanan </br> Tahun {{ date('Y') }}'
         },
         xAxis : {
             categories : bulan

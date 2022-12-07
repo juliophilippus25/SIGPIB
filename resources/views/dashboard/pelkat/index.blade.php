@@ -88,19 +88,19 @@
         },
         xAxis: {
             categories: [
-                'Pelayanan Kategorial<br/> Pelayanan Anak <br/> ( {{ $det_pelkat->where('id_pelkat', '1')->count() }} )',
-                'Pelayanan Kategorial<br/> Persekutuan Teruna <br/> ( {{ $det_pelkat->where('id_pelkat', '2')->count() }} )',
-                'Pelayanan Kategorial<br/> Gerakan Pemuda <br/> ( {{ $det_pelkat->where('id_pelkat', '3')->count() }} )',
-                'Pelayanan Kategorial<br/> Persekutuan Kaum Perempuan <br/> ( {{ $det_pelkat->where('id_pelkat', '4')->count() }} )',
-                'Pelayanan Kategorial<br/> Persekutuan Kaum Bapak <br/> ( {{ $det_pelkat->where('id_pelkat', '5')->count() }} )',
-                'Pelayanan Kategorial<br/> Persekutuan Kaum Lanjut Usia <br/> ( {{ $det_pelkat->where('id_pelkat', '6')->count() }} )'
+                'Pelkat<br/> PA <br/> ( {{ $det_pelkat->where('id_pelkat', '1')->count() }} )',
+                'Pelkat<br/> PT <br/> ( {{ $det_pelkat->where('id_pelkat', '2')->count() }} )',
+                'Pelkat<br/> GP <br/> ( {{ $det_pelkat->where('id_pelkat', '3')->count() }} )',
+                'Pelkat<br/> PKP <br/> ( {{ $det_pelkat->where('id_pelkat', '4')->count() }} )',
+                'Pelkat<br/> PKB <br/> ( {{ $det_pelkat->where('id_pelkat', '5')->count() }} )',
+                'Pelkat<br/> PKLU <br/> ( {{ $det_pelkat->where('id_pelkat', '6')->count() }} )'
             ],
             crosshair: true
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Jumlah Anggota Jemaat Per Pelayanan Kategorial'
+                text: 'Jumlah Anggota Jemaat Per Pelkat'
             }
         },
         tooltip: {
@@ -118,7 +118,7 @@
             }
         },
         series: [{
-            name: 'Jumlah Anggota',
+            name: 'Jumlah Anggota Pelkat',
             data: [
                 {{ $det_pelkat->where('id_pelkat', '1')->count() }},
                 {{ $det_pelkat->where('id_pelkat', '2')->count() }},

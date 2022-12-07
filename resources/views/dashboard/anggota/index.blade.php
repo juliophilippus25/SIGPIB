@@ -62,7 +62,9 @@
     <div class="row">
 
         <div class="col-md-12">
+
             <div class="row">
+
                 <div class="col-md-6">
                     <div class="card">
                         <div id="jk"></div>
@@ -76,8 +78,10 @@
                     </div>
 
                 </div>
+
             </div>
         </div>
+
     </div>
 
     <div class="row">
@@ -154,10 +158,10 @@
             },
             xAxis: {
                 categories: [
-                    'Golongan Darah<br/> A <br/> ( {{ $anggota->where('goldar', 'A')->count() }} )',
-                    'Golongan Darah<br/> B <br/> ( {{ $anggota->where('goldar', 'B')->count() }} )',
-                    'Golongan Darah<br/> O <br/> ( {{ $anggota->where('goldar', 'O')->count() }} )',
-                    'Golongan Darah<br/> AB <br/> ( {{ $anggota->where('goldar', 'AB')->count() }} )'
+                    'Goldar<br/> A <br/> ( {{ $anggota->where('goldar', 'A')->count() }} )',
+                    'Goldar<br/> B <br/> ( {{ $anggota->where('goldar', 'B')->count() }} )',
+                    'Goldar<br/> O <br/> ( {{ $anggota->where('goldar', 'O')->count() }} )',
+                    'Goldar<br/> AB <br/> ( {{ $anggota->where('goldar', 'AB')->count() }} )'
                 ],
                 crosshair: true
             },
@@ -196,11 +200,12 @@
 
     {{-- Grafik --}}
     <script>
-        var anggota = <?php echo json_encode($total_anggota)?>;
         var bulan = <?php echo json_encode($bulan)?>;
+        var total_anggota =<?php echo json_encode($total_anggota)?>
+
         Highcharts.chart('grafik', {
             title : {
-                text: 'Grafik Anggota Jemaat Masuk Bulanan'
+                text: 'Grafik Anggota Jemaat Masuk Bulanan </br> Tahun {{ date('Y') }}'
             },
             xAxis : {
                 categories : bulan
@@ -218,7 +223,7 @@
             series : [
                 {
                     name: 'Jumlah Anggota Jemaat Masuk Bulanan',
-                    data: anggota
+                    data: total_anggota
                 }
             ]
         })
