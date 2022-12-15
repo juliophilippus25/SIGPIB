@@ -36,7 +36,7 @@
                     <br><br>
 
                     <div class="col-md-2">
-                        <a href="{{route('anggota.download_semua')}}" target="_blank" class="btn btn-success btn-fw col-md-12"><i class="fas fa-cloud-download-alt"></i> Cetak PDF</a>
+                        <a href="{{route('anggota.download_semua')}}" target="_blank" class="btn btn-success btn-fw col-md-12"><i class="fas fa-cloud-download-alt"></i> PDF</a>
                     </div>
                 </div>
                 <br>

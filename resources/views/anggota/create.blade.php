@@ -150,7 +150,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="kabupaten">Kabupaten <b style="color:Tomato;">*</b></label>
+                                <label for="kabupaten">Kota/Kabupaten <b style="color:Tomato;">*</b></label>
                                 <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('kabupaten') is-invalid @enderror" name="kabupaten" id="kabupaten"  placeholder="Masukkan Kabupaten" value="{{ old('kabupaten') }}">
                                 @error('kabupaten')
                                 <span class="text-danger">{{$message}}</span>
@@ -166,7 +166,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Kelurahan <b style="color:Tomato;">*</b></label>
+                                <label>Kelurahan/Desa <b style="color:Tomato;">*</b></label>
                                 <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('kelurahan') is-invalid @enderror" name="kelurahan" id="kelurahan"  placeholder="Masukkan Kelurahan" value="{{ old('kelurahan') }}">
                                 @error('kelurahan')
                                 <span class="text-danger">{{$message}}</span>
