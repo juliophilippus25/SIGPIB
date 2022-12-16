@@ -74,9 +74,7 @@
 
                                 <div class="form-group col-6">
                                     <label>Tanggal Lahir <b style="color:Tomato;">*</b></label>
-                                    <div>
-                                        <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control @error('tgl_lahir') is-invalid @enderror" value="{{ old('tgl_lahir') }}">
-                                    </div>
+                                    <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control @error('tgl_lahir') is-invalid @enderror" value="{{ old('tgl_lahir') }}">
                                     @error('tgl_lahir')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
@@ -142,9 +140,9 @@
                         <div class="col-md-6">
 
                             <div class="form-group">
-                                <label for="alamat">Provinsi <b style="color:Tomato;">*</b></label>
+                                <label for="provinsi">Provinsi <b style="color:Tomato;">*</b></label>
                                 <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('provinsi') is-invalid @enderror" name="provinsi" id="provinsi"  placeholder="Masukkan Provinsi" value="{{ old('provinsi') }}">
-                                @error('alamat')
+                                @error('provinsi')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>

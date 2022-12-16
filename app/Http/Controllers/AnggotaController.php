@@ -98,8 +98,8 @@ class AnggotaController extends Controller
             'pekerjaan.required' => 'Pekerjaan wajib diisi!',
             'sts_keluarga.required' => 'Status keluarga wajib diisi!',
             'alamat.required' => 'Alamat wajib diisi!',
-            'kabupaten.required' => 'Kabupaten wajib diisi!',
-            'kelurahan.required' => 'Kelurahan wajib diisi!',
+            'kabupaten.required' => 'Kota atau kabupaten wajib diisi!',
+            'kelurahan.required' => 'Kelurahan atau desa wajib diisi!',
             'provinsi.required' => 'Provinsi wajib diisi!',
             'kecamatan.required' => 'Kecamatan wajib diisi!',
             'goldar.required' => 'Golongan darah wajib diisi!',
@@ -125,7 +125,10 @@ class AnggotaController extends Controller
             'gambar.max' => 'Ukuran maksimal file gambar adalah 2mb',
             'srt_baptis.max' => 'Ukuran maksimal file surat baptis adalah 2mb',
             'srt_sidi.max' => 'Ukuran maksimal file surat sidi adalah 2mb'
+
         ]);
+
+        $tgl_skrg = Carbon::now(); // Tanggal sekarang
 
         // Memberikan pesan error ketika terdapat validasi yang salah
         if($validator->fails()){
@@ -133,6 +136,12 @@ class AnggotaController extends Controller
             Alert::error('Data tidak berhasil disimpan!', '');
             return redirect()->back()->withErrors($validator)->withInput();
         }
+        // Validasi nilai tanggal lahir tidak boleh lebih dari tanggal sekarang
+        elseif(strtotime($request->tgl_lahir) > strtotime($tgl_skrg)) {
+            Alert::error('Data tidak berhasil disimpan!', '');
+            return redirect()->back()->withErrors($validator)->withInput();;
+        }
+
 
         // Proses upload gambar
         if($request->file('gambar') == '') {
@@ -201,22 +210,6 @@ class AnggotaController extends Controller
     public function tampil_ubah_anggota($id)
     {
         $anggota = Anggota::find($id);
-
-        if ($anggota->srt_baptis == null AND $anggota->srt_sidi == null AND $anggota->gambar == null ) {
-            Alert::warning('Surat baptis, surat sidi dan foto belum diupload!', '');
-        } elseif($anggota->srt_baptis == null AND $anggota->gambar == null){
-            Alert::warning('Surat baptis dan foto belum diupload!', '');
-        } elseif($anggota->srt_sidi == null AND $anggota->gambar == null){
-            Alert::warning('Surat sidi dan foto belum diupload!', '');
-        } elseif($anggota->srt_sidi == null AND $anggota->srt_baptis == null){
-            Alert::warning('Surat sidi dan surat baptis belum diupload!', '');
-        } elseif($anggota->srt_baptis == null){
-            Alert::warning('Surat baptis belum diupload!', '');
-        } elseif($anggota->srt_sidi == null){
-            Alert::warning('Surat sidi belum diupload!', '');
-        } elseif($anggota->gambar == null){
-            Alert::warning('Foto belum diupload!', '');
-        }
 
         return view('anggota.edit', compact('anggota'));
     }
@@ -287,11 +280,18 @@ class AnggotaController extends Controller
             'srt_sidi.max' => 'Ukuran maksimal file surat sidi adalah 2mb'
         ]);
 
+        $tgl_skrg = Carbon::now(); // Tanggal sekarang
+
         // Memberikan pesan error ketika terdapat validasi yang salah
         if($validator->fails()){
             // redirect dengan pesan error
             Alert::error('Data tidak berhasil diubah!', '');
             return redirect()->back()->withErrors($validator)->withInput();
+        }
+        // Validasi nilai tanggal lahir tidak boleh lebih dari tanggal sekarang
+        elseif(strtotime($request->tgl_lahir) > strtotime($tgl_skrg)) {
+            Alert::error('Data tidak berhasil disimpan!', '');
+            return redirect()->back()->withErrors($validator)->withInput();;
         }
 
         // Proses upload gambar
@@ -351,6 +351,22 @@ class AnggotaController extends Controller
     public function tampil_detail_anggota($id)
     {
         $anggota = Anggota::find($id);
+
+        if ($anggota->srt_baptis == null AND $anggota->srt_sidi == null AND $anggota->gambar == null ) {
+            Alert::warning('Surat baptis, surat sidi dan foto belum diupload!', '');
+        } elseif($anggota->srt_baptis == null AND $anggota->gambar == null){
+            Alert::warning('Surat baptis dan foto belum diupload!', '');
+        } elseif($anggota->srt_sidi == null AND $anggota->gambar == null){
+            Alert::warning('Surat sidi dan foto belum diupload!', '');
+        } elseif($anggota->srt_sidi == null AND $anggota->srt_baptis == null){
+            Alert::warning('Surat sidi dan surat baptis belum diupload!', '');
+        } elseif($anggota->srt_baptis == null){
+            Alert::warning('Surat baptis belum diupload!', '');
+        } elseif($anggota->srt_sidi == null){
+            Alert::warning('Surat sidi belum diupload!', '');
+        } elseif($anggota->gambar == null){
+            Alert::warning('Foto belum diupload!', '');
+        }
 
         return view('anggota.show', compact('anggota'));
     }
