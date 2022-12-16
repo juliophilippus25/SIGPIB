@@ -76,6 +76,8 @@
 {{-- Grafik --}}
 
 {{-- Script --}}
+<script src="/highcharts/highcharts.js"></script>
+{{-- <script src="/highcharts/exporting.js"></script> --}}
 
 {{-- Pelkat --}}
 <script>
@@ -88,12 +90,12 @@
         },
         xAxis: {
             categories: [
-                'Pelkat<br/> PA <br/> ( {{ $det_pelkat->where('id_pelkat', '1')->count() }} )',
-                'Pelkat<br/> PT <br/> ( {{ $det_pelkat->where('id_pelkat', '2')->count() }} )',
-                'Pelkat<br/> GP <br/> ( {{ $det_pelkat->where('id_pelkat', '3')->count() }} )',
-                'Pelkat<br/> PKP <br/> ( {{ $det_pelkat->where('id_pelkat', '4')->count() }} )',
-                'Pelkat<br/> PKB <br/> ( {{ $det_pelkat->where('id_pelkat', '5')->count() }} )',
-                'Pelkat<br/> PKLU <br/> ( {{ $det_pelkat->where('id_pelkat', '6')->count() }} )'
+                'Pelkat PA <br/> ( {{ $det_pelkat->where('id_pelkat', '1')->count() }} )',
+                'Pelkat PT <br/> ( {{ $det_pelkat->where('id_pelkat', '2')->count() }} )',
+                'Pelkat GP <br/> ( {{ $det_pelkat->where('id_pelkat', '3')->count() }} )',
+                'Pelkat PKP <br/> ( {{ $det_pelkat->where('id_pelkat', '4')->count() }} )',
+                'Pelkat PKB <br/> ( {{ $det_pelkat->where('id_pelkat', '5')->count() }} )',
+                'Pelkat PKLU <br/> ( {{ $det_pelkat->where('id_pelkat', '6')->count() }} )'
             ],
             crosshair: true
         },

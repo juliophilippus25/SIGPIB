@@ -10,6 +10,8 @@ use App\Models\Kakel;
 use App\Models\DetailPelkat;
 use App\Models\DetailKakel;
 use DB;
+use Carbon\Carbon;
+use PDF;
 
 class HomeController extends Controller
 {
@@ -63,6 +65,46 @@ class HomeController extends Controller
         ->pluck('bulan');
 
         return view('dashboard.anggota.index', compact('anggota', 'pelkat', 'sekwil', 'kakel', 'bulan', 'total_anggota'));
+    }
+
+    public function cetak_goldarA_PDF(Request $request)
+    {
+        $anggota= Anggota::where('goldar', 'A')->get();
+        $dt = Carbon::now();
+
+        $pdf = PDF::loadView('laporan.anggota.goldar_a', compact('anggota', 'dt'));
+        return $pdf->stream('SIGPIB_GOLDAR_A_'.$dt->format('d_M_Y').'.pdf');
+
+    }
+
+    public function cetak_goldarB_PDF(Request $request)
+    {
+        $anggota= Anggota::where('goldar', 'B')->get();
+        $dt = Carbon::now();
+
+        $pdf = PDF::loadView('laporan.anggota.goldar_b', compact('anggota', 'dt'));
+        return $pdf->stream('SIGPIB_GOLDAR_B_'.$dt->format('d_M_Y').'.pdf');
+
+    }
+
+    public function cetak_goldarO_PDF(Request $request)
+    {
+        $anggota= Anggota::where('goldar', 'O')->get();
+        $dt = Carbon::now();
+
+        $pdf = PDF::loadView('laporan.anggota.goldar_o', compact('anggota', 'dt'));
+        return $pdf->stream('SIGPIB_GOLDAR_O_'.$dt->format('d_M_Y').'.pdf');
+
+    }
+
+    public function cetak_goldarAB_PDF(Request $request)
+    {
+        $anggota= Anggota::where('goldar', 'AB')->get();
+        $dt = Carbon::now();
+
+        $pdf = PDF::loadView('laporan.anggota.goldar_ab', compact('anggota', 'dt'));
+        return $pdf->stream('SIGPIB_GOLDAR_AB_'.$dt->format('d_M_Y').'.pdf');
+
     }
 
     // Pelkat

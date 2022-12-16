@@ -92,6 +92,8 @@
 {{-- Grafik --}}
 
 {{-- Script --}}
+<script src="/highcharts/highcharts.js"></script>
+{{-- <script src="/highcharts/exporting.js"></script> --}}
 
 {{-- Sekwil --}}
 <script>

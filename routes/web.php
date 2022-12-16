@@ -31,6 +31,10 @@ Route::group(['prefix' => '/dashboard'], function() {
 
     // Anggota
     Route::get('/anggota', 'App\Http\Controllers\HomeController@anggota')->name('dashboard.anggota');
+    Route::get('/pdf/goldara', 'App\Http\Controllers\HomeController@cetak_goldarA_PDF')->name('dashboard.download_goldara_pdf');
+    Route::get('/pdf/goldarb', 'App\Http\Controllers\HomeController@cetak_goldarB_PDF')->name('dashboard.download_goldarb_pdf');
+    Route::get('/pdf/goldaro', 'App\Http\Controllers\HomeController@cetak_goldarO_PDF')->name('dashboard.download_goldaro_pdf');
+    Route::get('/pdf/goldarab', 'App\Http\Controllers\HomeController@cetak_goldarAB_PDF')->name('dashboard.download_goldarab_pdf');
 
     // Pelkat
     Route::get('/pelkat', 'App\Http\Controllers\HomeController@pelkat')->name('dashboard.pelkat');
