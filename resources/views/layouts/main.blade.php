@@ -176,6 +176,7 @@
 
     <!-- jQuery -->
     <script src="/adminLTE/plugins/jquery/jquery.min.js"></script>
+
     <!-- Bootstrap -->
     <script src="/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->

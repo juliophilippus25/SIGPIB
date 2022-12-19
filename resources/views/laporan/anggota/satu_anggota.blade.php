@@ -1,109 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SIGPIB | Laporan Data Anggota {{ $anggota->nama }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SIGPIB | {{ $anggota->kode_anggota }}</title>
     <style type="text/css">
         .center {
             text-align: center;
         }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        h4 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #anggota {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #anggota td,
+        #anggota th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #anggota tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #anggota th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #595cf5;
+            color: white;
+        }
     </style>
 </head>
+
 <body>
     <table>
         <tr>
-            <td><img src="{{ public_path("images/gpib/Logo-GPIB.png") }}" alt="" style="width: 100px; height: 100px;"></td>
+            <td><img src="{{ public_path('images/gpib/Logo-GPIB.png') }}" alt=""
+                    style="width: 100px; height: 100px;"></td>
             <td class="center">
-                <font size="4">GEREJA PROTESTAN di INDONESIA bagian BARAT <br> (G P I B) <br> JEMAAT "MARANATHA" TANJUNG SELOR</font> <br>
-                <font size="2">Alamat: Jalan D.I. Panjaitan, No. 25 Tanjung Selor Kode Pos 77211 Kabupaten Bulungan-KALTARA <br>
+                <font size="4">GEREJA PROTESTAN di INDONESIA bagian BARAT <br> (G P I B) <br> JEMAAT "MARANATHA"
+                    TANJUNG SELOR</font> <br>
+                <font size="2">Alamat: Jalan D.I. Panjaitan, No. 25 Tanjung Selor Kode Pos 77211 Kabupaten
+                    Bulungan-KALTARA <br>
                     Email: gpib.maranatha.tjs@gmail.com</font>
             </td>
         </tr>
     </table>
 
-        <hr width="100%" align="center">
-        <h4><center>Laporan Data Anggota Jemaat <br> {{date('d M Y', strtotime($dt))}} </center></h4>
-                <table>
-                    <tr>
-                        <td class="center">
-                            @if ($anggota->gambar == null)
-                            <img id="preview" src="{{ public_path('images/pengguna/default.png') }}" width="200" height="200">
-                            @else
-                            <img id="preview" class="product" width="200" height="200" src="{{ public_path('storage/images/anggota/'.$anggota->gambar) }}"/>
-                            @endif
-                        </td>
-                    </tr>
-                </table>
+    <hr width="100%" align="center">
+    <h4>
+        <center>BIODATA ANGGOTA JEMAAT</center>
+    </h4>
+    <table align="center">
+        <tr>
+            <td>
+                @if ($anggota->gambar == null)
+                    <img id="preview" class="product" style="border-radius: 25px; padding: 20px;" src="{{ public_path('images/pengguna/default.png') }}" width="150"
+                        height="150">
+                @else
+                    <img id="preview" class="product" style="border-radius: 25px; padding: 20px;" width="150" height="150"
+                        src="{{ public_path('storage/images/anggota/' . $anggota->gambar) }}" />
+                @endif
+            </td>
+        </tr>
+    </table>
 
-                <br>
+    {{-- Data diri --}}
+    <table id="anggota">
 
-                <table style="width: 100%;">
-                    <tr>
-                        <td>
-                            <strong>Nama Lengkap:</strong>
-                            <br> {{ $anggota->nama }}
-                        </td>
-                        <td>
-                            <strong>Jenis Kelamin:</strong>
-                            <br> {{ $anggota->jk }}
-                        </td>
-                        <td>
-                            <strong>Tempat Lahir:</strong>
-                            <br> {{ $anggota->tempat_lahir }}
-                        </td>
-                    </tr>
+        <thead>
+            <th colspan="3">DATA PRIBADI</th>
+        </thead>
 
-                <br>
+        <tbody>
+            <tr>
+                <td style="width: 25%" class="bold">Kode Anggota</td>
+                <td>:</td>
+                <td style="width: 70%">{{ $anggota->kode_anggota }}</td>
+            </tr>
+            <tr>
+                <td class="bold">Nama Lengkap</td>
+                <td>:</td>
+                <td>{{ $anggota->nama }}</td>
+            </tr>
+            <tr>
+                <td class="bold">Jenis Kelamin</td>
+                <td>:</td>
+                <td>{{ $anggota->jk }}</td>
+            </tr>
+            <tr>
+                <td class="bold">Tempat Tanggal Lahir</td>
+                <td>:</td>
+                <td>{{ $anggota->tempat_lahir }} / {{ date('d-m-Y', strtotime($anggota->tgl_lahir)) }}
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">Pekerjaan</td>
+                <td>:</td>
+                <td>{{ $anggota->pekerjaan }}</td>
+            </tr>
+            <tr>
+                <td class="bold">No HP</td>
+                <td>:</td>
+                <td>{{ $anggota->no_hp }}</td>
+            </tr>
+            <tr>
+                <td class="bold">Alamat</td>
+                <td>:</td>
+                <td>{{ $anggota->alamat }}</td>
+            </tr>
+            <tr>
+                <td class="bold">Provinsi</td>
+                <td>:</td>
+                <td>{{ $anggota->provinsi }}</td>
+            </tr>
+            <tr>
+                <td class="bold">Kota/Kabupaten</td>
+                <td>:</td>
+                <td>{{ $anggota->kabupaten }}</td>
+            </tr>
+            <tr>
+                <td class="bold">Kecamatan</td>
+                <td>:</td>
+                <td>{{ $anggota->kecamatan }}</td>
+            </tr>
+            <tr>
+                <td class="bold">Kelurahan/Desa</td>
+                <td>:</td>
+                <td>{{ $anggota->kelurahan }}</td>
+            </tr>
+            <tr>
+                <td class="bold">Golongan Darah</td>
+                <td>:</td>
+                <td>{{ $anggota->goldar }}</td>
+            </tr>
+            <tr>
+                <td class="bold">Kepala Keluarga</td>
+                <td>:</td>
+                <td>{{ $anggota->sts_keluarga }}</td>
+            </tr>
+        </tbody>
 
-                    <tr>
-                        <td>
-                            <strong>Tanggal Lahir:</strong>
-                            <br> {{date('d M Y', strtotime($anggota->tgl_lahir))}}
-                        </td>
-                        <td>
-                            <strong>Nomor Handphone:</strong>
-                            <br> {{ $anggota->no_hp }}
-                        </td>
-                        <td>
-                            <strong>Pekerjaan:</strong>
-                            <br> {{ $anggota->pekerjaan }}
-                        </td>
-                    </tr>
+    </table>
+    {{-- Data diri --}}
 
-                <br>
+    <br>
 
-                    <tr>
-                        <td>
-                            <strong>Golongan Darah:</strong>
-                            <br> {{ $anggota->goldar }}
-                        </td>
-                        <td>
-                            <strong>Provinsi:</strong>
-                            <br> {{ $anggota->provinsi }}
-                        </td>
-                        <td>
-                            <strong>Kabupaten:</strong>
-                            <br> {{ $anggota->kabupaten }}
-                        </td>
-                    </tr>
+    {{-- Data berkas --}}
+    <table id="anggota">
 
-                <br>
+        <thead>
+            <th colspan="3">DATA BERKAS</th>
+        </thead>
 
-                    <tr>
-                        <td>
-                            <strong>Kecamatan:</strong>
-                            <br> {{ $anggota->kecamatan }}
-                        </td>
-                        <td>
-                            <strong>Kelurahan:</strong>
-                            <br> {{ $anggota->kelurahan }}
-                        </td>
-                        <td>
-                            <strong>Alamat:</strong>
-                            <br> {{ $anggota->alamat }}
-                        </td>
-                    </tr>
-                </table>
+        <tbody>
+            <tr>
+                <td style="width: 25%" class="bold">Surat Baptis</td>
+                <td>:</td>
+                @if ($anggota->srt_baptis == null)
+                    <td style="width: 70%">-</td>
+                @else
+                    <td style="width: 70%">Diterima</td>
+                @endif
+            </tr>
 
-    </body>
-    </html>
+            <tr>
+                <td class="bold">Surat Sidi</td>
+                <td>:</td>
+                @if ($anggota->srt_sidi == null)
+                    <td>-</td>
+                @else
+                    <td>Diterima</td>
+                @endif
+            </tr>
+        </tbody>
+
+    </table>
+    {{-- Data berkas --}}
+
+
+</body>
+
+</html>

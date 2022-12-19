@@ -37,10 +37,10 @@
 
                             <div class="form-group">
                                 @if ($anggota->gambar == null)
-                                    <img id="preview" class="product" width="300" height="300"
+                                    <img id="preview" class="product ml-3" style="border-radius: 25px; padding: 20px;" width="200" height="200"
                                         src="{{ asset('images/pengguna/default.png') }}" />
                                 @else
-                                    <img id="preview" class="product" width="300" height="300"
+                                    <img id="preview" class="product ml-3" style="border-radius: 25px; padding: 20px;" width="300" height="300"
                                         src="{{ asset('storage/images/anggota/' . $anggota->gambar) }}" />
                                 @endif
                             </div>
@@ -48,7 +48,7 @@
                             <table class="table table-borderless table-striped">
 
                                 <thead>
-                                    <th><i class="fa fa-file"></i>&nbsp;Data Berkas</th>
+                                    <th><i class="fa fa-file"></i>&nbsp;DATA BERKAS</th>
                                 </thead>
 
                                 <tbody>
@@ -82,7 +82,7 @@
                             <table class="table table-borderless table-striped">
 
                                 <thead>
-                                    <th><i class="fa fa-user"></i>&nbsp;Data Diri</th>
+                                    <th><i class="fa fa-user"></i>&nbsp;DATA PRIBADI</th>
                                 </thead>
 
                                 <tbody>

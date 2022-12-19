@@ -78,6 +78,7 @@ class DetailPelkatController extends Controller
 
         // redirect dengan pesan sukses
         Alert::success('Data berhasil disimpan!', '');
+
         if(session('halaman_url')){
             return Redirect(session('halaman_url'));
         }
