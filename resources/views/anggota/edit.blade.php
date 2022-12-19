@@ -114,6 +114,18 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Akte Kelahiran </label>
+                                <small style="color:Tomato;"><em>Unggah akte kelahiran maksimal ukuran file 2mb</em></small>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input @error('akte_lahir') is-invalid @enderror" id="customFile" name="akte_lahir">
+                                    <label class="custom-file-label" for="customFile">Pilih file</label>
+                                </div>
+                                @error('akte_lahir')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
                                 <label>Surat Baptis </label>
                                 <small style="color:Tomato;"><em>Unggah surat baptis maksimal ukuran file 2mb</em></small>
                                 <div class="custom-file">

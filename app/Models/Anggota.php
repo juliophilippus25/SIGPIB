@@ -11,7 +11,7 @@ class Anggota extends Model
 
     protected $table = 'anggota';
 
-    protected $fillable = ['kode_anggota', 'nama', 'jk', 'tempat_lahir', 'tgl_lahir', 'no_hp', 'pekerjaan', 'sts_keluarga', 'kabupaten', 'kelurahan', 'alamat', 'provinsi', 'kecamatan', 'goldar', 'gambar', 'srt_baptis', 'srt_sidi'];
+    protected $fillable = ['kode_anggota', 'nama', 'jk', 'tempat_lahir', 'tgl_lahir', 'no_hp', 'pekerjaan', 'sts_keluarga', 'kabupaten', 'kelurahan', 'alamat', 'provinsi', 'kecamatan', 'goldar', 'gambar', 'srt_baptis', 'srt_sidi', 'akte_lahir'];
 
     public function kakel()
     {

@@ -19,7 +19,10 @@ class CreateKakelTable extends Migration
             $table->foreign('id_anggota')->references('id')->on('anggota')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('id_sekwil')->unsigned();
             $table->foreign('id_sekwil')->references('id')->on('sekwil')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('nomor_kk')->nullable();
+            $table->string('tempat_nikah')->nullable();
+            $table->date('tgl_nikah')->nullable();
+            $table->string('srt_gereja')->nullable();
+            $table->string('srt_sipil')->nullable();
             $table->timestamps();
         });
     }

@@ -32,6 +32,7 @@ class CreateAnggotaTable extends Migration
             $table->string('gambar')->nullable();
             $table->string('srt_baptis')->nullable();
             $table->string('srt_sidi')->nullable();
+            $table->string('akte_lahir')->nullable();
             $table->timestamps();
         });
     }

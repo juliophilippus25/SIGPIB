@@ -26,18 +26,18 @@ class UsersTableSeeder extends Seeder
               'created_at'      => \Carbon\Carbon::now(),
               'updated_at'      => \Carbon\Carbon::now()
             ],
-            [
-                'id'  			=> 2,
-                'name'  	    => 'Admin',
-                'username'		=> 'admingpib',
-                'email' 		=> 'admingpib@gmail.com',
-                'password'		=> bcrypt('maranatha'),
-                'gambar'		=> NULL,
-                'role'          => 'Admin',
-                'remember_token'=> NULL,
-                'created_at'    => \Carbon\Carbon::now(),
-                'updated_at'    => \Carbon\Carbon::now()
-            ]
+            // [
+            //     'id'  			=> 2,
+            //     'name'  	    => 'Admin',
+            //     'username'		=> 'admingpib',
+            //     'email' 		=> 'admingpib@gmail.com',
+            //     'password'		=> bcrypt('maranatha'),
+            //     'gambar'		=> NULL,
+            //     'role'          => 'Admin',
+            //     'remember_token'=> NULL,
+            //     'created_at'    => \Carbon\Carbon::now(),
+            //     'updated_at'    => \Carbon\Carbon::now()
+            // ]
         ]);
     }
 }
