@@ -39,18 +39,22 @@
                         <div class="col-md-2">
                             <a type="button" title="Unduh" class="btn btn-success btn-fw col-md-12 dropdown-toggle"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-cloud-download-alt"></i> Cetak PDF
+                                <i class="fas fa-cloud-download-alt"></i> Unduh
                             </a>
                             <div class="dropdown-menu" x-placement="bottom-start"
                                 style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
                                 <a class="dropdown-item" target="_blank"
                                     href="{{ route('kakel.download_satu', ['id' => $kakel->id]) }}"></i> Data</a>
-                                <a class="dropdown-item" target="_blank"
-                                    href="{{ asset('storage/dokumen/nikahgereja/' . $kakel->srt_gereja) }}"> Surat Nikah
-                                    Gereja</a>
-                                <a class="dropdown-item" target="_blank"
-                                    href="{{ asset('storage/dokumen/nikahsipil/' . $kakel->srt_sipil) }}"> Surat Nikah
-                                    Catatan Sipil</a>
+                                @if ($kakel->srt_gereja != null)
+                                    <a class="dropdown-item" target="_blank"
+                                        href="{{ asset('storage/dokumen/nikahgereja/' . $kakel->srt_gereja) }}"> Surat Nikah
+                                        Gereja</a>
+                                @endif
+                                @if ($kakel->srt_sipil != null)
+                                    <a class="dropdown-item" target="_blank"
+                                        href="{{ asset('storage/dokumen/nikahsipil/' . $kakel->srt_sipil) }}"> Surat Nikah
+                                        Catatan Sipil</a>
+                                @endif
                             </div>
                         </div>
 
@@ -111,7 +115,8 @@
                                                         <div class="modal-body">
                                                             {{ csrf_field() }}
                                                             <p>Apakah anda yakin ingin menghapus data
-                                                                <b>{{ $data->nama }}</b>?</p>
+                                                                <b>{{ $data->nama }}</b>?
+                                                            </p>
 
                                                         </div>
 

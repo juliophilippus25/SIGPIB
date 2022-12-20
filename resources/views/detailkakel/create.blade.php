@@ -42,7 +42,7 @@
                   <option hidden disabled selected value>Pilih Anggota Keluarga</option>
                     @foreach($anggota as $data)
                       @if($data->sts_keluarga == 'Tidak')
-                        <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
+                        <option value="{{ $data->id }}" {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota}} - {{ $data->nama}}</option>
                       @endif
                     @endforeach
                   </select>
@@ -55,8 +55,8 @@
                   <label>Status Dalam Hubungan Keluarga <b style="color:Tomato;">*</b></label>
                   <select class="form-control select2bs4 @error('sts_keluarga') is-invalid @enderror" name="sts_keluarga" style="width: 100%;">
                       <option hidden disabled selected value>Pilih Status Dalam Hubungan Keluarga</option>
-                      <option value="Anak">Anak</option>
-                      <option value="Istri">Istri</option>
+                      <option value="Anak" @if (old('sts_keluarga') == "Anak") {{ 'selected' }} @endif>Anak</option>
+                      <option value="Istri" @if (old('sts_keluarga') == "Istri") {{ 'selected' }} @endif>Istri</option>
                   </select>
                     @error('sts_keluarga')
                         <span class="text-danger">{{$message}}</span>

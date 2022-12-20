@@ -48,7 +48,7 @@ unset($__errorArgs, $__bag); ?>" name="id_anggota" style="width: 100%;">
                   <option hidden disabled selected value>Pilih Anggota Keluarga</option>
                     <?php $__currentLoopData = $anggota; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <?php if($data->sts_keluarga == 'Tidak'): ?>
-                        <option value="<?php echo e($data->id); ?>"><?php echo e($data->kode_anggota); ?> - <?php echo e($data->nama); ?></option>
+                        <option value="<?php echo e($data->id); ?>" <?php echo e(old('id_anggota') == $data->id ? 'selected' : ''); ?>><?php echo e($data->kode_anggota); ?> - <?php echo e($data->nama); ?></option>
                       <?php endif; ?>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </select>
@@ -75,8 +75,8 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" name="sts_keluarga" style="width: 100%;">
                       <option hidden disabled selected value>Pilih Status Dalam Hubungan Keluarga</option>
-                      <option value="Anak">Anak</option>
-                      <option value="Istri">Istri</option>
+                      <option value="Anak" <?php if(old('sts_keluarga') == "Anak"): ?> <?php echo e('selected'); ?> <?php endif; ?>>Anak</option>
+                      <option value="Istri" <?php if(old('sts_keluarga') == "Istri"): ?> <?php echo e('selected'); ?> <?php endif; ?>>Istri</option>
                   </select>
                     <?php $__errorArgs = ['sts_keluarga'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

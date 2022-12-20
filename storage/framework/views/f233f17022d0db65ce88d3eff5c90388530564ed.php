@@ -47,7 +47,10 @@ unset($__errorArgs, $__bag); ?>"
                                 <option hidden disabled selected value>Pilih Kepala Keluarga</option>
                                 <?php $__currentLoopData = $anggota; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php if($data->sts_keluarga == 'Ya'): ?>
-                                        <option value="<?php echo e($data->id); ?>"><?php echo e($data->kode_anggota); ?> - <?php echo e($data->nama); ?>
+                                        <option value="<?php echo e($data->id); ?>"
+                                            <?php echo e(old('id_anggota') == $data->id ? 'selected' : ''); ?>><?php echo e($data->kode_anggota); ?>
+
+                                            - <?php echo e($data->nama); ?>
 
                                         </option>
                                     <?php endif; ?>
@@ -78,7 +81,10 @@ unset($__errorArgs, $__bag); ?>"
                                 name="id_sekwil" style="width: 100%;">
                                 <option hidden disabled selected value>Pilih Sektor Wilayah</option>
                                 <?php $__currentLoopData = $sekwil; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($data->id); ?>"><?php echo e($data->nama_sekwil); ?></option>
+                                    <option value="<?php echo e($data->id); ?>"
+                                        <?php echo e(old('id_sekwil') == $data->id ? 'selected' : ''); ?>><?php echo e($data->nama_sekwil); ?>
+
+                                    </option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                             <?php $__errorArgs = ['id_sekwil'];
@@ -104,7 +110,8 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" name="tempat_nikah"
-                                id="tempat_nikah" placeholder="Masukkan Tempat Pernikahan">
+                                id="tempat_nikah" placeholder="Masukkan Tempat Pernikahan"
+                                value="<?php echo e(old('tempat_nikah')); ?>">
                             <?php $__errorArgs = ['tempat_nikah'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

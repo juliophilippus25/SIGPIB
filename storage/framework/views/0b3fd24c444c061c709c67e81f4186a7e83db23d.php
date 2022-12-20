@@ -52,7 +52,9 @@ unset($__errorArgs, $__bag); ?>"
                                 <option hidden disabled selected value>Pilih Sektor Wilayah</option>
                                 <?php $__currentLoopData = $sekwil; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <option value="<?php echo e($data->id); ?>"
-                                        <?php echo e($data->id == $kakel->id_sekwil ? 'selected' : ''); ?>><?php echo e($data->nama_sekwil); ?>
+                                        <?php echo e($data->id == $kakel->id_sekwil ? 'selected' : ''); ?>
+
+                                        <?php echo e(old('id_sekwil') == $data->id ? 'selected' : ''); ?>><?php echo e($data->nama_sekwil); ?>
 
                                     </option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -143,6 +145,13 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
+                            <?php if($kakel->srt_gereja != null): ?>
+                                <a target="_blank" href="<?php echo e(asset('storage/dokumen/nikahgereja/' . $kakel->srt_gereja)); ?>">
+                                    Lihat file lama
+                                </a>
+                            <?php else: ?>
+                            <?php endif; ?>
+
                         </div>
 
                         <div class="form-group">
@@ -171,6 +180,12 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
+                            <?php if($kakel->srt_sipil != null): ?>
+                                <a target="_blank" href="<?php echo e(asset('storage/dokumen/nikahsipil/' . $kakel->srt_sipil)); ?>">
+                                    Lihat file lama
+                                </a>
+                            <?php else: ?>
+                            <?php endif; ?>
                         </div>
 
                     </div>

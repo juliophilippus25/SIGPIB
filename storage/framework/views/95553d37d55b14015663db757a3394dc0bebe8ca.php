@@ -37,18 +37,22 @@
                         <div class="col-md-2">
                             <a type="button" title="Unduh" class="btn btn-success btn-fw col-md-12 dropdown-toggle"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-cloud-download-alt"></i> Cetak PDF
+                                <i class="fas fa-cloud-download-alt"></i> Unduh
                             </a>
                             <div class="dropdown-menu" x-placement="bottom-start"
                                 style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
                                 <a class="dropdown-item" target="_blank"
                                     href="<?php echo e(route('kakel.download_satu', ['id' => $kakel->id])); ?>"></i> Data</a>
-                                <a class="dropdown-item" target="_blank"
-                                    href="<?php echo e(asset('storage/dokumen/nikahgereja/' . $kakel->srt_gereja)); ?>"> Surat Nikah
-                                    Gereja</a>
-                                <a class="dropdown-item" target="_blank"
-                                    href="<?php echo e(asset('storage/dokumen/nikahsipil/' . $kakel->srt_sipil)); ?>"> Surat Nikah
-                                    Catatan Sipil</a>
+                                <?php if($kakel->srt_gereja != null): ?>
+                                    <a class="dropdown-item" target="_blank"
+                                        href="<?php echo e(asset('storage/dokumen/nikahgereja/' . $kakel->srt_gereja)); ?>"> Surat Nikah
+                                        Gereja</a>
+                                <?php endif; ?>
+                                <?php if($kakel->srt_sipil != null): ?>
+                                    <a class="dropdown-item" target="_blank"
+                                        href="<?php echo e(asset('storage/dokumen/nikahsipil/' . $kakel->srt_sipil)); ?>"> Surat Nikah
+                                        Catatan Sipil</a>
+                                <?php endif; ?>
                             </div>
                         </div>
 
@@ -110,7 +114,8 @@
                                                             <?php echo e(csrf_field()); ?>
 
                                                             <p>Apakah anda yakin ingin menghapus data
-                                                                <b><?php echo e($data->nama); ?></b>?</p>
+                                                                <b><?php echo e($data->nama); ?></b>?
+                                                            </p>
 
                                                         </div>
 

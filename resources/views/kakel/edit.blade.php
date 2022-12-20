@@ -45,7 +45,8 @@
                                 <option hidden disabled selected value>Pilih Sektor Wilayah</option>
                                 @foreach ($sekwil as $data)
                                     <option value="{{ $data->id }}"
-                                        {{ $data->id == $kakel->id_sekwil ? 'selected' : '' }}>{{ $data->nama_sekwil }}
+                                        {{ $data->id == $kakel->id_sekwil ? 'selected' : '' }}
+                                        {{ old('id_sekwil') == $data->id ? 'selected' : '' }}>{{ $data->nama_sekwil }}
                                     </option>
                                 @endforeach
                             </select>
@@ -86,6 +87,13 @@
                             @error('srt_gereja')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
+                            @if ($kakel->srt_gereja != null)
+                                <a target="_blank" href="{{ asset('storage/dokumen/nikahgereja/' . $kakel->srt_gereja) }}">
+                                    Lihat file lama
+                                </a>
+                            @else
+                            @endif
+
                         </div>
 
                         <div class="form-group">
@@ -100,6 +108,12 @@
                             @error('srt_sipil')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
+                            @if ($kakel->srt_sipil != null)
+                                <a target="_blank" href="{{ asset('storage/dokumen/nikahsipil/' . $kakel->srt_sipil) }}">
+                                    Lihat file lama
+                                </a>
+                            @else
+                            @endif
                         </div>
 
                     </div>

@@ -41,7 +41,9 @@
                                 <option hidden disabled selected value>Pilih Kepala Keluarga</option>
                                 @foreach ($anggota as $data)
                                     @if ($data->sts_keluarga == 'Ya')
-                                        <option value="{{ $data->id }}">{{ $data->kode_anggota }} - {{ $data->nama }}
+                                        <option value="{{ $data->id }}"
+                                            {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota }}
+                                            - {{ $data->nama }}
                                         </option>
                                     @endif
                                 @endforeach
@@ -57,7 +59,9 @@
                                 name="id_sekwil" style="width: 100%;">
                                 <option hidden disabled selected value>Pilih Sektor Wilayah</option>
                                 @foreach ($sekwil as $data)
-                                    <option value="{{ $data->id }}">{{ $data->nama_sekwil }}</option>
+                                    <option value="{{ $data->id }}"
+                                        {{ old('id_sekwil') == $data->id ? 'selected' : '' }}>{{ $data->nama_sekwil }}
+                                    </option>
                                 @endforeach
                             </select>
                             @error('id_sekwil')
@@ -69,7 +73,8 @@
                             <label for="tempat_nikah">Tempat Pernikahan <b style="color:Tomato;">*</b></label>
                             <input type="text" onkeyup="this.value = this.value.toUpperCase()"
                                 class="form-control @error('tempat_nikah') is-invalid @enderror" name="tempat_nikah"
-                                id="tempat_nikah" placeholder="Masukkan Tempat Pernikahan">
+                                id="tempat_nikah" placeholder="Masukkan Tempat Pernikahan"
+                                value="{{ old('tempat_nikah') }}">
                             @error('tempat_nikah')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
