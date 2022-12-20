@@ -10,7 +10,7 @@
         <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="<?php echo e(route('dashboard')); ?>">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="<?php echo e(route('kakel.index')); ?>">Data Kartu Keluarga</a></li>
-            <li class="breadcrumb-item active">Tambah Data Kartu Keluarga</li>
+            <li class="breadcrumb-item active">Ubah Data Kartu Keluarga</li>
         </ol>
     </div><!-- /.col -->
 
@@ -23,47 +23,20 @@
 
             <div class="card card-default">
                 <div class="card-header d-flex">
-                    <h3 class="card-title">Form Tambah Data Kartu Keluarga</h3>
+                    <h3 class="card-title">Form Ubah Data Kartu Keluarga <?php echo e($kakel->anggota->nama); ?></h3>
                 </div>
                 <!-- /.card-header -->
 
                 <!-- form start -->
-                <form action="<?php echo e(route('kakel.simpan')); ?>" method="POST" enctype="multipart/form-data">
+                <form action="<?php echo e(route('kakel.simpan_perbarui', ['id' => $kakel->id])); ?>" method="POST"
+                    enctype="multipart/form-data">
                     <?php echo e(csrf_field()); ?>
 
+                    <?php echo e(method_field('put')); ?>
+
                     <div class="card-body">
-
-                        <div class="form-group">
-                            <label>Kepala Keluarga <b style="color:Tomato;">*</b></label>
-                            <select class="form-control select2bs4 <?php $__errorArgs = ['id_anggota'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>"
-                                name="id_anggota" style="width: 100%;">
-                                <option hidden disabled selected value>Pilih Kepala Keluarga</option>
-                                <?php $__currentLoopData = $anggota; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <?php if($data->sts_keluarga == 'Ya'): ?>
-                                        <option value="<?php echo e($data->id); ?>"><?php echo e($data->kode_anggota); ?> - <?php echo e($data->nama); ?>
-
-                                        </option>
-                                    <?php endif; ?>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </select>
-                            <?php $__errorArgs = ['id_anggota'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                <span class="text-danger"><?php echo e($message); ?></span>
-                            <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                        </div>
+                        <input type="hidden" required="required" name="id_anggota" value="<?php echo e($kakel->id_anggota); ?>"
+                            readonly>
 
                         <div class="form-group">
                             <label>Sektor Wilayah <b style="color:Tomato;">*</b></label>
@@ -78,7 +51,10 @@ unset($__errorArgs, $__bag); ?>"
                                 name="id_sekwil" style="width: 100%;">
                                 <option hidden disabled selected value>Pilih Sektor Wilayah</option>
                                 <?php $__currentLoopData = $sekwil; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($data->id); ?>"><?php echo e($data->nama_sekwil); ?></option>
+                                    <option value="<?php echo e($data->id); ?>"
+                                        <?php echo e($data->id == $kakel->id_sekwil ? 'selected' : ''); ?>><?php echo e($data->nama_sekwil); ?>
+
+                                    </option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                             <?php $__errorArgs = ['id_sekwil'];
@@ -104,7 +80,8 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" name="tempat_nikah"
-                                id="tempat_nikah" placeholder="Masukkan Tempat Pernikahan">
+                                id="tempat_nikah" placeholder="Masukkan Tempat Pernikahan"
+                                value="<?php echo e(old('tempat_nikah', $kakel->tempat_nikah)); ?>">
                             <?php $__errorArgs = ['tempat_nikah'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -128,7 +105,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                                value="<?php echo e(old('tgl_nikah')); ?>">
+                                value="<?php echo e(old('tgl_nikah', $kakel->tgl_nikah)); ?>">
                             <?php $__errorArgs = ['tgl_nikah'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -212,4 +189,4 @@ unset($__errorArgs, $__bag); ?>
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\SIGPIB\resources\views/kakel/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\SIGPIB\resources\views/kakel/edit.blade.php ENDPATH**/ ?>

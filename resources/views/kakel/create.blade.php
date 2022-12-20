@@ -30,7 +30,7 @@
                 <!-- /.card-header -->
 
                 <!-- form start -->
-                <form action="{{ route('kakel.simpan') }}" method="POST">
+                <form action="{{ route('kakel.simpan') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="card-body">
 
@@ -67,8 +67,9 @@
 
                         <div class="form-group">
                             <label for="tempat_nikah">Tempat Pernikahan <b style="color:Tomato;">*</b></label>
-                            <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('tempat_nikah') is-invalid @enderror"
-                                name="tempat_nikah" id="tempat_nikah" placeholder="Masukkan Tempat Pernikahan">
+                            <input type="text" onkeyup="this.value = this.value.toUpperCase()"
+                                class="form-control @error('tempat_nikah') is-invalid @enderror" name="tempat_nikah"
+                                id="tempat_nikah" placeholder="Masukkan Tempat Pernikahan">
                             @error('tempat_nikah')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -99,7 +100,8 @@
 
                         <div class="form-group">
                             <label>Surat Nikah Catatan Sipil</label>
-                            <small style="color:Tomato;"><em>Unggah surat nikah catatan sipil maksimal ukuran file 2mb</em></small>
+                            <small style="color:Tomato;"><em>Unggah surat nikah catatan sipil maksimal ukuran file
+                                    2mb</em></small>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input @error('srt_sipil') is-invalid @enderror"
                                     id="customFile" name="srt_sipil">

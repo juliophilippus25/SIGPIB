@@ -1,8 +1,6 @@
-@extends('layouts.main')
+<?php $__env->startSection('title', 'Kartu Keluarga'); ?>
 
-@section('title', 'Kartu Keluarga')
-
-@section('breadcrumb')
+<?php $__env->startSection('breadcrumb'); ?>
 
     <div class="col-sm-6">
         <!-- <h1 class="m-0">Kartu Keluarga</h1> -->
@@ -10,21 +8,21 @@
 
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('kakel.index') }}">Data Kartu Keluarga</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo e(route('dashboard')); ?>">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo e(route('kakel.index')); ?>">Data Kartu Keluarga</a></li>
             <li class="breadcrumb-item active">Detail Kartu Keluarga</li>
         </ol>
     </div><!-- /.col -->
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card card-default">
                 <div class="card-header d-flex">
-                    <h3 class="card-title">Data Kartu Keluarga {{ $kakel->anggota->nama }}</h3>
+                    <h3 class="card-title">Data Kartu Keluarga <?php echo e($kakel->anggota->nama); ?></h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -32,7 +30,7 @@
                     <div class="row">
 
                         <div class="col-md-2">
-                            <a href="{{ route('detailkakel.create', ['id' => $kakel->id]) }}"
+                            <a href="<?php echo e(route('detailkakel.create', ['id' => $kakel->id])); ?>"
                                 class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Anggota</a>
                         </div>
 
@@ -44,12 +42,12 @@
                             <div class="dropdown-menu" x-placement="bottom-start"
                                 style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
                                 <a class="dropdown-item" target="_blank"
-                                    href="{{ route('kakel.download_satu', ['id' => $kakel->id]) }}"></i> Data</a>
+                                    href="<?php echo e(route('kakel.download_satu', ['id' => $kakel->id])); ?>"></i> Data</a>
                                 <a class="dropdown-item" target="_blank"
-                                    href="{{ asset('storage/dokumen/nikahgereja/' . $kakel->srt_gereja) }}"> Surat Nikah
+                                    href="<?php echo e(asset('storage/dokumen/nikahgereja/' . $kakel->srt_gereja)); ?>"> Surat Nikah
                                     Gereja</a>
                                 <a class="dropdown-item" target="_blank"
-                                    href="{{ asset('storage/dokumen/nikahsipil/' . $kakel->srt_sipil) }}"> Surat Nikah
+                                    href="<?php echo e(asset('storage/dokumen/nikahsipil/' . $kakel->srt_sipil)); ?>"> Surat Nikah
                                     Catatan Sipil</a>
                             </div>
                         </div>
@@ -61,12 +59,12 @@
                         <tr>
                             <th>Tempat Tanggal Pernikahan </th>
                             <td>:</td>
-                            <td>&nbsp;{{ $kakel->tempat_nikah }} / {{ date('d-m-Y', strtotime($kakel->tgl_nikah)) }}</td>
+                            <td>&nbsp;<?php echo e($kakel->tempat_nikah); ?> / <?php echo e(date('d-m-Y', strtotime($kakel->tgl_nikah))); ?></td>
                         </tr>
                         <tr>
                             <th>Sektor Wilayah </th>
                             <td>:</td>
-                            <td>&nbsp;{{ $kakel->sekwil->nama_sekwil }}</td>
+                            <td>&nbsp;<?php echo e($kakel->sekwil->nama_sekwil); ?></td>
                         </tr>
                     </table>
 
@@ -83,21 +81,21 @@
                         </thead>
                         <tbody>
                             <tr>
-                                @forelse($det_kakel as $data)
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $data->nama }}</td>
-                                    <td>{{ $data->sts_keluarga }}</td>
+                                <?php $__empty_1 = true; $__currentLoopData = $det_kakel; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                    <td><?php echo e($loop->iteration); ?></td>
+                                    <td><?php echo e($data->nama); ?></td>
+                                    <td><?php echo e($data->sts_keluarga); ?></td>
                                     <td>
-                                        <a href="{{ route('detailkakel.tampil_ubah', ['id' => $data->id]) }}"
+                                        <a href="<?php echo e(route('detailkakel.tampil_ubah', ['id' => $data->id])); ?>"
                                             class="btn btn-warning  btn-sm" title="Ubah Data"><i class="fa fa-edit"></i></a>
                                         <button type="button" class="btn btn-danger btn-sm" title="Hapus Data"
-                                            data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i
+                                            data-toggle="modal" data-target="#modalDelete_<?php echo e($data->id); ?>"><i
                                                 class="fa fa-trash"></i></button>
 
                                         <!-- Modal -->
                                         <form method="POST"
-                                            action="{{ route('detailkakel.hapus', ['id' => $data->id]) }}">
-                                            <div class="modal fade" id="modalDelete_{{ $data->id }}" tabindex="-1"
+                                            action="<?php echo e(route('detailkakel.hapus', ['id' => $data->id])); ?>">
+                                            <div class="modal fade" id="modalDelete_<?php echo e($data->id); ?>" tabindex="-1"
                                                 role="dialog" aria-labelledby="modalDeleteLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
@@ -109,9 +107,10 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            {{ csrf_field() }}
+                                                            <?php echo e(csrf_field()); ?>
+
                                                             <p>Apakah anda yakin ingin menghapus data
-                                                                <b>{{ $data->nama }}</b>?</p>
+                                                                <b><?php echo e($data->nama); ?></b>?</p>
 
                                                         </div>
 
@@ -130,7 +129,7 @@
 
                                     </td>
                             </tr>
-                        @empty
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                             <tr class="">
                                 <td colspan="16">
                                     <strong class="text-dark">
@@ -138,11 +137,11 @@
                                     </strong>
                                 </td>
                             </tr>
-                            @endforelse
+                            <?php endif; ?>
                         </tbody>
                     </table>
                     <br>
-                    <a href="{{ route('kakel.index') }}" class="btn btn-default">Kembali</a>
+                    <a href="<?php echo e(route('kakel.index')); ?>" class="btn btn-default">Kembali</a>
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -150,4 +149,6 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\SIGPIB\resources\views/detailkakel/index.blade.php ENDPATH**/ ?>
