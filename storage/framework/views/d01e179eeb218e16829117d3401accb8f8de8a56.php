@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="/adminLTE/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <!-- Toastr -->
     <link rel="stylesheet" href="/adminLTE/plugins/toastr/toastr.min.css">
+    <link rel="stylesheet" href="/bootstrapv4/bootstrap.min.css">
     
     <link rel="shortcut icon" href="<?php echo e(asset('/images/gpib/Logo-GPIB.png')); ?>">
     
@@ -182,6 +183,7 @@
 
     <!-- Bootstrap -->
     <script src="/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
     <!-- AdminLTE -->
     <script src="/adminLTE/dist/js/adminlte.js"></script>
 
