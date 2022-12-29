@@ -24,14 +24,14 @@
         <div class="container">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="pills-pribadi-tab" data-toggle="pill" data-target="#pills-pribadi"
+                    <button class="nav-link active btn" id="pills-pribadi-tab" data-toggle="pill" data-target="#pills-pribadi"
                         type="button" role="tab" aria-controls="pills-pribadi" aria-selected="true"><i
-                            class="fa fa-user"></i>&nbsp;DATA PRIBADI</button>
+                            class="fa fa-user"></i>&nbsp;Data Pribadi</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-berkas-tab" data-toggle="pill" data-target="#pills-berkas"
+                    <button class="nav-link btn" id="pills-berkas-tab" data-toggle="pill" data-target="#pills-berkas"
                         type="button" role="tab" aria-controls="pills-berkas" aria-selected="false"><i
-                            class="fa fa-file"></i>&nbsp;DATA BERKAS</button>
+                            class="fa fa-file"></i>&nbsp;Data Berkas</button>
                 </li>
             </ul>
 
@@ -69,9 +69,14 @@
 
                                         <tbody>
                                             <tr>
-                                                <td style="width: 30%">Nama Lengkap</td>
+                                                <td style="width: 30%">Kode Anggota</td>
                                                 <td>:</td>
-                                                <td style="width: 70%">{{ $anggota->nama }}</td>
+                                                <td style="width: 70%">{{ $anggota->kode_anggota }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nama Lengkap</td>
+                                                <td>:</td>
+                                                <td>{{ $anggota->nama }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Jenis Kelamin</td>
@@ -143,8 +148,8 @@
                                 <table class="table table-borderless table-striped">
 
                                     <thead>
-                                        <th>#</th>
-                                        <th>NAMA BERKAS</th>
+                                        <th>No</th>
+                                        <th>Nama Berkas</th>
                                     </thead>
 
                                     <tbody>
@@ -156,7 +161,7 @@
                                                         href="{{ asset('storage/dokumen/akte/' . $anggota->akte_lahir) }}">AKTE
                                                         KELAHIRAN <i class="fa fa-circle-check"></i></a>
                                                 @else
-                                                    <a>SURAT BAPTIS <i class="fa fa-circle-xmark"></i></a>
+                                                    <a>AKTE KELAHIRAN <i class="fa fa-circle-xmark"></i></a>
                                                 @endif
                                             </td>
                                         </tr>
@@ -199,7 +204,7 @@
                     <a href="{{ route('anggota.tampil_ubah', ['id' => $anggota->id]) }}" class="btn btn-primary"><i
                             class="fa fa-edit"></i> Edit</a>
                     <a target="_blank" href="{{ route('anggota.download_satu', ['id' => $anggota->id]) }}"
-                        class="btn btn-success"><i class="fas fa-cloud-download-alt"></i> PDF</a>
+                        class="btn btn-success"><i class="fas fa-cloud-download-alt"></i> Unduh</a>
                     <a href="{{ route('anggota.index') }}" class="btn btn-default float-right"> Kembali</a>
                 </div>
 

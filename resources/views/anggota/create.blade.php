@@ -54,9 +54,9 @@
                             <div class="form-group">
                                 <label>Jenis Kelamin <b style="color:Tomato;">*</b></label>
                                 <br>
-                                <input type="radio" name="jk" value="Laki-laki"> Laki-laki
+                                <input type="radio" name="jk" value="Laki-laki" @if (old('jk') == "Laki-laki") {{ 'checked' }} @endif> Laki-laki
                                 &nbsp;
-                                <input type="radio" name="jk" value="Perempuan"> Perempuan
+                                <input type="radio" name="jk" value="Perempuan" @if (old('jk') == "Perempuan") {{ 'checked' }} @endif> Perempuan
                                 <br>
                                 @error('jk')
                                 <span class="text-danger">{{$message}}</span>
@@ -100,9 +100,9 @@
                             <div class="form-group">
                                 <label>Apakah anggota ini kepala keluarga? <b style="color:Tomato;">*</b></label>
                                 <br>
-                                <input type="radio" name="sts_keluarga" value="Ya"> Ya
+                                <input type="radio" name="sts_keluarga" value="Ya" @if (old('sts_keluarga') == "Ya") {{ 'checked' }} @endif> Ya
                                 &nbsp;
-                                <input type="radio" name="sts_keluarga" value="Tidak"> Tidak
+                                <input type="radio" name="sts_keluarga" value="Tidak" @if (old('sts_keluarga') == "Tidak") {{ 'checked' }} @endif> Tidak
                                 <br>
                                 @error('sts_keluarga')
                                 <span class="text-danger">{{$message}}</span>
@@ -194,13 +194,13 @@
                             <div class="form-group">
                                 <label>Golongan Darah <b style="color:Tomato;">*</b></label>
                                 <br>
-                                <input type="radio" name="goldar" value="A"> A
+                                <input type="radio" name="goldar" value="A" @if (old('goldar') == "A") {{ 'checked' }} @endif> A
                                 &nbsp;
-                                <input type="radio" name="goldar" value="B"> B
+                                <input type="radio" name="goldar" value="B" @if (old('goldar') == "B") {{ 'checked' }} @endif> B
                                 &nbsp;
-                                <input type="radio" name="goldar" value="O"> O
+                                <input type="radio" name="goldar" value="O" @if (old('goldar') == "O") {{ 'checked' }} @endif> O
                                 &nbsp;
-                                <input type="radio" name="goldar" value="AB"> AB
+                                <input type="radio" name="goldar" value="AB" @if (old('goldar') == "AB") {{ 'checked' }} @endif> AB
                                 <br>
                                 @error('goldar')
                                 <span class="text-danger">{{$message}}</span>

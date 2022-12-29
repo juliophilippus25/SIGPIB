@@ -46,7 +46,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Pelayanan Kategorial</th>
-                            <th>Gambar</th>
+                            {{-- <th>Gambar</th> --}}
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -55,7 +55,7 @@
                             @forelse($pelkat as $data)
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $data->nama_pelkat }}</td>
-                            <td>
+                            {{-- <td>
                                 @if ($data->nama_pelkat == 'Pelayanan Anak')
                                 <img src="{{ asset('/images/gpib/PA.png') }}" style="width: 40px;" alt="Pelayanan Anak" title="Pelayanan Anak">
                                 @elseif ($data->nama_pelkat == 'Persekutuan Teruna')
@@ -69,7 +69,7 @@
                                 @elseif ($data->nama_pelkat == 'Persekutuan Kaum Lanjut Usia')
                                 <img src="{{ asset('/images/gpib/PKLU.png') }}" style="width: 40px;" alt="Persekutuan Kaum Lanjut Usia" title="Persekutuan Kaum Lanjut Usia">
                                 @endif
-                            </td>
+                            </td> --}}
                             <td>
                                 <a href="{{ route('detailpelkat.index', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
                                 {{-- <a href="{{ route('pelkat.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a> --}}

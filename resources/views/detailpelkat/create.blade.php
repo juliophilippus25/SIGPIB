@@ -42,17 +42,17 @@
                             <option hidden disabled selected value>Pilih Anggota PelKat</option>
                             @foreach($anggota as $data)
                                 @if ($pelkat->nama_pelkat == 'Pelayanan Anak')
-                                    <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
+                                    <option value="{{ $data->id }}" {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota}} - {{ $data->nama}}</option>
                                     @elseif ($pelkat->nama_pelkat == 'Persekutuan Teruna')
-                                    <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
+                                    <option value="{{ $data->id }}" {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota}} - {{ $data->nama}}</option>
                                     @elseif ($pelkat->nama_pelkat == 'Gerakan Pemuda' )
-                                    <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
+                                    <option value="{{ $data->id }}" {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota}} - {{ $data->nama}}</option>
                                     @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Perempuan' AND $data->jk == 'Perempuan')
-                                    <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
+                                    <option value="{{ $data->id }}" {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota}} - {{ $data->nama}}</option>
                                     @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Bapak' AND $data->jk == 'Laki-laki' )
-                                    <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
+                                    <option value="{{ $data->id }}" {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota}} - {{ $data->nama}}</option>
                                     @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Lanjut Usia' )
-                                    <option value="{{ $data->id }}">{{ $data->kode_anggota}} - {{ $data->nama}}</option>
+                                    <option value="{{ $data->id }}" {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota}} - {{ $data->nama}}</option>
                                 @endif
                             @endforeach
                         </select>
@@ -65,13 +65,13 @@
                         <label>Jabatan Pengurus PelKat <b style="color:Tomato;">*</b></label>
                         <select class="form-control select2bs4 @error('pengurus') is-invalid @enderror" name="pengurus" style="width: 100%;">
                             <option hidden disabled selected value>Pilih Jabatan Pengurus PelKat</option>
-                            <option value="Ketua">Ketua</option>
-                            <option value="Wakil Ketua">Wakil Ketua</option>
-                            <option value="Sekretaris 1">Sekretaris 1</option>
-                            <option value="Sekretaris 2">Sekretaris 2</option>
-                            <option value="Bendahara 1">Bendahara 1</option>
-                            <option value="Bendahara 2">Bendahara 2</option>
-                            <option value="Anggota">Anggota</option>
+                            <option value="Ketua" @if (old('pengurus') == "Ketua") {{ 'selected' }} @endif>Ketua</option>
+                            <option value="Wakil Ketua" @if (old('pengurus') == "Wakil Ketua") {{ 'selected' }} @endif>Wakil Ketua</option>
+                            <option value="Sekretaris 1" @if (old('pengurus') == "Sekretaris 1") {{ 'selected' }} @endif>Sekretaris 1</option>
+                            <option value="Sekretaris 2" @if (old('pengurus') == "Sekretaris 2") {{ 'selected' }} @endif>Sekretaris 2</option>
+                            <option value="Bendahara 1" @if (old('pengurus') == "Bendahara 1") {{ 'selected' }} @endif>Bendahara 1</option>
+                            <option value="Bendahara 2" @if (old('pengurus') == "Bendahara 2") {{ 'selected' }} @endif>Bendahara 2</option>
+                            <option value="Anggota" @if (old('pengurus') == "Anggota") {{ 'selected' }} @endif>Anggota</option>
                         </select>
                         @error('pengurus')
                         <span class="text-danger">{{$message}}</span>

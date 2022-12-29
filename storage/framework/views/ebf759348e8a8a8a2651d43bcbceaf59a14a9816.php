@@ -34,7 +34,7 @@
                     <br><br>
 
                     <div class="col-md-2">
-                        <a href="<?php echo e(route('anggota.download_semua')); ?>" target="_blank" class="btn btn-success btn-fw col-md-12"><i class="fas fa-cloud-download-alt"></i> PDF</a>
+                        <a href="<?php echo e(route('anggota.download_semua')); ?>" target="_blank" class="btn btn-success btn-fw col-md-12"><i class="fas fa-cloud-download-alt"></i> Unduh</a>
                     </div>
                 </div>
                 <br>

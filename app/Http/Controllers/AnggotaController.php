@@ -70,7 +70,7 @@ class AnggotaController extends Controller
             'nama' => 'required|min:3|unique:anggota,nama',
             'jk' => 'required',
             'tempat_lahir' => 'required|min:3',
-            'tgl_lahir' => 'required',
+            'tgl_lahir' => 'required|before_or_equal:today',
             'no_hp' => 'required|min:10|numeric',
             'pekerjaan' => 'required|min:3',
             'sts_keluarga' => 'required',
@@ -116,6 +116,9 @@ class AnggotaController extends Controller
             'kecamatan.min' => 'Kecamatan diisi minimal 3 karakter!',
             'kelurahan.min' => 'Kelurahan diisi minimal 3 karakter!',
 
+            // Before or equal
+            'tgl_lahir.before_or_equal' => 'Tanggal lahir tidak boleh lewat dari tanggal hari ini!',
+
             // Numeric
             'no_hp.numeric' => 'Nomor handphone wajib angka!',
 
@@ -130,7 +133,7 @@ class AnggotaController extends Controller
 
         ]);
 
-        $tgl_skrg = Carbon::now(); // Tanggal sekarang
+        // $tgl_skrg = Carbon::now(); // Tanggal sekarang
 
         // Memberikan pesan error ketika terdapat validasi yang salah
         if($validator->fails()){
@@ -139,10 +142,10 @@ class AnggotaController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
         // Validasi nilai tanggal lahir tidak boleh lebih dari tanggal sekarang
-        elseif(strtotime($request->tgl_lahir) > strtotime($tgl_skrg)) {
-            Alert::error('Data tidak berhasil disimpan!', '');
-            return redirect()->back()->withErrors($validator)->withInput();;
-        }
+        // elseif(strtotime($request->tgl_lahir) > strtotime($tgl_skrg)) {
+        //     Alert::error('Data tidak berhasil disimpan!', '');
+        //     return redirect()->back()->withErrors($validator)->withInput();;
+        // }
 
 
         // Proses upload gambar
@@ -238,11 +241,11 @@ class AnggotaController extends Controller
         $validator = Validator::make($request->all(),
         // Aturan
         [
-            'nama' => 'required|min:3|unique:anggota,nama,'.$anggota->id,
+            'nama' => 'required|min:3|unique:anggota,nama',
             'jk' => 'required',
             'tempat_lahir' => 'required|min:3',
-            'tgl_lahir' => 'required',
-            'no_hp' => 'required|min:10',
+            'tgl_lahir' => 'required|before_or_equal:today',
+            'no_hp' => 'required|min:10|numeric',
             'pekerjaan' => 'required|min:3',
             'sts_keluarga' => 'required',
             'alamat' => 'required|min:3',
@@ -270,8 +273,8 @@ class AnggotaController extends Controller
             'pekerjaan.required' => 'Pekerjaan wajib diisi!',
             'sts_keluarga.required' => 'Status keluarga wajib diisi!',
             'alamat.required' => 'Alamat wajib diisi!',
-            'kabupaten.required' => 'Kabupaten wajib diisi!',
-            'kelurahan.required' => 'Kelurahan wajib diisi!',
+            'kabupaten.required' => 'Kota atau kabupaten wajib diisi!',
+            'kelurahan.required' => 'Kelurahan atau desa wajib diisi!',
             'provinsi.required' => 'Provinsi wajib diisi!',
             'kecamatan.required' => 'Kecamatan wajib diisi!',
             'goldar.required' => 'Golongan darah wajib diisi!',
@@ -287,6 +290,12 @@ class AnggotaController extends Controller
             'kecamatan.min' => 'Kecamatan diisi minimal 3 karakter!',
             'kelurahan.min' => 'Kelurahan diisi minimal 3 karakter!',
 
+            // Before or equal
+            'tgl_lahir.before_or_equal' => 'Tanggal lahir tidak boleh lewat dari tanggal hari ini!',
+
+            // Numeric
+            'no_hp.numeric' => 'Nomor handphone wajib angka!',
+
             // Tipe File
             'gambar.mimes' => 'Tipe file yang dapat di unggah adalah jpg/jpeg/png',
 
@@ -295,9 +304,10 @@ class AnggotaController extends Controller
             'srt_baptis.max' => 'Ukuran maksimal file surat baptis adalah 2mb',
             'srt_sidi.max' => 'Ukuran maksimal file surat sidi adalah 2mb',
             'akte_lahir.max' => 'Ukuran maksimal file akte kelahiran adalah 2mb'
+
         ]);
 
-        $tgl_skrg = Carbon::now(); // Tanggal sekarang
+        // $tgl_skrg = Carbon::now(); // Tanggal sekarang
 
         // Memberikan pesan error ketika terdapat validasi yang salah
         if($validator->fails()){
@@ -306,10 +316,10 @@ class AnggotaController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
         // Validasi nilai tanggal lahir tidak boleh lebih dari tanggal sekarang
-        elseif(strtotime($request->tgl_lahir) > strtotime($tgl_skrg)) {
-            Alert::error('Data tidak berhasil disimpan!', '');
-            return redirect()->back()->withErrors($validator)->withInput();;
-        }
+        // elseif(strtotime($request->tgl_lahir) > strtotime($tgl_skrg)) {
+        //     Alert::error('Data tidak berhasil disimpan!', '');
+        //     return redirect()->back()->withErrors($validator)->withInput();;
+        // }
 
         // Proses upload gambar
         if($request->file('gambar')) {

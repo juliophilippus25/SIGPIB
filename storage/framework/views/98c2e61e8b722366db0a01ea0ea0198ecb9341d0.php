@@ -33,7 +33,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Pelayanan Kategorial</th>
-                            <th>Gambar</th>
+                            
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -42,21 +42,7 @@
                             <?php $__empty_1 = true; $__currentLoopData = $pelkat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <td><?php echo e($loop->iteration); ?></td>
                             <td><?php echo e($data->nama_pelkat); ?></td>
-                            <td>
-                                <?php if($data->nama_pelkat == 'Pelayanan Anak'): ?>
-                                <img src="<?php echo e(asset('/images/gpib/PA.png')); ?>" style="width: 40px;" alt="Pelayanan Anak" title="Pelayanan Anak">
-                                <?php elseif($data->nama_pelkat == 'Persekutuan Teruna'): ?>
-                                <img src="<?php echo e(asset('/images/gpib/PT.png')); ?>" style="width: 40px;" alt="Persekutuan Teruna" title="Persekutuan Teruna">
-                                <?php elseif($data->nama_pelkat == 'Gerakan Pemuda'): ?>
-                                <img src="<?php echo e(asset('/images/gpib/GP.png')); ?>" style="width: 40px;" alt="Gerakan Pemuda" title="Gerakan Pemuda">
-                                <?php elseif($data->nama_pelkat == 'Persekutuan Kaum Perempuan'): ?>
-                                <img src="<?php echo e(asset('/images/gpib/PKP.png')); ?>" style="width: 40px;" alt="Persekutuan Kaum Perempuan" title="Persekutuan Kaum Perempuan">
-                                <?php elseif($data->nama_pelkat == 'Persekutuan Kaum Bapak'): ?>
-                                <img src="<?php echo e(asset('/images/gpib/PKB.png')); ?>" style="width: 40px;" alt="Persekutuan Kaum Bapak" title="Persekutuan Kaum Bapak">
-                                <?php elseif($data->nama_pelkat == 'Persekutuan Kaum Lanjut Usia'): ?>
-                                <img src="<?php echo e(asset('/images/gpib/PKLU.png')); ?>" style="width: 40px;" alt="Persekutuan Kaum Lanjut Usia" title="Persekutuan Kaum Lanjut Usia">
-                                <?php endif; ?>
-                            </td>
+                            
                             <td>
                                 <a href="<?php echo e(route('detailpelkat.index', ['id' => $data->id])); ?>" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
                                 

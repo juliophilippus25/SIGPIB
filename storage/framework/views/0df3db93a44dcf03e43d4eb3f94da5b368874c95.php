@@ -19,7 +19,7 @@
     || (request()->is('kakel*')) || (request()->is('pengguna*')) ? 'active' : ''); ?>" href="#">
         <i class="nav-icon fas fa-book"></i>
         <p>
-            Data Master
+            Master Data
             <i class="fas fa-angle-left right"></i>
         </p>
     </a>

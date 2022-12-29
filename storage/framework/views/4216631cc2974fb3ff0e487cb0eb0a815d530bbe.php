@@ -67,9 +67,9 @@ unset($__errorArgs, $__bag); ?>
                             <div class="form-group">
                                 <label>Jenis Kelamin <b style="color:Tomato;">*</b></label>
                                 <br>
-                                <input type="radio" name="jk" value="Laki-laki"> Laki-laki
+                                <input type="radio" name="jk" value="Laki-laki" <?php if(old('jk') == "Laki-laki"): ?> <?php echo e('checked'); ?> <?php endif; ?>> Laki-laki
                                 &nbsp;
-                                <input type="radio" name="jk" value="Perempuan"> Perempuan
+                                <input type="radio" name="jk" value="Perempuan" <?php if(old('jk') == "Perempuan"): ?> <?php echo e('checked'); ?> <?php endif; ?>> Perempuan
                                 <br>
                                 <?php $__errorArgs = ['jk'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -176,9 +176,9 @@ unset($__errorArgs, $__bag); ?>
                             <div class="form-group">
                                 <label>Apakah anggota ini kepala keluarga? <b style="color:Tomato;">*</b></label>
                                 <br>
-                                <input type="radio" name="sts_keluarga" value="Ya"> Ya
+                                <input type="radio" name="sts_keluarga" value="Ya" <?php if(old('sts_keluarga') == "Ya"): ?> <?php echo e('checked'); ?> <?php endif; ?>> Ya
                                 &nbsp;
-                                <input type="radio" name="sts_keluarga" value="Tidak"> Tidak
+                                <input type="radio" name="sts_keluarga" value="Tidak" <?php if(old('sts_keluarga') == "Tidak"): ?> <?php echo e('checked'); ?> <?php endif; ?>> Tidak
                                 <br>
                                 <?php $__errorArgs = ['sts_keluarga'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -389,13 +389,13 @@ unset($__errorArgs, $__bag); ?>
                             <div class="form-group">
                                 <label>Golongan Darah <b style="color:Tomato;">*</b></label>
                                 <br>
-                                <input type="radio" name="goldar" value="A"> A
+                                <input type="radio" name="goldar" value="A" <?php if(old('goldar') == "A"): ?> <?php echo e('checked'); ?> <?php endif; ?>> A
                                 &nbsp;
-                                <input type="radio" name="goldar" value="B"> B
+                                <input type="radio" name="goldar" value="B" <?php if(old('goldar') == "B"): ?> <?php echo e('checked'); ?> <?php endif; ?>> B
                                 &nbsp;
-                                <input type="radio" name="goldar" value="O"> O
+                                <input type="radio" name="goldar" value="O" <?php if(old('goldar') == "O"): ?> <?php echo e('checked'); ?> <?php endif; ?>> O
                                 &nbsp;
-                                <input type="radio" name="goldar" value="AB"> AB
+                                <input type="radio" name="goldar" value="AB" <?php if(old('goldar') == "AB"): ?> <?php echo e('checked'); ?> <?php endif; ?>> AB
                                 <br>
                                 <?php $__errorArgs = ['goldar'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
