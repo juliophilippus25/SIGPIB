@@ -201,8 +201,8 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <a href="{{ route('anggota.tampil_ubah', ['id' => $anggota->id]) }}" class="btn btn-primary"><i
-                            class="fa fa-edit"></i> Edit</a>
+                    <a href="{{ route('anggota.tampil_ubah', ['id' => $anggota->id]) }}" class="btn btn-warning"><i
+                            class="fa fa-edit"></i> Ubah</a>
                     <a target="_blank" href="{{ route('anggota.download_satu', ['id' => $anggota->id]) }}"
                         class="btn btn-success"><i class="fas fa-cloud-download-alt"></i> Unduh</a>
                     <a href="{{ route('anggota.index') }}" class="btn btn-default float-right"> Kembali</a>
