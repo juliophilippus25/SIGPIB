@@ -4,17 +4,17 @@
     <ul class="navbar-nav">
 
         
-        <li class="nav-item d-none d-sm-inline-block">
+        <li class="nav-item d-none d-sm-inline-block <?php echo e((request()->is('dashboard')) ? 'active menu-open' : ''); ?>">
             <a href="<?php echo e(route('dashboard')); ?>" class="nav-link">Dashboard</a>
         </li>
 
         
-        <li class="nav-item d-none d-sm-inline-block">
+        <li class="nav-item d-none d-sm-inline-block <?php echo e((request()->is('dashboard/anggota*')) ? 'active menu-open' : ''); ?>">
             <a href="<?php echo e(route('dashboard.anggota')); ?>" class="nav-link">Anggota</a>
         </li>
 
         
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown <?php echo e((request()->is('dashboard/pelkat*')) ? 'active menu-open' : ''); ?>">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">
                 PelKat
             </a>
@@ -30,7 +30,7 @@
         </li>
 
         
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown <?php echo e((request()->is('dashboard/sekwil*')) ? 'active menu-open' : ''); ?>">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">
                 SekWil
             </a>

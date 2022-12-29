@@ -4,17 +4,19 @@
     <ul class="navbar-nav">
 
         {{-- Dashboard --}}
-        <li class="nav-item d-none d-sm-inline-block">
+        <li class="nav-item d-none d-sm-inline-block {{ (request()->is('dashboard')) ? 'active menu-open' : '' }}">
             <a href="{{route('dashboard')}}" class="nav-link">Dashboard</a>
         </li>
 
         {{-- Anggota --}}
-        <li class="nav-item d-none d-sm-inline-block">
+        <li class="nav-item d-none d-sm-inline-block {{ (request()->is('dashboard/anggota*')) ? 'active menu-open' : ''
+        }}">
             <a href="{{route('dashboard.anggota')}}" class="nav-link">Anggota</a>
         </li>
 
         {{-- Pelkat --}}
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown {{ (request()->is('dashboard/pelkat*')) ? 'active menu-open' : ''
+        }}">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">
                 PelKat
             </a>
@@ -30,7 +32,8 @@
         </li>
 
         {{-- Sekwil --}}
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown {{ (request()->is('dashboard/sekwil*')) ? 'active menu-open' : ''
+        }}">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">
                 SekWil
             </a>

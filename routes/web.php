@@ -25,30 +25,41 @@ Route::get('/login', function () {
 
 Auth::routes();
 
+
+
 // Home atau dashboard
 Route::group(['prefix' => '/dashboard'], function() {
     Route::get('', 'App\Http\Controllers\HomeController@index')->name('dashboard');
+});
 
+Route::group(['prefix' => '/dashboard/anggota'], function() {
+    
     // Anggota
-    Route::get('/anggota', 'App\Http\Controllers\HomeController@anggota')->name('dashboard.anggota');
+    Route::get('', 'App\Http\Controllers\HomeController@anggota')->name('dashboard.anggota');
     Route::get('/pdf/goldara', 'App\Http\Controllers\HomeController@cetak_goldarA_PDF')->name('dashboard.download_goldara_pdf');
     Route::get('/pdf/goldarb', 'App\Http\Controllers\HomeController@cetak_goldarB_PDF')->name('dashboard.download_goldarb_pdf');
     Route::get('/pdf/goldaro', 'App\Http\Controllers\HomeController@cetak_goldarO_PDF')->name('dashboard.download_goldaro_pdf');
     Route::get('/pdf/goldarab', 'App\Http\Controllers\HomeController@cetak_goldarAB_PDF')->name('dashboard.download_goldarab_pdf');
+});
+
+Route::group(['prefix' => '/dashboard/pelkat'], function() {
 
     // Pelkat
-    Route::get('/pelkat', 'App\Http\Controllers\HomeController@pelkat')->name('dashboard.pelkat');
-    Route::get('/pelkat/pa', 'App\Http\Controllers\HomeController@pelkat_pa')->name('dashboard.pelkat_pa');
-    Route::get('/pelkat/pt', 'App\Http\Controllers\HomeController@pelkat_pt')->name('dashboard.pelkat_pt');
-    Route::get('/pelkat/gp', 'App\Http\Controllers\HomeController@pelkat_gp')->name('dashboard.pelkat_gp');
-    Route::get('/pelkat/pkp', 'App\Http\Controllers\HomeController@pelkat_pkp')->name('dashboard.pelkat_pkp');
-    Route::get('/pelkat/pkb', 'App\Http\Controllers\HomeController@pelkat_pkb')->name('dashboard.pelkat_pkb');
-    Route::get('/pelkat/pklu', 'App\Http\Controllers\HomeController@pelkat_pklu')->name('dashboard.pelkat_pklu');
+    Route::get('', 'App\Http\Controllers\HomeController@pelkat')->name('dashboard.pelkat');
+    Route::get('/pa', 'App\Http\Controllers\HomeController@pelkat_pa')->name('dashboard.pelkat_pa');
+    Route::get('/pt', 'App\Http\Controllers\HomeController@pelkat_pt')->name('dashboard.pelkat_pt');
+    Route::get('/gp', 'App\Http\Controllers\HomeController@pelkat_gp')->name('dashboard.pelkat_gp');
+    Route::get('/pkp', 'App\Http\Controllers\HomeController@pelkat_pkp')->name('dashboard.pelkat_pkp');
+    Route::get('/pkb', 'App\Http\Controllers\HomeController@pelkat_pkb')->name('dashboard.pelkat_pkb');
+    Route::get('/pklu', 'App\Http\Controllers\HomeController@pelkat_pklu')->name('dashboard.pelkat_pklu');
+});
+
+Route::group(['prefix' => '/dashboard/sekwil'], function() {
 
     // Sekwil
-    Route::get('/sekwil', 'App\Http\Controllers\HomeController@sekwil')->name('dashboard.sekwil');
-    Route::get('/sekwil/sektor1', 'App\Http\Controllers\HomeController@sekwil1')->name('dashboard.sekwil1');
-    Route::get('/sekwil/sektor2', 'App\Http\Controllers\HomeController@sekwil2')->name('dashboard.sekwil2');
+    Route::get('', 'App\Http\Controllers\HomeController@sekwil')->name('dashboard.sekwil');
+    Route::get('/sektor1', 'App\Http\Controllers\HomeController@sekwil1')->name('dashboard.sekwil1');
+    Route::get('/sektor2', 'App\Http\Controllers\HomeController@sekwil2')->name('dashboard.sekwil2');
 });
 
 // Anggota
