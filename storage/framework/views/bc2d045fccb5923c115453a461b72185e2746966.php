@@ -48,6 +48,89 @@
 
 </div>
 
+<div class="row">
+
+    <div class="col-lg-6 grid-margin stretch-card">
+
+        <div class="card card-default">
+            <div class="card-header d-flex justify-content-center">
+                <h3 class="card-title">Rekomendasi Anggota Jemaat Baptis</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <th>Nama</th>
+                        <th>Jenis Kelamin</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <?php $__empty_1 = true; $__currentLoopData = $anggota; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                <?php if($data->srt_baptis == null): ?>
+                                    <td><?php echo e($data->nama); ?></td>
+                                    <td><?php echo e($data->jk); ?></td>
+                                <?php endif; ?>
+                        </tr>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                        <tr class="">
+                            <td colspan="16">
+                                <strong class="text-dark">
+                                    <center>Data Kosong</center>
+                                </strong>
+                            </td>
+                        </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div>
+
+    <div class="col-lg-6 grid-margin stretch-card">
+
+        <div class="card card-default">
+            <div class="card-header d-flex justify-content-center">
+                <h3 class="card-title">Rekomendasi Anggota Jemaat Sidi</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <th>Nama</th>
+                        <th>Umur</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <?php $__empty_1 = true; $__currentLoopData = $anggota; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                <?php if(\Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >=
+                                    16 AND
+                                    $data->srt_sidi == null): ?>
+                                    <td><?php echo e($data->nama); ?></td>
+                                    <td>
+                                        <?php echo e(\Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y')); ?> tahun
+                                    </td>
+                                <?php endif; ?>
+                        </tr>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                        <tr>
+                            <td colspan="16">
+                                <strong class="text-dark">
+                                    <center>Data Kosong</center>
+                                </strong>
+                            </td>
+                        </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div>
+
+</div>
+
+
 
 <div class="row">
 

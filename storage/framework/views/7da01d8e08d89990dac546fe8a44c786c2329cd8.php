@@ -93,7 +93,8 @@
                                                             <?php echo e(csrf_field()); ?>
 
                                                             <p>Apakah anda yakin ingin menghapus data
-                                                                <b><?php echo e($data->anggota->nama); ?></b>?</p>
+                                                                <b><?php echo e($data->anggota->nama); ?></b>?
+                                                            </p>
 
                                                         </div>
 

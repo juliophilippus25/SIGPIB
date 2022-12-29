@@ -94,7 +94,8 @@
                                                         <div class="modal-body">
                                                             {{ csrf_field() }}
                                                             <p>Apakah anda yakin ingin menghapus data
-                                                                <b>{{ $data->anggota->nama }}</b>?</p>
+                                                                <b>{{ $data->anggota->nama }}</b>?
+                                                            </p>
 
                                                         </div>
 

@@ -92,6 +92,7 @@
                                     Lihat file lama
                                 </a>
                             @else
+                            <em><small style="color:Tomato;">Surat nikah gereja belum di unggah!</small></em>
                             @endif
 
                         </div>
@@ -113,6 +114,7 @@
                                     Lihat file lama
                                 </a>
                             @else
+                                <em><small style="color:Tomato;">Surat nikah catatan sipil belum diunggah!</small></em>
                             @endif
                         </div>
 

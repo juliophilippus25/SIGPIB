@@ -58,6 +58,89 @@
 
 </div>
 
+<div class="row">
+
+    <div class="col-lg-6 grid-margin stretch-card">
+
+        <div class="card card-default">
+            <div class="card-header d-flex justify-content-center">
+                <h3 class="card-title">Rekomendasi Anggota Jemaat Baptis</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <th>Nama</th>
+                        <th>Jenis Kelamin</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @forelse($anggota as $data)
+                                @if ($data->srt_baptis == null)
+                                    <td>{{ $data->nama }}</td>
+                                    <td>{{ $data->jk }}</td>
+                                @endif
+                        </tr>
+                    @empty
+                        <tr class="">
+                            <td colspan="16">
+                                <strong class="text-dark">
+                                    <center>Data Kosong</center>
+                                </strong>
+                            </td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div>
+
+    <div class="col-lg-6 grid-margin stretch-card">
+
+        <div class="card card-default">
+            <div class="card-header d-flex justify-content-center">
+                <h3 class="card-title">Rekomendasi Anggota Jemaat Sidi</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <th>Nama</th>
+                        <th>Umur</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @forelse($anggota as $data)
+                                @if (\Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >=
+                                    16 AND
+                                    $data->srt_sidi == null)
+                                    <td>{{ $data->nama }}</td>
+                                    <td>
+                                        {{ \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') }} tahun
+                                    </td>
+                                @endif
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="16">
+                                <strong class="text-dark">
+                                    <center>Data Kosong</center>
+                                </strong>
+                            </td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div>
+
+</div>
+
+
 {{-- Grafik --}}
 <div class="row">
 

@@ -388,23 +388,23 @@ class AnggotaController extends Controller
         $anggota = Anggota::find($id);
 
         if ($anggota->srt_baptis == null AND $anggota->srt_sidi == null AND $anggota->gambar == null AND $anggota->akte_lahir == null ) {
-            Alert::warning('Surat baptis, surat sidi, foto dan akte kelahiran belum diupload!', '');
+            Alert::warning('Surat baptis, surat sidi, foto dan akte kelahiran belum di unggah!', '');
         } elseif($anggota->srt_baptis == null AND $anggota->gambar == null AND $anggota->akte_lahir == null){
-            Alert::warning('Surat baptis, foto dan akte kelahiran belum diupload!', '');
+            Alert::warning('Surat baptis, foto dan akte kelahiran belum di unggah!', '');
         } elseif($anggota->srt_sidi == null AND $anggota->gambar == null AND $anggota->akte_lahir == null){
-            Alert::warning('Surat sidi, foto dan akte kelahiran belum diupload!', '');
+            Alert::warning('Surat sidi, foto dan akte kelahiran belum di unggah!', '');
         } elseif($anggota->srt_sidi == null AND $anggota->srt_baptis == null AND $anggota->akte_lahir == null){
-            Alert::warning('Surat sidi, surat baptis dan akte kelahiran belum diupload!', '');
+            Alert::warning('Surat sidi, surat baptis dan akte kelahiran belum di unggah!', '');
         } elseif($anggota->srt_sidi == null AND $anggota->srt_baptis == null){
-            Alert::warning('Surat sidi dan surat baptis belum diupload!', '');
+            Alert::warning('Surat sidi dan surat baptis belum di unggah!', '');
         } elseif($anggota->srt_baptis == null){
-            Alert::warning('Surat baptis belum diupload!', '');
+            Alert::warning('Surat baptis belum di unggah!', '');
         } elseif($anggota->srt_sidi == null){
-            Alert::warning('Surat sidi belum diupload!', '');
+            Alert::warning('Surat sidi belum di unggah!', '');
         } elseif($anggota->gambar == null){
-            Alert::warning('Foto belum diupload!', '');
+            Alert::warning('Foto belum di unggah!', '');
         } elseif($anggota->akte_lahir == null){
-            Alert::warning('Akte kelahiran belum diupload!', '');
+            Alert::warning('Akte kelahiran belum di unggah!', '');
         }
 
         return view('anggota.show', compact('anggota'));
