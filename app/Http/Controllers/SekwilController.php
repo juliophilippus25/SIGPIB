@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Sekwil;
+use App\Models\Kakel;
 use Alert;
 use Validator;
 
@@ -27,8 +28,10 @@ class SekwilController extends Controller
     public function tampil_sekwil()
     {
         $sekwil = Sekwil::get();
+        $sek1 = Kakel::where('id_sekwil', '1')->count();
+        $sek2 = Kakel::where('id_sekwil', '2')->count();
 
-        return view('sekwil.index', compact('sekwil'));
+        return view('sekwil.index', compact('sekwil','sek1','sek2'));
     }
 
     public function tambah_sekwil()
@@ -128,5 +131,10 @@ class SekwilController extends Controller
         Alert::success('Data berhasil dihapus!', '');
 
         return redirect()->back();
+    }
+
+    public function jumlah_kk()
+    {
+        # code...
     }
 }

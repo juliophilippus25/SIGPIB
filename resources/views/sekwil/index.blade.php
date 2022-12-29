@@ -27,13 +27,13 @@
             <!-- /.card-header -->
             <div class="card-body">
 
-                <div class="row">
+                {{-- <div class="row">
 
                     <div class="col-md-2">
                         <a href="{{route('sekwil.create')}}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Sektor Wilayah</a>
                     </div>
 
-                </div>
+                </div> --}}
                 <br>
 
                 <table id="example1" class="table table-bordered table-striped">
@@ -41,11 +41,22 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Sektor Wilayah</th>
-                            <th>Aksi</th>
+                            <th>Jumlah Kartu Keluarga</th>
+                            {{-- <th>Aksi</th> --}}
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($sekwil as $data)
+                        <tr>
+                            <td>1</td>
+                            <td>Sektor Pelayanan 1</td>
+                            <td>{{ $sek1 }}</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Sektor Pelayanan 2</td>
+                            <td>{{ $sek2 }}</td>
+                        </tr>
+                        {{-- @forelse($sekwil as $data)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $data->nama_sekwil }}</td>
@@ -88,7 +99,7 @@
                                 <strong class="text-dark"><center>Data Kosong</center></strong>
                             </td>
                         </tr>
-                        @endforelse
+                        @endforelse --}}
                     </tbody>
                 </table>
             </div>
