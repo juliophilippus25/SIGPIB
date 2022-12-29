@@ -65,7 +65,7 @@
                         <tr>
                             <th>Tempat Tanggal Pernikahan </th>
                             <td>:</td>
-                            <td>&nbsp;{{ $kakel->tempat_nikah }} / {{ date('d-m-Y', strtotime($kakel->tgl_nikah)) }}</td>
+                            <td>&nbsp;{{ $kakel->tempat_nikah }} / {{ Carbon\Carbon::parse($kakel->tgl_nikah)->isoFormat('D MMMM Y') }}</td>
                         </tr>
                         <tr>
                             <th>Sektor Wilayah </th>

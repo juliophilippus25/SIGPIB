@@ -17,24 +17,24 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        #anggota {
+        #table {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 13px;
             border-collapse: collapse;
             width: 100%;
         }
 
-        #anggota td,
-        #anggota th {
+        #table td,
+        #table th {
             border: 1px solid #ddd;
             padding: 8px;
         }
 
-        #anggota tr:nth-child(even) {
+        #table tr:nth-child(even) {
             background-color: #f2f2f2;
         }
 
-        #anggota th {
+        #table th {
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: center;
@@ -78,7 +78,7 @@
     </table>
 
     {{-- Data diri --}}
-    <table id="anggota">
+    <table id="table">
 
         <thead>
             <th colspan="3">DATA PRIBADI</th>
@@ -103,7 +103,7 @@
             <tr>
                 <td class="bold">Tempat Tanggal Lahir</td>
                 <td>:</td>
-                <td>{{ $anggota->tempat_lahir }} / {{ date('d-m-Y', strtotime($anggota->tgl_lahir)) }}
+                <td>{{ $anggota->tempat_lahir }} / {{ Carbon\Carbon::parse($anggota->tgl_lahir)->isoFormat('D MMMM Y') }}
                 </td>
             </tr>
             <tr>
@@ -159,13 +159,23 @@
     <br>
 
     {{-- Data berkas --}}
-    <table id="anggota">
+    <table id="table">
 
         <thead>
             <th colspan="3">DATA BERKAS</th>
         </thead>
 
         <tbody>
+            <tr>
+                <td style="width: 25%" class="bold">Akte Kelahiran</td>
+                <td>:</td>
+                @if ($anggota->akte_lahir == null)
+                    <td style="width: 70%">-</td>
+                @else
+                    <td style="width: 70%">Diterima</td>
+                @endif
+            </tr>
+
             <tr>
                 <td style="width: 25%" class="bold">Surat Baptis</td>
                 <td>:</td>

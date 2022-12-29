@@ -24,9 +24,9 @@
         <div class="container">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active btn" id="pills-pribadi-tab" data-toggle="pill" data-target="#pills-pribadi"
-                        type="button" role="tab" aria-controls="pills-pribadi" aria-selected="true"><i
-                            class="fa fa-user"></i>&nbsp;Data Pribadi</button>
+                    <button class="nav-link active btn" id="pills-pribadi-tab" data-toggle="pill"
+                        data-target="#pills-pribadi" type="button" role="tab" aria-controls="pills-pribadi"
+                        aria-selected="true"><i class="fa fa-user"></i>&nbsp;Data Pribadi</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link btn" id="pills-berkas-tab" data-toggle="pill" data-target="#pills-berkas"
@@ -87,7 +87,7 @@
                                                 <td>Tempat Tanggal Lahir</td>
                                                 <td>:</td>
                                                 <td>{{ $anggota->tempat_lahir }} /
-                                                    {{ date('d-m-Y', strtotime($anggota->tgl_lahir)) }}
+                                                    {{ Carbon\Carbon::parse($anggota->tgl_lahir)->isoFormat('D MMMM Y') }}
                                                 </td>
                                             </tr>
                                             <tr>

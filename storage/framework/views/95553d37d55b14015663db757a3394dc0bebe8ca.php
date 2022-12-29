@@ -63,7 +63,7 @@
                         <tr>
                             <th>Tempat Tanggal Pernikahan </th>
                             <td>:</td>
-                            <td>&nbsp;<?php echo e($kakel->tempat_nikah); ?> / <?php echo e(date('d-m-Y', strtotime($kakel->tgl_nikah))); ?></td>
+                            <td>&nbsp;<?php echo e($kakel->tempat_nikah); ?> / <?php echo e(Carbon\Carbon::parse($kakel->tgl_nikah)->isoFormat('D MMMM Y')); ?></td>
                         </tr>
                         <tr>
                             <th>Sektor Wilayah </th>

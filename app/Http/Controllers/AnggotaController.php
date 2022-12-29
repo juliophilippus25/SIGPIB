@@ -241,7 +241,7 @@ class AnggotaController extends Controller
         $validator = Validator::make($request->all(),
         // Aturan
         [
-            'nama' => 'required|min:3|unique:anggota,nama',
+            'nama' => 'required|min:3',
             'jk' => 'required',
             'tempat_lahir' => 'required|min:3',
             'tgl_lahir' => 'required|before_or_equal:today',
@@ -261,9 +261,6 @@ class AnggotaController extends Controller
         ],
         // Pesan
         [
-            // Unique
-            'nama.unique' => 'Nama sudah terdaftar!',
-
             // Required
             'nama.required' => 'Nama lengkap wajib diisi!',
             'jk.required' => 'Jenis kelamin wajib diisi!',
@@ -436,16 +433,18 @@ class AnggotaController extends Controller
     public function cetak_semua_pdf()
     {
         $anggota = Anggota::all();
-        $dt = Carbon::now();
-        $pdf = PDF::loadView('laporan.anggota.semua_anggota', compact('anggota', 'dt'));
-        return $pdf->stream('SIGPIB_Anggota_'.$dt->format('d_M_Y').'.pdf');
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
+        $pdf = PDF::loadView('laporan.anggota.semua_anggota', compact('anggota', 'dt','tgl'));
+        return $pdf->stream('SIGPIB_Anggota_'.$dt.'.pdf');
     }
 
     public function cetak_satu_pdf($id)
     {
         $anggota = Anggota::find($id);
-        $dt = Carbon::now();
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
         $pdf = PDF::loadView('laporan.anggota.satu_anggota', compact('anggota', 'dt'));
-        return $pdf->stream('SIGPIB_'.$anggota->kode_anggota.('_').$dt->format('d_M_Y').'.pdf');
+        return $pdf->stream('SIGPIB_'.$anggota->kode_anggota.('_').$dt.'.pdf');
     }
 }

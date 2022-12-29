@@ -70,10 +70,11 @@ class HomeController extends Controller
     public function cetak_goldarA_PDF(Request $request)
     {
         $anggota= Anggota::where('goldar', 'A')->get();
-        $dt = Carbon::now();
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
 
-        $pdf = PDF::loadView('laporan.anggota.goldar_a', compact('anggota', 'dt'));
-        return $pdf->stream('SIGPIB_GOLDAR_A_'.$dt->format('d_M_Y').'.pdf');
+        $pdf = PDF::loadView('laporan.anggota.goldar_a', compact('anggota', 'dt','tgl'));
+        return $pdf->stream('SIGPIB_GOLDAR_A_'.$dt.'.pdf');
 
     }
 
