@@ -436,7 +436,7 @@ class AnggotaController extends Controller
         $dt = Carbon::now()->isoFormat('D_MMMM_Y');
         $tgl = Carbon::now()->isoFormat('D MMMM Y');
         $pdf = PDF::loadView('laporan.anggota.semua_anggota', compact('anggota', 'dt','tgl'));
-        return $pdf->stream('SIGPIB_Anggota_'.$dt.'.pdf');
+        return $pdf->stream('SIGPIB_ANGGOTA_'.$dt.'.pdf');
     }
 
     public function cetak_satu_pdf($id)

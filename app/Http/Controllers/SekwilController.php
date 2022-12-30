@@ -133,9 +133,4 @@ class SekwilController extends Controller
 
         return redirect()->back();
     }
-
-    public function jumlah_kk()
-    {
-        # code...
-    }
 }

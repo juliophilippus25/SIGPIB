@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SIGPIB | Laporan Data Kartu Keluarga Sektor Pelayanan 2</title>
+    <title>SIGPIB | Laporan Data Kartu Keluarga Sektor Pelayanan 3</title>
     <style type="text/css">
         .center {
             text-align: center;
@@ -56,7 +56,7 @@
 
         <hr width="100%" align="center">
 
-        <h4><center class="upper">Laporan Data Kartu Keluarga <br> Sektor Pelayanan 2<br> <?php echo e($tgl); ?> </center></h4>
+        <h4><center class="upper">Laporan Data Kartu Keluarga <br> Sektor Pelayanan 3<br> <?php echo e($tgl); ?> </center></h4>
 
         <table id="table">
             <tr>
@@ -78,7 +78,7 @@
                 </tr>
             <?php endif; ?>
         </table>
-        <p>Total Kartu Keluarga: <?php echo e($kakel->where('id_sekwil', '2')->count()); ?></p>
+        <p>Total Kartu Keluarga: <?php echo e($kakel->where('id_sekwil', '3')->count()); ?></p>
 </body>
 </html>
-<?php /**PATH C:\xampp\htdocs\SIGPIB\resources\views/laporan/kakel/kakel_sekwil2.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\SIGPIB\resources\views/laporan/kakel/kakel_sekwil3.blade.php ENDPATH**/ ?>

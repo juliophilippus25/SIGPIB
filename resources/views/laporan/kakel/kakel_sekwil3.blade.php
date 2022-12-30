@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SIGPIB | Laporan Data Kartu Keluarga Sektor Pelayanan 2</title>
+    <title>SIGPIB | Laporan Data Kartu Keluarga Sektor Pelayanan 3</title>
     <style type="text/css">
         .center {
             text-align: center;
@@ -45,7 +45,7 @@
 <body>
     <table>
         <tr>
-            <td><img src="<?php echo e(public_path("images/gpib/Logo-GPIB.png")); ?>" alt="" style="width: 100px; height: 100px;"></td>
+            <td><img src="{{ public_path("images/gpib/Logo-GPIB.png") }}" alt="" style="width: 100px; height: 100px;"></td>
             <td class="center">
                 <font size="4">GEREJA PROTESTAN di INDONESIA bagian BARAT <br> (G P I B) <br> JEMAAT "MARANATHA" TANJUNG SELOR</font> <br>
                 <font size="2">Alamat: Jalan D.I. Panjaitan, No. 25 Tanjung Selor Kode Pos 77211 Kabupaten Bulungan-KALTARA <br>
@@ -56,7 +56,7 @@
 
         <hr width="100%" align="center">
 
-        <h4><center class="upper">Laporan Data Kartu Keluarga <br> Sektor Pelayanan 2<br> <?php echo e($tgl); ?> </center></h4>
+        <h4><center class="upper">Laporan Data Kartu Keluarga <br> Sektor Pelayanan 3<br> {{$tgl}} </center></h4>
 
         <table id="table">
             <tr>
@@ -64,21 +64,20 @@
                 <th>Nama Kepala Keluarga</th>
                 <th>Tanggal Masuk</th>
             </tr>
-            <?php $__empty_1 = true; $__currentLoopData = $kakel; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+            @forelse($kakel as $data)
             <tr>
-                <td><?php echo e($loop->iteration); ?></td>
-                <td><?php echo e($data->anggota->nama); ?></td>
-                <td><?php echo e(Carbon\Carbon::parse($data->created_at)->isoFormat('D MMMM Y')); ?></td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $data->anggota->nama }}</td>
+                <td>{{ Carbon\Carbon::parse($data->created_at)->isoFormat('D MMMM Y') }}</td>
             </tr>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+            @empty
                 <tr class="">
                     <td colspan="16">
                         <strong class="text-dark"><center>Data Kosong</center></strong>
                     </td>
                 </tr>
-            <?php endif; ?>
+            @endforelse
         </table>
-        <p>Total Kartu Keluarga: <?php echo e($kakel->where('id_sekwil', '2')->count()); ?></p>
+        <p>Total Kartu Keluarga: {{$kakel->where('id_sekwil', '3')->count()}}</p>
 </body>
 </html>
-<?php /**PATH C:\xampp\htdocs\SIGPIB\resources\views/laporan/kakel/kakel_sekwil2.blade.php ENDPATH**/ ?>

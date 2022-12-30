@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SIGPIB | Laporan Data Kartu Keluarga Sektor Pelayanan 1</title>
+    <title>SIGPIB | Laporan Data Kartu Keluarga Sektor Pelayanan 2</title>
     <style type="text/css">
         .center {
             text-align: center;

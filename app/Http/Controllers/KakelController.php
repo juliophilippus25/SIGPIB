@@ -294,7 +294,7 @@ class KakelController extends Controller
         $tgl = Carbon::now()->isoFormat('D MMMM Y');
 
         $pdf = PDF::loadView('laporan.kakel.kakel_sekwil1', compact('kakel', 'dt', 'tgl'));
-        return $pdf->stream('SIGPIB_KK_'.$dt.'.pdf');
+        return $pdf->stream('SIGPIB_KK_SEKWIL1_'.$dt.'.pdf');
 
     }
 
@@ -305,7 +305,18 @@ class KakelController extends Controller
         $tgl = Carbon::now()->isoFormat('D MMMM Y');
 
         $pdf = PDF::loadView('laporan.kakel.kakel_sekwil2', compact('kakel', 'dt', 'tgl'));
-        return $pdf->stream('SIGPIB_KK_'.$dt.'.pdf');
+        return $pdf->stream('SIGPIB_KK_SEKWIL2_'.$dt.'.pdf');
+
+    }
+
+    public function cetak_sekwil3_PDF(Request $request)
+    {
+        $kakel= Kakel::where('id_sekwil', '3')->get();
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
+
+        $pdf = PDF::loadView('laporan.kakel.kakel_sekwil3', compact('kakel', 'dt', 'tgl'));
+        return $pdf->stream('SIGPIB_KK_SEKWIL3_'.$dt.'.pdf');
 
     }
 }

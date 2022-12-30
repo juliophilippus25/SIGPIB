@@ -45,6 +45,8 @@
                                     Sektor Pelayanan 1</a>
                                 <a class="dropdown-item" target="_blank" href="<?php echo e(route('kakel.download_sekwil2_pdf')); ?>">
                                     Sektor Pelayanan 2</a>
+                                    <a class="dropdown-item" target="_blank" href="<?php echo e(route('kakel.download_sekwil3_pdf')); ?>">
+                                        Sektor Pelayanan 3</a>
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SIGPIB | Laporan Data Kartu Keluarga</title>
+    <title>SIGPIB | Laporan Data Kartu Keluarga Semua Sektor</title>
     <style type="text/css">
         .center {
             text-align: center;
@@ -82,7 +82,7 @@
                 </tr>
             @endforelse
         </table>
-        <p>Total Kartu Keluarga: {{ $data->count() }}</p>
+        <p>Total Kartu Keluarga: {{ $kakel->count() }}</p>
         {{-- {{$data->where('id_sekwil', '1')->count()}} --}}
 </body>
 </html>
