@@ -56,6 +56,11 @@
                             <td>Sektor Pelayanan 2</td>
                             <td>{{ $sek2 }}</td>
                         </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Sektor Pelayanan 3</td>
+                            <td>{{ $sek3 }}</td>
+                        </tr>
                         {{-- @forelse($sekwil as $data)
                         <tr>
                             <td>{{ $loop->iteration }}</td>

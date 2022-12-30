@@ -11,7 +11,7 @@ class Kakel extends Model
 
     protected $table = 'kakel';
 
-    protected $fillable = ['id_anggota', 'id_sekwil', 'tempat_nikah', 'tgl_nikah', 'srt_gereja', 'srt_sipil'];
+    protected $fillable = ['id_anggota', 'id_sekwil', 'tempat_nikah', 'tgl_nikah', 'srt_kk', 'srt_gereja', 'srt_sipil'];
 
     public function anggota()
     {

@@ -33,7 +33,7 @@ Route::group(['prefix' => '/dashboard'], function() {
 });
 
 Route::group(['prefix' => '/dashboard/anggota'], function() {
-    
+
     // Anggota
     Route::get('', 'App\Http\Controllers\HomeController@anggota')->name('dashboard.anggota');
     Route::get('/pdf/goldara', 'App\Http\Controllers\HomeController@cetak_goldarA_PDF')->name('dashboard.download_goldara_pdf');
@@ -58,8 +58,9 @@ Route::group(['prefix' => '/dashboard/sekwil'], function() {
 
     // Sekwil
     Route::get('', 'App\Http\Controllers\HomeController@sekwil')->name('dashboard.sekwil');
-    Route::get('/sektor1', 'App\Http\Controllers\HomeController@sekwil1')->name('dashboard.sekwil1');
-    Route::get('/sektor2', 'App\Http\Controllers\HomeController@sekwil2')->name('dashboard.sekwil2');
+    Route::get('/sekwil1', 'App\Http\Controllers\HomeController@sekwil1')->name('dashboard.sekwil1');
+    Route::get('/sekwil2', 'App\Http\Controllers\HomeController@sekwil2')->name('dashboard.sekwil2');
+    Route::get('/sekwil3', 'App\Http\Controllers\HomeController@sekwil3')->name('dashboard.sekwil3');
 });
 
 // Anggota

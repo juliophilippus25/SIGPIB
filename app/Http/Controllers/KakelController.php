@@ -61,6 +61,7 @@ class KakelController extends Controller
             'id_sekwil' => 'required',
             'tempat_nikah' => 'required|min:3',
             'tgl_nikah' => 'required|before_or_equal:today',
+            'srt_kk' => 'max:2048',
             'srt_gereja' => 'max:2048',
             'srt_sipil' => 'max:2048'
         ],
@@ -76,6 +77,7 @@ class KakelController extends Controller
             'tempat_nikah.min' => 'Tempat pernikahan diisi minimal 3 karakter!',
 
             // Ukuran file
+            'srt_kk.max' => 'Ukuran maksimal file kartu keluarga adalah 2mb',
             'srt_gereja.max' => 'Ukuran maksimal file surat nikah gereja adalah 2mb',
             'srt_sipil.max' => 'Ukuran maksimal file surat nikah sipil adalah 2mb',
 
@@ -91,15 +93,28 @@ class KakelController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        // Proses upload kartu keluarga
+        if($request->file('srt_kk') == '') {
+            $srt_kk = NULL;
+        } else {
+            $nama_file_dikonversi = $request->id_anggota;
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+            // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
+            $extension = $request->srt_kk->getClientOriginalExtension();
+            $simpan_nama_file = 'KK_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
+            $srt_kk = $request->file('srt_kk')->storeAs('dokumen/kk', $simpan_nama_file);
+            $srt_kk = $simpan_nama_file;
+        }
+
         // Proses upload surat nikah gereja
         if($request->file('srt_gereja') == '') {
             $srt_gereja = NULL;
         } else {
             $nama_file_dikonversi = $request->id_anggota;
-            $dt = Carbon::now();
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->srt_gereja->getClientOriginalExtension();
-            $simpan_nama_file = 'NIKAH_GEREJA_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $simpan_nama_file = 'NIKAH_GEREJA_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
             $srt_gereja = $request->file('srt_gereja')->storeAs('dokumen/nikahgereja', $simpan_nama_file);
             $srt_gereja = $simpan_nama_file;
         }
@@ -109,10 +124,10 @@ class KakelController extends Controller
             $srt_sipil = NULL;
         } else {
             $nama_file_dikonversi = $request->id_anggota;
-            $dt = Carbon::now();
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->srt_sipil->getClientOriginalExtension();
-            $simpan_nama_file = 'NIKAH_SIPIL_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $simpan_nama_file = 'NIKAH_SIPIL_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
             $srt_sipil = $request->file('srt_sipil')->storeAs('dokumen/nikahsipil', $simpan_nama_file);
             $srt_sipil = $simpan_nama_file;
         }
@@ -122,6 +137,7 @@ class KakelController extends Controller
             'id_sekwil' => $request->input('id_sekwil'),
             'tempat_nikah' => $request->input('tempat_nikah'),
             'tgl_nikah' => $request->input('tgl_nikah'),
+            'srt_kk' => $srt_kk,
             'srt_gereja' => $srt_gereja,
             'srt_sipil' => $srt_sipil
         ]);
@@ -150,6 +166,7 @@ class KakelController extends Controller
             'id_sekwil' => 'required',
             'tempat_nikah' => 'required|min:3',
             'tgl_nikah' => 'required|before_or_equal:today',
+            'srt_kk' => 'max:2048',
             'srt_gereja' => 'max:2048',
             'srt_sipil' => 'max:2048'
         ],
@@ -164,6 +181,7 @@ class KakelController extends Controller
             'tempat_nikah.min' => 'Tempat pernikahan diisi minimal 3 karakter!',
 
             // Ukuran file
+            'srt_gereja.max' => 'Ukuran maksimal file kartu keluarga adalah 2mb',
             'srt_gereja.max' => 'Ukuran maksimal file surat nikah gereja adalah 2mb',
             'srt_sipil.max' => 'Ukuran maksimal file surat nikah sipil adalah 2mb',
 
@@ -178,13 +196,24 @@ class KakelController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        // Proses upload kartu keluarga
+        if($request->file('srt_kk')) {
+            $nama_file_dikonversi = $request->id_anggota;
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+            // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
+            $extension = $request->srt_kk->getClientOriginalExtension();
+            $simpan_nama_file = 'KK_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
+            $srt_kk = $request->file('srt_kk')->storeAs('dokumen/kk', $simpan_nama_file);
+            $kakel->srt_kk = $simpan_nama_file;
+        }
+
         // Proses upload surat nikah gereja
         if($request->file('srt_gereja')) {
             $nama_file_dikonversi = $request->id_anggota;
-            $dt = Carbon::now();
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->srt_gereja->getClientOriginalExtension();
-            $simpan_nama_file = 'NIKAH_GEREJA_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $simpan_nama_file = 'NIKAH_GEREJA_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
             $srt_gereja = $request->file('srt_gereja')->storeAs('dokumen/nikahgereja', $simpan_nama_file);
             $kakel->srt_gereja = $simpan_nama_file;
         }
@@ -192,10 +221,10 @@ class KakelController extends Controller
         // Proses upload surat nikah sipil
         if($request->file('srt_sipil')) {
             $nama_file_dikonversi = $request->id_anggota;
-            $dt = Carbon::now();
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->srt_sipil->getClientOriginalExtension();
-            $simpan_nama_file = 'NIKAH_SIPIL_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $simpan_nama_file = 'NIKAH_SIPIL_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
             $srt_sipil = $request->file('srt_sipil')->storeAs('dokumen/nikahsipil', $simpan_nama_file);
             $kakel->srt_sipil = $simpan_nama_file;
         }
@@ -215,12 +244,13 @@ class KakelController extends Controller
     {
         $kakel = Kakel::find($id);
 
+        $srt_kk = 'storage/dokumen/nikahgereja/'. $kakel->srt_kk;
         $srt_gereja = 'storage/dokumen/nikahgereja/'. $kakel->srt_gereja;
         $srt_sipil = 'storage/dokumen/nikahsipil/'. $kakel->srt_sipil;
 
-        if(File::exists($srt_gereja, $srt_sipil))
+        if(File::exists($srt_kk, $srt_gereja, $srt_sipil))
         {
-            File::delete($srt_gereja, $srt_sipil);
+            File::delete($srt_kk, $srt_gereja, $srt_sipil);
         }
 
         $kakel->delete();

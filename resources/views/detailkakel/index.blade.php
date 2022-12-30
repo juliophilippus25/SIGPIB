@@ -197,6 +197,17 @@
                                         <tr>
                                             <td>2.</td>
                                             <td>
+                                                @if ($kakel->srt_kk != null)
+                                                    <a target="_blank"
+                                                        href="{{ asset('storage/dokumen/kk/' . $kakel->srt_kk) }}">KARTU KELUARGA <i class="fa fa-circle-check"></i></a>
+                                                @else
+                                                    <a>KARTU KELUARGA <i class="fa fa-circle-xmark"></i></a>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3.</td>
+                                            <td>
                                                 @if ($kakel->srt_gereja != null)
                                                     <a target="_blank"
                                                         href="{{ asset('storage/dokumen/nikahgereja/' . $kakel->srt_gereja) }}">SURAT
@@ -207,7 +218,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>3.</td>
+                                            <td>4.</td>
                                             <td style="width: 100%">
                                                 @if ($kakel->srt_sipil != null)
                                                     <a target="_blank"

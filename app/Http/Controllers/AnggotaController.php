@@ -153,10 +153,10 @@ class AnggotaController extends Controller
             $gambar = NULL;
         } else {
             $nama_file_dikonversi = $request->kode_anggota;
-            $dt = Carbon::now();
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->gambar->getClientOriginalExtension();
-            $simpan_nama_file = 'FOTO_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $simpan_nama_file = 'FOTO_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
             $gambar = $request->file('gambar')->storeAs('images/anggota', $simpan_nama_file);
             $gambar = $simpan_nama_file;
         }
@@ -166,10 +166,10 @@ class AnggotaController extends Controller
             $srt_baptis = NULL;
         } else {
             $nama_file_dikonversi = $request->kode_anggota;
-            $dt = Carbon::now();
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->srt_baptis->getClientOriginalExtension();
-            $simpan_nama_file = 'BAPTIS_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $simpan_nama_file = 'BAPTIS_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
             $srt_baptis = $request->file('srt_baptis')->storeAs('dokumen/baptis', $simpan_nama_file);
             $srt_baptis = $simpan_nama_file;
         }
@@ -179,10 +179,10 @@ class AnggotaController extends Controller
             $srt_sidi = NULL;
         } else {
             $nama_file_dikonversi = $request->kode_anggota;
-            $dt = Carbon::now();
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->srt_sidi->getClientOriginalExtension();
-            $simpan_nama_file = 'SIDI_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $simpan_nama_file = 'SIDI_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
             $srt_sidi = $request->file('srt_sidi')->storeAs('dokumen/sidi', $simpan_nama_file);
             $srt_sidi = $simpan_nama_file;
         }
@@ -192,10 +192,10 @@ class AnggotaController extends Controller
             $akte_lahir = NULL;
         } else {
             $nama_file_dikonversi = $request->kode_anggota;
-            $dt = Carbon::now();
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->akte_lahir->getClientOriginalExtension();
-            $simpan_nama_file = 'AKTE_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $simpan_nama_file = 'AKTE_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
             $akte_lahir = $request->file('akte_lahir')->storeAs('dokumen/akte', $simpan_nama_file);
             $akte_lahir = $simpan_nama_file;
         }
@@ -321,10 +321,10 @@ class AnggotaController extends Controller
         // Proses upload gambar
         if($request->file('gambar')) {
             $nama_file_dikonversi = $request->kode_anggota;
-            $dt = Carbon::now();
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->gambar->getClientOriginalExtension();
-            $simpan_nama_file = 'FOTO_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $simpan_nama_file = 'FOTO_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
             $gambar = $request->file('gambar')->storeAs('images/anggota', $simpan_nama_file);
             $anggota->gambar = $simpan_nama_file;
         }
@@ -332,10 +332,10 @@ class AnggotaController extends Controller
          // Proses upload surat baptis
         if($request->file('srt_baptis')) {
             $nama_file_dikonversi = $request->kode_anggota;
-            $dt = Carbon::now();
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->srt_baptis->getClientOriginalExtension();
-            $simpan_nama_file = 'BAPTIS_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $simpan_nama_file = 'BAPTIS_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
             $srt_baptis = $request->file('srt_baptis')->storeAs('dokumen/baptis', $simpan_nama_file);
             $anggota->srt_baptis = $simpan_nama_file;
         }
@@ -343,10 +343,10 @@ class AnggotaController extends Controller
         // Proses upload surat sidi
         if($request->file('srt_sidi')) {
             $nama_file_dikonversi = $request->kode_anggota;
-            $dt = Carbon::now();
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->srt_sidi->getClientOriginalExtension();
-            $simpan_nama_file = 'SIDI_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $simpan_nama_file = 'SIDI_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
             $srt_sidi = $request->file('srt_sidi')->storeAs('dokumen/sidi', $simpan_nama_file);
             $anggota->srt_sidi = $simpan_nama_file;
         }
@@ -354,10 +354,10 @@ class AnggotaController extends Controller
         // Proses upload surat sidi
         if($request->file('akte_lahir')) {
             $nama_file_dikonversi = $request->kode_anggota;
-            $dt = Carbon::now();
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
             // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
             $extension = $request->akte_lahir->getClientOriginalExtension();
-            $simpan_nama_file = 'AKTE_'.$nama_file_dikonversi.'_'.$dt->format('d_M_Y').'.'.$extension;
+            $simpan_nama_file = 'AKTE_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
             $akte_lahir = $request->file('akte_lahir')->storeAs('dokumen/akte', $simpan_nama_file);
             $anggota->akte_lahir = $simpan_nama_file;
         }

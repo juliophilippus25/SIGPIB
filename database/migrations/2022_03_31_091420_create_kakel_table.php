@@ -21,6 +21,7 @@ class CreateKakelTable extends Migration
             $table->foreign('id_sekwil')->references('id')->on('sekwil')->onDelete('cascade')->onUpdate('cascade');
             $table->string('tempat_nikah')->nullable();
             $table->date('tgl_nikah')->nullable();
+            $table->string('srt_kk')->nullable();
             $table->string('srt_gereja')->nullable();
             $table->string('srt_sipil')->nullable();
             $table->timestamps();

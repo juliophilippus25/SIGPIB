@@ -41,6 +41,7 @@
                 <a class="dropdown-item" href="{{route('dashboard.sekwil')}}"> Semua </a>
                 <a class="dropdown-item" href="{{route('dashboard.sekwil1')}}"> Sektor Pelayanan 1 </a>
                 <a class="dropdown-item" href="{{route('dashboard.sekwil2')}}"> Sektor Pelayanan 2 </a>
+                <a class="dropdown-item" href="{{route('dashboard.sekwil3')}}"> Sektor Pelayanan 3 </a>
             </div>
         </li>
     </ul>

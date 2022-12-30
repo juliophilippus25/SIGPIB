@@ -77,6 +77,26 @@
                         </div>
 
                         <div class="form-group">
+                            <label>Kartu Keluarga </label>
+                            <small style="color:Tomato;"><em>Unggah kartu keluarga maksimal ukuran file 2mb</em></small>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input @error('srt_kk') is-invalid @enderror"
+                                    id="customFile" name="srt_kk">
+                                <label class="custom-file-label" for="customFile">Pilih file</label>
+                            </div>
+                            @error('srt_kk')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                            @if ($kakel->srt_kk != null)
+                                <a target="_blank" href="{{ asset('storage/dokumen/kk/' . $kakel->srt_gereja) }}">
+                                    Lihat file lama
+                                </a>
+                            @else
+                            <em><small style="color:Tomato;">Kartu keluarga belum di unggah!</small></em>
+                            @endif
+                        </div>
+
+                        <div class="form-group">
                             <label>Surat Nikah Gereja </label>
                             <small style="color:Tomato;"><em>Unggah surat nikah gereja maksimal ukuran file 2mb</em></small>
                             <div class="custom-file">
@@ -94,7 +114,6 @@
                             @else
                             <em><small style="color:Tomato;">Surat nikah gereja belum di unggah!</small></em>
                             @endif
-
                         </div>
 
                         <div class="form-group">

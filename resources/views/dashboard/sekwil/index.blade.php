@@ -107,7 +107,8 @@
         xAxis: {
             categories: [
                 'Sektor Pelayanan 1 <br/> ( {{ $kakel->where('id_sekwil', '1')->count() }} )',
-                'Sektor Pelayanan 2 <br/> ( {{ $kakel->where('id_sekwil', '2')->count() }} )'
+                'Sektor Pelayanan 2 <br/> ( {{ $kakel->where('id_sekwil', '2')->count() }} )',
+                'Sektor Pelayanan 3 <br/> ( {{ $kakel->where('id_sekwil', '3')->count() }} )'
             ],
             crosshair: true
         },
@@ -135,7 +136,8 @@
             name: 'Jumlah Kartu Keluarga',
             data: [
                 {{ $kakel->where('id_sekwil', '1')->count() }},
-                {{ $kakel->where('id_sekwil', '2')->count() }}
+                {{ $kakel->where('id_sekwil', '2')->count() }},
+                {{ $kakel->where('id_sekwil', '3')->count() }}
             ]
         }]
     });

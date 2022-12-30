@@ -19099,3 +19099,215 @@ esbot\\carbon\\src\\Carbon\\Traits\\Creator.php(216): Carbon\\Carbon::rawParse(O
 [stacktrace]
 #0 {main}
 "} 
+[2022-12-30 12:12:52] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:13:52] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:14:52] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:15:54] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:16:52] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:17:52] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:18:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:19:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:20:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:21:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:22:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:23:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:24:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:25:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:26:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:27:52] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:28:52] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:29:52] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:30:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:31:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:32:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:33:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 12:34:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 13:49:00] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 13:49:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 13:50:52] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 13:51:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 13:52:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 13:53:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 13:54:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 13:55:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 13:56:52] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 13:57:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 13:58:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 13:59:52] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:00:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:01:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:02:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:03:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:04:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:05:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:06:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:07:52] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:08:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:09:52] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:10:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:11:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:12:53] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:13:57] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:14:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:15:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:16:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 
+[2022-12-30 14:17:51] local.ERROR: Cannot redeclare setActive() (previously declared in C:\xampp\htdocs\SIGPIB\app\Helpers.php:14) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare setActive() (previously declared in C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14) at C:\\xampp\\htdocs\\SIGPIB\\app\\Helpers.php:14)
+[stacktrace]
+#0 {main}
+"} 

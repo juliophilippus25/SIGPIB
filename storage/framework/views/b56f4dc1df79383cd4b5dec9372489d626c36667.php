@@ -48,6 +48,11 @@
                             <td>Sektor Pelayanan 2</td>
                             <td><?php echo e($sek2); ?></td>
                         </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Sektor Pelayanan 3</td>
+                            <td><?php echo e($sek3); ?></td>
+                        </tr>
                         
                     </tbody>
                 </table>

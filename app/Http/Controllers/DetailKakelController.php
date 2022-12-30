@@ -23,8 +23,14 @@ class DetailKakelController extends Controller
         ->where('id_kakel', $id)
         ->get(['anggota.nama','detail_kakel.id', 'detail_kakel.sts_keluarga']);
 
-        if ($kakel->srt_gereja == null AND $kakel->srt_sipil == null) {
-            Alert::warning('Surat nikah gereja dan surat nikah catatan sipil belum di unggah!', '');
+        if ($kakel->srt_kk == null AND $kakel->srt_gereja == null AND $kakel->srt_sipil == null) {
+            Alert::warning('Kartu keluarga, surat nikah gereja dan surat nikah catatan sipil belum di unggah!', '');
+        } elseif($kakel->srt_kk == null AND $kakel->srt_gereja == null){
+            Alert::warning('Kartu keluarga dan surat nikah gereja belum di unggah!', '');
+        } elseif($kakel->srt_kk == null AND $kakel->srt_sipil == null){
+            Alert::warning('Kartu keluarga dan surat nikah catatan sipil belum di unggah!', '');
+        } elseif($kakel->srt_kk == null){
+            Alert::warning('Kartu keluarga belum di unggah!', '');
         } elseif($kakel->srt_gereja == null){
             Alert::warning('Surat nikah gereja belum di unggah!', '');
         } elseif($kakel->srt_sipil == null){

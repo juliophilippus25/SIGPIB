@@ -30,8 +30,9 @@ class SekwilController extends Controller
         $sekwil = Sekwil::get();
         $sek1 = Kakel::where('id_sekwil', '1')->count();
         $sek2 = Kakel::where('id_sekwil', '2')->count();
+        $sek3 = Kakel::where('id_sekwil', '3')->count();
 
-        return view('sekwil.index', compact('sekwil','sek1','sek2'));
+        return view('sekwil.index', compact('sekwil','sek1', 'sek2','sek3'));
     }
 
     public function tambah_sekwil()

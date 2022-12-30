@@ -355,4 +355,31 @@ class HomeController extends Controller
 
         return view('dashboard.sekwil.sektor2', compact('anggota', 'pelkat', 'sekwil', 'kakel','total_kakel','bulan'));
     }
+
+    public function sekwil3()
+    {
+        $anggota = Anggota::get();
+        $pelkat = Pelkat::get();
+        $sekwil = Sekwil::get();
+        $kakel = Kakel::get();
+
+        // $total_kakel = Kakel::where('id_sekwil', '3')
+        // ->select(DB::raw("CAST(COUNT(id_anggota) as int) as total_anggota"))
+        // ->GroupBy(DB::raw("Month(created_at)"))
+        // ->pluck('total_anggota');
+
+        $total_kakel = Kakel::where('id_sekwil', '3')
+        ->select(DB::raw("COUNT(*) as count"))
+        ->WhereYear("created_at", date('Y'))
+        ->GroupBy(DB::raw("Month(created_at)"))
+        ->pluck('count');
+
+        $bulan = Kakel::where('id_sekwil', '3')
+        ->select(DB::raw("MONTHNAME(created_at) as bulan"))
+        ->GroupBy(DB::raw("MONTHNAME(created_at)"))
+        ->orderBy('created_at', 'asc')
+        ->pluck('bulan');
+
+        return view('dashboard.sekwil.sektor3', compact('anggota', 'pelkat', 'sekwil', 'kakel','total_kakel','bulan'));
+    }
 }

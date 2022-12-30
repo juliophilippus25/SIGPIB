@@ -149,6 +149,33 @@ unset($__errorArgs, $__bag); ?>
                         </div>
 
                         <div class="form-group">
+                            <label>Kartu Keluarga </label>
+                            <small style="color:Tomato;"><em>Unggah kartu keluarga maksimal ukuran file 2mb</em></small>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input <?php $__errorArgs = ['srt_kk'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                                    id="customFile" name="srt_kk">
+                                <label class="custom-file-label" for="customFile">Pilih file</label>
+                            </div>
+                            <?php $__errorArgs = ['srt_kk'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <span class="text-danger"><?php echo e($message); ?></span>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                        </div>
+
+                        <div class="form-group">
                             <label>Surat Nikah Gereja </label>
                             <small style="color:Tomato;"><em>Unggah surat nikah gereja maksimal ukuran file 2mb</em></small>
                             <div class="custom-file">
