@@ -57,7 +57,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Kepala Keluarga</th>
-                                {{-- <th>SekWil</th> --}}
+                                <th>SekWil</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -66,7 +66,7 @@
                                 @forelse($kakel as $data)
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $data->anggota->nama }}</td>
-                                    {{-- <td>{{ $data->sekwil->nama_sekwil }}</td> --}}
+                                    <td>{{ $data->sekwil->nama_sekwil }}</td>
                                     <td>
                                         <a href="{{ route('detailkakel.index', ['id' => $data->id]) }}"
                                             class="btn btn-primary btn-sm" title="Lihat Detail"><i

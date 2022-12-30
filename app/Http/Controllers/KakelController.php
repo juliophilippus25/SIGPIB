@@ -33,7 +33,7 @@ class KakelController extends Controller
     */
     public function tampil_kakel()
     {
-        $kakel = Kakel::orderBy('created_at', 'desc')->get();
+        $kakel = Kakel::orderBy('id_sekwil', 'asc')->get();
 
         return view('kakel.index', compact('kakel'));
     }
@@ -237,41 +237,45 @@ class KakelController extends Controller
         $det_kakel = DetailKakel::join('kakel', 'kakel.id', '=' , 'detail_kakel.id_kakel')
         ->join('anggota', 'anggota.id', '=' , 'detail_kakel.id_anggota')
         ->where('id_kakel', $id)
-        ->get(['anggota.nama','detail_kakel.id', 'detail_kakel.sts_keluarga']);
+        ->get(['anggota.nama', 'anggota.jk', 'anggota.tgl_lahir' ,'detail_kakel.id', 'detail_kakel.sts_keluarga']);
 
-        $dt = Carbon::now();
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
 
-        $pdf = PDF::loadView('laporan.kakel.satu_kakel', compact('kakel', 'det_kakel', 'dt'));
-        return $pdf->stream('SIGPIB_KK_'.$kakel->anggota->nama.('_').$dt->format('d_M_Y').'.pdf');
+        $pdf = PDF::loadView('laporan.kakel.satu_kakel', compact('kakel', 'det_kakel', 'dt', 'tgl'));
+        return $pdf->stream('SIGPIB_KK_'.$kakel->anggota->nama.('_').$dt.'.pdf');
     }
 
     public function cetakPDF(Request $request)
     {
         $kakel = Kakel::orderBy('id_sekwil', 'asc')->get();
-        $dt = Carbon::now();
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
 
-        $pdf = PDF::loadView('laporan.kakel.kakelPDF', compact('kakel', 'dt'));
-        return $pdf->stream('SIGPIB_KK_'.$dt->format('d_M_Y').'.pdf');
+        $pdf = PDF::loadView('laporan.kakel.kakelPDF', compact('kakel', 'dt', 'tgl'));
+        return $pdf->stream('SIGPIB_KK_'.$dt.'.pdf');
 
     }
 
     public function cetak_sekwil1_PDF(Request $request)
     {
         $kakel= Kakel::where('id_sekwil', '1')->get();
-        $dt = Carbon::now();
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
 
-        $pdf = PDF::loadView('laporan.kakel.kakel_sekwil1', compact('kakel', 'dt'));
-        return $pdf->stream('SIGPIB_KK_'.$dt->format('d_M_Y').'.pdf');
+        $pdf = PDF::loadView('laporan.kakel.kakel_sekwil1', compact('kakel', 'dt', 'tgl'));
+        return $pdf->stream('SIGPIB_KK_'.$dt.'.pdf');
 
     }
 
     public function cetak_sekwil2_PDF(Request $request)
     {
         $kakel= Kakel::where('id_sekwil', '2')->get();
-        $dt = Carbon::now();
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
 
-        $pdf = PDF::loadView('laporan.kakel.kakel_sekwil2', compact('kakel', 'dt'));
-        return $pdf->stream('SIGPIB_KK_'.$dt->format('d_M_Y').'.pdf');
+        $pdf = PDF::loadView('laporan.kakel.kakel_sekwil2', compact('kakel', 'dt', 'tgl'));
+        return $pdf->stream('SIGPIB_KK_'.$dt.'.pdf');
 
     }
 }

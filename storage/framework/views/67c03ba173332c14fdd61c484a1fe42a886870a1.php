@@ -2,43 +2,43 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SIGPIB | Laporan Data Kartu Keluarga Sektor Pelayanan 2</title>
+    <title>SIGPIB | Laporan Data Kartu Keluarga Sektor Pelayanan 1</title>
     <style type="text/css">
-        table {
-            width: 100%;
-        }
-        th {
-            background: #404853;
-            background: linear-gradient(#687587, #404853);
-            border-left: 1px solid rgba(0, 0, 0, 0.2);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 8px;
-            text-align: left;
-            text-transform: capitalize;
-        }
-        th:first-child {
-        }
-        th:last-child {
-        }
-        td {
-            padding: 8px;
-        }
-        td:first-child {
-        }
-        tr:first-child td {
-        }
-        tr:nth-child(even) td {
-            background: #e8eae9;
-        }
-        tr:last-child td:first-child {
-            border-bottom-left-radius: 4px;
-        }
-        tr:last-child td:last-child {
-            border-bottom-right-radius: 4px;
-        }
         .center {
             text-align: center;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .upper { text-transform: uppercase; }
+
+        h4 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #table {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #table td,
+        #table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #595cf5;
+            color: white;
         }
     </style>
 </head>
@@ -56,9 +56,9 @@
 
         <hr width="100%" align="center">
 
-        <h4><center>Laporan Data Kartu Keluarga Sektor Pelayanan 2<br> <?php echo e(date('d M Y', strtotime($dt))); ?> </center></h4>
+        <h4><center class="upper">Laporan Data Kartu Keluarga <br> Sektor Pelayanan 2<br> <?php echo e($tgl); ?> </center></h4>
 
-        <table style="border: 1px; border-collapse: collapse;">
+        <table id="table">
             <tr>
                 <th>No</th>
                 <th>Nama Kepala Keluarga</th>
@@ -68,7 +68,7 @@
             <tr>
                 <td><?php echo e($loop->iteration); ?></td>
                 <td><?php echo e($data->anggota->nama); ?></td>
-                <td><?php echo e(date('d M Y', strtotime($data->anggota->created_at))); ?></td>
+                <td><?php echo e(Carbon\Carbon::parse($data->created_at)->isoFormat('D MMMM Y')); ?></td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                 <tr class="">

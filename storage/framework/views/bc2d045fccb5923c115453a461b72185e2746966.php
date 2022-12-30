@@ -62,6 +62,7 @@
                     <thead>
                         <th>Nama</th>
                         <th>Jenis Kelamin</th>
+                        <th>Aksi</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -69,6 +70,9 @@
                                 <?php if($data->srt_baptis == null): ?>
                                     <td><?php echo e($data->nama); ?></td>
                                     <td><?php echo e($data->jk); ?></td>
+                                    <td>
+                                        <a href="<?php echo e(route('anggota.tampil_detail', ['id' => $data->id])); ?>" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
+                                    </td>
                                 <?php endif; ?>
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -99,6 +103,7 @@
                     <thead>
                         <th>Nama</th>
                         <th>Umur</th>
+                        <th>Aksi</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -109,6 +114,9 @@
                                     <td><?php echo e($data->nama); ?></td>
                                     <td>
                                         <?php echo e(\Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y')); ?> tahun
+                                    </td>
+                                    <td>
+                                        <a href="<?php echo e(route('anggota.tampil_detail', ['id' => $data->id])); ?>" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
                                     </td>
                                 <?php endif; ?>
                         </tr>

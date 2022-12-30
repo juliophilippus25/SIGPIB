@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SIGPIB | Laporan Data Anggota</title>
+    <title>SIGPIB | Laporan Data Kartu Keluarga</title>
     <style type="text/css">
         .center {
             text-align: center;
@@ -45,7 +45,7 @@
 <body>
     <table>
         <tr>
-            <td><img src="{{ public_path("images/gpib/Logo-GPIB.png") }}" alt="" style="width: 100px; height: 100px;"></td>
+            <td><img src="<?php echo e(public_path("images/gpib/Logo-GPIB.png")); ?>" alt="" style="width: 100px; height: 100px;"></td>
             <td class="center">
                 <font size="4">GEREJA PROTESTAN di INDONESIA bagian BARAT <br> (G P I B) <br> JEMAAT "MARANATHA" TANJUNG SELOR</font> <br>
                 <font size="2">Alamat: Jalan D.I. Panjaitan, No. 25 Tanjung Selor Kode Pos 77211 Kabupaten Bulungan-KALTARA <br>
@@ -55,35 +55,35 @@
     </table>
 
         <hr width="100%" align="center">
-        <h4><center class="upper">LAPORAN DATA ANGGOTA JEMAAT <br> {{$tgl}} </center></h4>
+
+        <h4>
+            <center class="upper">Laporan Data Kartu Keluarga <br> Semua Sektor Pelayanan <br> <?php echo e($tgl); ?> </center>
+        </h4>
+
         <table id="table">
             <tr>
                 <th>No</th>
-                <th>Nama Anggota</th>
-                <th>Jenis Kelamin</th>
-                <th>Tanggal Lahir</th>
-                <th>Goldar</th>
-                <th>Alamat</th>
-                <th>No Hp</th>
+                <th>Nama Kepala Keluarga</th>
+                <th>Sektor Wilayah</th>
+                <th>Tanggal Masuk</th>
             </tr>
-            @forelse($anggota as $data)
+            <?php $__empty_1 = true; $__currentLoopData = $kakel; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <tr>
-                <td>{{$loop->iteration}}</td>
-                <td>{{$data->nama}}</td>
-                <td>{{$data->jk}}</td>
-                <td>{{ Carbon\Carbon::parse($data->tgl_lahir)->isoFormat('D MMMM Y') }}</td>
-                <td class="center">{{$data->goldar}}</td>
-                <td>{{$data->alamat}}</td>
-                <td>{{$data->no_hp}}</td>
+                <td><?php echo e($loop->iteration); ?></td>
+                <td><?php echo e($data->anggota->nama); ?></td>
+                <td><?php echo e($data->sekwil->nama_sekwil); ?></td>
+                <td><?php echo e(Carbon\Carbon::parse($data->created_at)->isoFormat('D MMMM Y')); ?></td>
             </tr>
-            @empty
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                 <tr class="">
                     <td colspan="16">
                         <strong class="text-dark"><center>Data Kosong</center></strong>
                     </td>
                 </tr>
-            @endforelse
+            <?php endif; ?>
         </table>
-        <p>Total Anggota Jemaat: {{$anggota->count()}}</p>
-    </body>
-    </html>
+        <p>Total Kartu Keluarga: <?php echo e($data->count()); ?></p>
+        
+</body>
+</html>
+<?php /**PATH C:\xampp\htdocs\SIGPIB\resources\views/laporan/kakel/kakelPDF.blade.php ENDPATH**/ ?>

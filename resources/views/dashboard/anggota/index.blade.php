@@ -72,6 +72,7 @@
                     <thead>
                         <th>Nama</th>
                         <th>Jenis Kelamin</th>
+                        <th>Aksi</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -79,6 +80,9 @@
                                 @if ($data->srt_baptis == null)
                                     <td>{{ $data->nama }}</td>
                                     <td>{{ $data->jk }}</td>
+                                    <td>
+                                        <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
+                                    </td>
                                 @endif
                         </tr>
                     @empty
@@ -109,6 +113,7 @@
                     <thead>
                         <th>Nama</th>
                         <th>Umur</th>
+                        <th>Aksi</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -119,6 +124,9 @@
                                     <td>{{ $data->nama }}</td>
                                     <td>
                                         {{ \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') }} tahun
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
                                     </td>
                                 @endif
                         </tr>

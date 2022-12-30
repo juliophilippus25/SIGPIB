@@ -10,6 +10,7 @@
         .bold {
             font-weight: bold;
         }
+        .upper { text-transform: uppercase; }
 
         h4 {
             font-family: Arial, Helvetica, sans-serif;
@@ -54,9 +55,9 @@
     </table>
 
         <hr width="100%" align="center">
-        <h4><center>LAPORAN DATA ANGGOTA JEMAAT <br> <?php echo e($tgl); ?> </center></h4>
+        <h4><center class="upper">LAPORAN DATA ANGGOTA JEMAAT <br> <?php echo e($tgl); ?> </center></h4>
         <table id="table">
-            <tr class="bold">
+            <tr>
                 <th>No</th>
                 <th>Nama Anggota</th>
                 <th>Jenis Kelamin</th>

@@ -81,30 +81,33 @@ class HomeController extends Controller
     public function cetak_goldarB_PDF(Request $request)
     {
         $anggota= Anggota::where('goldar', 'B')->get();
-        $dt = Carbon::now();
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
 
-        $pdf = PDF::loadView('laporan.anggota.goldar_b', compact('anggota', 'dt'));
-        return $pdf->stream('SIGPIB_GOLDAR_B_'.$dt->format('d_M_Y').'.pdf');
+        $pdf = PDF::loadView('laporan.anggota.goldar_b', compact('anggota', 'dt','tgl'));
+        return $pdf->stream('SIGPIB_GOLDAR_B_'.$dt.'.pdf');
 
     }
 
     public function cetak_goldarO_PDF(Request $request)
     {
         $anggota= Anggota::where('goldar', 'O')->get();
-        $dt = Carbon::now();
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
 
-        $pdf = PDF::loadView('laporan.anggota.goldar_o', compact('anggota', 'dt'));
-        return $pdf->stream('SIGPIB_GOLDAR_O_'.$dt->format('d_M_Y').'.pdf');
+        $pdf = PDF::loadView('laporan.anggota.goldar_o', compact('anggota', 'dt','tgl'));
+        return $pdf->stream('SIGPIB_GOLDAR_O_'.$dt.'.pdf');
 
     }
 
     public function cetak_goldarAB_PDF(Request $request)
     {
         $anggota= Anggota::where('goldar', 'AB')->get();
-        $dt = Carbon::now();
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
 
-        $pdf = PDF::loadView('laporan.anggota.goldar_ab', compact('anggota', 'dt'));
-        return $pdf->stream('SIGPIB_GOLDAR_AB_'.$dt->format('d_M_Y').'.pdf');
+        $pdf = PDF::loadView('laporan.anggota.goldar_ab', compact('anggota', 'dt','tgl'));
+        return $pdf->stream('SIGPIB_GOLDAR_AB_'.$dt.'.pdf');
 
     }
 

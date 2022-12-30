@@ -4,41 +4,41 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>SIGPIB | Laporan Data Anggota</title>
     <style type="text/css">
-        table {
-            width: 100%;
-        }
-        th {
-            background: #404853;
-            background: linear-gradient(#687587, #404853);
-            border-left: 1px solid rgba(0, 0, 0, 0.2);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 8px;
-            text-align: left;
-            text-transform: capitalize;
-        }
-        th:first-child {
-        }
-        th:last-child {
-        }
-        td {
-            padding: 8px;
-        }
-        td:first-child {
-        }
-        tr:first-child td {
-        }
-        tr:nth-child(even) td {
-            background: #e8eae9;
-        }
-        tr:last-child td:first-child {
-            border-bottom-left-radius: 4px;
-        }
-        tr:last-child td:last-child {
-            border-bottom-right-radius: 4px;
-        }
         .center {
             text-align: center;
+        }
+        .bold {
+            font-weight: bold;
+        }
+
+        h4 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .upper { text-transform: uppercase; }
+
+        #table {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #table td,
+        #table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #595cf5;
+            color: white;
         }
     </style>
 </head>
@@ -55,12 +55,12 @@
     </table>
 
         <hr width="100%" align="center">
-        <h4><center>Laporan Data Anggota Jemaat <br> {{date('d M Y', strtotime($dt))}} </center></h4>
-        <table style="border: 1px; border-collapse: collapse;">
+        <h4><center class="upper">LAPORAN GOLONGAN DARAH <br> ANGGOTA JEMAAT <br> {{ $tgl }} </center></h4>
+        <table id="table">
             <tr>
                 <th>No</th>
-                <th>Kode Anggota</th>
                 <th>Nama Anggota</th>
+                <th>Jenis Kelamin</th>
                 <th>Tanggal Lahir</th>
                 <th>Goldar</th>
                 <th>Alamat</th>
@@ -69,10 +69,10 @@
             @forelse($anggota as $data)
             <tr>
                 <td>{{$loop->iteration}}</td>
-                <td>{{$data->kode_anggota}}</td>
                 <td>{{$data->nama}}</td>
-                <td>{{date('d M Y', strtotime($data->tgl_lahir))}}</td>
-                <td>{{$data->goldar}}</td>
+                <td>{{$data->jk}}</td>
+                <td>{{ Carbon\Carbon::parse($data->tgl_lahir)->isoFormat('D MMMM Y') }}</td>
+                <td class="center">{{$data->goldar}}</td>
                 <td>{{$data->alamat}}</td>
                 <td>{{$data->no_hp}}</td>
             </tr>

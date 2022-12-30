@@ -4,41 +4,41 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>SIGPIB | Laporan Data Kepala Keluarga <?php echo e($kakel->anggota->nama); ?></title>
     <style type="text/css">
-        table {
-            width: 100%;
-        }
-        th {
-            background: #404853;
-            background: linear-gradient(#687587, #404853);
-            border-left: 1px solid rgba(0, 0, 0, 0.2);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 8px;
-            text-align: left;
-            text-transform: capitalize;
-        }
-        th:first-child {
-        }
-        th:last-child {
-        }
-        td {
-            padding: 8px;
-        }
-        td:first-child {
-        }
-        tr:first-child td {
-        }
-        tr:nth-child(even) td {
-            background: #e8eae9;
-        }
-        tr:last-child td:first-child {
-            border-bottom-left-radius: 4px;
-        }
-        tr:last-child td:last-child {
-            border-bottom-right-radius: 4px;
-        }
         .center {
             text-align: center;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .upper { text-transform: uppercase; }
+
+        h4 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #table {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #table td,
+        #table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #595cf5;
+            color: white;
         }
     </style>
 </head>
@@ -56,27 +56,42 @@
 
         <hr width="100%" align="center">
 
-        <h4><center>Laporan Data Kepala Keluarga <br> <?php echo e(date('d M Y', strtotime($dt))); ?> </center></h4>
+        <h4><center class="upper">Laporan Data Kartu Keluarga</center></h4>
 
-        <div class="row">
-            <div class="form-group">
-                <p><strong>Nama Kepala Keluarga</strong> : <?php echo e($kakel->anggota->nama); ?></p>
-                <p><strong>Nomor Kartu Keluarga</strong> : <?php echo e($kakel->nomor_kk); ?></p>
-                <p><strong>Sektor Wilayah &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> : <?php echo e($kakel->sekwil->nama_sekwil); ?></p>
-            </div>
-        </div>
+        <table>
+            <tr>
+                <th align="left">Kepala Keluarga </th>
+                <td>:</td>
+                <td>&nbsp;<?php echo e($kakel->anggota->nama); ?></td>
+            </tr>
+            <tr>
+                <th align="left">Tempat Tanggal Pernikahan </th>
+                <td>:</td>
+                <td>&nbsp;<?php echo e($kakel->tempat_nikah); ?> /
+                    <?php echo e(Carbon\Carbon::parse($kakel->tgl_nikah)->isoFormat('D MMMM Y')); ?></td>
+            </tr>
+            <tr>
+                <th align="left">Sektor Wilayah </th>
+                <td>:</td>
+                <td>&nbsp;<?php echo e($kakel->sekwil->nama_sekwil); ?></td>
+            </tr>
+        </table>
 
         <br>
-        <table style="border: 1px; border-collapse: collapse;">
+        <table id="table">
             <tr>
                 <th>No</th>
                 <th>Nama Anggota Keluarga</th>
+                <th>Jenis Kelamin</th>
+                <th>Tanggal Lahir</th>
                 <th>Status Hubungan Dalam Keluarga</th>
             </tr>
             <?php $__empty_1 = true; $__currentLoopData = $det_kakel; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <tr>
                 <td><?php echo e($loop->iteration); ?></td>
                 <td><?php echo e($data->nama); ?></td>
+                <td><?php echo e($data->jk); ?></td>
+                <td><?php echo e(Carbon\Carbon::parse($data->tgl_lahir)->isoFormat('D MMMM Y')); ?></td>
                 <td><?php echo e($data->sts_keluarga); ?></td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -86,6 +101,39 @@
                     </td>
                 </tr>
             <?php endif; ?>
+        </table>
+
+        <br>
+
+        <table id="table">
+
+            <thead>
+                <th colspan="3">DATA BERKAS</th>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td style="width: 25%" class="bold">Surat Nikah Gereja</td>
+                    <td>:</td>
+                    <?php if($kakel->srt_gereja == null): ?>
+                        <td style="width: 70%">-</td>
+                    <?php else: ?>
+                        <td style="width: 70%">Diterima</td>
+                    <?php endif; ?>
+                </tr>
+
+                <tr>
+                    <td style="width: 25%" class="bold">Surat Nikah Catatan Sipil</td>
+                    <td>:</td>
+                    <?php if($kakel->srt_sipil == null): ?>
+                        <td style="width: 70%">-</td>
+                    <?php else: ?>
+                        <td style="width: 70%">Diterima</td>
+                    <?php endif; ?>
+                </tr>
+
+            </tbody>
+
         </table>
         
 </body>

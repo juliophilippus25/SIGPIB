@@ -5,47 +5,41 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>SIGPIB | Laporan Data Anggota {{ $pelkat->nama_pelkat }}</title>
     <style type="text/css">
-        table {
+        .center {
+            text-align: center;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .upper { text-transform: uppercase; }
+
+        h4 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #table {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            border-collapse: collapse;
             width: 100%;
         }
 
-        th {
-            background: #404853;
-            background: linear-gradient(#687587, #404853);
-            border-left: 1px solid rgba(0, 0, 0, 0.2);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 8px;
-            text-align: left;
-            text-transform: capitalize;
-        }
-
-        th:first-child {}
-
-        th:last-child {}
-
-        td {
+        #table td,
+        #table th {
+            border: 1px solid #ddd;
             padding: 8px;
         }
 
-        td:first-child {}
-
-        tr:first-child td {}
-
-        tr:nth-child(even) td {
-            background: #e8eae9;
+        #table tr:nth-child(even) {
+            background-color: #f2f2f2;
         }
 
-        tr:last-child td:first-child {
-            border-bottom-left-radius: 4px;
-        }
-
-        tr:last-child td:last-child {
-            border-bottom-right-radius: 4px;
-        }
-
-        .center {
+        #table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
             text-align: center;
+            background-color: #595cf5;
+            color: white;
         }
     </style>
 </head>
@@ -88,12 +82,13 @@
 
     <hr width="100%" align="center">
     <h4>
-        <center>Laporan Data Pengurus {{ $pelkat->nama_pelkat }} <br> {{ date('d M Y', strtotime($dt)) }} </center>
+        <center class="upper">LAPORAN DATA PENGURUS <br> {{ $pelkat->nama_pelkat }} <br> {{ $tgl }} </center>
     </h4>
-    <table style="border: 1px; border-collapse: collapse;">
+    <table id="table">
         <tr>
             <th>No</th>
             <th>Nama Anggota</th>
+            <th>Jenis Kelamin</th>
             <th>Alamat</th>
             <th>No Hp</th>
             <th>Jabatan</th>
@@ -102,6 +97,7 @@
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $data->nama }}</td>
+                <td>{{ $data->jk }}</td>
                 <td>{{ $data->alamat }}</td>
                 <td>{{ $data->no_hp }}</td>
                 <td>{{ $data->pengurus }}</td>

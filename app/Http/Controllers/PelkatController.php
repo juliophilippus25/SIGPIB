@@ -139,11 +139,12 @@ class PelkatController extends Controller
         $det_pelkat = DetailPelkat::join('pelkat', 'pelkat.id', '=' , 'detail_pelkat.id_pelkat')
         ->join('anggota', 'anggota.id', '=' , 'detail_pelkat.id_anggota')
         ->where('id_pelkat', $id)
-        ->get(['anggota.nama','anggota.alamat','anggota.no_hp','detail_pelkat.id', 'detail_pelkat.pengurus', 'detail_pelkat.id_pelkat']);
+        ->get(['anggota.nama', 'anggota.jk','anggota.alamat','anggota.no_hp','detail_pelkat.id', 'detail_pelkat.pengurus', 'detail_pelkat.id_pelkat']);
 
-        $dt = Carbon::now();
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
 
-        $pdf = PDF::loadView('laporan.pelkat.satu_pelkat', compact('pelkat', 'det_pelkat', 'dt'));
-        return $pdf->stream('SIGPIB_'.$pelkat->nama_pelkat.('_').$dt->format('d_M_Y').'.pdf');
+        $pdf = PDF::loadView('laporan.pelkat.satu_pelkat', compact('pelkat', 'det_pelkat', 'dt' , 'tgl'));
+        return $pdf->stream('SIGPIB_'.$pelkat->nama_pelkat.('_').$dt.'.pdf');
     }
 }

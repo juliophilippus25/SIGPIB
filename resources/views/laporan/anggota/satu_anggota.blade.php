@@ -12,6 +12,7 @@
         .bold {
             font-weight: bold;
         }
+        .upper { text-transform: uppercase; }
 
         h4 {
             font-family: Arial, Helvetica, sans-serif;
@@ -61,7 +62,7 @@
 
     <hr width="100%" align="center">
     <h4>
-        <center>BIODATA ANGGOTA JEMAAT</center>
+        <center class="upper">BIODATA ANGGOTA JEMAAT</center>
     </h4>
     <table align="center">
         <tr>
