@@ -244,7 +244,7 @@ class KakelController extends Controller
     {
         $kakel = Kakel::find($id);
 
-        $srt_kk = 'storage/dokumen/nikahgereja/'. $kakel->srt_kk;
+        $srt_kk = 'storage/dokumen/kk/'. $kakel->srt_kk;
         $srt_gereja = 'storage/dokumen/nikahgereja/'. $kakel->srt_gereja;
         $srt_sipil = 'storage/dokumen/nikahsipil/'. $kakel->srt_sipil;
 

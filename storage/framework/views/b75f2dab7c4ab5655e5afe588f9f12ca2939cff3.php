@@ -47,7 +47,7 @@
 
                                 <div class="form-group">
                                     <label for="nama">Nama Lengkap <b style="color:Tomato;">*</b></label>
-                                    <input type="text" onkeyup="this.value = this.value.toUpperCase()"
+                                    <input type="text"
                                         class="form-control <?php $__errorArgs = ['nama'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -95,7 +95,7 @@ unset($__errorArgs, $__bag); ?>
 
                                     <div class="form-group col-6">
                                         <label for="tempat_lahir">Tempat Lahir <b style="color:Tomato;">*</b></label>
-                                        <input type="text" onkeyup="this.value = this.value.toUpperCase()"
+                                        <input type="text"
                                             class="form-control <?php $__errorArgs = ['tempat_lahir'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -172,7 +172,7 @@ unset($__errorArgs, $__bag); ?>
 
                                 <div class="form-group">
                                     <label for="pekerjaan">Pekerjaan <b style="color:Tomato;">*</b></label>
-                                    <input type="text" onkeyup="this.value = this.value.toUpperCase()"
+                                    <input type="text"
                                         class="form-control <?php $__errorArgs = ['pekerjaan'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -335,7 +335,7 @@ unset($__errorArgs, $__bag); ?>
 
                                 <div class="form-group">
                                     <label for="provinsi">Provinsi <b style="color:Tomato;">*</b></label>
-                                    <input type="text" onkeyup="this.value = this.value.toUpperCase()"
+                                    <input type="text"
                                         class="form-control <?php $__errorArgs = ['provinsi'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -360,7 +360,7 @@ unset($__errorArgs, $__bag); ?>
 
                                 <div class="form-group">
                                     <label for="kabupaten">Kota/Kabupaten <b style="color:Tomato;">*</b></label>
-                                    <input type="text" onkeyup="this.value = this.value.toUpperCase()"
+                                    <input type="text"
                                         class="form-control <?php $__errorArgs = ['kabupaten'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -385,7 +385,7 @@ unset($__errorArgs, $__bag); ?>
 
                                 <div class="form-group">
                                     <label for="kecamatan">Kecamatan <b style="color:Tomato;">*</b></label>
-                                    <input type="text" onkeyup="this.value = this.value.toUpperCase()"
+                                    <input type="text"
                                         class="form-control <?php $__errorArgs = ['kecamatan'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -410,7 +410,7 @@ unset($__errorArgs, $__bag); ?>
 
                                 <div class="form-group">
                                     <label for="kelurahan">Kelurahan/Desa <b style="color:Tomato;">*</b></label>
-                                    <input type="text" onkeyup="this.value = this.value.toUpperCase()"
+                                    <input type="text"
                                         class="form-control <?php $__errorArgs = ['kelurahan'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -435,7 +435,7 @@ unset($__errorArgs, $__bag); ?>
 
                                 <div class="form-group">
                                     <label for="alamat">Alamat <b style="color:Tomato;">*</b></label>
-                                    <input type="text" onkeyup="this.value = this.value.toUpperCase()"
+                                    <input type="text"
                                         class="form-control <?php $__errorArgs = ['alamat'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -530,7 +530,7 @@ unset($__errorArgs, $__bag); ?>
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary"> Simpan</button>
-                        <a href="<?php echo e(route('anggota.index')); ?>" class="btn btn-default">Kembali</a>
+                        <a href="<?php echo e(route('anggota.tampil_detail', ['id' => $anggota->id])); ?>" class="btn btn-default">Kembali</a>
                     </div>
 
                 </form>

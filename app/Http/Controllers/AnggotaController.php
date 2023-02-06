@@ -380,7 +380,7 @@ class AnggotaController extends Controller
 
         //redirect dengan pesan sukses
         Alert::success('Data berhasil diubah!', '');
-        return redirect()->route('anggota.index');
+        return redirect()->route('anggota.tampil_detail', ['id' => $anggota->id]);
     }
 
     public function tampil_detail_anggota($id)

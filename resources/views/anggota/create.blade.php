@@ -45,7 +45,7 @@
 
                             <div class="form-group">
                                 <label for="nama">Nama Lengkap <b style="color:Tomato;">*</b></label>
-                                <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" placeholder="Masukkan Nama Lengkap" value="{{ old('nama') }}">
+                                <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" placeholder="Masukkan Nama Lengkap" value="{{ old('nama') }}">
                                 @error('nama')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -66,7 +66,7 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="tempat_lahir">Tempat Lahir <b style="color:Tomato;">*</b></label>
-                                    <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir" id="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="{{ old('tempat_lahir') }}">
+                                    <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir" id="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="{{ old('tempat_lahir') }}">
                                     @error('tempat_lahir')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
@@ -91,7 +91,7 @@
 
                             <div class="form-group">
                                 <label for="pekerjaan">Pekerjaan <b style="color:Tomato;">*</b></label>
-                                <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('pekerjaan') is-invalid @enderror" name="pekerjaan" id="pekerjaan" placeholder="Masukkan Pekerjaan" value="{{ old('pekerjaan') }}">
+                                <input type="text" class="form-control @error('pekerjaan') is-invalid @enderror" name="pekerjaan" id="pekerjaan" placeholder="Masukkan Pekerjaan" value="{{ old('pekerjaan') }}">
                                 @error('pekerjaan')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -153,7 +153,7 @@
 
                             <div class="form-group">
                                 <label for="provinsi">Provinsi <b style="color:Tomato;">*</b></label>
-                                <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('provinsi') is-invalid @enderror" name="provinsi" id="provinsi"  placeholder="Masukkan Provinsi" value="{{ old('provinsi') }}">
+                                <input type="text" class="form-control @error('provinsi') is-invalid @enderror" name="provinsi" id="provinsi"  placeholder="Masukkan Provinsi" value="{{ old('provinsi') }}">
                                 @error('provinsi')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -161,7 +161,7 @@
 
                             <div class="form-group">
                                 <label for="kabupaten">Kota/Kabupaten <b style="color:Tomato;">*</b></label>
-                                <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('kabupaten') is-invalid @enderror" name="kabupaten" id="kabupaten"  placeholder="Masukkan Kabupaten" value="{{ old('kabupaten') }}">
+                                <input type="text" class="form-control @error('kabupaten') is-invalid @enderror" name="kabupaten" id="kabupaten"  placeholder="Masukkan Kabupaten" value="{{ old('kabupaten') }}">
                                 @error('kabupaten')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -169,7 +169,7 @@
 
                             <div class="form-group">
                                 <label>Kecamatan <b style="color:Tomato;">*</b></label>
-                                <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan"  placeholder="Masukkan Kecamatan" value="{{ old('kecamatan') }}">
+                                <input type="text" class="form-control @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan"  placeholder="Masukkan Kecamatan" value="{{ old('kecamatan') }}">
                                 @error('kecamatan')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -177,7 +177,7 @@
 
                             <div class="form-group">
                                 <label>Kelurahan/Desa <b style="color:Tomato;">*</b></label>
-                                <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('kelurahan') is-invalid @enderror" name="kelurahan" id="kelurahan"  placeholder="Masukkan Kelurahan" value="{{ old('kelurahan') }}">
+                                <input type="text" class="form-control @error('kelurahan') is-invalid @enderror" name="kelurahan" id="kelurahan"  placeholder="Masukkan Kelurahan" value="{{ old('kelurahan') }}">
                                 @error('kelurahan')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -185,7 +185,7 @@
 
                             <div class="form-group">
                                 <label for="alamat">Alamat <b style="color:Tomato;">*</b></label>
-                                <input type="text" onkeyup="this.value = this.value.toUpperCase()" class="form-control @error('alamat') is-invalid @enderror" name="alamat" id="alamat"  placeholder="Masukkan Alamat" value="{{ old('alamat') }}">
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" id="alamat"  placeholder="Masukkan Alamat" value="{{ old('alamat') }}">
                                 @error('alamat')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror

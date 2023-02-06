@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +8,8 @@
     <title>SIGPIB | <?php echo $__env->yieldContent('title'); ?></title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="/adminLTE/plugins/fontawesome-free/css/all.min.css">
     <!-- IonIcons -->
@@ -42,6 +44,7 @@
     * sidebar-collapse
     * sidebar-mini
 -->
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
@@ -49,7 +52,8 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
                 </li>
             </ul>
 
@@ -66,9 +70,11 @@
 
                             <div class="media">
                                 <?php if(Auth::user()->gambar): ?>
-                                <img src="<?php echo e(asset('storage/images/pengguna/'.Auth::user()->gambar)); ?>" class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
+                                    <img src="<?php echo e(asset('storage/images/pengguna/' . Auth::user()->gambar)); ?>"
+                                        class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
                                 <?php elseif(Auth::user()->gambar == null): ?>
-                                <img src="<?php echo e(asset('images/pengguna/default.png')); ?>" class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
+                                    <img src="<?php echo e(asset('images/pengguna/default.png')); ?>"
+                                        class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
                                 <?php endif; ?>
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
@@ -82,8 +88,11 @@
 
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="<?php echo e(route('logout')); ?>" class="dropdown-item dropdown-footer" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Log Out
-                            <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                        <a href="<?php echo e(route('logout')); ?>" class="dropdown-item dropdown-footer"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                                class="fa fa-power-off"></i> Log Out
+                            <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
+                                style="display: none;">
                                 <?php echo e(csrf_field()); ?>
 
                             </form>
@@ -98,7 +107,8 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="<?php echo e(route('dashboard')); ?>" class="brand-link">
-                <img src="<?php echo e(asset('/images/gpib/Logo-GPIB.png')); ?>" alt="Logo GPIB" class="brand-image img-circle elevation-3">
+                <img src="<?php echo e(asset('/images/gpib/Logo-GPIB.png')); ?>" alt="Logo GPIB"
+                    class="brand-image img-circle elevation-3">
                 <span class="brand-text font-weight-light">SIGPIB</span>
             </a>
 
@@ -108,9 +118,11 @@
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         <?php if(Auth::user()->gambar): ?>
-                        <img src="<?php echo e(asset('storage/images/pengguna/'.Auth::user()->gambar)); ?>" class="img-circle elevation-2" alt="Gambar Pengguna">
+                            <img src="<?php echo e(asset('storage/images/pengguna/' . Auth::user()->gambar)); ?>"
+                                class="img-circle elevation-2" alt="Gambar Pengguna">
                         <?php elseif(Auth::user()->gambar == null): ?>
-                        <img src="<?php echo e(asset('images/pengguna/default.png')); ?>" class="img-circle elevation-2" alt="Gambar Pengguna">
+                            <img src="<?php echo e(asset('images/pengguna/default.png')); ?>" class="img-circle elevation-2"
+                                alt="Gambar Pengguna">
                         <?php endif; ?>
                     </div>
                     <div class="info">
@@ -122,7 +134,7 @@
 
                 <!-- Sidebar Menu -->
                 <?php $__env->startSection('sidebar'); ?>
-                <?php echo $__env->make('layouts.sidebar',['user' => Auth::User()], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    <?php echo $__env->make('layouts.sidebar', ['user' => Auth::User()], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 <?php echo $__env->yieldSection(); ?>
                 <!-- /.sidebar-menu -->
 
@@ -225,21 +237,24 @@
 
     <!-- Toastr -->
     <script src="/adminLTE/plugins/toastr/toastr.min.js"></script>
-
+    <?php echo $__env->yieldContent('js'); ?>
     <!-- Page specific script -->
     <script>
-
         // Deklrasi CSRF TOKEN
-        $(function(){
+        $(function() {
             $.ajaxSetup({
-                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
             })
         });
 
         // DataTable JS
-        $(function () {
+        $(function() {
             $("#example1").DataTable({
-                "responsive": true, "lengthChange": true, "autoWidth": false,
+                "responsive": true,
+                "lengthChange": true,
+                "autoWidth": false,
                 //   "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
@@ -254,7 +269,7 @@
         });
 
         // Select2
-        $(function () {
+        $(function() {
             $('.select2').select2()
 
             $('.select2bs4').select2({
@@ -263,16 +278,15 @@
         });
 
         // Custom file
-        $(function () {
+        $(function() {
             bsCustomFileInput.init();
         });
 
         // Input hanya angka
-        function isNumberKey(evt)
-        {
+        function isNumberKey(evt) {
             var charCode = (evt.which) ? evt.which : event.keyCode
             if (charCode > 31 && (charCode < 48 || charCode > 57))
-            return false;
+                return false;
 
             return true;
         }
@@ -286,17 +300,18 @@
         }
 
         // Melihat password
-        $(document).ready(function(){
-		    $('.form-checkbox').click(function(){
-                if($(this).is(':checked')){
-                    $('.form-password').attr('type','text');
-                }else{
-                    $('.form-password').attr('type','password');
+        $(document).ready(function() {
+            $('.form-checkbox').click(function() {
+                if ($(this).is(':checked')) {
+                    $('.form-password').attr('type', 'text');
+                } else {
+                    $('.form-password').attr('type', 'password');
                 }
-		    });
-	    });
+            });
+        });
     </script>
 
 </body>
+
 </html>
 <?php /**PATH C:\xampp\htdocs\SIGPIB\resources\views/layouts/main.blade.php ENDPATH**/ ?>

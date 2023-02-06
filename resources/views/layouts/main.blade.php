@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +8,8 @@
     <title>SIGPIB | @yield('title')</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="/adminLTE/plugins/fontawesome-free/css/all.min.css">
     <!-- IonIcons -->
@@ -42,6 +44,7 @@
     * sidebar-collapse
     * sidebar-mini
 -->
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
@@ -49,7 +52,8 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
                 </li>
             </ul>
 
@@ -58,30 +62,35 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">
-                        <i class="far fa-user"></i>&nbsp; {{Auth::user()->name}}
+                        <i class="far fa-user"></i>&nbsp; {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="{{route('profile.tampil_profile') }}" class="dropdown-item">
+                        <a href="{{ route('profile.tampil_profile') }}" class="dropdown-item">
 
                             <div class="media">
                                 @if (Auth::user()->gambar)
-                                <img src="{{ asset('storage/images/pengguna/'.Auth::user()->gambar) }}" class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
+                                    <img src="{{ asset('storage/images/pengguna/' . Auth::user()->gambar) }}"
+                                        class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
                                 @elseif(Auth::user()->gambar == null)
-                                <img src="{{ asset('images/pengguna/default.png') }}" class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
+                                    <img src="{{ asset('images/pengguna/default.png') }}"
+                                        class="img-size-50 mr-3 img-circle" alt="Gambar Pengguna">
                                 @endif
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
-                                        {{Auth::user()->name}}
+                                        {{ Auth::user()->name }}
                                     </h3>
-                                    <p class="text-sm">{{Auth::user()->username}}</p>
-                                    <p class="text-sm text-muted">{{Auth::user()->email}}</p>
+                                    <p class="text-sm">{{ Auth::user()->username }}</p>
+                                    <p class="text-sm text-muted">{{ Auth::user()->email }}</p>
                                 </div>
                             </div>
 
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="{{ route('logout') }}" class="dropdown-item dropdown-footer" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Log Out
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        <a href="{{ route('logout') }}" class="dropdown-item dropdown-footer"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                                class="fa fa-power-off"></i> Log Out
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                style="display: none;">
                                 {{ csrf_field() }}
                             </form>
                         </a>
@@ -94,8 +103,9 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="{{route('dashboard')}}" class="brand-link">
-                <img src="{{ asset('/images/gpib/Logo-GPIB.png') }}" alt="Logo GPIB" class="brand-image img-circle elevation-3">
+            <a href="{{ route('dashboard') }}" class="brand-link">
+                <img src="{{ asset('/images/gpib/Logo-GPIB.png') }}" alt="Logo GPIB"
+                    class="brand-image img-circle elevation-3">
                 <span class="brand-text font-weight-light">SIGPIB</span>
             </a>
 
@@ -105,13 +115,15 @@
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         @if (Auth::user()->gambar)
-                        <img src="{{ asset('storage/images/pengguna/'.Auth::user()->gambar) }}" class="img-circle elevation-2" alt="Gambar Pengguna">
+                            <img src="{{ asset('storage/images/pengguna/' . Auth::user()->gambar) }}"
+                                class="img-circle elevation-2" alt="Gambar Pengguna">
                         @elseif(Auth::user()->gambar == null)
-                        <img src="{{ asset('images/pengguna/default.png') }}" class="img-circle elevation-2" alt="Gambar Pengguna">
+                            <img src="{{ asset('images/pengguna/default.png') }}" class="img-circle elevation-2"
+                                alt="Gambar Pengguna">
                         @endif
                     </div>
                     <div class="info">
-                        <a href="{{route('profile.tampil_profile')}}" class="d-block">{{Auth::user()->name}}</a>
+                        <a href="{{ route('profile.tampil_profile') }}" class="d-block">{{ Auth::user()->name }}</a>
                     </div>
                 </div>
 
@@ -119,7 +131,7 @@
 
                 <!-- Sidebar Menu -->
                 @section('sidebar')
-                @include('layouts.sidebar',['user' => Auth::User()])
+                    @include('layouts.sidebar', ['user' => Auth::User()])
                 @show
                 <!-- /.sidebar-menu -->
 
@@ -164,7 +176,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer">
-            <strong>Copyright &copy; {{date('Y')}} <a href="#">GPIB MARANATHA TANJUNG SELOR</a>.</strong>
+            <strong>Copyright &copy; {{ date('Y') }} <a href="#">GPIB MARANATHA TANJUNG SELOR</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <!-- <b>Version</b> 3.1.0 -->
@@ -223,21 +235,24 @@
 
     <!-- Toastr -->
     <script src="/adminLTE/plugins/toastr/toastr.min.js"></script>
-
+    @yield('js')
     <!-- Page specific script -->
     <script>
-
         // Deklrasi CSRF TOKEN
-        $(function(){
+        $(function() {
             $.ajaxSetup({
-                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
             })
         });
 
         // DataTable JS
-        $(function () {
+        $(function() {
             $("#example1").DataTable({
-                "responsive": true, "lengthChange": true, "autoWidth": false,
+                "responsive": true,
+                "lengthChange": true,
+                "autoWidth": false,
                 //   "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
@@ -252,7 +267,7 @@
         });
 
         // Select2
-        $(function () {
+        $(function() {
             $('.select2').select2()
 
             $('.select2bs4').select2({
@@ -261,16 +276,15 @@
         });
 
         // Custom file
-        $(function () {
+        $(function() {
             bsCustomFileInput.init();
         });
 
         // Input hanya angka
-        function isNumberKey(evt)
-        {
+        function isNumberKey(evt) {
             var charCode = (evt.which) ? evt.which : event.keyCode
             if (charCode > 31 && (charCode < 48 || charCode > 57))
-            return false;
+                return false;
 
             return true;
         }
@@ -284,16 +298,17 @@
         }
 
         // Melihat password
-        $(document).ready(function(){
-		    $('.form-checkbox').click(function(){
-                if($(this).is(':checked')){
-                    $('.form-password').attr('type','text');
-                }else{
-                    $('.form-password').attr('type','password');
+        $(document).ready(function() {
+            $('.form-checkbox').click(function() {
+                if ($(this).is(':checked')) {
+                    $('.form-password').attr('type', 'text');
+                } else {
+                    $('.form-password').attr('type', 'password');
                 }
-		    });
-	    });
+            });
+        });
     </script>
 
 </body>
+
 </html>

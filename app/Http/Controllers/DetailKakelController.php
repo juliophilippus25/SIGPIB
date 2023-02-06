@@ -29,6 +29,8 @@ class DetailKakelController extends Controller
             Alert::warning('Kartu keluarga dan surat nikah gereja belum di unggah!', '');
         } elseif($kakel->srt_kk == null AND $kakel->srt_sipil == null){
             Alert::warning('Kartu keluarga dan surat nikah catatan sipil belum di unggah!', '');
+        } elseif($kakel->srt_gereja == null AND $kakel->srt_sipil == null){
+            Alert::warning('Surat nikah gereja dan surat nikah catatan sipil belum di unggah!', '');
         } elseif($kakel->srt_kk == null){
             Alert::warning('Kartu keluarga belum di unggah!', '');
         } elseif($kakel->srt_gereja == null){

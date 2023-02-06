@@ -57,7 +57,7 @@
 
                         <div class="form-group">
                             <label for="tempat_nikah">Tempat Pernikahan <b style="color:Tomato;">*</b></label>
-                            <input type="text" onkeyup="this.value = this.value.toUpperCase()"
+                            <input type="text"
                                 class="form-control @error('tempat_nikah') is-invalid @enderror" name="tempat_nikah"
                                 id="tempat_nikah" placeholder="Masukkan Tempat Pernikahan"
                                 value="{{ old('tempat_nikah', $kakel->tempat_nikah) }}">

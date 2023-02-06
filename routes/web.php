@@ -65,15 +65,35 @@ Route::group(['prefix' => '/dashboard/sekwil'], function() {
 
 // Anggota
 Route::group(['prefix' => '/anggota'], function() {
-    Route::get('/index', 'App\Http\Controllers\AnggotaController@tampil_anggota')->name('anggota.index');
-    Route::get('/create', 'App\Http\Controllers\AnggotaController@tambah_anggota')->name('anggota.tambah');
-    Route::post('/save', 'App\Http\Controllers\AnggotaController@simpan_anggota')->name('anggota.simpan');
-    Route::get('/detail/{id}', 'App\Http\Controllers\AnggotaController@tampil_detail_anggota')->name('anggota.tampil_detail');
-    Route::get('/edit/{id}', 'App\Http\Controllers\AnggotaController@tampil_ubah_anggota')->name('anggota.tampil_ubah');
-    Route::put('/update/{id}', 'App\Http\Controllers\AnggotaController@perbarui_anggota')->name('anggota.simpan_perbarui');
-    Route::post('/delete/{id}', 'App\Http\Controllers\AnggotaController@hapus_anggota')->name('anggota.hapus');
-    Route::get('/pdf', 'App\Http\Controllers\AnggotaController@cetak_semua_pdf')->name('anggota.download_semua');
-    Route::get('/pdf/{id}', 'App\Http\Controllers\AnggotaController@cetak_satu_pdf')->name('anggota.download_satu');
+
+    // Jemaat
+    Route::get('/jemaat/index', 'App\Http\Controllers\AnggotaController@tampil_anggota')->name('anggota.index');
+    Route::get('/jemaat/create', 'App\Http\Controllers\AnggotaController@tambah_anggota')->name('anggota.tambah');
+    Route::post('/jemaat/save', 'App\Http\Controllers\AnggotaController@simpan_anggota')->name('anggota.simpan');
+    Route::get('/jemaat/detail/{id}', 'App\Http\Controllers\AnggotaController@tampil_detail_anggota')->name('anggota.tampil_detail');
+    Route::get('/jemaat/edit/{id}', 'App\Http\Controllers\AnggotaController@tampil_ubah_anggota')->name('anggota.tampil_ubah');
+    Route::put('/jemaat/update/{id}', 'App\Http\Controllers\AnggotaController@perbarui_anggota')->name('anggota.simpan_perbarui');
+    Route::post('/jemaat/delete/{id}', 'App\Http\Controllers\AnggotaController@hapus_anggota')->name('anggota.hapus');
+    Route::get('/jemaat/pdf', 'App\Http\Controllers\AnggotaController@cetak_semua_pdf')->name('anggota.download_semua');
+    Route::get('/jemaat/pdf/{id}', 'App\Http\Controllers\AnggotaController@cetak_satu_pdf')->name('anggota.download_satu');
+
+    // Baptis
+    Route::get('/baptis/index', 'App\Http\Controllers\BaptisController@tampil_baptis')->name('baptis.index');
+    Route::get('/baptis/create', 'App\Http\Controllers\BaptisController@tambah_baptis')->name('baptis.create');
+    Route::post('/baptis/save', 'App\Http\Controllers\BaptisController@simpan_baptis')->name('baptis.simpan');
+    Route::get('/baptis/detail/{id}', 'App\Http\Controllers\BaptisController@tampil_detail_baptis')->name('baptis.tampil_detail');
+    Route::get('/baptis/edit/{id}', 'App\Http\Controllers\BaptisController@tampil_ubah_baptis')->name('baptis.tampil_ubah');
+    Route::put('/baptis/update/{id}', 'App\Http\Controllers\BaptisController@perbarui_baptis')->name('baptis.simpan_perbarui');
+    Route::post('/baptis/delete/{id}', 'App\Http\Controllers\BaptisController@hapus_baptis')->name('baptis.hapus');
+
+    // Sidi
+    Route::get('/sidi/index', 'App\Http\Controllers\SidiController@tampil_sidi')->name('sidi.index');
+    Route::get('/sidi/create', 'App\Http\Controllers\SidiController@tambah_sidi')->name('sidi.create');
+    Route::post('/sidi/save', 'App\Http\Controllers\SidiController@simpan_sidi')->name('sidi.simpan');
+    Route::get('/sidi/detail/{id}', 'App\Http\Controllers\SidiController@tampil_detail_sidi')->name('sidi.tampil_detail');
+    Route::get('/sidi/edit/{id}', 'App\Http\Controllers\SidiController@tampil_ubah_sidi')->name('sidi.tampil_ubah');
+    Route::put('/sidi/update/{id}', 'App\Http\Controllers\SidiController@perbarui_sidi')->name('sidi.simpan_perbarui');
+    Route::post('/sidi/delete/{id}', 'App\Http\Controllers\SidiController@hapus_sidi')->name('sidi.hapus');
 });
 
 // Pelayanan Kategorial
