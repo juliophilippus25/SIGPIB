@@ -8,6 +8,8 @@ use App\Models\Anggota;
 use DB;
 use Alert;
 use Validator;
+use Carbon\Carbon;
+use PDF;
 
 class SidiController extends Controller
 {
@@ -152,5 +154,14 @@ class SidiController extends Controller
         Alert::success('Data berhasil dihapus!', '');
 
         return redirect()->back();
+    }
+
+    public function cetak_sidi_pdf($id)
+    {
+        $sidi = Sidi::find($id);
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
+        $pdf = PDF::loadView('laporan.sidi.surat_sidi', compact('sidi', 'dt'));
+        return $pdf->stream('SIGPIB_SIDI_'.$sidi->anggota->kode_anggota.('_').$dt.'.pdf');
     }
 }

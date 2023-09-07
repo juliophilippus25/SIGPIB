@@ -68,7 +68,16 @@
                 <div class="card">
                     <div id="pelkat"></div>
                 </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div id="container"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -129,6 +138,62 @@
                 {{ $det_pelkat->where('id_pelkat', '5')->count() }},
                 {{ $det_pelkat->where('id_pelkat', '6')->count() }}
             ]
+        }]
+    });
+</script>
+{{-- Pelkat --}}
+
+{{-- Pelkat --}}
+<script>
+    var pa = <?php echo json_encode($total_pa); ?>;
+    var pt = <?php echo json_encode($total_pt); ?>;
+    var gp = <?php echo json_encode($total_gp); ?>;
+    var pkp = <?php echo json_encode($total_pkp); ?>;
+    var pkb = <?php echo json_encode($total_pkb); ?>;
+    var pklu = <?php echo json_encode($total_pklu); ?>;
+    var bulan = <?php echo json_encode($bulan); ?>;
+
+    Highcharts.chart('container', {
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Grafik Anggota PelKat Masuk Bulanan </br> Tahun {{ date('Y') }}'
+        },
+        xAxis: {
+            categories: bulan
+        },
+        yAxis: {
+            title: {
+                text: 'Jumlah Anggota Pelkat'
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
+            }
+        },
+        series: [{
+            name: 'PA',
+            data: pa
+        }, {
+            name: 'PT',
+            data: pt
+        }, {
+            name: 'GP',
+            data: gp
+        }, {
+            name: 'PKP',
+            data: pkp
+        }, {
+            name: 'PKB',
+            data: pkb
+        }, {
+            name: 'PKLU',
+            data: pklu
         }]
     });
 </script>

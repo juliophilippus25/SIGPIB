@@ -156,6 +156,14 @@
                                         <tr>
                                             <td>1.</td>
                                             <td style="width: 100%">
+                                                <a target="_blank"
+                                                    href="{{ route('anggota.download_satu', ['id' => $anggota->id]) }}">BIODATA
+                                                    <i class="fa fa-circle-check"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td style="width: 100%">
                                                 @if ($anggota->akte_lahir != null)
                                                     <a target="_blank"
                                                         href="{{ asset('storage/dokumen/akte/' . $anggota->akte_lahir) }}">AKTE
@@ -166,7 +174,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>2.</td>
+                                            <td>3.</td>
                                             <td>
                                                 @if ($anggota->srt_baptis != null)
                                                     <a target="_blank"
@@ -178,7 +186,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>3.</td>
+                                            <td>4.</td>
                                             <td style="width: 100%">
                                                 @if ($anggota->srt_sidi != null)
                                                     <a target="_blank"
@@ -203,8 +211,8 @@
                 <div class="card-footer">
                     <a href="{{ route('anggota.tampil_ubah', ['id' => $anggota->id]) }}" class="btn btn-warning"><i
                             class="fa fa-edit"></i> Ubah</a>
-                    <a target="_blank" href="{{ route('anggota.download_satu', ['id' => $anggota->id]) }}"
-                        class="btn btn-success"><i class="fas fa-cloud-download-alt"></i> Unduh</a>
+                    {{-- <a target="_blank" href="{{ route('anggota.download_satu', ['id' => $anggota->id]) }}"
+                        class="btn btn-success"><i class="fas fa-cloud-download-alt"></i> Unduh</a> --}}
                     <a href="{{ route('anggota.index') }}" class="btn btn-default float-right"> Kembali</a>
                 </div>
 

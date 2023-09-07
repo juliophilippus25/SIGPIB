@@ -101,7 +101,7 @@ unset($__errorArgs, $__bag); ?>
 
                         <div class="form-group">
                             <label for="tempat_nikah">Tempat Pernikahan <b style="color:Tomato;">*</b></label>
-                            <input type="text" onkeyup="this.value = this.value.toUpperCase()"
+                            <input type="text"
                                 class="form-control <?php $__errorArgs = ['tempat_nikah'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

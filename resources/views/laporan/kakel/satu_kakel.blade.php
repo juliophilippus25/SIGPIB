@@ -113,6 +113,16 @@
 
             <tbody>
                 <tr>
+                    <td style="width: 25%" class="bold">Kartu Keluarga</td>
+                    <td>:</td>
+                    @if ($kakel->srt_kk == null)
+                        <td style="width: 70%">-</td>
+                    @else
+                        <td style="width: 70%">Diterima</td>
+                    @endif
+                </tr>
+
+                <tr>
                     <td style="width: 25%" class="bold">Surat Nikah Gereja</td>
                     <td>:</td>
                     @if ($kakel->srt_gereja == null)

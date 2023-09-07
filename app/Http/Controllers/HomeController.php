@@ -120,7 +120,48 @@ class HomeController extends Controller
         $kakel = Kakel::get();
         $det_pelkat = DetailPelkat::get();
 
-        return view('dashboard.pelkat.index', compact('anggota', 'pelkat', 'sekwil', 'kakel','det_pelkat'));
+        $total_pa = DetailPelkat::select(DB::raw("COUNT(*) as count"))
+        ->where('id_pelkat', '1')
+        ->WhereYear("created_at", date('Y'))
+        ->GroupBy(DB::raw("Month(created_at)"))
+        ->pluck('count');
+
+        $total_pt = DetailPelkat::select(DB::raw("COUNT(*) as count"))
+        ->where('id_pelkat', '2')
+        ->WhereYear("created_at", date('Y'))
+        ->GroupBy(DB::raw("Month(created_at)"))
+        ->pluck('count');
+
+        $total_gp = DetailPelkat::select(DB::raw("COUNT(*) as count"))
+        ->where('id_pelkat', '3')
+        ->WhereYear("created_at", date('Y'))
+        ->GroupBy(DB::raw("Month(created_at)"))
+        ->pluck('count');
+
+        $total_pkp = DetailPelkat::select(DB::raw("COUNT(*) as count"))
+        ->where('id_pelkat', '4')
+        ->WhereYear("created_at", date('Y'))
+        ->GroupBy(DB::raw("Month(created_at)"))
+        ->pluck('count');
+
+        $total_pkb = DetailPelkat::select(DB::raw("COUNT(*) as count"))
+        ->where('id_pelkat', '5')
+        ->WhereYear("created_at", date('Y'))
+        ->GroupBy(DB::raw("Month(created_at)"))
+        ->pluck('count');
+
+        $total_pklu = DetailPelkat::select(DB::raw("COUNT(*) as count"))
+        ->where('id_pelkat', '6')
+        ->WhereYear("created_at", date('Y'))
+        ->GroupBy(DB::raw("Month(created_at)"))
+        ->pluck('count');
+
+        $bulan = DetailPelkat::select(DB::raw("MONTHNAME(created_at) as bulan"))
+        ->GroupBy(DB::raw("MONTHNAME(created_at)"))
+        ->orderBy('created_at', 'asc')
+        ->pluck('bulan');
+
+        return view('dashboard.pelkat.index', compact('anggota', 'pelkat', 'sekwil', 'kakel','det_pelkat', 'total_pa', 'total_pt', 'total_gp', 'total_pkp', 'total_pkb', 'total_pklu', 'bulan'));
     }
 
     public function pelkat_pa()

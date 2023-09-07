@@ -8,6 +8,8 @@ use App\Models\Anggota;
 use DB;
 use Alert;
 use Validator;
+use Carbon\Carbon;
+use PDF;
 
 class BaptisController extends Controller
 {
@@ -152,5 +154,14 @@ class BaptisController extends Controller
         Alert::success('Data berhasil dihapus!', '');
 
         return redirect()->back();
+    }
+
+    public function cetak_baptis_pdf($id)
+    {
+        $baptis = baptis::find($id);
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
+        $pdf = PDF::loadView('laporan.baptis.surat_baptis', compact('baptis', 'dt'));
+        return $pdf->stream('SIGPIB_BAPTIS_'.$baptis->anggota->kode_anggota.('_').$dt.'.pdf');
     }
 }

@@ -89,7 +89,7 @@
                 <div class="card-footer">
                     <a href="{{ route('sidi.tampil_ubah', ['id' => $sidi->id]) }}" class="btn btn-warning"><i
                             class="fa fa-edit"></i> Ubah</a>
-                    <a target="_blank" href="#"
+                    <a target="_blank" href="{{ route('sidi.download', ['id' => $sidi->id]) }}"
                         class="btn btn-success"><i class="fas fa-cloud-download-alt"></i> Unduh</a>
                     <a href="{{ route('sidi.index') }}" class="btn btn-default float-right"> Kembali</a>
                 </div>

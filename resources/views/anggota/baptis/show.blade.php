@@ -89,7 +89,7 @@
                 <div class="card-footer">
                     <a href="{{ route('baptis.tampil_ubah', ['id' => $baptis->id]) }}" class="btn btn-warning"><i
                             class="fa fa-edit"></i> Ubah</a>
-                    <a target="_blank" href="#"
+                    <a target="_blank" href="{{ route('baptis.download', ['id' => $baptis->id]) }}"
                         class="btn btn-success"><i class="fas fa-cloud-download-alt"></i> Unduh</a>
                     <a href="{{ route('baptis.index') }}" class="btn btn-default float-right"> Kembali</a>
                 </div>

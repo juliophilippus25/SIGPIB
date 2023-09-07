@@ -4,31 +4,31 @@
 
 @section('breadcrumb')
 
-<div class="col-sm-6">
-    <!-- <h1 class="m-0">Pelayanan Kategorial</h1> -->
-</div><!-- /.col -->
+    <div class="col-sm-6">
+        <!-- <h1 class="m-0">Pelayanan Kategorial</h1> -->
+    </div><!-- /.col -->
 
-<div class="col-sm-6">
-    <ol class="breadcrumb float-sm-right">
-        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-        <li class="breadcrumb-item active">Data Pelayanan Kategorial</li>
-    </ol>
-</div><!-- /.col -->
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active">Data Pelayanan Kategorial</li>
+        </ol>
+    </div><!-- /.col -->
 
 @endsection
 
 @section('content')
 
-<div class="row">
-    <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card card-default">
-            <div class="card-header d-flex">
-                <h3 class="card-title">Data Pelayanan Kategorial</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card card-default">
+                <div class="card-header d-flex">
+                    <h3 class="card-title">Data Pelayanan Kategorial</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
 
-                {{-- <div class="row">
+                    {{-- <div class="row">
                     <div class="col-md-2">
                         <a href="{{route('pelkat.create')}}" class="btn btn-primary btn-fw col-lg-2"><i class="fa fa-plus"></i> PelKat</a>
                     </div>
@@ -41,21 +41,37 @@
                 </div>
                 <br> --}}
 
-                <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Pelayanan Kategorial</th>
-                            {{-- <th>Gambar</th> --}}
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            @forelse($pelkat as $data)
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $data->nama_pelkat }}</td>
-                            {{-- <td>
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Pelayanan Kategorial</th>
+                                <th>Jumlah Anggota</th>
+                                {{-- <th>Gambar</th> --}}
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                @forelse($pelkat as $data)
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $data->nama_pelkat }}</td>
+                                    <td>
+                                        @if ($data->nama_pelkat == 'Pelayanan Anak')
+                                            {{ $pa }}
+                                        @elseif ($data->nama_pelkat == 'Persekutuan Teruna')
+                                            {{ $pt }}
+                                        @elseif ($data->nama_pelkat == 'Gerakan Pemuda')
+                                            {{ $gp }}
+                                        @elseif ($data->nama_pelkat == 'Persekutuan Kaum Perempuan')
+                                            {{ $pkp }}
+                                        @elseif ($data->nama_pelkat == 'Persekutuan Kaum Bapak')
+                                            {{ $pkb }}
+                                        @elseif ($data->nama_pelkat == 'Persekutuan Kaum Lanjut Usia')
+                                            {{ $pklu }}
+                                        @endif
+                                    </td>
+                                    {{-- <td>
                                 @if ($data->nama_pelkat == 'Pelayanan Anak')
                                 <img src="{{ asset('/images/gpib/PA.png') }}" style="width: 40px;" alt="Pelayanan Anak" title="Pelayanan Anak">
                                 @elseif ($data->nama_pelkat == 'Persekutuan Teruna')
@@ -70,14 +86,16 @@
                                 <img src="{{ asset('/images/gpib/PKLU.png') }}" style="width: 40px;" alt="Persekutuan Kaum Lanjut Usia" title="Persekutuan Kaum Lanjut Usia">
                                 @endif
                             </td> --}}
-                            <td>
-                                <a href="{{ route('detailpelkat.index', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
-                                {{-- <a href="{{ route('pelkat.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a> --}}
-                                {{-- <a href="{{ route('pelkat.download_satu', ['id' => $data->id]) }}" target="_blank" class="btn btn-success  btn-sm" title="Unduh" ><i class="fas fa-cloud-download-alt"></i></a> --}}
-                                {{-- <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button> --}}
+                                    <td>
+                                        <a href="{{ route('detailpelkat.index', ['id' => $data->id]) }}"
+                                            class="btn btn-primary  btn-sm" title="Lihat Detail"><i
+                                                class="fa fa-eye"></i></a>
+                                        {{-- <a href="{{ route('pelkat.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-warning  btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a> --}}
+                                        {{-- <a href="{{ route('pelkat.download_satu', ['id' => $data->id]) }}" target="_blank" class="btn btn-success  btn-sm" title="Unduh" ><i class="fas fa-cloud-download-alt"></i></a> --}}
+                                        {{-- <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button> --}}
 
-                                <!-- Modal -->
-                                {{-- <form method="POST" action="{{ route('pelkat.hapus', ['id' => $data->id]) }}">
+                                        <!-- Modal -->
+                                        {{-- <form method="POST" action="{{ route('pelkat.hapus', ['id' => $data->id]) }}">
                                     <div class="modal fade" id="modalDelete_{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -101,24 +119,26 @@
                                         </div>
                                     </div>
                                 </form> --}}
-                                <!-- Modal -->
+                                        <!-- Modal -->
 
-                            </td>
-                        </tr>
+                                    </td>
+                            </tr>
                         @empty
-                        <tr class="">
-                            <td colspan="16">
-                                <strong class="text-dark"><center>Data Kosong</center></strong>
-                            </td>
-                        </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                            <tr class="">
+                                <td colspan="16">
+                                    <strong class="text-dark">
+                                        <center>Data Kosong</center>
+                                    </strong>
+                                </td>
+                            </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
+            <!-- /.card -->
         </div>
-        <!-- /.card -->
     </div>
-</div>
 
 @endsection

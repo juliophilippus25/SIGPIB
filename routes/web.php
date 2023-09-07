@@ -85,6 +85,7 @@ Route::group(['prefix' => '/anggota'], function() {
     Route::get('/baptis/edit/{id}', 'App\Http\Controllers\BaptisController@tampil_ubah_baptis')->name('baptis.tampil_ubah');
     Route::put('/baptis/update/{id}', 'App\Http\Controllers\BaptisController@perbarui_baptis')->name('baptis.simpan_perbarui');
     Route::post('/baptis/delete/{id}', 'App\Http\Controllers\BaptisController@hapus_baptis')->name('baptis.hapus');
+    Route::get('/baptis/pdf/{id}', 'App\Http\Controllers\BaptisController@cetak_baptis_pdf')->name('baptis.download');
 
     // Sidi
     Route::get('/sidi/index', 'App\Http\Controllers\SidiController@tampil_sidi')->name('sidi.index');
@@ -94,6 +95,7 @@ Route::group(['prefix' => '/anggota'], function() {
     Route::get('/sidi/edit/{id}', 'App\Http\Controllers\SidiController@tampil_ubah_sidi')->name('sidi.tampil_ubah');
     Route::put('/sidi/update/{id}', 'App\Http\Controllers\SidiController@perbarui_sidi')->name('sidi.simpan_perbarui');
     Route::post('/sidi/delete/{id}', 'App\Http\Controllers\SidiController@hapus_sidi')->name('sidi.hapus');
+    Route::get('/sidi/pdf/{id}', 'App\Http\Controllers\SidiController@cetak_sidi_pdf')->name('sidi.download');
 });
 
 // Pelayanan Kategorial

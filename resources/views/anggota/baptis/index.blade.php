@@ -71,7 +71,7 @@
                                         <a href="{{ route('baptis.tampil_detail', ['id' => $data->id]) }}"
                                             class="btn btn-primary btn-sm" title="Lihat Detail"><i
                                                 class="fa fa-eye"></i></a>
-                                        {{-- <a href="{{ route('kakel.download_satu', ['id' => $data->id]) }}" target="_blank" class="btn btn-success btn-sm" title="Unduh" ><i class="fas fa-cloud-download-alt"></i></a> --}}
+                                        {{-- <a href="{{ route('baptis.download', ['id' => $data->id]) }}" target="_blank" class="btn btn-success btn-sm" title="Unduh" ><i class="fas fa-cloud-download-alt"></i></a> --}}
                                         <button type="button" class="btn btn-danger btn-sm" title="Hapus Data"
                                             data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i
                                                 class="fa fa-trash"></i></button>

@@ -31,7 +31,14 @@ class PelkatController extends Controller
     {
         $pelkat = Pelkat::get();
 
-        return view('pelkat.index', compact('pelkat'));
+        $pa = DetailPelkat::where('id_pelkat', '1')->count();
+        $pt = DetailPelkat::where('id_pelkat', '2')->count();
+        $gp = DetailPelkat::where('id_pelkat', '3')->count();
+        $pkp = DetailPelkat::where('id_pelkat', '4')->count();
+        $pkb = DetailPelkat::where('id_pelkat', '5')->count();
+        $pklu = DetailPelkat::where('id_pelkat', '6')->count();
+
+        return view('pelkat.index', compact('pelkat', 'pa', 'pt', 'gp', 'pkp', 'pkb', 'pklu'));
     }
 
     public function tambah_pelkat()
