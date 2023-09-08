@@ -11,7 +11,7 @@
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('baptis.index') }}">Data Baptis</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('baptis.index') }}">Data Jemaat Baptis</a></li>
             <li class="breadcrumb-item active">Tambah Data Baptis</li>
         </ol>
     </div><!-- /.col -->

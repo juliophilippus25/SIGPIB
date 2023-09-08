@@ -11,7 +11,7 @@
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('sidi.index') }}">Data Sidi</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('sidi.index') }}">Data Jemaat Sidi</a></li>
             <li class="breadcrumb-item active">Ubah Data Sidi</li>
         </ol>
     </div><!-- /.col -->
