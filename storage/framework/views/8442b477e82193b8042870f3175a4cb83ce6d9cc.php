@@ -6,7 +6,7 @@
         <!-- <h1 class="m-0">Kartu Keluarga</h1> -->
     </div><!-- /.col -->
 
-    <div class="col-sm-6">
+    <div class="col-sm-12">
         <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="<?php echo e(route('dashboard')); ?>">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="<?php echo e(route('kakel.index')); ?>">Data Kartu Keluarga</a></li>

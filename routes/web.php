@@ -145,9 +145,9 @@ Route::group(['prefix' => '/kakel'], function() {
     // Detail Kartu Keluarga
     Route::get('/detail/index/{id}', 'App\Http\Controllers\DetailKakelController@tampil_detail_kakel')->name('detailkakel.index');
     Route::get('/detail/create/{id}', 'App\Http\Controllers\DetailKakelController@tambah_anggota_kakel')->name('detailkakel.create');
-    Route::get('/detail//kembali', 'App\Http\Controllers\DetailKakelController@tombol_kembali')->name('detailkakel.tombol_kembali');
-    Route::get('/detail//edit/{id}', 'App\Http\Controllers\DetailKakelController@tampil_ubah_anggota')->name('detailkakel.tampil_ubah');
-    Route::put('/detail//update/{id}', 'App\Http\Controllers\DetailKakelController@perbarui_anggota')->name('detailkakel.simpan_perbarui');
+    Route::get('/detail/kembali', 'App\Http\Controllers\DetailKakelController@tombol_kembali')->name('detailkakel.tombol_kembali');
+    Route::get('/detail/edit/{id}', 'App\Http\Controllers\DetailKakelController@tampil_ubah_anggota')->name('detailkakel.tampil_ubah');
+    Route::put('/detail/update/{id}', 'App\Http\Controllers\DetailKakelController@perbarui_anggota')->name('detailkakel.simpan_perbarui');
     Route::post('/detail/save', 'App\Http\Controllers\DetailKakelController@simpan_anggota')->name('detailkakel.simpan');
     Route::post('/detail/delete/{id}', 'App\Http\Controllers\DetailKakelController@hapus_anggota')->name('detailkakel.hapus');
 });
