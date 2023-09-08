@@ -39,6 +39,22 @@
                     </div>
                     <!-- Card -->
 
+                    <!-- Card -->
+                    <div class="col-lg-4 col-6">
+                        <div class="small-box bg-success">
+                            <div class="inner">
+                                <h3><?php echo e($det_pelkat->count()); ?></h3>
+                                <p>Jumlah Anggota Pelkat</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person"></i>
+                            </div>
+                            <a href="<?php echo e(route('pelkat.index')); ?>" class="small-box-footer">Info lebih lanjut <i
+                                    class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Card -->
+
                 </div>
                 <!-- /.row -->
             </div>
