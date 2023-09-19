@@ -37,35 +37,10 @@
                         <input type="hidden" required="required" name="id_anggota" value="<?php echo e($sidi->id_anggota); ?>"
                             readonly>
 
-                        <div class="form-group">
-                            <label for="tempat_sidi">Tempat sidi <b style="color:Tomato;">*</b></label>
-                            <input type="text"
-                                class="form-control <?php $__errorArgs = ['tempat_sidi'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" name="tempat_sidi"
-                                id="tempat_sidi" placeholder="Masukkan Tempat sidi"
-                                value="<?php echo e(old('tempat_sidi', $sidi->tempat_sidi)); ?>">
-                            <?php $__errorArgs = ['tempat_sidi'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                <span class="text-danger"><?php echo e($message); ?></span>
-                            <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Tanggal sidi <b style="color:Tomato;">*</b></label>
-                            <input type="date" name="tgl_sidi" id="tgl_sidi"
-                                class="form-control <?php $__errorArgs = ['tgl_sidi'];
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="tempat_sidi">Tempat sidi <b style="color:Tomato;">*</b></label>
+                                <input type="text" class="form-control <?php $__errorArgs = ['tempat_sidi'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -73,23 +48,48 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                                value="<?php echo e(old('tgl_sidi', $sidi->tgl_sidi)); ?>">
-                            <?php $__errorArgs = ['tgl_sidi'];
+                                    name="tempat_sidi" id="tempat_sidi" placeholder="Masukkan Tempat sidi"
+                                    value="<?php echo e(old('tempat_sidi', $sidi->tempat_sidi)); ?>">
+                                <?php $__errorArgs = ['tempat_sidi'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <span class="text-danger"><?php echo e($message); ?></span>
-                            <?php unset($message);
+                                    <span class="text-danger"><?php echo e($message); ?></span>
+                                <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
+                            </div>
+
+                            <div class="form-group col-6">
+                                <label>Tanggal sidi <b style="color:Tomato;">*</b></label>
+                                <input type="date" name="tgl_sidi" id="tgl_sidi"
+                                    class="form-control <?php $__errorArgs = ['tgl_sidi'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                                    value="<?php echo e(old('tgl_sidi', $sidi->tgl_sidi)); ?>">
+                                <?php $__errorArgs = ['tgl_sidi'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <span class="text-danger"><?php echo e($message); ?></span>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label for="pendeta">Pendeta <b style="color:Tomato;">*</b></label>
-                            <input type="text"
-                                class="form-control <?php $__errorArgs = ['pendeta'];
+                            <input type="text" class="form-control <?php $__errorArgs = ['pendeta'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -117,7 +117,8 @@ unset($__errorArgs, $__bag); ?>
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="<?php echo e(route('sidi.tampil_detail', ['id' => $sidi->id])); ?>" class="btn btn-default">Kembali</a>
+                        <a href="<?php echo e(route('sidi.tampil_detail', ['id' => $sidi->id])); ?>"
+                            class="btn btn-default">Kembali</a>
                     </div>
                 </form>
             </div>

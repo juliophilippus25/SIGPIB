@@ -37,35 +37,10 @@
                         <input type="hidden" required="required" name="id_anggota" value="<?php echo e($baptis->id_anggota); ?>"
                             readonly>
 
-                        <div class="form-group">
-                            <label for="tempat_baptis">Tempat Baptis <b style="color:Tomato;">*</b></label>
-                            <input type="text"
-                                class="form-control <?php $__errorArgs = ['tempat_baptis'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" name="tempat_baptis"
-                                id="tempat_baptis" placeholder="Masukkan Tempat Baptis"
-                                value="<?php echo e(old('tempat_baptis', $baptis->tempat_baptis)); ?>">
-                            <?php $__errorArgs = ['tempat_baptis'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                <span class="text-danger"><?php echo e($message); ?></span>
-                            <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Tanggal Baptis <b style="color:Tomato;">*</b></label>
-                            <input type="date" name="tgl_baptis" id="tgl_baptis"
-                                class="form-control <?php $__errorArgs = ['tgl_baptis'];
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="tempat_baptis">Tempat Baptis <b style="color:Tomato;">*</b></label>
+                                <input type="text" class="form-control <?php $__errorArgs = ['tempat_baptis'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -73,23 +48,48 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                                value="<?php echo e(old('tgl_baptis', $baptis->tgl_baptis)); ?>">
-                            <?php $__errorArgs = ['tgl_baptis'];
+                                    name="tempat_baptis" id="tempat_baptis" placeholder="Masukkan Tempat Baptis"
+                                    value="<?php echo e(old('tempat_baptis', $baptis->tempat_baptis)); ?>">
+                                <?php $__errorArgs = ['tempat_baptis'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <span class="text-danger"><?php echo e($message); ?></span>
-                            <?php unset($message);
+                                    <span class="text-danger"><?php echo e($message); ?></span>
+                                <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
+                            </div>
+
+                            <div class="form-group col-6">
+                                <label>Tanggal Baptis <b style="color:Tomato;">*</b></label>
+                                <input type="date" name="tgl_baptis" id="tgl_baptis"
+                                    class="form-control <?php $__errorArgs = ['tgl_baptis'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                                    value="<?php echo e(old('tgl_baptis', $baptis->tgl_baptis)); ?>">
+                                <?php $__errorArgs = ['tgl_baptis'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <span class="text-danger"><?php echo e($message); ?></span>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label for="pendeta">Pendeta <b style="color:Tomato;">*</b></label>
-                            <input type="text"
-                                class="form-control <?php $__errorArgs = ['pendeta'];
+                            <input type="text" class="form-control <?php $__errorArgs = ['pendeta'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -117,7 +117,8 @@ unset($__errorArgs, $__bag); ?>
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="<?php echo e(route('baptis.tampil_detail', ['id' => $baptis->id])); ?>" class="btn btn-default">Kembali</a>
+                        <a href="<?php echo e(route('baptis.tampil_detail', ['id' => $baptis->id])); ?>"
+                            class="btn btn-default">Kembali</a>
                     </div>
                 </form>
             </div>

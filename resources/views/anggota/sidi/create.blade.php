@@ -53,33 +53,32 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
-                            <label for="tempat_sidi">Tempat Sidi <b style="color:Tomato;">*</b></label>
-                            <input type="text"
-                                class="form-control @error('tempat_sidi') is-invalid @enderror" name="tempat_sidi"
-                                id="tempat_sidi" placeholder="Masukkan Tempat sidi"
-                                value="{{ old('tempat_sidi') }}">
-                            @error('tempat_sidi')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="tempat_sidi">Tempat Sidi <b style="color:Tomato;">*</b></label>
+                                <input type="text" class="form-control @error('tempat_sidi') is-invalid @enderror"
+                                    name="tempat_sidi" id="tempat_sidi" placeholder="Masukkan Tempat sidi"
+                                    value="{{ old('tempat_sidi') }}">
+                                @error('tempat_sidi')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
 
-                        <div class="form-group">
-                            <label>Tanggal Sidi <b style="color:Tomato;">*</b></label>
-                            <input type="date" name="tgl_sidi" id="tgl_sidi"
-                                class="form-control @error('tgl_sidi') is-invalid @enderror"
-                                value="{{ old('tgl_sidi') }}">
-                            @error('tgl_sidi')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <div class="form-group col-6">
+                                <label>Tanggal Sidi <b style="color:Tomato;">*</b></label>
+                                <input type="date" name="tgl_sidi" id="tgl_sidi"
+                                    class="form-control @error('tgl_sidi') is-invalid @enderror"
+                                    value="{{ old('tgl_sidi') }}">
+                                @error('tgl_sidi')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label for="pendeta">Pendeta <b style="color:Tomato;">*</b></label>
-                            <input type="text"
-                                class="form-control @error('pendeta') is-invalid @enderror" name="pendeta"
-                                id="pendeta" placeholder="Masukkan Nama Pendeta"
-                                value="{{ old('pendeta') }}">
+                            <input type="text" class="form-control @error('pendeta') is-invalid @enderror" name="pendeta"
+                                id="pendeta" placeholder="Masukkan Nama Pendeta" value="{{ old('pendeta') }}">
                             @error('pendeta')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
