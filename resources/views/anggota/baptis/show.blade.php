@@ -34,7 +34,8 @@
                                         height="200" src="{{ asset('images/pengguna/default.png') }}" />
                                 @else
                                     <img id="preview" style="border-radius: 25px; padding: 20px;" width="300"
-                                        height="300" src="{{ asset('storage/images/anggota/' . $anggota->gambar) }}" />
+                                        height="300"
+                                        src="{{ asset('storage/images/anggota/' . $baptis->anggota->gambar) }}" />
                                 @endif
                             </div>
 
@@ -97,4 +98,4 @@
             </div>
         </div>
     </div>
-    @endsection
+@endsection

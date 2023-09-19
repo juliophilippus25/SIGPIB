@@ -32,7 +32,8 @@
                                         height="200" src="<?php echo e(asset('images/pengguna/default.png')); ?>" />
                                 <?php else: ?>
                                     <img id="preview" style="border-radius: 25px; padding: 20px;" width="300"
-                                        height="300" src="<?php echo e(asset('storage/images/anggota/' . $anggota->gambar)); ?>" />
+                                        height="300"
+                                        src="<?php echo e(asset('storage/images/anggota/' . $baptis->anggota->gambar)); ?>" />
                                 <?php endif; ?>
                             </div>
 
@@ -97,6 +98,6 @@
             </div>
         </div>
     </div>
-    <?php $__env->stopSection(); ?>
+<?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\SIGPIB\resources\views/anggota/baptis/show.blade.php ENDPATH**/ ?>

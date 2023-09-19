@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Detail Anggota')
+@section('title', 'Anggota')
 
 @section('breadcrumb')
 

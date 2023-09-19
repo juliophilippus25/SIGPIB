@@ -34,7 +34,8 @@
                                         height="200" src="{{ asset('images/pengguna/default.png') }}" />
                                 @else
                                     <img id="preview" style="border-radius: 25px; padding: 20px;" width="300"
-                                        height="300" src="{{ asset('storage/images/anggota/' . $anggota->gambar) }}" />
+                                        height="300"
+                                        src="{{ asset('storage/images/anggota/' . $sidi->anggota->gambar) }}" />
                                 @endif
                             </div>
 
@@ -89,12 +90,12 @@
                 <div class="card-footer">
                     <a href="{{ route('sidi.tampil_ubah', ['id' => $sidi->id]) }}" class="btn btn-warning"><i
                             class="fa fa-edit"></i> Ubah</a>
-                    <a target="_blank" href="{{ route('sidi.download', ['id' => $sidi->id]) }}"
-                        class="btn btn-success"><i class="fas fa-cloud-download-alt"></i> Unduh</a>
+                    <a target="_blank" href="{{ route('sidi.download', ['id' => $sidi->id]) }}" class="btn btn-success"><i
+                            class="fas fa-cloud-download-alt"></i> Unduh</a>
                     <a href="{{ route('sidi.index') }}" class="btn btn-default float-right"> Kembali</a>
                 </div>
                 <!-- /.card -->
             </div>
         </div>
     </div>
-    @endsection
+@endsection

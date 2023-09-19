@@ -32,7 +32,8 @@
                                         height="200" src="<?php echo e(asset('images/pengguna/default.png')); ?>" />
                                 <?php else: ?>
                                     <img id="preview" style="border-radius: 25px; padding: 20px;" width="300"
-                                        height="300" src="<?php echo e(asset('storage/images/anggota/' . $anggota->gambar)); ?>" />
+                                        height="300"
+                                        src="<?php echo e(asset('storage/images/anggota/' . $sidi->anggota->gambar)); ?>" />
                                 <?php endif; ?>
                             </div>
 
@@ -89,14 +90,14 @@
                 <div class="card-footer">
                     <a href="<?php echo e(route('sidi.tampil_ubah', ['id' => $sidi->id])); ?>" class="btn btn-warning"><i
                             class="fa fa-edit"></i> Ubah</a>
-                    <a target="_blank" href="<?php echo e(route('sidi.download', ['id' => $sidi->id])); ?>"
-                        class="btn btn-success"><i class="fas fa-cloud-download-alt"></i> Unduh</a>
+                    <a target="_blank" href="<?php echo e(route('sidi.download', ['id' => $sidi->id])); ?>" class="btn btn-success"><i
+                            class="fas fa-cloud-download-alt"></i> Unduh</a>
                     <a href="<?php echo e(route('sidi.index')); ?>" class="btn btn-default float-right"> Kembali</a>
                 </div>
                 <!-- /.card -->
             </div>
         </div>
     </div>
-    <?php $__env->stopSection(); ?>
+<?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\SIGPIB\resources\views/anggota/sidi/show.blade.php ENDPATH**/ ?>

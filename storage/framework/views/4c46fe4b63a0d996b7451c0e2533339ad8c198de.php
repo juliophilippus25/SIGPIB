@@ -9,7 +9,7 @@
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="<?php echo e(route('dashboard')); ?>">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="<?php echo e(route('baptis.index')); ?>">Data Baptis</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo e(route('baptis.index')); ?>">Data Jemaat Baptis</a></li>
             <li class="breadcrumb-item active">Ubah Data Baptis</li>
         </ol>
     </div><!-- /.col -->
