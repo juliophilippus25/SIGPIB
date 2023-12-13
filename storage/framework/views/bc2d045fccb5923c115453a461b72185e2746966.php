@@ -71,7 +71,9 @@
                                     <td><?php echo e($data->nama); ?></td>
                                     <td><?php echo e($data->jk); ?></td>
                                     <td>
-                                        <a href="<?php echo e(route('anggota.tampil_detail', ['id' => $data->id])); ?>" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo e(route('anggota.tampil_detail', ['id' => $data->id])); ?>"
+                                            class="btn btn-primary  btn-sm" title="Lihat Detail"><i
+                                                class="fa fa-eye"></i></a>
                                     </td>
                                 <?php endif; ?>
                         </tr>
@@ -108,15 +110,20 @@
                     <tbody>
                         <tr>
                             <?php $__empty_1 = true; $__currentLoopData = $anggota; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                <?php if(\Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >=
-                                    16 AND
-                                    $data->srt_sidi == null): ?>
+                                <?php if(
+                                    \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >=
+                                        16 and
+                                        $data->srt_sidi == null): ?>
                                     <td><?php echo e($data->nama); ?></td>
                                     <td>
-                                        <?php echo e(\Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y')); ?> tahun
+                                        <?php echo e(\Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y')); ?>
+
+                                        tahun
                                     </td>
                                     <td>
-                                        <a href="<?php echo e(route('anggota.tampil_detail', ['id' => $data->id])); ?>" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo e(route('anggota.tampil_detail', ['id' => $data->id])); ?>"
+                                            class="btn btn-primary  btn-sm" title="Lihat Detail"><i
+                                                class="fa fa-eye"></i></a>
                                     </td>
                                 <?php endif; ?>
                         </tr>
@@ -189,10 +196,10 @@
 
 <script>
     Highcharts.chart('jk', {
-        //  navigation: {
-        //      buttonOptions: {
-        //          enabled: false
-        //      }
+        // navigation: {
+        //     buttonOptions: {
+        //         enabled: false
+        //     }
         // },
         chart: {
             plotBackgroundColor: null,

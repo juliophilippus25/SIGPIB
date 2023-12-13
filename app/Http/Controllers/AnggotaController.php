@@ -37,28 +37,34 @@ class AnggotaController extends Controller
 
     public function tambah_anggota()
     {
-        // Membuat kode anggota secara otomatis
-        $getRow = Anggota::orderBy('id', 'DESC')->get();
-        $rowCount = $getRow->count();
-        $lastId = $getRow->first();
-        $kode = "GPIB00001";
-        if ($rowCount > 0) {
-            if ($lastId->id < 9) {
-                $kode = "GPIB0000".''.($lastId->id + 1);
-            } else if ($lastId->id < 99) {
-                $kode = "GPIB000".''.($lastId->id + 1);
-            } else if ($lastId->id < 999) {
-                $kode = "GPIB00".''.($lastId->id + 1);
-            } else if ($lastId->id < 9999) {
-                $kode = "GPIB0".''.($lastId->id + 1);
-            } else {
-                $kode = "GPIB".''.($lastId->id + 1);
-            }
+        $getAnggota = Anggota::latest()->first();
+        $kodeGPIB = "GPIB";
+        $kodeThn = date("Y");
+
+        // Membuat kode anggota secara otomatis dan direset setiap tahunnya
+        if (!$getAnggota or date('Y', strtotime($getAnggota->created_at)) != $kodeThn) {
+            $noUrut = "0001";
+        } else {
+            $noUrut = substr($getAnggota->kode_anggota, 8, 4) + 1;
+            $noUrut = str_pad($noUrut, 4, "0", STR_PAD_LEFT);
+
+            // Cara manual membuat kode anggota secara otomatis
+            // if (strlen($noUrut) == 1) {
+            //     $noUrut = "000" . $noUrut;
+            // } elseif(strlen($noUrut) == 2){
+            //     $noUrut = "00" . $noUrut;
+            // } elseif(strlen($noUrut) == 3){
+            //     $noUrut = "0" . $noUrut;
+            // } else{
+            //     $noUrut = $noUrut;
+            // }
         }
+
+        $kodeAnggota = $kodeGPIB . $kodeThn . $noUrut;
 
         $anggota = Anggota::get();
 
-        return view('anggota.create', compact('kode', 'anggota'));
+        return view('anggota.create', compact('kodeAnggota', 'anggota'));
     }
 
     public function simpan_anggota(Request $request)

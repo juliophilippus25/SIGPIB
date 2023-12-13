@@ -34,6 +34,8 @@
     <link rel="shortcut icon" href="<?php echo e(asset('/images/gpib/Logo-GPIB.png')); ?>">
     
     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 </head>
 <!--
     `body` tag options:

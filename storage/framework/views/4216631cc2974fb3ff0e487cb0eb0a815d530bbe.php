@@ -39,7 +39,7 @@
 
                             <div class="form-group">
                                 <label for="kode_anggota">Kode Anggota <b style="color:Tomato;">*</b></label>
-                                <input type="text" class="form-control" name="kode_anggota" id="kode_anggota" value="<?php echo e($kode); ?>" readonly>
+                                <input type="text" class="form-control" name="kode_anggota" id="kode_anggota" value="<?php echo e($kodeAnggota); ?>" readonly>
                             </div>
 
                             <div class="form-group">

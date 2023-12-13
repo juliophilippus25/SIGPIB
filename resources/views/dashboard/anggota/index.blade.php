@@ -81,7 +81,9 @@
                                     <td>{{ $data->nama }}</td>
                                     <td>{{ $data->jk }}</td>
                                     <td>
-                                        <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
+                                        <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}"
+                                            class="btn btn-primary  btn-sm" title="Lihat Detail"><i
+                                                class="fa fa-eye"></i></a>
                                     </td>
                                 @endif
                         </tr>
@@ -118,15 +120,19 @@
                     <tbody>
                         <tr>
                             @forelse($anggota as $data)
-                                @if (\Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >=
-                                    16 AND
-                                    $data->srt_sidi == null)
+                                @if (
+                                    \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >=
+                                        16 and
+                                        $data->srt_sidi == null)
                                     <td>{{ $data->nama }}</td>
                                     <td>
-                                        {{ \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') }} tahun
+                                        {{ \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') }}
+                                        tahun
                                     </td>
                                     <td>
-                                        <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}" class="btn btn-primary  btn-sm" title="Lihat Detail" ><i class="fa fa-eye"></i></a>
+                                        <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}"
+                                            class="btn btn-primary  btn-sm" title="Lihat Detail"><i
+                                                class="fa fa-eye"></i></a>
                                     </td>
                                 @endif
                         </tr>
@@ -199,10 +205,10 @@
 {{-- Jenis Kelamin --}}
 <script>
     Highcharts.chart('jk', {
-        //  navigation: {
-        //      buttonOptions: {
-        //          enabled: false
-        //      }
+        // navigation: {
+        //     buttonOptions: {
+        //         enabled: false
+        //     }
         // },
         chart: {
             plotBackgroundColor: null,

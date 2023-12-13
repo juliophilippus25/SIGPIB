@@ -34,6 +34,8 @@
     <link rel="shortcut icon" href="{{ asset('/images/gpib/Logo-GPIB.png') }}">
     {{-- Highcharts --}}
     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 </head>
 <!--
     `body` tag options:
