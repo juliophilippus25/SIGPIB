@@ -46,7 +46,10 @@ unset($__errorArgs, $__bag); ?>"
                                 name="id_anggota" style="width: 100%;">
                                 <option hidden disabled selected value>Pilih Anggota Jemaat</option>
                                 <?php $__currentLoopData = $anggota; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <?php if($data->srt_sidi == null): ?>
+                                    <?php if(
+                                        $data->srt_sidi == null and
+                                            \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >=
+                                                16): ?>
                                         <option value="<?php echo e($data->id); ?>"
                                             <?php echo e(old('id_anggota') == $data->id ? 'selected' : ''); ?>><?php echo e($data->kode_anggota); ?>
 

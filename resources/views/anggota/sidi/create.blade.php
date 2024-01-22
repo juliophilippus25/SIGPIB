@@ -40,7 +40,10 @@
                                 name="id_anggota" style="width: 100%;">
                                 <option hidden disabled selected value>Pilih Anggota Jemaat</option>
                                 @foreach ($anggota as $data)
-                                    @if ($data->srt_sidi == null)
+                                    @if (
+                                        $data->srt_sidi == null and
+                                            \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >=
+                                                16)
                                         <option value="{{ $data->id }}"
                                             {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota }}
                                             - {{ $data->nama }}

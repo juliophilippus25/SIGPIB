@@ -122,7 +122,7 @@
                             @forelse($anggota as $data)
                                 @if (
                                     \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >=
-                                        16 and
+                                        16 AND
                                         $data->srt_sidi == null)
                                     <td>{{ $data->nama }}</td>
                                     <td>
