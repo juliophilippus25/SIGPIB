@@ -197,6 +197,18 @@
                                                 @endif
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td>5.</td>
+                                            <td style="width: 100%">
+                                                @if ($anggota->srt_atestasi != null)
+                                                    <a target="_blank"
+                                                        href="{{ asset('storage/dokumen/atestasi/' . $anggota->srt_atestasi) }}">SURAT
+                                                        ATESTASI <i class="fa fa-circle-check"></i></a>
+                                                @else
+                                                    <a>SURAT ATESTASI <i class="fa fa-circle-xmark"></i></a>
+                                                @endif
+                                            </td>
+                                        </tr>
                                     </tbody>
 
                                 </table>

@@ -89,7 +89,8 @@ class AnggotaController extends Controller
             'gambar' => 'mimes:jpg,jpeg,png|max:2048',
             'srt_baptis' => 'max:2048',
             'srt_sidi' => 'max:2048',
-            'akte_lahir' => 'max:2048'
+            'akte_lahir' => 'max:2048',
+            'srt_atestasi' => 'max:2048',
         ],
         // Pesan
         [
@@ -135,7 +136,8 @@ class AnggotaController extends Controller
             'gambar.max' => 'Ukuran maksimal file gambar adalah 2mb',
             'srt_baptis.max' => 'Ukuran maksimal file surat baptis adalah 2mb',
             'srt_sidi.max' => 'Ukuran maksimal file surat sidi adalah 2mb',
-            'akte_lahir.max' => 'Ukuran maksimal file akte kelahiran adalah 2mb'
+            'akte_lahir.max' => 'Ukuran maksimal file akte kelahiran adalah 2mb',
+            'srt_atestasi.max' => 'Ukuran maksimal file surat atestasi adalah 2mb',
 
         ]);
 
@@ -206,6 +208,19 @@ class AnggotaController extends Controller
             $akte_lahir = $simpan_nama_file;
         }
 
+        // Proses upload surat atestasi
+        if($request->file('srt_atestasi') == '') {
+            $srt_atestasi = NULL;
+        } else {
+            $nama_file_dikonversi = $request->kode_anggota;
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+            // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
+            $extension = $request->srt_atestasi->getClientOriginalExtension();
+            $simpan_nama_file = 'ATESTASI_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
+            $srt_atestasi = $request->file('srt_atestasi')->storeAs('dokumen/atestasi', $simpan_nama_file);
+            $srt_atestasi = $simpan_nama_file;
+        }
+
         Anggota::create([
             'kode_anggota' => $request->input('kode_anggota'),
             'nama' => $request->input('nama'),
@@ -224,7 +239,8 @@ class AnggotaController extends Controller
             'gambar' => $gambar,
             'srt_baptis' => $srt_baptis,
             'srt_sidi' => $srt_sidi,
-            'akte_lahir' => $akte_lahir
+            'akte_lahir' => $akte_lahir,
+            'srt_atestasi' => $srt_atestasi
         ]);
 
         //redirect dengan pesan sukses
@@ -263,7 +279,8 @@ class AnggotaController extends Controller
             'gambar' => 'mimes:jpg,jpeg,png|max:2048',
             'srt_baptis' => 'max:2048',
             'srt_sidi' => 'max:2048',
-            'akte_lahir' => 'max:2048'
+            'akte_lahir' => 'max:2048',
+            'srt_atestasi' => 'max:2048'
         ],
         // Pesan
         [
@@ -306,7 +323,8 @@ class AnggotaController extends Controller
             'gambar.max' => 'Ukuran maksimal file gambar adalah 2mb',
             'srt_baptis.max' => 'Ukuran maksimal file surat baptis adalah 2mb',
             'srt_sidi.max' => 'Ukuran maksimal file surat sidi adalah 2mb',
-            'akte_lahir.max' => 'Ukuran maksimal file akte kelahiran adalah 2mb'
+            'akte_lahir.max' => 'Ukuran maksimal file akte kelahiran adalah 2mb',
+            'srt_atestasi.max' => 'Ukuran maksimal file surat atestasi adalah 2mb',
 
         ]);
 
@@ -357,7 +375,7 @@ class AnggotaController extends Controller
             $anggota->srt_sidi = $simpan_nama_file;
         }
 
-        // Proses upload surat sidi
+        // Proses upload akte lahir
         if($request->file('akte_lahir')) {
             $nama_file_dikonversi = $request->kode_anggota;
             $dt = Carbon::now()->isoFormat('D_MMMM_Y');
@@ -366,6 +384,17 @@ class AnggotaController extends Controller
             $simpan_nama_file = 'AKTE_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
             $akte_lahir = $request->file('akte_lahir')->storeAs('dokumen/akte', $simpan_nama_file);
             $anggota->akte_lahir = $simpan_nama_file;
+        }
+
+        // Proses upload surat atestasi
+        if($request->file('srt_atestasi')) {
+            $nama_file_dikonversi = $request->kode_anggota;
+            $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+            // $nama_file = pathinfo($nama_file_dikonversi, PATHINFO_FILENAME);
+            $extension = $request->srt_atestasi->getClientOriginalExtension();
+            $simpan_nama_file = 'ATESTASI_'.$nama_file_dikonversi.'_'.$dt.'.'.$extension;
+            $srt_atestasi = $request->file('srt_atestasi')->storeAs('dokumen/atestasi', $simpan_nama_file);
+            $anggota->srt_atestasi = $simpan_nama_file;
         }
 
         $anggota->nama = $request->input('nama');
@@ -393,16 +422,30 @@ class AnggotaController extends Controller
     {
         $anggota = Anggota::find($id);
 
-        if ($anggota->srt_baptis == null AND $anggota->srt_sidi == null AND $anggota->gambar == null AND $anggota->akte_lahir == null ) {
-            Alert::warning('Surat baptis, surat sidi, foto dan akte kelahiran belum di unggah!', '');
-        } elseif($anggota->srt_baptis == null AND $anggota->gambar == null AND $anggota->akte_lahir == null){
-            Alert::warning('Surat baptis, foto dan akte kelahiran belum di unggah!', '');
-        } elseif($anggota->srt_sidi == null AND $anggota->gambar == null AND $anggota->akte_lahir == null){
-            Alert::warning('Surat sidi, foto dan akte kelahiran belum di unggah!', '');
-        } elseif($anggota->srt_sidi == null AND $anggota->srt_baptis == null AND $anggota->akte_lahir == null){
-            Alert::warning('Surat sidi, surat baptis dan akte kelahiran belum di unggah!', '');
-        } elseif($anggota->srt_sidi == null AND $anggota->srt_baptis == null){
-            Alert::warning('Surat sidi dan surat baptis belum di unggah!', '');
+        if ($anggota->srt_baptis == null AND $anggota->srt_sidi == null AND $anggota->gambar == null AND $anggota->akte_lahir == null AND $anggota->srt_atestasi == null ) {
+            Alert::warning('Surat baptis, surat sidi, surat atestasi, foto dan akte kelahiran belum di unggah!', ''); // semua belum upload
+        } elseif($anggota->srt_baptis == null AND $anggota->gambar == null AND $anggota->akte_lahir == null AND $anggota->srt_atestasi == null){
+            Alert::warning('Surat baptis, surat atestasi, foto dan akte kelahiran belum di unggah!', ''); // surat sidi sudah upload
+        } elseif($anggota->srt_sidi == null AND $anggota->gambar == null AND $anggota->akte_lahir == null AND $anggota->srt_atestasi == null){
+            Alert::warning('Surat sidi, surat atestasi, foto dan akte kelahiran belum di unggah!', ''); // surat baptis sudah upload
+        } elseif($anggota->srt_sidi == null AND $anggota->srt_baptis == null AND $anggota->akte_lahir == null AND $anggota->srt_atestasi == null){ // surat baptis sudah upload
+            Alert::warning('Surat sidi, surat baptis, surat atestasi dan akte kelahiran belum di unggah!', ''); // gambar sudah upload
+        } elseif($anggota->srt_sidi == null AND $anggota->srt_baptis == null AND $anggota->srt_atestasi == null){
+            Alert::warning('Surat sidi, surat baptis dan surat atestasi belum di unggah!', ''); //
+        } elseif($anggota->srt_sidi == null AND $anggota->srt_atestasi == null){
+            Alert::warning('Surat sidi dan surat atestasi belum di unggah!', '');
+        } elseif($anggota->srt_sidi == null AND $anggota->gambar == null){
+            Alert::warning('Surat sidi dan foto belum di unggah!', '');
+        } elseif($anggota->srt_baptis == null AND $anggota->srt_atestasi == null){
+            Alert::warning('Surat baptis dan surat astestasi belum di unggah!', '');
+        } elseif($anggota->srt_baptis == null AND $anggota->gambar == null ){
+            Alert::warning('Surat baptis dan foto belum di unggah!', '');
+        } elseif($anggota->srt_baptis == null AND $anggota->srt_sidi == null){
+            Alert::warning('Surat baptis dan surat sidi belum di unggah!', '');
+        } elseif($anggota->akte_lahir == null AND $anggota->gambar == null){
+            Alert::warning('Akte kelahiran dan foto belum di unggah!', '');
+        } elseif($anggota->akte_lahir == null AND $anggota->srt_atestasi == null){
+            Alert::warning('Akte kelahiran dan surat atestasi belum di unggah!', '');
         } elseif($anggota->srt_baptis == null){
             Alert::warning('Surat baptis belum di unggah!', '');
         } elseif($anggota->srt_sidi == null){
@@ -411,6 +454,8 @@ class AnggotaController extends Controller
             Alert::warning('Foto belum di unggah!', '');
         } elseif($anggota->akte_lahir == null){
             Alert::warning('Akte kelahiran belum di unggah!', '');
+        } elseif($anggota->srt_atestasi == null){
+            Alert::warning('Surat Atestasi belum di unggah!', '');
         }
 
         return view('anggota.show', compact('anggota'));
@@ -423,10 +468,11 @@ class AnggotaController extends Controller
         $srt_baptis = 'storage/dokumen/baptis/'. $anggota->srt_baptis;
         $srt_sidi = 'storage/dokumen/sidi/'. $anggota->srt_sidi;
         $akte_lahir = 'storage/dokumen/sidi/'. $anggota->akte_lahir;
+        $srt_atestasi = 'storage/dokumen/atestasi/'. $anggota->$srt_atestasi;
 
-        if(File::exists($file_gambar, $srt_baptis, $srt_sidi, $akte_lahir))
+        if(File::exists($file_gambar, $srt_baptis, $srt_sidi, $akte_lahir, $srt_atestasi))
         {
-            File::delete($file_gambar, $srt_baptis, $srt_sidi, $akte_lahir);
+            File::delete($file_gambar, $srt_baptis, $srt_sidi, $akte_lahir, $srt_atestasi);
         }
 
         $anggota->delete();

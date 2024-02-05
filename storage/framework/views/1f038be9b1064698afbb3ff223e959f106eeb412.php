@@ -196,6 +196,18 @@
                                                 <?php endif; ?>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td>5.</td>
+                                            <td style="width: 100%">
+                                                <?php if($anggota->srt_atestasi != null): ?>
+                                                    <a target="_blank"
+                                                        href="<?php echo e(asset('storage/dokumen/atestasi/' . $anggota->srt_atestasi)); ?>">SURAT
+                                                        ATESTASI <i class="fa fa-circle-check"></i></a>
+                                                <?php else: ?>
+                                                    <a>SURAT ATESTASI <i class="fa fa-circle-xmark"></i></a>
+                                                <?php endif; ?>
+                                            </td>
+                                        </tr>
                                     </tbody>
 
                                 </table>

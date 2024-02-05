@@ -146,6 +146,18 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group">
+                                <label>Surat Atestasi </label>
+                                <small style="color:Tomato;"><em>Unggah surat atestasi maksimal ukuran file 2mb</em></small>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input @error('srt_atestasi') is-invalid @enderror" id="customFile" name="srt_atestasi">
+                                    <label class="custom-file-label" for="customFile">Pilih file</label>
+                                </div>
+                                @error('srt_atestasi')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
+                            </div>
+
                         </div>
 
                         <!-- Kolom Kanan -->

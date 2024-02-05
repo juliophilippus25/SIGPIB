@@ -49,6 +49,7 @@ class HomeController extends Controller
         $pelkat = Pelkat::get();
         $sekwil = Sekwil::get();
         $kakel = Kakel::get();
+        $bln = Carbon::now()->isoFormat('MMMM');
 
         // $total_anggota = Anggota::select(DB::raw("CAST(COUNT(created_at) as int) as total_anggota"))
         // ->GroupBy(DB::raw("Month(created_at)"))
@@ -64,7 +65,7 @@ class HomeController extends Controller
         ->orderBy('created_at', 'asc')
         ->pluck('bulan');
 
-        return view('dashboard.anggota.index', compact('anggota', 'pelkat', 'sekwil', 'kakel', 'bulan', 'total_anggota'));
+        return view('dashboard.anggota.index', compact('anggota', 'pelkat', 'sekwil', 'kakel', 'bulan', 'bln', 'total_anggota'));
     }
 
     public function cetak_goldarA_PDF(Request $request)

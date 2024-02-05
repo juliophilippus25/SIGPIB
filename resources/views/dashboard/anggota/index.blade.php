@@ -122,7 +122,7 @@
                             @forelse($anggota as $data)
                                 @if (
                                     \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >=
-                                        16 AND
+                                        16 and
                                         $data->srt_sidi == null)
                                     <td>{{ $data->nama }}</td>
                                     <td>
@@ -153,6 +153,95 @@
     </div>
 
 </div>
+
+{{-- <div class="row">
+
+    <div class="col-lg-6 grid-margin stretch-card">
+
+        <div class="card card-default">
+            <div class="card-header d-flex justify-content-center">
+                <h3 class="card-title">Anggota Jemaat Pindahan Tahun {{ date('Y') }}</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <th>Nama</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Aksi</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @forelse($anggota as $data)
+                                @if ((!$getAnggota or date('Y', strtotime($getAnggota->created_at)) != $kodeThn) and $data->srt_atestasi)
+                                    <td>{{ $data->nama }}</td>
+                                    <td>{{ $data->jk }}</td>
+                                    <td>
+                                        <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}"
+                                            class="btn btn-primary  btn-sm" title="Lihat Detail"><i
+                                                class="fa fa-eye"></i></a>
+                                    </td>
+                                @endif
+                        </tr>
+                    @empty
+                        <tr class="">
+                            <td colspan="16">
+                                <strong class="text-dark">
+                                    <center>Data Kosong</center>
+                                </strong>
+                            </td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div>
+
+    <div class="col-lg-6 grid-margin stretch-card">
+
+        <div class="card card-default">
+            <div class="card-header d-flex justify-content-center">
+                <h3 class="card-title">Jemaat Berulang Tahun Di Bulan {{ $bln }}</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <th>Nama</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Aksi</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @forelse($anggota as $data)
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ Carbon\Carbon::parse($data->tgl_lahir)->isoFormat('D MMMM Y') }}</td>
+                                <td>
+                                    <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}"
+                                        class="btn btn-primary  btn-sm" title="Lihat Detail"><i
+                                            class="fa fa-eye"></i></a>
+                                </td>
+
+                        </tr>
+                    @empty
+                        <tr class="">
+                            <td colspan="16">
+                                <strong class="text-dark">
+                                    <center>Data Kosong</center>
+                                </strong>
+                            </td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div>
+
+</div> --}}
 
 
 {{-- Grafik --}}

@@ -112,7 +112,7 @@
                             <?php $__empty_1 = true; $__currentLoopData = $anggota; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                 <?php if(
                                     \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >=
-                                        16 AND
+                                        16 and
                                         $data->srt_sidi == null): ?>
                                     <td><?php echo e($data->nama); ?></td>
                                     <td>
@@ -144,6 +144,8 @@
     </div>
 
 </div>
+
+
 
 
 
