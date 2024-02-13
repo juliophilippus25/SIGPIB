@@ -76,16 +76,15 @@
                     </thead>
                     <tbody>
                         <tr>
-                            @forelse($anggota as $data)
-                                @if ($data->srt_baptis == null)
-                                    <td>{{ $data->nama }}</td>
-                                    <td>{{ $data->jk }}</td>
-                                    <td>
-                                        <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}"
-                                            class="btn btn-primary  btn-sm" title="Lihat Detail"><i
-                                                class="fa fa-eye"></i></a>
-                                    </td>
-                                @endif
+                            @forelse($baptis as $data)
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->jk }}</td>
+                                <td>
+                                    <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}"
+                                        class="btn btn-primary  btn-sm" title="Lihat Detail"><i
+                                            class="fa fa-eye"></i></a>
+                                </td>
+
                         </tr>
                     @empty
                         <tr class="">
@@ -97,6 +96,13 @@
                         </tr>
                         @endforelse
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan=10>
+                                {{ $baptis->links() }}
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
             <!-- /.card-body -->
@@ -119,11 +125,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            @forelse($anggota as $data)
-                                @if (
-                                    \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >=
-                                        16 and
-                                        $data->srt_sidi == null)
+                            @forelse($sidi as $data)
+                                @if (\Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >= 16)
                                     <td>{{ $data->nama }}</td>
                                     <td>
                                         {{ \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') }}
@@ -146,58 +149,25 @@
                         </tr>
                         @endforelse
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan=10>
+                                {{ $sidi->appends(Request::all())->links() }}
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
             <!-- /.card-body -->
         </div>
     </div>
+
+
+
 
 </div>
 
-{{-- <div class="row">
-
-    <div class="col-lg-6 grid-margin stretch-card">
-
-        <div class="card card-default">
-            <div class="card-header d-flex justify-content-center">
-                <h3 class="card-title">Anggota Jemaat Pindahan Tahun {{ date('Y') }}</h3>
-            </div>
-
-            <div class="card-body">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <th>Nama</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Aksi</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            @forelse($anggota as $data)
-                                @if ((!$getAnggota or date('Y', strtotime($getAnggota->created_at)) != $kodeThn) and $data->srt_atestasi)
-                                    <td>{{ $data->nama }}</td>
-                                    <td>{{ $data->jk }}</td>
-                                    <td>
-                                        <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}"
-                                            class="btn btn-primary  btn-sm" title="Lihat Detail"><i
-                                                class="fa fa-eye"></i></a>
-                                    </td>
-                                @endif
-                        </tr>
-                    @empty
-                        <tr class="">
-                            <td colspan="16">
-                                <strong class="text-dark">
-                                    <center>Data Kosong</center>
-                                </strong>
-                            </td>
-                        </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
-            <!-- /.card-body -->
-        </div>
-    </div>
+<div class="row">
 
     <div class="col-lg-6 grid-margin stretch-card">
 
@@ -215,7 +185,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            @forelse($anggota as $data)
+                            @forelse($bday as $data)
                                 <td>{{ $data->nama }}</td>
                                 <td>{{ Carbon\Carbon::parse($data->tgl_lahir)->isoFormat('D MMMM Y') }}</td>
                                 <td>
@@ -235,13 +205,65 @@
                         </tr>
                         @endforelse
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan=10>
+                                {{ $bday->appends(Request::all())->links() }}
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
             <!-- /.card-body -->
         </div>
     </div>
 
-</div> --}}
+    <div class="col-lg-6 grid-margin stretch-card">
+
+        <div class="card card-default">
+            <div class="card-header d-flex justify-content-center">
+                <h3 class="card-title">Anggota Jemaat Pindahan Tahun {{ date('Y') }}</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <th>Nama</th>
+                        <th>Tanggal Masuk</th>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @forelse($atestasi2 as $data)
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ Carbon\Carbon::parse($data->created_at)->isoFormat('D MMMM Y') }}</td>
+
+                        </tr>
+                    @empty
+                        <tr class="">
+                            <td colspan="16">
+                                <strong class="text-dark">
+                                    <center>Data Kosong</center>
+                                </strong>
+                            </td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan=10>
+                                {{ $atestasi2->appends(Request::all())->links() }}
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+    </div>
+
+
+</div>
 
 
 {{-- Grafik --}}
@@ -277,6 +299,21 @@
             <div class="col-md-12">
                 <div class="card">
                     <div id="grafik"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div id="atestasi"></div>
                 </div>
 
             </div>
@@ -393,6 +430,51 @@
 </script>
 {{-- Goldar --}}
 
+{{-- Goldar --}}
+<script>
+    var bulan_atestasi = <?php echo json_encode($bulan_atestasi); ?>;
+    var total_atestasi = <?php echo json_encode($total_atestasi); ?>
+
+    Highcharts.chart('atestasi', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Grafik Anggota Jemaat Pindahan Masuk </br> Per Bulan Tahun {{ date('Y') }}'
+        },
+        xAxis: {
+            categories: bulan_atestasi,
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Jumlah Anggota Jemaat'
+            }
+        },
+        tooltip: {
+            headerFormat: '<table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>&nbsp{point.y:.f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Jumlah Anggota Jemaat Pindahan Masuk Bulanan',
+            data: total_atestasi
+        }],
+
+    });
+</script>
+{{-- Goldar --}}
+
 {{-- Grafik --}}
 <script>
     var bulan = <?php echo json_encode($bulan); ?>;
@@ -400,7 +482,7 @@
 
     Highcharts.chart('grafik', {
         title: {
-            text: 'Grafik Anggota Jemaat Masuk Bulanan </br> Tahun {{ date('Y') }}'
+            text: 'Grafik Anggota Jemaat Masuk </br> Per Bulan Tahun {{ date('Y') }}'
         },
         xAxis: {
             categories: bulan

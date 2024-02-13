@@ -65,7 +65,45 @@ class HomeController extends Controller
         ->orderBy('created_at', 'asc')
         ->pluck('bulan');
 
-        return view('dashboard.anggota.index', compact('anggota', 'pelkat', 'sekwil', 'kakel', 'bulan', 'bln', 'total_anggota'));
+        $bday = Anggota::select('*')
+        ->whereMonth('tgl_lahir', Carbon::now()->month)
+        ->orderBy('tgl_lahir', 'desc')
+        ->paginate(5, ['*'], 'bday');
+
+        $bulan_atestasi = Anggota::select(DB::raw("MONTHNAME(created_at) as bulan"))
+        ->where('srt_atestasi', '!=', NULL)
+        ->GroupBy(DB::raw("MONTHNAME(created_at)"))
+        ->orderBy('created_at', 'asc')
+        ->pluck('bulan');
+
+        $total_atestasi = Anggota::select(DB::raw("COUNT(*) as count"))
+        ->where('srt_atestasi', '!=', NULL)
+        ->WhereYear("created_at", date('Y'))
+        ->GroupBy(DB::raw("Month(created_at)"))
+        ->pluck('count');
+
+        $atestasi = Anggota::select('*')
+        ->where('srt_atestasi', '!=', NULL)
+        ->whereYear('created_at', Carbon::now()->year)
+        ->orderBy('created_at', 'asc')
+        ->get();
+
+        $atestasi2 = Anggota::select('*')
+        ->where('srt_atestasi', '!=', NULL)
+        ->orderBy('created_at', 'asc')
+        ->paginate(5, ['*'], 'atestasi2');
+
+        $baptis = Anggota::select('*')
+        ->where('srt_baptis', '=', NULL)
+        ->orderBy('created_at', 'asc')
+        ->paginate(5, ['*'], 'baptis');
+
+        $sidi = Anggota::select('*')
+        ->where('srt_sidi', '=', NULL)
+        ->orderBy('created_at', 'asc')
+        ->paginate(5, ['*'], 'sidi');
+
+        return view('dashboard.anggota.index', compact('anggota', 'pelkat', 'sekwil', 'kakel', 'bulan', 'bln', 'bday', 'atestasi', 'bulan_atestasi', 'total_atestasi', 'total_anggota', 'baptis', 'sidi', 'atestasi2'));
     }
 
     public function cetak_goldarA_PDF(Request $request)
@@ -340,8 +378,14 @@ class HomeController extends Controller
         $pelkat = Pelkat::get();
         $sekwil = Sekwil::get();
         $kakel = Kakel::get();
+        $bln = Carbon::now()->isoFormat('MMMM');
 
-        return view('dashboard.sekwil.index', compact('anggota', 'pelkat', 'sekwil', 'kakel'));
+        $bday = Kakel::select('*')
+        ->whereMonth('tgl_nikah', Carbon::now()->month)
+        ->orderBy('tgl_nikah', 'desc')
+        ->paginate(5);
+
+        return view('dashboard.sekwil.index', compact('anggota', 'pelkat', 'sekwil', 'kakel', 'bday','bln'));
     }
 
     public function sekwil1()
