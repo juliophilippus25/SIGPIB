@@ -153,12 +153,17 @@
                 <td>:</td>
                 <td><?php echo e($anggota->sts_keluarga); ?></td>
             </tr>
+            <tr>
+                <td class="bold">Masuk Sebagai Jemaat</td>
+                <td>:</td>
+                <td><?php echo e(Carbon\Carbon::parse($anggota->created_at)->isoFormat('D MMMM Y')); ?></td>
+            </tr>
         </tbody>
 
     </table>
     
 
-    <br>
+    <br><br><br><br><br><br><br><br>
 
     
     <table id="table">
@@ -192,6 +197,16 @@
                 <td class="bold">Surat Sidi</td>
                 <td>:</td>
                 <?php if($anggota->srt_sidi == null): ?>
+                    <td>-</td>
+                <?php else: ?>
+                    <td>Diterima</td>
+                <?php endif; ?>
+            </tr>
+
+            <tr>
+                <td class="bold">Surat Atestasi</td>
+                <td>:</td>
+                <?php if($anggota->srt_atestasi == null): ?>
                     <td>-</td>
                 <?php else: ?>
                     <td>Diterima</td>

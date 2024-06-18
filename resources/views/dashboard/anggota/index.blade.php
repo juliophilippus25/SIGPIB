@@ -99,7 +99,7 @@
                     <tfoot>
                         <tr>
                             <td colspan=10>
-                                {{ $baptis->links() }}
+                                {{ $baptis->appends(Request::all())->links() }}
                             </td>
                         </tr>
                     </tfoot>
@@ -108,6 +108,7 @@
             <!-- /.card-body -->
         </div>
     </div>
+
 
     <div class="col-lg-6 grid-margin stretch-card">
 
@@ -157,13 +158,12 @@
                         </tr>
                     </tfoot>
                 </table>
+                {{-- <br>
+                <a href="{{ route('dashboard.download_sidi_pdf') }}" target="_blank" class="btn btn-success btn-fw col-md-3"><i class="fas fa-cloud-download-alt"></i> Unduh</a> --}}
             </div>
             <!-- /.card-body -->
         </div>
     </div>
-
-
-
 
 </div>
 
@@ -230,14 +230,18 @@
                     <thead>
                         <th>Nama</th>
                         <th>Tanggal Masuk</th>
-
+                        <th>Aksi</th>
                     </thead>
                     <tbody>
                         <tr>
                             @forelse($atestasi2 as $data)
                                 <td>{{ $data->nama }}</td>
                                 <td>{{ Carbon\Carbon::parse($data->created_at)->isoFormat('D MMMM Y') }}</td>
-
+                                <td>
+                                    <a href="{{ route('anggota.tampil_detail', ['id' => $data->id]) }}"
+                                        class="btn btn-primary  btn-sm" title="Lihat Detail"><i
+                                            class="fa fa-eye"></i></a>
+                                </td>
                         </tr>
                     @empty
                         <tr class="">

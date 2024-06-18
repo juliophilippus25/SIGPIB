@@ -106,6 +106,15 @@ class HomeController extends Controller
         return view('dashboard.anggota.index', compact('anggota', 'pelkat', 'sekwil', 'kakel', 'bulan', 'bln', 'bday', 'atestasi', 'bulan_atestasi', 'total_atestasi', 'total_anggota', 'baptis', 'sidi', 'atestasi2'));
     }
 
+    public function cetak_sidi_PDF()
+    {     
+        $anggota = Anggota::where('srt_sidi', '=', NULL)->get();
+        $dt = Carbon::now()->isoFormat('D_MMMM_Y');
+        $tgl = Carbon::now()->isoFormat('D MMMM Y');
+        $pdf = PDF::loadView('laporan.sidi.rekomendasi_sidi', compact('anggota', 'dt','tgl'));
+        return $pdf->stream('SIGPIB_REKOMENDASI_SIDI_'.$dt.'.pdf');
+    }
+
     public function cetak_goldarA_PDF(Request $request)
     {
         $anggota= Anggota::where('goldar', 'A')->get();

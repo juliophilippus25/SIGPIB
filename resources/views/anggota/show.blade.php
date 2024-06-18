@@ -135,6 +135,11 @@
                                                 <td>:</td>
                                                 <td>{{ $anggota->sts_keluarga }}</td>
                                             </tr>
+                                            <tr>
+                                                <td>Masuk Sebagai Jemaat</td>
+                                                <td>:</td>
+                                                <td>{{ Carbon\Carbon::parse($anggota->created_at)->isoFormat('D MMMM Y') }}</td>
+                                            </tr>
                                         </tbody>
 
                                     </table>

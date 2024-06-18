@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title', 'Dashboard'); ?>
 
 <?php $__env->startSection('breadcrumb'); ?>
@@ -82,7 +84,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div id="container"></div>
+                    <div id="grafik"></div>
                 </div>
             </div>
         </div>
@@ -160,27 +162,24 @@
     var pklu = <?php echo json_encode($total_pklu); ?>;
     var bulan = <?php echo json_encode($bulan); ?>;
 
-    Highcharts.chart('container', {
+    Highcharts.chart('grafik', {
         chart: {
-            type: 'line'
+            type: 'column'
         },
-        title: {
+        title : {
             text: 'Grafik Anggota PelKat Masuk Bulanan </br> Tahun <?php echo e(date('Y')); ?>'
         },
-        xAxis: {
-            categories: bulan
+        xAxis : {
+            categories : bulan
         },
-        yAxis: {
-            title: {
-                text: 'Jumlah Anggota Pelkat'
+        yAxis : {
+            title : {
+                text : 'Jumlah Anggota Pelkat'
             }
         },
-        plotOptions: {
-            line: {
-                dataLabels: {
-                    enabled: true
-                },
-                enableMouseTracking: false
+        plotOptions : {
+            series: {
+                allowPointSelect: true
             }
         },
         series: [{
@@ -202,7 +201,9 @@
             name: 'PKLU',
             data: pklu
         }]
-    });
+    })
+
+    
 </script>
 
 

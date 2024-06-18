@@ -40,6 +40,7 @@ Route::group(['prefix' => '/dashboard/anggota'], function() {
     Route::get('/pdf/goldarb', 'App\Http\Controllers\HomeController@cetak_goldarB_PDF')->name('dashboard.download_goldarb_pdf');
     Route::get('/pdf/goldaro', 'App\Http\Controllers\HomeController@cetak_goldarO_PDF')->name('dashboard.download_goldaro_pdf');
     Route::get('/pdf/goldarab', 'App\Http\Controllers\HomeController@cetak_goldarAB_PDF')->name('dashboard.download_goldarab_pdf');
+    Route::get('/pdf/sidi', 'App\Http\Controllers\HomeController@cetak_sidi_PDF')->name('dashboard.download_sidi_pdf');
 });
 
 Route::group(['prefix' => '/dashboard/pelkat'], function() {

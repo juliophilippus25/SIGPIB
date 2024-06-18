@@ -27,13 +27,13 @@
             <!-- /.card-header -->
             <div class="card-body">
 
-                {{-- <div class="row">
+                 <div class="row">
 
                     <div class="col-md-2">
                         <a href="{{route('sekwil.create')}}" class="btn btn-primary btn-fw col-md-12"><i class="fa fa-plus"></i> Sektor Wilayah</a>
                     </div>
 
-                </div> --}}
+                </div> 
                 <br>
 
                 <table id="example1" class="table table-bordered table-striped">
@@ -42,11 +42,11 @@
                             <th>No</th>
                             <th>Nama Sektor Wilayah</th>
                             <th>Jumlah Kartu Keluarga</th>
-                            {{-- <th>Aksi</th> --}}
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <td>1</td>
                             <td>Sektor Pelayanan 1</td>
                             <td>{{ $sek1 }}</td>
@@ -60,11 +60,20 @@
                             <td>3</td>
                             <td>Sektor Pelayanan 3</td>
                             <td>{{ $sek3 }}</td>
-                        </tr>
-                        {{-- @forelse($sekwil as $data)
+                        </tr> -->
+                        @forelse($sekwil as $data)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $data->nama_sekwil }}</td>
+                            <td>
+                                @if ($data->nama_sekwil == 'Sektor Pelayanan 1')
+                                    {{ $sek1 }}
+                                @elseif ($data->nama_sekwil == 'Sektor Pelayanan 2')
+                                    {{ $sek2 }}
+                                @elseif ($data->nama_sekwil == 'Sektor Pelayanan 3')
+                                    {{ $sek3 }}
+                                @endif
+                            </td>
                             <td>
                                 <a href="{{ route('sekwil.tampil_ubah', ['id' => $data->id]) }}" class="btn btn-primary btn-sm" title="Ubah Data" ><i class="fa fa-edit"></i></a>
                                 <button type="button" class="btn btn-danger btn-sm" title="Hapus Data" data-toggle="modal" data-target="#modalDelete_{{ $data->id }}"><i class="fa fa-trash"></i></button>
@@ -104,7 +113,7 @@
                                 <strong class="text-dark"><center>Data Kosong</center></strong>
                             </td>
                         </tr>
-                        @endforelse --}}
+                        @endforelse
                     </tbody>
                 </table>
             </div>

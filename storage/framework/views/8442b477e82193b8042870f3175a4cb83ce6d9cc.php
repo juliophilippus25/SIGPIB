@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title', 'Kartu Keluarga'); ?>
 
 <?php $__env->startSection('breadcrumb'); ?>
@@ -53,7 +55,7 @@ unset($__errorArgs, $__bag); ?>"
                                         <option value="<?php echo e($data->id); ?>"
                                             <?php echo e(old('id_anggota') == $data->id ? 'selected' : ''); ?>><?php echo e($data->kode_anggota); ?>
 
-                                            - <?php echo e($data->nama); ?></option>
+                                            - <?php echo e($data->nama); ?> - <?php echo e($data->jk); ?></option>
                                     <?php endif; ?>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>

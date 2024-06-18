@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title', 'Pelayanan Kategorial'); ?>
 
 <?php $__env->startSection('breadcrumb'); ?>
@@ -51,13 +53,14 @@ unset($__errorArgs, $__bag); ?>" name="id_anggota" style="width: 100%;">
                                     <option value="<?php echo e($data->id); ?>" <?php echo e(old('id_anggota') == $data->id ? 'selected' : ''); ?>><?php echo e($data->kode_anggota); ?> - <?php echo e($data->nama); ?></option>
                                     <?php elseif($pelkat->nama_pelkat == 'Persekutuan Teruna'): ?>
                                     <option value="<?php echo e($data->id); ?>" <?php echo e(old('id_anggota') == $data->id ? 'selected' : ''); ?>><?php echo e($data->kode_anggota); ?> - <?php echo e($data->nama); ?></option>
-                                    <?php elseif($pelkat->nama_pelkat == 'Gerakan Pemuda' ): ?>
+                                    <?php elseif($pelkat->nama_pelkat == 'Gerakan Pemuda' AND $data->srt_sidi != null ): ?>
                                     <option value="<?php echo e($data->id); ?>" <?php echo e(old('id_anggota') == $data->id ? 'selected' : ''); ?>><?php echo e($data->kode_anggota); ?> - <?php echo e($data->nama); ?></option>
                                     <?php elseif($pelkat->nama_pelkat == 'Persekutuan Kaum Perempuan' AND $data->jk == 'Perempuan'): ?>
                                     <option value="<?php echo e($data->id); ?>" <?php echo e(old('id_anggota') == $data->id ? 'selected' : ''); ?>><?php echo e($data->kode_anggota); ?> - <?php echo e($data->nama); ?></option>
-                                    <?php elseif($pelkat->nama_pelkat == 'Persekutuan Kaum Bapak' AND $data->jk == 'Laki-laki' ): ?>
+                                    <?php elseif($pelkat->nama_pelkat == 'Persekutuan Kaum Bapak' AND $data->jk == 'Laki-laki' AND $data->sts_keluarga == 'Ya' ): ?>
                                     <option value="<?php echo e($data->id); ?>" <?php echo e(old('id_anggota') == $data->id ? 'selected' : ''); ?>><?php echo e($data->kode_anggota); ?> - <?php echo e($data->nama); ?></option>
-                                    <?php elseif($pelkat->nama_pelkat == 'Persekutuan Kaum Lanjut Usia' ): ?>
+                                    <?php elseif($pelkat->nama_pelkat == 'Persekutuan Kaum Lanjut Usia' AND \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >=
+                                    60 ): ?>
                                     <option value="<?php echo e($data->id); ?>" <?php echo e(old('id_anggota') == $data->id ? 'selected' : ''); ?>><?php echo e($data->kode_anggota); ?> - <?php echo e($data->nama); ?></option>
                                 <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

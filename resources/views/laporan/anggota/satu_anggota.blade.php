@@ -152,12 +152,17 @@
                 <td>:</td>
                 <td>{{ $anggota->sts_keluarga }}</td>
             </tr>
+            <tr>
+                <td class="bold">Masuk Sebagai Jemaat</td>
+                <td>:</td>
+                <td>{{ Carbon\Carbon::parse($anggota->created_at)->isoFormat('D MMMM Y') }}</td>
+            </tr>
         </tbody>
 
     </table>
     {{-- Data diri --}}
 
-    <br>
+    <br><br><br><br><br><br><br><br>
 
     {{-- Data berkas --}}
     <table id="table">
@@ -191,6 +196,16 @@
                 <td class="bold">Surat Sidi</td>
                 <td>:</td>
                 @if ($anggota->srt_sidi == null)
+                    <td>-</td>
+                @else
+                    <td>Diterima</td>
+                @endif
+            </tr>
+
+            <tr>
+                <td class="bold">Surat Atestasi</td>
+                <td>:</td>
+                @if ($anggota->srt_atestasi == null)
                     <td>-</td>
                 @else
                     <td>Diterima</td>

@@ -7,10 +7,11 @@ use App\Models\Sekwil;
 use App\Models\Kakel;
 use Alert;
 use Validator;
+use DB;
 
 class SekwilController extends Controller
 {
-      /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -32,7 +33,7 @@ class SekwilController extends Controller
         $sek2 = Kakel::where('id_sekwil', '2')->count();
         $sek3 = Kakel::where('id_sekwil', '3')->count();
 
-        return view('sekwil.index', compact('sekwil','sek1', 'sek2','sek3'));
+        return view('sekwil.index', compact('sekwil', 'sek1', 'sek2', 'sek3'));
     }
 
     public function tambah_sekwil()
@@ -43,26 +44,28 @@ class SekwilController extends Controller
     public function simpan_sekwil(Request $request)
     {
         // Validasi Form
-        $validator = Validator::make($request->all(),
-        // Aturan
-        [
-            'nama_sekwil' => 'required|min:3|unique:sekwil,nama_sekwil,',
-        ],
-        // Pesan
-        [
-            // Required
-            'nama_sekwil.required' => 'Nama sektor wilayah wajib diisi!',
+        $validator = Validator::make(
+            $request->all(),
+            // Aturan
+            [
+                'nama_sekwil' => 'required|min:3|unique:sekwil,nama_sekwil,',
+            ],
+            // Pesan
+            [
+                // Required
+                'nama_sekwil.required' => 'Nama sektor wilayah wajib diisi!',
 
-            // Min
-            'nama_sekwil.min' => 'Nama sektor wilayah diisi minimal 3 karakter!',
+                // Min
+                'nama_sekwil.min' => 'Nama sektor wilayah diisi minimal 3 karakter!',
 
-            // Unique
-            'nama_sekwil.unique' => 'Nama sektor wilayah sudah terdaftar!'
+                // Unique
+                'nama_sekwil.unique' => 'Nama sektor wilayah sudah terdaftar!'
 
-        ]);
+            ]
+        );
 
         // Memberikan pesan error ketika terdapat validasi yang salah
-        if($validator->fails()){
+        if ($validator->fails()) {
             // redirect dengan pesan error
             Alert::error('Data tidak berhasil disimpan!', '');
             return redirect()->back()->withErrors($validator)->withInput();
@@ -90,26 +93,28 @@ class SekwilController extends Controller
         $sekwil = Sekwil::find($id);
 
         // Validasi Form
-        $validator = Validator::make($request->all(),
-        // Aturan
-        [
-            'nama_sekwil' => 'required|min:3|unique:sekwil,nama_sekwil,'.$sekwil->id,
-        ],
-        // Pesan
-        [
-            // Required
-            'nama_sekwil.required' => 'Nama sektor wilayah wajib diisi!',
+        $validator = Validator::make(
+            $request->all(),
+            // Aturan
+            [
+                'nama_sekwil' => 'required|min:3|unique:sekwil,nama_sekwil,' . $sekwil->id,
+            ],
+            // Pesan
+            [
+                // Required
+                'nama_sekwil.required' => 'Nama sektor wilayah wajib diisi!',
 
-            // Min
-            'nama_sekwil.min' => 'Nama sektor wilayah diisi minimal 3 karakter!',
+                // Min
+                'nama_sekwil.min' => 'Nama sektor wilayah diisi minimal 3 karakter!',
 
-            // Unique
-            'nama_sekwil.unique' => 'Nama sektor wilayah sudah terdaftar!'
+                // Unique
+                'nama_sekwil.unique' => 'Nama sektor wilayah sudah terdaftar!'
 
-        ]);
+            ]
+        );
 
         // Memberikan pesan error ketika terdapat validasi yang salah
-        if($validator->fails()){
+        if ($validator->fails()) {
             // redirect dengan pesan error
             Alert::error('Data tidak berhasil diubah!', '');
             return redirect()->back()->withErrors($validator)->withInput();

@@ -45,13 +45,14 @@
                                     <option value="{{ $data->id }}" {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota}} - {{ $data->nama}}</option>
                                     @elseif ($pelkat->nama_pelkat == 'Persekutuan Teruna')
                                     <option value="{{ $data->id }}" {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota}} - {{ $data->nama}}</option>
-                                    @elseif ($pelkat->nama_pelkat == 'Gerakan Pemuda' )
+                                    @elseif ($pelkat->nama_pelkat == 'Gerakan Pemuda' AND $data->srt_sidi != null )
                                     <option value="{{ $data->id }}" {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota}} - {{ $data->nama}}</option>
                                     @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Perempuan' AND $data->jk == 'Perempuan')
                                     <option value="{{ $data->id }}" {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota}} - {{ $data->nama}}</option>
-                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Bapak' AND $data->jk == 'Laki-laki' )
+                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Bapak' AND $data->jk == 'Laki-laki' AND $data->sts_keluarga == 'Ya' )
                                     <option value="{{ $data->id }}" {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota}} - {{ $data->nama}}</option>
-                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Lanjut Usia' )
+                                    @elseif ($pelkat->nama_pelkat == 'Persekutuan Kaum Lanjut Usia' AND \Carbon\Carbon::parse($data->tgl_lahir)->diff(\Carbon\Carbon::now())->format('%y') >=
+                                    60 )
                                     <option value="{{ $data->id }}" {{ old('id_anggota') == $data->id ? 'selected' : '' }}>{{ $data->kode_anggota}} - {{ $data->nama}}</option>
                                 @endif
                             @endforeach

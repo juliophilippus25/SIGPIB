@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title', 'Dashboard'); ?>
 
 <?php $__env->startSection('breadcrumb'); ?>
@@ -89,7 +91,7 @@
                     <tfoot>
                         <tr>
                             <td colspan=10>
-                                <?php echo e($baptis->links()); ?>
+                                <?php echo e($baptis->appends(Request::all())->links()); ?>
 
                             </td>
                         </tr>
@@ -99,6 +101,7 @@
             <!-- /.card-body -->
         </div>
     </div>
+
 
     <div class="col-lg-6 grid-margin stretch-card">
 
@@ -150,13 +153,11 @@
                         </tr>
                     </tfoot>
                 </table>
+                
             </div>
             <!-- /.card-body -->
         </div>
     </div>
-
-
-
 
 </div>
 
@@ -224,14 +225,18 @@
                     <thead>
                         <th>Nama</th>
                         <th>Tanggal Masuk</th>
-
+                        <th>Aksi</th>
                     </thead>
                     <tbody>
                         <tr>
                             <?php $__empty_1 = true; $__currentLoopData = $atestasi2; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                 <td><?php echo e($data->nama); ?></td>
                                 <td><?php echo e(Carbon\Carbon::parse($data->created_at)->isoFormat('D MMMM Y')); ?></td>
-
+                                <td>
+                                    <a href="<?php echo e(route('anggota.tampil_detail', ['id' => $data->id])); ?>"
+                                        class="btn btn-primary  btn-sm" title="Lihat Detail"><i
+                                            class="fa fa-eye"></i></a>
+                                </td>
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <tr class="">

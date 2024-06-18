@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title', 'Anggota'); ?>
 
 <?php $__env->startSection('breadcrumb'); ?>
@@ -133,6 +135,11 @@
                                                 <td>Kepala Keluarga</td>
                                                 <td>:</td>
                                                 <td><?php echo e($anggota->sts_keluarga); ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Masuk Sebagai Jemaat</td>
+                                                <td>:</td>
+                                                <td><?php echo e(Carbon\Carbon::parse($anggota->created_at)->isoFormat('D MMMM Y')); ?></td>
                                             </tr>
                                         </tbody>
 
