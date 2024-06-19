@@ -37,6 +37,25 @@ class AnggotaController extends Controller
 
     public function tambah_anggota()
     {
+        // Membuat kode anggota secara otomatis
+        // $getRow = Anggota::orderBy('id', 'DESC')->get();
+        // $rowCount = $getRow->count();
+        // $lastId = $getRow->first();
+        // $kode = "GPIB00001";
+        // if ($rowCount > 0) {
+        //     if ($lastId->id < 9) {
+        //         $kode = "GPIB0000".''.($lastId->id + 1);
+        //     } else if ($lastId->id < 99) {
+        //         $kode = "GPIB000".''.($lastId->id + 1);
+        //     } else if ($lastId->id < 999) {
+        //         $kode = "GPIB00".''.($lastId->id + 1);
+        //     } else if ($lastId->id < 9999) {
+        //         $kode = "GPIB0".''.($lastId->id + 1);
+        //     } else {
+        //         $kode = "GPIB".''.($lastId->id + 1);
+        //     }
+        // }
+
         $getAnggota = Anggota::latest()->first();
         $kodeGPIB = "GPIB";
         $kodeThn = date("Y");
